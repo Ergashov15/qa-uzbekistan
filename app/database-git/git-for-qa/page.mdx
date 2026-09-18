@@ -1,0 +1,65 @@
+import { Callout } from 'nextra/components'
+
+# QA Muhandisi uchun Git asoslari
+
+Bugungi kunda har qanday professional QA mutaxassisi (hatto faqat qo'lda sinovchi bo'lsa ham) Git bilan ishlashni bilishi talab etiladi.
+
+---
+
+## 1. QA nega Git bilishi kerak?
+
+* **Dasturchining branchini tekshirish:** Yangi funksiya hali umumiy serverga (main) qo'shilmasidan oldin, aynan o'sha dasturchi ochgan tarmoqqa (branch) o'tib sinash.
+* **Xatoni qaysi o'zgarish olib kirganini aniqlash (Root cause analysis):** Avval ishlab turgan narsa qachon va qaysi commit sababli buzilganini ko'rish.
+* **Avtotestlarni boshqarish:** Avtomatlashtirilgan test kodlarini versiyalash va CI/CD ga yuborish.
+
+---
+
+## 2. Kundalik eng muhim Git buyruqlari
+
+### Yangi o'zgarishlarni olish va tarmoqqa o'tish:
+```bash
+# Serverdagi barcha yangi tarmoqlarni yuklab olish
+git fetch origin
+
+# Dasturchi ochgan feature-branchga o'tish
+git checkout feature/user-profile
+
+# Oxirgi o'zgarishlarni o'z kompyuteringizga birlashtirish
+git pull origin feature/user-profile
+```
+
+### Xatolarni qidirishda yordam beruvchi buyruqlar:
+```bash
+# Kodning qaysi qatori kim tomonidan va qachon yozilganini ko'rish
+git blame src/services/payment.js
+
+# Oxirgi commitlar tarixini qisqa ko'rish
+git log --oneline -n 10
+
+# Hozirgi kod va oldingi versiya o'rtasidagi farqni (diff) ko'rish
+git diff HEAD~1 HEAD
+```
+
+---
+
+## 3. Pull Request (PR) va QA
+
+Dasturchi yangi kod yozib, uni asosiy tarmoqqa qo'shish uchun **Pull Request (Merge Request)** ochadi.
+
+QA ning vazifasi:
+1. PR tavsifida (description) nima o'zgargani va qanday testlash kerakligi yozilganini tekshirish;
+2. Qaysi fayllar o'zgarganini (Files changed) ko'zdan kechirib, regressiya xavfi yuqori bo'lgan qo'shni modullarni aniqlash;
+3. Avtomatik testlar (CI check) yashil o'tganligini tasdiqlash.
+
+<Callout type="info">
+  **Maslahat:** Agar dasturda kutilmagan xatolik chiqsa, `git log` orqali kecha yoki bugun kim qaysi commitni qo'shganini ko'rib, muammo sababchisini bir necha daqiqada aniqlash mumkin.
+</Callout>
+
+---
+
+## Intervyu savol-javobi
+
+| Savol | Professional javob |
+| :--- | :--- |
+| **`git fetch` va `git pull` o'rtasidagi farq nima?** | `git fetch` faqat masofaviy serverdagi o'zgarishlarni yuklab oladi, lekin lokal fayllaringizga teginmaydi; `git pull` esa yuklab oladi va darhol sizning joriy tarmog'ingizga birlashtiradi (`fetch + merge`). |
+| **`git blame` buyrug'idan nima maqsadda foydalanasiz?** | Fayldagi muayyan qatorni qachon, qaysi commitda va kim o'zgartirganini bilish uchun. |

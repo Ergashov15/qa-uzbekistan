@@ -1,0 +1,43 @@
+import { Callout } from 'nextra/components'
+
+# Verification va Validation o'rtasidagi farq
+
+Bu ikki tushuncha dastur sifatini tekshirishning ikki xil tomonidir.
+
+---
+
+## Ikkita asosiy savol
+
+* **Verification:** *"Biz mahsulotni to'g'ri quryapmizmi?"* (`Are we building the product right?`)
+* **Validation:** *"Biz to'g'ri mahsulotni quryapmizmi?"* (`Are we building the right product?`)
+
+---
+
+## Solishtirish jadvali
+
+| Xususiyat | Verification (Tekshirish) | Validation (Tasdiqlash) |
+| :--- | :--- | :--- |
+| **Mohiyati** | Kodni ishga tushirmasdan hujjatlar va arxitekturani tekshirish | Tayyor ishlayotgan dasturni sinash |
+| **Turi** | Statik sinov (Static testing) | Dinamik sinov (Dynamic testing) |
+| **Faoliyatlar** | Code Review, talablar tahlili, hujjatlarni ko'rib chiqish | Test caselarni bajarish, UAT, reliz sinovlari |
+| **Diqqat markazi** | Spetsifikatsiyalar va standartlarga moslik | Foydalanuvchi va biznes ehtiyojiga moslik |
+
+---
+
+## Hayotiy misol: Uy qurilishi
+
+* **Verification:** Qurilish me'mori loyiha chizmalarini va muhandislik hisob-kitoblarini tekshiradi: g'ishtlar standartga mosmi, devorlar xavfsizlik talabiga javob beradimi?
+* **Validation:** Uy qurib bitkazilgach, xaridor kelib yashab ko'radi: bu uy uning oilasi uchun qulaymi, xonalari ehtiyojiga mosmi?
+
+<Callout type="warning">
+  Dastur barcha talablarga 100% javob berishi mumkin (Verificationdan o'tdi), lekin agar u foydalanuvchiga noqulay yoki keraksiz bo'lsa, u Validationdan yiqiladi.
+</Callout>
+
+---
+
+## Intervyu savol-javobi
+
+| Savol | Professional javob |
+| :--- | :--- |
+| **Verification va Validation farqini qisqa ayting.** | Verification — spetsifikatsiyaga muvofiqlikni tekshirish (kod ishlamaydi); Validation — real foydalanuvchi ehtiyojiga muvofiqlikni tasdiqlash (kod ishlaydi). |
+| **Code Review qaysi biriga kiradi?** | Verification (statik tekshiruv)ga kiradi. |

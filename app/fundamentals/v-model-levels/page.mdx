@@ -1,0 +1,46 @@
+import { Callout } from 'nextra/components'
+
+# V-Model va Sinov Darajalari
+
+**V-Model (Verification and Validation Model)** — dasturiy ta'minotni ishlab chiqish va sinash bosqichlari o'rtasidagi parallel bog'liqlikni ko'rsatuvchi klassik modeldir. Unda har bir dasturlash bosqichiga mos testlash darajasi mavjud.
+
+---
+
+## Sinovning 4 ta darajasi (Levels of Testing)
+
+```text
+Talablar (Requirements)          ←→   Acceptance Testing (UAT)
+Tizim arxitekturasi (System)     ←→   System Testing
+Modul dizayni (Detailed Design)  ←→   Integration Testing
+Kodlash (Coding)                 ←→   Unit Testing
+```
+
+### 1. Unit Testing (Birlik sinovi)
+* **Kim bajaradi:** Dasturchilar (Developer).
+* **Ob'ekt:** Eng kichik kod bo'lagi — alohida funksiya yoki metod.
+* **Maqsad:** Kodning o'zi mantiqan to'g'ri ishlashini tekshirish.
+* **Vositalar:** JUnit, Pytest, Jest.
+
+### 2. Integration Testing (Integratsion sinov)
+* **Kim bajaradi:** Dasturchilar va QA muhandislari.
+* **Ob'ekt:** Bir nechta modullarning o'zaro birikishi (masalan, Backend va Ma'lumotlar bazasi yoki To'lov shlyuzi).
+* **Maqsad:** Modullar o'rtasida ma'lumot to'g'ri uzatilayotganini tekshirish.
+
+### 3. System Testing (Tizimli sinov)
+* **Kim bajaradi:** Mustaqil QA jamoasi.
+* **Ob'ekt:** Butun yaxlit tizim (Frontend + Backend + Baza + Tashqi xizmatlar).
+* **Maqsad:** Tizim boshlang'ich talablar hujjatiga (SRS) to'liq mos kelishini har tomonlama (funksional va nofunksional) tekshirish.
+
+### 4. Acceptance Testing / UAT (Qabul qilish sinovi)
+* **Kim bajaradi:** Mijoz, Product Owner yoki real oxirgi foydalanuvchilar.
+* **Maqsad:** Dastur real biznes ehtiyojini qondirayotganini va uni ishlab chiqarishga (Production) topshirish mumkinligini tasdiqlash.
+* **Turlari:** Alpha testing (kompaniya ichida) va Beta testing (tashqi real foydalanuvchilar bilan).
+
+---
+
+## Intervyu savol-javobi
+
+| Savol | Professional javob |
+| :--- | :--- |
+| **Test darajalarining to'g'ri ketma-ketligi qanday?** | Unit Testing → Integration Testing → System Testing → Acceptance Testing. |
+| **System Testing va UAT o'rtasidagi farq nima?** | System testing talablar hujjati bo'yicha QA tomonidan tekshiriladi; UAT esa real biznes ehtiyojiga muvofiqlikni mijoz tomonidan tekshirishdir. |

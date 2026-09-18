@@ -1,0 +1,34 @@
+import { Cards } from 'nextra/components'
+
+# SQL va Git: Texnik QA ko'nikmalari
+
+Zamonaviy dasturiy ta'minotni sinovdan o'tkazishda faqatgina foydalanuvchi interfeysi (UI) bilan cheklanib bo'lmaydi. Tizim arxitekturasining chuqur qatlamlarini — ma'lumotlar bazasi va kod versiyalarini boshqarish tizimlarini tushunish har bir QA muhandisining asosiy texnik tayanchidir.
+
+Ushbu bo'limda ma'lumotlar yaxlitligini tekshirish uchun SQL va xatoliklar ildizini aniqlash hamda jamoa bilan ishlash uchun Git vositalari o'rganiladi.
+
+---
+
+## Modul mazmuni
+
+<Cards>
+  <Cards.Card
+    title="QA uchun SQL"
+    href="/database-git/sql-for-qa"
+  >
+    Relyatsion ma'lumotlar bazalari, SELECT, JOIN, GROUP BY so'rovlari va ma'lumotlar yaxlitligi sinovlari.
+  </Cards.Card>
+  <Cards.Card
+    title="QA uchun Git"
+    href="/database-git/git-for-qa"
+  >
+    Branchlar bilan ishlash, Pull Request tahlili, `git blame` va regressiya sabablarini qidirish.
+  </Cards.Card>
+</Cards>
+
+---
+
+## Nega aynan SQL va Git?
+
+1. **Qora quti (Black-box) doirasidan chiqish:** UI da "Muvaffaqiyatli saqlandi" deyilgani ma'lumotlar bazada xatosiz va to'liq yozilganini kafolatlamaydi. SQL orqali ma'lumotlar oqimini bevosita manbada tekshirasiz.
+2. **Xatoni keltirib chiqargan o'zgarishni topish:** `git bisect` yoki `git log` yordamida aynan qaysi commit tizimga xatolik kiritganini va qaysi dasturchi tomonidan yozilganini aniqlash jarayonni 10 barobar tezlashtiradi.
+3. **CI/CD va avtotestlar integratsiyasi:** Barcha avtomatlashtirilgan test skriptlari Git repozitoriylarida saqlanadi va test muhitlaridagi ma'lumotlar bazalariga bog'liq holda ishlaydi.

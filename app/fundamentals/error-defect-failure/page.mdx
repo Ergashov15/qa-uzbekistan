@@ -1,0 +1,42 @@
+import { Callout } from 'nextra/components'
+
+# Error, Defect, Bug va Failure o'rtasidagi farq
+
+Ko'pchilik bu so'zlarni sinonim sifatida ishlatadi. Ammo professional QA muhandisi va ISTQB standartlari nuqtai nazaridan ularning har biri zanjirning alohida bo'g'inidir.
+
+---
+
+## Zanjir qanday ishlaydi?
+
+```text
+Inson xatosi (Error) → Kodda kamchilik (Defect / Bug) → Tizim qulashi (Failure)
+```
+
+1. **Error (Xato / Mistake):**
+   * Bu inson tomonidan qilingan harakat. Masalan, dasturchi charchaganligi sababli kodda `>=` o'rniga `>` belgisini yozib ketdi yoki talabni noto'g'ri tushundi.
+2. **Defect yoki Bug (Nuqson):**
+   * Inson xatosi natijasida dastur kodi yoki hujjatda paydo bo'lgan kamchilik. Dastur hali ishga tushirilmagan holatda ham kod ichida defekt mavjud bo'lishi mumkin.
+3. **Failure (Qulash / Nosozlik):**
+   * Defekt mavjud bo'lgan kod qismi ishga tushganda dasturning kutilganidek ishlamay qolishi yoki qulashi. Bu foydalanuvchi bevosita duch keladigan oqibatdir.
+
+---
+
+## Hayotiy misol: Bank ilovasi
+
+* **Error:** Dasturchi kechasi ishlayotib, pul o'tkazish funksiyasida hisobdagi qoldiq yetarliligini tekshiruvchi `if (balance >= amount)` shartini yozishni unutib qoldirdi.
+* **Defect (Bug):** Kod bazasida tekshiruvsiz pul o'tkazishga ruxsat beruvchi teshik paydo bo'ldi.
+* **Failure:** Foydalanuvchi hisobida 0 so'm bo'la turib, boshqa odamga 1 000 000 so'm pul o'tkazdi va bank zarar ko'rdi.
+
+<Callout type="warning">
+  **Diqqat qiling:** Har qanday defekt darhol failure keltirib chiqarmaydi. Agar dasturdagi nuqsonli kod qismi hech qachon chaqirilmasa, foydalanuvchi bu xatoni hech qachon sezmasligi ham mumkin.
+</Callout>
+
+---
+
+## Intervyu savol-javobi
+
+| Savol | Professional javob |
+| :--- | :--- |
+| **Error va Bug o'rtasidagi farq nima?** | Error — bu dasturchining xatti-harakati (insoniy xato). Bug (Defect) — bu xato natijasida kodda paydo bo'lgan texnik kamchilik. |
+| **Bug va Failure farqi nima?** | Bug — bu kod ichidagi yashirin nuqson. Failure — o'sha nuqson kod ishga tushganda dasturning buzilishiga olib kelishi. |
+| **Barcha buglar failure keltirib chiqaradimi?** | Yo'q, agar nosoz kod qismi ishga tushmasa yoki boshqa himoya mexanizmi tomonidan ushlab qolinsa, failure yuz bermasligi mumkin. |

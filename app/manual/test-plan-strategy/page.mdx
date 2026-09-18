@@ -1,0 +1,48 @@
+import { Callout } from 'nextra/components'
+
+# Test Plan va Test Strategy o'rtasidagi farq
+
+Ko'pincha bu ikki hujjat chalkashtiriladi. Biri — strategik uzoq muddatli yondashuv bo'lsa, ikkinchisi — aniq loyiha uchun qisqa muddatli amaliy rejadir.
+
+---
+
+## Solishtirish jadvali
+
+| Mezon | Test Strategy (Strategiya) | Test Plan (Reja) |
+| :--- | :--- | :--- |
+| **Darajasi** | Yuqori darajadagi (High-level) tashkiliy hujjat | Loyiha yoki reliz darajasidagi batafsil hujjat |
+| **Asosiy savol** | *"Biz qanday standartlar va tamoyillar bilan sinaymiz?"* | *"Bu loyihani kim, qachon va nimani sinab topshiradi?"* |
+| **O'zgaruvchanligi** | Deyarli o'zgarmaydi (barqaror) | Har bir reliz yoki sprintda yangilanadi |
+| **Kim yozadi?** | QA Lead / QA Manager | QA Lead / Senior QA Engineer |
+| **Qamrovi** | Butun kompaniya yoki bir nechta loyihalar uchun umumiy | Aniq bitta loyiha yoki yangi funksiya uchun |
+
+---
+
+## 1. Test Strategy tarkibi
+* Loyihada qo'llaniladigan test turlari va yondashuvlari (Manual vs Automation ulushi).
+* Ishlatiladigan vositalar (Jira, Playwright, Postman, k6).
+* Defect Management qoidalari (Bug hayotiy sikli va SLA muddatlari).
+* Test muhitlari mezonlari (Dev, QA/Staging, Production).
+
+---
+
+## 2. Test Plan tarkibi (IEEE 829 standarti)
+1. **Scope (Sinov ko'lami):** Nimalar sinovdan o'tkaziladi (In-Scope) va nimalar sinovdan o'tkazilmaydi (Out-of-Scope).
+2. **Schedule (Vaqt jadvali):** Qaysi sana oraliqlarida sinov o'tkaziladi.
+3. **Roles & Responsibilities:** Jamoada kim aynan qaysi modulga mas'ul.
+4. **Environment:** Qaysi brauzerlar va serverlarda sinov kechadi.
+5. **Entry & Exit Criteria:** Testni boshlash shartlari va testni muvaffaqiyatli yakunlash mezonlari.
+6. **Risks & Mitigation:** Ehtimoliy xavflar va ularning yechimlari.
+
+<Callout type="info">
+  **Eslab qoling:** Test Strategy — bu kompaniyaning sinov konstitutsiyasi; Test Plan — bu aniq bir loyihaning yo'l xaritasi va jadvalidir.
+</Callout>
+
+---
+
+## Intervyu savol-javobi
+
+| Savol | Professional javob |
+| :--- | :--- |
+| **Test Plan va Test Strategy farqi nima?** | Strategy — umumiy yondashuv va vositalarni belgilovchi o'zgarmas hujjat; Plan — aniq loyihaning muddati, resurslari va ko'lamini belgilovchi reja. |
+| **Entry va Exit Criteria nima?** | Entry Criteria — testlashni boshlash uchun zarur shartlar (masalan: build tayyor, smoke test o'tdi); Exit Criteria — testlashni to'xtatish va relizga ruxsat berish mezonlari (masalan: barcha blocker buglar yopildi). |

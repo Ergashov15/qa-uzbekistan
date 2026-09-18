@@ -11,6 +11,10 @@ export default {
     title: 'Roadmap',
     type: 'page'
   },
+  fundamentals: {
+    title: 'QA Asoslari',
+    type: 'page'
+  },
   manual: {
     title: 'Manual QA',
     type: 'page'
@@ -21,6 +25,10 @@ export default {
   },
   automation: {
     title: 'Automation',
+    type: 'page'
+  },
+  'database-git': {
+    title: 'SQL va Git',
     type: 'page'
   },
   interview: {

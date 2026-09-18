@@ -1,47 +1,67 @@
-import { Callout } from 'nextra/components'
+import { Callout, Cards } from 'nextra/components'
 
-# QA Intervyu Savollari
+# Fundamental QA Intervyu Savollari
 
-Texnik intervyularda eng ko'p uchraydigan fundamental savollar va ularga beriladigan professional javoblar to'plami.
+Texnik intervyularda eng ko'p uchraydigan asosiy tushunchalar, ularning mohiyati va suhbat oluvchiga taqdim etiladigan professional javoblar to'plami.
+
+<Cards>
+  <Cards.Card
+    title="Situatsion Savollar"
+    href="/interview/scenario-questions"
+  >
+    Real loyiha vaziyatlari, bahsli holatlar va reliz bosimlari bo'yicha intervyu stsenariylari.
+  </Cards.Card>
+  <Cards.Card
+    title="Texnik Savollar"
+    href="/interview/technical-questions"
+  >
+    HTTP kodlar, Idempotentlik, SQL so'rovlari, ACID va Flaky testlar bo'yicha chuqur savollar.
+  </Cards.Card>
+</Cards>
 
 ---
 
 ### 1. QA va QC (Quality Control) o'rtasidagi farq nima?
-* **QA (Quality Assurance):** Jarayonga yo'naltirilgan (Process-oriented). Asosiy maqsad — xatolar paydo bo'lishining oldini olish (proactive). Masalan: talablarni to'g'ri tahlil qilish, standartlarni joriy etish.
+* **QA (Quality Assurance):** Jarayonga yo'naltirilgan (Process-oriented). Asosiy maqsad — xatolar paydo bo'lishining oldini olish (proactive). Masalan: talablarni to'g'ri tahlil qilish, standartlarni joriy etish va jarayonlarni yaxshilash.
 * **QC (Quality Control):** Mahsulotga yo'naltirilgan (Product-oriented). Asosiy maqsad — tayyor dasturdagi mavjud xatolarni topish (reactive). Masalan: testlarni bajarish va bug topish.
 
 ---
 
 ### 2. Severity va Priority o'rtasidagi farq nima?
-* **Severity (Jiddiylik):** Xatoning tizim ishlashiga texnik ta'siri darajasi (QA tomonidan belgilanadi).
-* **Priority (Muhimlik):** Xatoni biznes nuqtai nazaridan qanchalik tez tuzatish kerakligi (Product Manager / Biznes tomonidan belgilanadi).
+* **Severity (Jiddiylik):** Xatoning tizim ishlashiga texnik ta'siri darajasi (odatda QA muhandisi tomonidan belgilanadi).
+* **Priority (Muhimlik):** Xatoni biznes nuqtai nazaridan qanchalik tez tuzatish kerakligi (Product Manager yoki biznes vakillari tomonidan belgilanadi).
 
 **Mashhur misollar:**
-* *Yuqori Severity, Past Priority:* Saytning kam ishlatiladigan ichki sahifasida ma'lumotlar bazasi qulab tushmoqda (sayt foydalanuvchilari buni deyarli ochmaydi).
-* *Past Severity, Yuqori Priority:* Bosh sahifadagi kompaniya logotipi noto'g'ri yoki kompaniya nomi imlosida xato bor (tizim buzilmagan, lekin brend obro'siga jiddiy zarba).
+* *Yuqori Severity, Past Priority:* Saytning kam ishlatiladigan ichki sahifasida ma'lumotlar bazasi qulab tushmoqda (foydalanuvchilar deyarli kirmaydigan burchak).
+* *Past Severity, Yuqori Priority:* Bosh sahifadagi kompaniya logotipi noto'g'ri yoki kompaniya nomida orfografik xato bor (tizim ishlaydi, lekin brend obro'siga zudlik bilan zarba beradi).
 
 ---
 
 ### 3. Regression va Re-testing farqi nima?
-* **Re-testing:** Aynan topilgan xato dasturchi tomonidan to'g'rilangandan keyin faqat shu xatoni qayta tekshirish.
-* **Regression Testing:** Xato to'g'rilanganidan so'ng tizimning boshqa ishlab turgan qismlari buzilib qolmaganini butunlay tekshirish.
+* **Re-testing:** Aynan topilgan xato dasturchi tomonidan to'g'rilangandan so'ng faqat shu xatoni qayta tekshirish (faqat o'sha test holatini o'tkazish).
+* **Regression Testing:** Xato to'g'rilanganidan yoki yangi kod qo'shilganidan so'ng tizimning boshqa ishlab turgan qismlari buzilib qolmaganini butunlay tekshirish.
 
 ---
 
 ### 4. Smoke va Sanity testlar farqi nima?
-* **Smoke Testing:** Yangi yig'ilgan versiya (Build) umuman ishlaydimi yoki yo'qligini tekshirish uchun o'tkaziladigan yuzaki, asosiy sinov (Build Acceptance Test). Agar Smoke sinovidan o'tmasa, testlash to'xtatiladi.
-* **Sanity Testing:** Kichik o'zgarishlar yoki bug fix qilingandan so'ng, aynan shu modul chuqur va to'g'ri ishlayotganini tezkor tekshirish.
+* **Smoke Testing:** Yangi yig'ilgan versiya (Build) umuman yashovchanmi yoki yo'qligini tekshirish uchun o'tkaziladigan yuzaki, asosiy sinov (Build Verification Test). Agar asosiy sahifa ochilmasa, yig'ma rad etiladi.
+* **Sanity Testing:** Muayyan bug tuzatilgandan so'ng, aynan shu modul va unga yaqin funksiyalar to'g'ri ishlayotganini tezkor tekshirish.
 
 ---
 
-### 5. Agar dasturchi "Bu bug emas, bu shunday ishlashi kerak (feature)" desa, nima qilasiz?
-1. Shaxsiy tortishuvga bormaslik;
-2. Talablar hujjati (SRS / PRD / User Story) va dizayn maketlariga (Figma) tayanish;
-3. Agar talablar hujjatida bu holat noaniq bo'lsa, **Product Owner (yoki Business Analyst)** ni jalb qilib, biznes mantig'iga aniqlik kiritish;
-4. Yakuniy qarorga asosan Test Case yoki talabni yangilash.
+### 5. Chegaraviy qiymatlar tahlili (BVA) nega bunchalik samarali?
+Dasturchilar ko'pincha shart operatorlarida (`<` o'rniga `<=`, yoki `>` o'rniga `>=`) xato qilishadi. Statistika ko'rsatadiki, xatolarning 80% dan ortig'i diapazon o'rtasida emas, aynan uning chegaralarida (`min-1`, `min`, `min+1`, `max-1`, `max`, `max+1`) yuz beradi. BVA kam resurs bilan eng xavfli nuqtalarni qamrab olish imkonini beradi.
+
+---
+
+### 6. Agar dasturchi "Bu bug emas, shunday ishlashi kerak" desa, nima qilasiz?
+1. Shaxsiy hissiyotlarga berilmaslik va professional ohangni saqlash;
+2. Talablar hujjati (PRD, SRS) va tasdiqlangan dizayn maketlariga (Figma) tayanish;
+3. Agar talablar hujjatida bu holat noaniq yoki qoldirib ketilgan bo'lsa, **Product Owner** bilan bog'lanib, biznes mantig'iga aniqlik kiritish;
+4. Yakuniy qarorga muvofiq Test Case va talablarga rasmiy o'zgartirish kiritish.
 
 ---
 
 <Callout type="info">
-  **Maslahat:** Intervyuda faqat ta'rifni aytmasdan, o'z amaliyotingizdagi real misollar bilan javob bersangiz, suhbat oluvchida sizga nisbatan yuqori ishonch shakllanadi.
+  **Maslahat:** Intervyuda javob berayotganda quruq ta'rif aytish o'rniga doimo o'z tajribangizdagi real holat yoki sanoat keyslaridan (masalan, to'lov tizimlari yoki e-tijorat) misol keltiring.
 </Callout>

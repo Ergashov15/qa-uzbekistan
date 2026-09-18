@@ -1,0 +1,86 @@
+import { Callout } from 'nextra/components'
+
+# Texnik Savollar va Javoblar (Technical Questions)
+
+O'rta va yuqori darajadagi (Middle / Senior) QA muhandislari intervyusida beriladigan asosiy texnik savollar, ularning tub mohiyati va namunali javoblar.
+
+---
+
+## 1. API va Tarmoq protokollari
+
+### 1.1. HTTP status kodlari guruhlari nima va eng muhimlari qaysilar?
+* **2xx (Muvaffaqiyat):**
+  * `200 OK` — So'rov muvaffaqiyatli bajarildi.
+  * `201 Created` — Yangi resurs muvaffaqiyatli yaratildi (POST).
+  * `204 No Content` — Bajarildi, lekin javob tanasi bo'sh (masalan, DELETE).
+* **4xx (Mijoz / Klient xatolari):**
+  * `400 Bad Request` — So'rov tanasi yoki sintaksisi xato.
+  * `401 Unauthorized` — Foydalanuvchi tizimga kirmagan (autentifikatsiya yo'q).
+  * `403 Forbidden` — Tizimga kirgan, lekin ushbu amalni bajarishga huquqi yetarli emas (avtorizatsiya xatosi).
+  * `404 Not Found` — Resurs topilmadi.
+  * `409 Conflict` — Ma'lumotlar to'qnashuvi (masalan, allaqachon mavjud email bilan ro'yxatdan o'tish).
+* **5xx (Server xatolari):**
+  * `500 Internal Server Error` — Serverdagi kutilmagan ichki xatolik.
+  * `502 Bad Gateway` — Proksi yoki shlyuz orqa fondagi serverdan noto'g'ri javob oldi.
+  * `504 Gateway Timeout` — Serverdan belgilangan vaqt ichida javob kelmadi.
+
+---
+
+### 1.2. Idempotentlik (Idempotency) nima va nima uchun u QA uchun muhim?
+**Javob:**
+Idempotentlik — bu so'rovni bir necha marta takroran yuborilganda ham tizimning yakuniy holati bitta so'rov yuborilgandagidek o'zgarishsiz qolishi xususiyatidir.
+
+* **Idempotent metodlar:**
+  * `GET` — Bir necha marta chaqirilsa ham ma'lumot o'zgarmaydi.
+  * `PUT` — Bir xil ma'lumot bilan 10 marta yuborilsa ham resurs bir xil holatda yangilanadi.
+  * `DELETE` — Resurs birinchi so'rovda o'chiriladi, keyingilarida ham u o'chirilgan holatda qoladi.
+* **Idempotent bo'lmagan metod:**
+  * `POST` — Har safar yuborilganda yangi resurs yaratadi. Agar to'lov so'rovi (POST) ikki marta borsa, foydalanuvchidan ikki marta pul yechilishi mumkin.
+* **QA uchun tekshirish:** To'lov yoki buyurtma berish so'rovlarida `Idempotency-Key` boshqarilishini va tarmoq uzilishlarida takroriy pul yechilmasligini sinash.
+
+---
+
+## 2. SQL va Ma'lumotlar bazasi
+
+### 2.1. INNER JOIN va LEFT JOIN farqi nima?
+* **INNER JOIN:** Faqat ikkala jadvalda ham bir-biriga mos keladigan (kesishgan) qatorlarni qaytaradi.
+* **LEFT JOIN:** Chap tarafdagi jadvalning barcha qatorlarini va o'ng tarafdagi jadvaldan mos kelgan qatorlarni qaytaradi. Agar o'ng jadvalda moslik bo'lmasa, `NULL` qiymat qaytadi.
+
+```sql
+-- Har bir foydalanuvchi va uning buyurtmalarini olish (buyurtmasi yo'qlar ham chiqadi)
+SELECT u.name, o.id AS order_id
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id;
+```
+
+---
+
+### 2.2. ACID tamoyillari nima?
+Ma'lumotlar bazasidagi tranzaksiyalar ishonchliligini ta'minlovchi 4 asosiy qoida:
+1. **Atomicity (Bo'linmaslik):** Tranzaksiya yoki to'liq bajariladi, yoki umuman bajarilmaydi (hammasi yoki hech narsa).
+2. **Consistency (Muvofiqlik):** Tranzaksiyadan oldin va keyin baza qoidalari va cheklovlari (constraints) buzilmaydi.
+3. **Isolation (Yakkalanish):** Bir vaqtda ishlayotgan parallel tranzaksiyalar bir-birining oraliq ma'lumotlariga xalaqit bermaydi.
+4. **Durability (Chidamlilik):** Tranzaksiya tasdiqlangach (`COMMIT`), tizim o'chib qolsa ham natija bazada saqlanib qoladi.
+
+---
+
+## 3. Test Avtomatlashtirish
+
+### 3.1. Flaky Test nima va uni qanday bartaraf etish mumkin?
+**Javob:**
+Flaky test — kod o'zgarmagan bo'lsa-da, ba'zida muvaffaqiyatli o'tadigan (`PASS`), ba'zida esa yiqiladigan (`FAIL`) beqaror test.
+
+**Kelib chiqish sabablari va yechimlari:**
+1. **Statik kutishlar (`sleep(5000)`):** Tarmoq yoki server sekinlashganda 5 soniya yetmay qoladi. Yechim: dinamik kutishlardan (`waitForSelector`, `expect().toBeVisible()`) foydalanish.
+2. **Testlarning bir-biriga bog'liqligi:** Bitta test yaratgan ma'lumot keyingi testning natijasiga ta'sir qilishi. Yechim: har bir test uchun mustaqil test ma'lumotlari yaratish (Test Isolation).
+3. **Asinxron operatsiyalar va animatsiyalar:** Element hali ekranda to'liq yuklanmasdan turib chertishga urinish.
+
+---
+
+### 3.2. Qattiq kutish (Hard wait) va Dinamik kutish (Dynamic wait) farqi
+* **Hard wait (`Thread.sleep`, `time.sleep`):** Belgilangan vaqt tugaguncha testni qat'iy to'xtatib turadi. Bu testlarni asossiz sekinlashtiradi va barqarorlikni kafolatlamaydi.
+* **Dynamic wait (Explicit wait, Auto-waiting):** Element kerakli holatga (masalan, ko'rinadigan, faol, bosish mumkin bo'lgan) kelgunicha tekshirib turadi va element paydo bo'lishi bilan zudlik bilan davom etadi. Zamonaviy vositalar (Playwright) buni o'z ichida avtomatik amalga oshiradi.
+
+<Callout type="info">
+  **Xulosa:** Texnik savollarga javob berayotganda faqat atamalarni sanamasdan, o'sha muammo ishlab chiqarish (production) muhitiga qanday ta'sir qilishini ko'rsatib bering.
+</Callout>

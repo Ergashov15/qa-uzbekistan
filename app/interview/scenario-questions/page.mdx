@@ -1,0 +1,101 @@
+import { Callout } from 'nextra/components'
+
+# Situatsion va Amaliy Savollar (Scenario Questions)
+
+Intervyularda nazariyani yodlagan nomzod bilan amaliy tajribaga ega muhandisni ajratib olish uchun situatsion (scenario-based) savollar beriladi. Bu savollarda bitta to'g'ri formula bo'lmaydi — suhbat oluvchi sizning tahliliy fikrlashingiz, xatarlarni baholash va muloqot madaniyatingizni sinaydi.
+
+---
+
+## 1-stsenariy: Talablar (requirements) hujjati umuman yo'q yoki to'liq emas
+
+**Savol:**
+> Yangi funksiya yoki loyiha topshirildi, biroq uning texnik talablari (PRD / SRS / User Story) yo'q. Qanday qilib testlashni boshlaysiz?
+
+**Professional javob strategiyasi:**
+1. **Mavjud ma'lumot manbalarini to'plash:** Dizayn maketlari (Figma), raqobatchilarning shunga o'xshash yechimlari, API spetsifikatsiyalari (Swagger) va oldingi versiya kodlari orqali tizim nima qilishi kerakligini o'rganaman.
+2. **Kashfiyotchi sinov (Exploratory Testing):** Tizimni erkin tadqiq qilib, uning qanday ishlashini amalda tushunib olaman va asosiy oqimlarni (Happy Path) qayd etib boraman.
+3. **Savollar ro'yxatini shakllantirish:** Barcha tushunarsiz va noaniq holatlarni punktma-punkt yozib, Product Owner va asosiy dasturchi bilan 15 daqiqalik qisqa uchrashuv o'tkazaman.
+4. **Talablarni hujjatlashtirish:** Uchrashuvda olingan javoblar asosida qisqa checklist yoki Test Caselarni yozib, jamoaviy tasdiqlatib olaman. Bu kelgusida noaniqliklarning oldini oladi.
+
+---
+
+## 2-stsenariy: Reliz (Production deploy) bugun, lekin kritik xatolik topildi
+
+**Savol:**
+> Bugun kechqurun dasturni foydalanuvchilarga chiqarish (release) rejalashtirilgan. Siz sinov paytida jiddiy xato (Critical Bug) topdingiz. Qanday yo'l tutasiz?
+
+**Professional javob strategiyasi:**
+1. **Xatoni zudlik bilan qayd etish va ko'lamini baholash:** Xatoni qayta takrorlash qadamlari (repro steps), loglar va skrinshotlar bilan birga bug-trekerda darhol rasmiylashtiraman. Xato tizimning qaysi qismiga va foydalanuvchilarning qancha foiziga ta'sir qilishini aniqlayman.
+2. **Keltiriladigan xatar haqida jamoani ogohlantirish:** Release Manager, Product Owner va Tech Leadga xatarning biznesga ta'sirini (moliyaviy yo'qotish, foydalanuvchi ma'lumotlari xavfi) tushuntiraman.
+3. **Qaror qabul qilish variantlarini taqdim etish:**
+   * **Variant A (Relizni qoldirish):** Xato to'liq tuzatilib, qayta regressiya qilinmaguncha deployni kechiktirish.
+   * **Variant B (Feature Toggle / Rollback):** Agar yangi funksiya Feature Flag ortida bo'lsa, xatoli funksiyani o'chirib qo'yib, qolgan tayyor o'zgarishlarni chiqarish.
+   * **Variant C (Hotfix):** Tezkor patch chiqarish va uning atrofidagi tor doirani zudlik bilan qayta sinash.
+4. **Eslatma:** QA relizni o'zicha bir tomonlama bekor qilmaydi, balki xatarlarni ochiq ko'rsatib, biznes vakillariga asosli qaror qabul qilish imkonini beradi.
+
+---
+
+## 3-stsenariy: Dasturchi "Mening kompyuterimda ishlayapti" deb javob berdi
+
+**Savol:**
+> Siz ochgan xatolikni dasturchi ko'rib chiqdi va *"Menda hammasi to'g'ri ishlayapti, bu xato emas"* deb yopmoqchi bo'ldi. Nima qilasiz?
+
+**Professional javob strategiyasi:**
+1. **Muhitlar farqini tahlil qilish:** Lokal muhit (developer machine) va test muhiti (Staging/QA) o'rtasidagi farqlarni tekshiraman:
+   * Brauzer versiyalari va kesh holati;
+   * Baza ma'lumotlari holati (foydalanuvchi huquqlari, to'lov balansi);
+   * Backend konfiguratsiyalari yoki atrof-muhit o'zgaruvchilari (environment variables).
+2. **Birgalikda takrorlash (Pair debugging):** Dasturchi bilan birga ekran ulashib yoki uning yonida test ma'lumotlari orqali xatoni jonli ko'rsatib beraman.
+3. **Faktlarga tayanish:** Tarmoq so'rovlari (Network tab), konsol xatolari va server loglarini dalil sifatida taqdim etaman.
+
+---
+
+## 4-stsenariy: Noaniq va tasodifiy takrorlanuvchi xato (Intermittent / Flaky Bug)
+
+**Savol:**
+> Tizimda xato paydo bo'ldi, lekin uni har safar takrorlab bo'lmayapti (masalan, 10 martadan 2 tasida sodir bo'ladi). Uni qanday o'rganasiz?
+
+**Professional javob strategiyasi:**
+1. **Qonuniyatni qidirish:** Qaysi omillar o'zgarayotganini tahlil qilaman:
+   * Tarmoq tezligi va kechikishlar (Network latency / Race condition);
+   * Parallel so'rovlar yoki asinxron jarayonlar;
+   * Kesh (Cache), sessiya muddati yoki ma'lumotlar bazasining qulflanishi (Deadlock).
+2. **Kengaytirilgan loglashni yoqish:** Backend va brauzerda debug rejimini yoqib, xato takrorlangan daqiqadagi aniq vaqt tamg'asi (timestamp) bilan loglarni yozib olaman.
+3. **Chiptaga aniqlik kiritish:** Bug-trekerda bu xato "doimiy emas" ekanligini, 10 ta urinishdan aynan qaysi holatlarda takrorlanganini aniq qayd etaman.
+
+---
+
+## 5-stsenariy: Talablarga ko'ra qora quti (Black-box) to'lov tizimini sinash
+
+**Savol:**
+> Sizga yangi to'lov tizimi (masalan, Click yoki Payme integratsiyasi) topshirildi. Hech qanday kodga kirish huquqingiz yo'q. Qanday test holatlarini ishlab chiqasiz?
+
+**Professional javob strategiyasi:**
+
+```
+               [Foydalanuvchi]
+                      │
+                      ▼
+             ┌─────────────────┐
+             │ To'lov oynasi   │
+             └────────┬────────┘
+                      │
+        ┌─────────────┴─────────────┐
+        ▼                           ▼
+[Ijobiy oqimlar]            [Salbiy oqimlar]
+- Balans yetarli            - Balans yetarli emas
+- To'g'ri karta ma'lumoti   - Noto'g'ri SMS-kod
+- Chek chiqarilishi         - Timeout / Internet uzilishi
+- Tranzaksiya ID            - Ikki marta bosish (Double click)
+```
+
+1. **Ijobiy holatlar (Positive paths):** To'g'ri summa, to'g'ri SMS-kod, balansdan to'g'ri pul yechilishi, kvitansiya generatsiyasi va buyurtma statusi "To'langan" ga o'zgarishi.
+2. **Salbiy holatlar (Negative paths):** Balans yetarli bo'lmaganda, karta muddati o'tganida, xato SMS-kod 3 marta kiritilganda tizim to'g'ri xabar berishi.
+3. **Chegara holatlari va xavfsizlik (Edge cases):**
+   * **Idempotentlik:** To'lash tugmasini ketma-ket ikki marta bosganda pul ikki marta yechilmasligi;
+   * **Tarmoq uzilishi:** Tranzaksiya o'rtasida internet uzilsa, tranzaksiya muzlatilishi yoki qaytarilishi (Rollback);
+   * **Manfiy summa:** `-10 000` yoki `0` so'm o'tkazishga urinish.
+
+<Callout type="info">
+  **Eslatma:** Intervyuda javob berayotganda doimo tizimli (structured) yondashuvni ko'rsating: avval biznes xatari, keyin texnik tahlil, so'ngra jamoaviy kommunikatsiya.
+</Callout>
