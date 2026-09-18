@@ -1,0 +1,79 @@
+import { Callout, Steps } from 'nextra/components'
+
+# 🚀 Postman bilan ishlash va avtomatlashtirish
+
+**Postman** — bu API so'rovlarini yuborish, testlash, hujjatlashtirish va avtomatlashtirish uchun dunyodagi eng mashhur vositadir.
+
+---
+
+## 📂 1. Collections (To'plamlar) nima?
+
+**Collection** — bu ma'lum bir loyiha yoki modulga tegishli barcha API so'rovlarini papkalar ko'rinishida tartibli saqlash usuli.
+
+Masalan:
+* `Auth API` (Login, Register, Refresh Token)
+* `Products API` (Get list, Create, Update, Delete)
+* `Orders API` (Create order, Payment)
+
+---
+
+## 🌐 2. Environment Variables (Muhit o'zgaruvchilari)
+
+Bir xil API so'rovlarini har xil serverlarda (`Local`, `Dev`, `Staging`, `Production`) tekshirish uchun o'zgaruvchilardan foydalaniladi.
+
+Masalan, URL manzilini har safar o'zgartirmaslik uchun:
+* `{{baseUrl}}` = `https://staging-api.example.com`
+* `{{authToken}}` = `eyJhbGciOiJIUzI1Ni...`
+
+So'rovda foydalanish:
+```http
+POST {{baseUrl}}/api/v1/orders
+Authorization: Bearer {{authToken}}
+```
+
+---
+
+## 🧪 3. Postman'da avtomatik testlar yozish
+
+Postman'ning **Scripts -> Post-response** (yoki **Tests**) bo'limida JavaScript yordamida har bir so'rovdan keyin tekshiruvlar (Assertions) yozish mumkin.
+
+### Status kodni tekshirish:
+```javascript
+pm.test("Status kod 200 bo'lishi kerak", function () {
+    pm.response.to.have.status(200);
+});
+```
+
+### Response JSON tanasidagi qiymatni tekshirish:
+```javascript
+pm.test("Foydalanuvchi ismi to'g'ri qaytishi kerak", function () {
+    const jsonData = pm.response.json();
+    pm.expect(jsonData.user.name).to.eql("Ali Valiyev");
+    pm.expect(jsonData.success).to.be.true;
+});
+```
+
+### Tokendan keyingi so'rovlarda avtomatik foydalanish:
+```javascript
+// Login so'rovi muvaffaqiyatli bo'lsa, tokenni Environmentga yozib qo'yish:
+const response = pm.response.json();
+pm.environment.set("authToken", response.token);
+```
+
+---
+
+## ⚡ 4. Newman orqali CI/CD ga ulash
+
+Postman to'plamlarini terminalda yurgizish uchun **Newman** konsol vositasi ishlatiladi:
+
+```bash
+# Newman o'rnatish
+npm install -g newman
+
+# Test to'plamini yurgizish
+newman run my-collection.json -e my-environment.json
+```
+
+<Callout type="info">
+  Newman yordamida Postman testlarini GitHub Actions yoki GitLab CI ga ulab, har safar dasturchi kod yuklaganda testlarni avtomatik ishga tushirish mumkin.
+</Callout>

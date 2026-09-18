@@ -1,0 +1,62 @@
+import { Callout, Cards } from 'nextra/components'
+
+# ⚡ API Testing (Backend sinovi) asoslari
+
+**API (Application Programming Interface)** — bu turli xil dasturiy ilovalar yoki mijoz (Frontend/Mobile) bilan server (Backend) o'rtasida ma'lumot almashish uchun xizmat qiladigan ko'prikdir.
+
+**API Testing** esa foydalanuvchi interfeysi (UI)siz, to'g'ridan-to'g'ri tizimning biznes mantiqi, ma'lumotlar xavfsizligi va ishonchliligini sinash jarayonidir.
+
+---
+
+## 🌐 Nima uchun API Testing muhim?
+
+1. **Vaqtni tejash:** UI dizayni hali tayyor bo'lmasidan turib, backend tayyor bo'lishi bilanoq testlashni boshlash mumkin.
+2. **Tezkorlik:** API testlar UI testlariga qaraganda 10–20 barobar tezroq bajariladi.
+3. **Keng qamrov:** Xatoliklar biznes mantiq darajasida erta aniqlanadi.
+
+---
+
+## 📬 HTTP Metodlari
+
+REST arxitekturasida asosiy 5 ta HTTP metodi ishlatiladi:
+
+| Metod | Vazifasi | Idempotentmi? | Misol |
+| :--- | :--- | :---: | :--- |
+| **GET** | Ma'lumotlarni o'qish/olish | Ha | `GET /api/users` (Barcha foydalanuvchilar) |
+| **POST** | Yangi ma'lumot yaratish | Yo'q | `POST /api/users` (Yangi foydalanuvchi qo'shish) |
+| **PUT** | Mavjud ma'lumotni to'liq yangilash | Ha | `PUT /api/users/1` |
+| **PATCH** | Ma'lumotning ma'lum bir qismini yangilash | Yo'q | `PATCH /api/users/1` (Faqat telefon raqamini o'zgartirish) |
+| **DELETE** | Ma'lumotni o'chirish | Ha | `DELETE /api/users/1` |
+
+---
+
+## 🚦 HTTP Status Kodlari
+
+Har bir API so'roviga server raqamli javob (Status Code) qaytaradi:
+
+* **2xx (Muvaffaqiyat):**
+  * `200 OK` — So'rov muvaffaqiyatli bajarildi.
+  * `201 Created` — Yangi resurs yaratildi (odatda `POST` da).
+  * `204 No Content` — Muvaffaqiyatli bajarildi, lekin qaytaradigan tana (body) yo'q (odatda `DELETE` da).
+* **3xx (Qayta yo'naltirish - Redirection):**
+  * `301 Moved Permanently` — Resurs yangi manzilga doimiy ko'chirilgan.
+* **4xx (Mijoz xatosi - Client Error):**
+  * `400 Bad Request` — So'rovda sintaktik xato bor yoki majburiy parametr yetishmaydi.
+  * `401 Unauthorized` — Foydalanuvchi tizimga kirmagan (Token/API Key yo'q).
+  * `403 Forbidden` — Ruxsat etilmagan (Token bor, lekin bu amalga huquqi yo'q).
+  * `404 Not Found` — Resurs topilmadi.
+* **5xx (Server xatosi - Server Error):**
+  * `500 Internal Server Error` — Server tomonida kutilmagan ichki xatolik.
+  * `502 Bad Gateway` — Oraliq server noto'g'ri javob oldi.
+  * `503 Service Unavailable` — Server vaqtincha ishlamayapti (yuklama yuqori yoki profilaktika).
+
+---
+
+<Cards num={1}>
+  <Cards.Card
+    title="🚀 Postman bilan ishlash va avtomatlashtirish"
+    href="/api-testing/postman"
+  >
+    Postman muhiti, Collections, Environment variables va test skriptlari yozish.
+  </Cards.Card>
+</Cards>

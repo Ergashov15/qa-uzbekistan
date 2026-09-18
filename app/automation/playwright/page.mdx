@@ -1,0 +1,82 @@
+import { Steps, Callout } from 'nextra/components'
+
+# 🎭 Playwright Asoslari
+
+**Playwright** — Microsoft tomonidan yaratilgan, zamonaviy veb-ilovalarni avtomatlashtirilgan sinovdan o'tkazish uchun eng ilg'or freymvork. U Chromium (Chrome, Edge), Firefox va WebKit (Safari) brauzerlarini to'liq qo'llab-quvvatlaydi.
+
+---
+
+## 🛠️ 1. O'rnatish
+
+Yangi loyiha oching va terminalda quyidagi buyruqni bering:
+
+```bash
+npm init playwright@latest
+```
+
+O'rnatish jarayonida:
+* Dasturlash tili sifatida **TypeScript** yoki **JavaScript** ni tanlang (TypeScript tavsiya etiladi).
+* Testlar uchun jild nomini tanlang (odatda `tests`).
+* Brauzerlarni o'rnatishni tasdiqlang (`Install Playwright browsers`).
+
+---
+
+## 🧪 2. Birinchi avtotestni yozish
+
+`tests/example.spec.ts` faylini oching:
+
+```typescript
+import { test, expect } from '@playwright/test';
+
+test('Sayt sarlavhasi to\'g\'ri chiqishi kerak', async ({ page }) => {
+  // 1. Sahifani ochish
+  await page.goto('https://playwright.dev/');
+
+  // 2. Sarlavhani tekshirish
+  await expect(page).toHaveTitle(/Playwright/);
+});
+
+test('Get started tugmasini bosib sahifaga o\'tish', async ({ page }) => {
+  await page.goto('https://playwright.dev/');
+
+  // Tugmani topish va bosish
+  await page.getByRole('link', { name: 'Get started' }).click();
+
+  // URL to'g'ri o'zgarganini tekshirish
+  await expect(page).toHaveURL(/.*intro/);
+});
+```
+
+---
+
+## 🚀 3. Testlarni ishga tushirish
+
+Testlarni konsolda yoki grafik interfeysda yurgizish:
+
+```bash
+# Barcha testlarni yashirin rejimda (headless) yurgizish
+npx playwright test
+
+# Brauzer oynasini ko'rsatib yurgizish (headed)
+npx playwright test --headed
+
+# Interaktiv UI rejimida ochish (juda qulay!)
+npx playwright test --ui
+
+# Test natijalari hisobotini (HTML Report) ko'rish
+npx playwright show-report
+```
+
+---
+
+## 🧱 4. Page Object Model (POM) tushunchasi
+
+Test kodingiz katta loyihalarda chalkashib ketmasligi uchun **Page Object Model** arxitekturasi qo'llaniladi.
+
+Har bir sahifa yoki uning qismlari alohida sinf (Class) sifatida yoziladi:
+* `LoginPage.ts` — Login sahifasining elementlari (lokatorlar) va metodlari (`login(user, pass)`).
+* `tests/login.spec.ts` — Faqat test ssenariysi (`loginPage.login(...)`).
+
+<Callout type="info">
+  POM testlarni o'qishni osonlashtiradi va sayt dizayni o'zgarganda faqat bitta fayldagi lokatorni yangilash kifoya qiladi.
+</Callout>
