@@ -30,7 +30,7 @@ const navbar = (
         Journey
       </span>
     }
-    projectLink="https://github.com"
+    projectLink="https://github.com/Ergashov15/qa-uzbekistan"
     chatLink="https://t.me"
     chatIcon={
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -44,7 +44,7 @@ const navbar = (
 const footer = (
   <Footer>
     MIT {new Date().getFullYear()} ©{' '}
-    <a href="https://github.com" target="_blank" rel="noreferrer">
+    <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer">
       QA Journey
     </a>
     . Ochiq manbali ta'lim platformasi.
@@ -63,7 +63,7 @@ export default async function RootLayout({ children }) {
           navbar={navbar}
           footer={footer}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com"
+          docsRepositoryBase="https://github.com/Ergashov15/qa-uzbekistan/tree/main"
           sidebar={{
             defaultMenuCollapseLevel: 1,
             autoCollapse: true,
