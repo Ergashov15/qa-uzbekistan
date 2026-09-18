@@ -8,23 +8,23 @@ export default {
     }
   },
   roadmap: {
-    title: '🎯 Roadmap',
+    title: 'Roadmap',
     type: 'page'
   },
   manual: {
-    title: '📘 Manual QA',
+    title: 'Manual QA',
     type: 'page'
   },
   'api-testing': {
-    title: '⚡ API Testing',
+    title: 'API Testing',
     type: 'page'
   },
   automation: {
-    title: '🤖 Automation',
+    title: 'Automation',
     type: 'page'
   },
   interview: {
-    title: '💼 Intervyu',
+    title: 'Intervyu',
     type: 'page'
   }
 }

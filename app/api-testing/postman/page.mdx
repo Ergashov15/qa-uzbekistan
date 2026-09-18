@@ -1,14 +1,14 @@
 import { Callout, Steps } from 'nextra/components'
 
-# 🚀 Postman bilan ishlash va avtomatlashtirish
+# Postman bilan ishlash va avtomatlashtirish
 
-**Postman** — bu API so'rovlarini yuborish, testlash, hujjatlashtirish va avtomatlashtirish uchun dunyodagi eng mashhur vositadir.
+**Postman** — bu API so'rovlarini yuborish, testlash, hujjatlashtirish va avtomatlashtirish uchun mo'ljallangan qulay platforma.
 
 ---
 
-## 📂 1. Collections (To'plamlar) nima?
+## 1. Collections (To'plamlar) nima?
 
-**Collection** — bu ma'lum bir loyiha yoki modulga tegishli barcha API so'rovlarini papkalar ko'rinishida tartibli saqlash usuli.
+**Collection** — bu ma'lum bir loyiha yoki modulga tegishli barcha API so'rovlarini papkalar ko'rinishida tartibli saqlash usulidir.
 
 Masalan:
 * `Auth API` (Login, Register, Refresh Token)
@@ -17,15 +17,15 @@ Masalan:
 
 ---
 
-## 🌐 2. Environment Variables (Muhit o'zgaruvchilari)
+## 2. Environment Variables (Muhit o'zgaruvchilari)
 
-Bir xil API so'rovlarini har xil serverlarda (`Local`, `Dev`, `Staging`, `Production`) tekshirish uchun o'zgaruvchilardan foydalaniladi.
+Bir xil API so'rovlarini turli muhitlarda (`Local`, `Dev`, `Staging`, `Production`) oson tekshirish uchun o'zgaruvchilardan foydalaniladi.
 
-Masalan, URL manzilini har safar o'zgartirmaslik uchun:
+Masalan, server manzilini bitta joyda o'zgartirish uchun:
 * `{{baseUrl}}` = `https://staging-api.example.com`
 * `{{authToken}}` = `eyJhbGciOiJIUzI1Ni...`
 
-So'rovda foydalanish:
+So'rovda ishlatilishi:
 ```http
 POST {{baseUrl}}/api/v1/orders
 Authorization: Bearer {{authToken}}
@@ -33,7 +33,7 @@ Authorization: Bearer {{authToken}}
 
 ---
 
-## 🧪 3. Postman'da avtomatik testlar yozish
+## 3. Postman'da avtomatik testlar yozish
 
 Postman'ning **Scripts -> Post-response** (yoki **Tests**) bo'limida JavaScript yordamida har bir so'rovdan keyin tekshiruvlar (Assertions) yozish mumkin.
 
@@ -62,7 +62,7 @@ pm.environment.set("authToken", response.token);
 
 ---
 
-## ⚡ 4. Newman orqali CI/CD ga ulash
+## 4. Newman orqali CI/CD ga ulash
 
 Postman to'plamlarini terminalda yurgizish uchun **Newman** konsol vositasi ishlatiladi:
 
@@ -75,5 +75,5 @@ newman run my-collection.json -e my-environment.json
 ```
 
 <Callout type="info">
-  Newman yordamida Postman testlarini GitHub Actions yoki GitLab CI ga ulab, har safar dasturchi kod yuklaganda testlarni avtomatik ishga tushirish mumkin.
+  Newman yordamida Postman testlarini GitHub Actions yoki GitLab CI ga ulab, har safar dasturchi yangi kod yuklaganda testlarni avtomatik ishga tushirish mumkin.
 </Callout>

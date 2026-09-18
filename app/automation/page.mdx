@@ -1,41 +1,41 @@
 import { Callout, Cards } from 'nextra/components'
 
-# 🤖 QA Automation (Avtomatlashtirish) Asoslari
+# QA Automation asoslari
 
-**Test Automation** — bu inson tomonidan qo'lda qayta-qayta bajariladigan test holatlarini maxsus dasturlar va skriptlar yordamida avtomatik ishga tushirish jarayonidir.
+**Test Automation** — bu inson tomonidan qayta-qayta qo'lda bajariladigan test senariylarini maxsus dasturlar va skriptlar yordamida avtomatik ishga tushirish jarayonidir.
 
 ---
 
-## 🎯 Qachon testlarni avtomatlashtirish kerak?
+## Qachon testlarni avtomatlashtirish kerak?
 
-Hamma narsani ham avtomatlashtirish shart emas. Avtomatlashtirish uchun eng mos holatlar:
+Barcha testlarni avtomatlashtirish shart emas. Avtomatlashtirish uchun eng mos holatlar:
 
-1. **Regressiya testlari (Regression Testing):** Har bir yangi relizdan oldin butun tizimni tekshirish qo'lda juda ko'p vaqt oladi.
-2. **Bir xil takrorlanuvchi amallar:** Masalan, har xil ma'lumotlar bilan 500 ta foydalanuvchini ro'yxatdan o'tkazish.
+1. **Regressiya testlari (Regression Testing):** Har bir yangi relizdan oldin asosiy funksiyalarni tekshirish vaqtini qisqartirish.
+2. **Bir xil takrorlanuvchi amallar:** Har xil ma'lumotlar bilan ko'p sonli foydalanuvchilar oqimini sinash.
 3. **Katta hajmdagi ma'lumotlar bilan ishlash (Data-Driven Testing).**
-4. **Yuklama va samaradorlik sinovlari (Performance Testing):** Bir vaqtning o'zida 10 000 ta so'rov yuborishni qo'lda qilib bo'lmaydi.
+4. **Yuklama va samaradorlik sinovlari (Performance Testing):** Bir vaqtning o'zida yuzlab yoki minglab so'rovlar yuborish.
 
 <Callout type="warning">
-  Dizayni va talablari tez-tez o'zgarib turadigan yoki bir martalik tekshiruvlar uchun avtomatlashtirish tavsiya etilmaydi — uni qo'lda (Manual) tekshirish tezroq va arzonroqdir.
+  Dizayni va talablari tez-tez o'zgarib turadigan yoki bir martalik tekshiruvlar uchun avtomatlashtirish tavsiya etilmaydi — uni qo'lda (Manual) tekshirish samaraliroq.
 </Callout>
 
 ---
 
-## ⚔️ Zamonaviy Web UI Freymvorklari
+## Web UI Freymvorklari
 
-Bugungi kunda eng yetakchi 3 ta vosita:
+Bugungi kunda eng keng tarqalgan 3 ta vosita:
 
 | Vosita | Dasturlash tillari | Kuchli tomonlari |
 | :--- | :--- | :--- |
-| **Playwright** (Tavsiya) | TypeScript, JavaScript, Python, C#, Java | Microsoft tomonidan qo'llab-quvvatlanadi, nihoyatda tezkor, ko'p brauzerli, avtomatik kutish (Auto-waiting), Network mock. |
-| **Cypress** | JavaScript, TypeScript | O'rnatish juda oson, brauzer ichida ishlaydi, qulay interfeys va vaqt bo'yicha orqaga qaytish (Time-travel). |
-| **Selenium** | Java, Python, C#, Ruby, JS | Sanoatning eng qadimgi standarti, ulkan hamjamiyat, lekin sekinroq va ko'proq sozlash talab qiladi. |
+| **Playwright** | TypeScript, JavaScript, Python, C#, Java | Tezkor, ko'p brauzerli, avtomatik kutish (Auto-waiting), tarmoq so'rovlarini boshqarish (Network mock). |
+| **Cypress** | JavaScript, TypeScript | O'rnatish oson, brauzer ichida ishlaydi, qulay interfeys va vaqt bo'yicha orqaga qaytish (Time-travel). |
+| **Selenium** | Java, Python, C#, Ruby, JS | Sanoatning eng ko'p yillik standarti, ulkan hamjamiyat va ekotizim. |
 
 ---
 
 <Cards num={1}>
   <Cards.Card
-    title="🎭 Playwright Asoslari"
+    title="Playwright Asoslari"
     href="/automation/playwright"
   >
     Playwright'ni o'rnatish, birinchi avtotestni yozish va Page Object Model (POM).
