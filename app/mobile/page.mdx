@@ -1,0 +1,38 @@
+import { Cards } from 'nextra/components'
+
+# Mobil Ilovalarni Sinash (Mobile App Testing)
+
+Bugungi kunda dunyodagi internet foydalanuvchilarining 60% dan ortig'i veb-sayt va xizmatlardan mobil telefonlar orqali foydalanadi. Mobil ilovalarni sinash (Mobile QA) veb-sinovdan tubdan farq qiladi: bu yerda batareya sarfi, tarmoq o'zgarishi, turli xil ekran o'lchamlari va kutilmagan uzilishlar (interrupts) asosiy o'ringa chiqadi.
+
+---
+
+## Modul mazmuni
+
+<Cards>
+  <Cards.Card
+    title="Mobil Sinov Asoslari"
+    href="/mobile/fundamentals"
+  >
+    Native, Hybrid va Web ilovalar farqi. iOS va Android ekotizimi, qurilmalar fragmentatsiyasi.
+  </Cards.Card>
+  <Cards.Card
+    title="Stsenariylar va Uzilishlar (Interrupts)"
+    href="/mobile/scenarios-and-interrupts"
+  >
+    Qo'ng'iroq kelishi, internet uzilishi, fon rejimi (background), ruxsatnomalar (permissions) va batareya sinovi.
+  </Cards.Card>
+  <Cards.Card
+    title="Asboblar va Proksilar (ADB, Charles)"
+    href="/mobile/tools-and-proxies"
+  >
+    ADB (Android Debug Bridge) buyruqlari, Charles Proxy va Proxyman orqali mobil tarmoq so'rovlarini tahlil qilish.
+  </Cards.Card>
+</Cards>
+
+---
+
+## Mobil sinovning o'ziga xos xususiyatlari
+
+1. **Fragmentatsiya (Qurilmalar xilma-xilligi):** Ayniqsa Android olamida minglab turli brendlar (Samsung, Xiaomi, Vivo), protsessorlar va ekran o'lchamlari mavjud.
+2. **Kutilmagan tashqi ta'sirlar:** Foydalanuvchi to'lov qilayotganda telefoniga qo'ng'iroq kelib qolishi, metroga kirganda internet 4G dan uzilib qolishi yoki batareya 1% qolishi mumkin.
+3. **Yangilanish (Update) muammosi:** Veb-saytdagi xatoni serverda tuzatib darhol yangilash mumkin. Mobil ilovadagi xato esa App Store yoki Google Play moderatsiyasidan o'tishi va foydalanuvchi ilovani o'z telefonida yangilashi kerak — bu bir necha kun yoki haftalar talab qilishi mumkin!

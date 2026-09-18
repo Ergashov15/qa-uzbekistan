@@ -1,0 +1,64 @@
+import { Callout } from 'nextra/components'
+
+# CORS Muammolari va Foydalanish Qulayligi (Accessibility)
+
+Veb loyihalarda eng ko'p asabiylashishga sabab bo'ladigan texnik to'siqlardan biri — bu CORS xatolaridir. Shu bilan birga, saytning barcha toifadagi odamlar uchun qulay bo'lishi (Accessibility) xalqaro darajada sifat ko'rsatkichi sanaladi.
+
+---
+
+## 1. CORS (Cross-Origin Resource Sharing) nima?
+
+**CORS** — bu brauzerning xavfsizlik mexanizmi bo'lib, u bitta domendagi veb-sahifa boshqa domendagi API serverdan ma'lumot olishini nazorat qiladi.
+
+### Origin (Kelib chiqish manzili) nima?
+Origin uch qismdan iborat: **Protokol + Domen + Port**.
+* Masalan: `https://mysite.uz:443`
+
+Agar bittasi farq qilsa ham, brauzer buni "begona manba" (Cross-Origin) deb hisoblaydi:
+* `https://mysite.uz` dan turib `https://api.mysite.uz` ga so'rov yuborilganda domenlar farq qiladi.
+
+```
+[Brauzer: mysite.uz] ────────► [OPTIONS Preflight So'rovi] ────────► [API Server: api.mysite.uz]
+                     ◄──────── [Access-Control-Allow-Origin: *] ───┘ (Server ruxsat berdi)
+                     ────────► [Haqiqiy POST /to'lov So'rovi] ──────►
+```
+
+### QA CORS xatosini qanday taniydi?
+Brauzer konsolida quyidagi qizil xabar chiqadi:
+> *"Access to fetch at 'https://api.domain.com' from origin 'https://app.domain.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."*
+
+**QA tahlili:** Muammo frontendda emas! Backend server o'z javob sarlavhalarida (Headers) frontend manziliga ruxsat beruvchi `Access-Control-Allow-Origin: https://app.domain.com` sarlavhasini qaytarmayapti.
+
+---
+
+## 2. Brauzerlararo moslik (Cross-Browser Testing)
+
+Hamma foydalanuvchilar faqat Google Chrome ishlatmaydi. Dunyodagi uchta asosiy rendering dvigatellari mavjud:
+1. **Blink:** Google Chrome, Microsoft Edge, Brave, Opera.
+2. **WebKit:** Apple Safari (iPhone va Mac).
+3. **Gecko:** Mozilla Firefox.
+
+### Safari ning o'ziga xos muammolari:
+* **`100vh` balandlik xatosi:** Mobil Safari brauzerining pastki navigatsiya paneli sahifaning pastki qismini yopib qo'yishi;
+* **Sana tanlash (Date picker):** HTML5 sana maydonchalari har bir brauzerda butunlay boshqacha render qilinadi;
+* **Keshni qattiq ushlab qolishi:** Safari o'zgartirilgan fayllarni yangilashda ko'proq kechikishi mumkin.
+
+---
+
+## 3. Accessibility (Qulaylik / WCAG) sinovi
+
+**Accessibility (A11y)** — imkoniyati cheklangan (ko'rish qobiliyati zaif, rang ajrata olmaydigan yoki sichqoncha ishlata olmaydigan) insonlar ham saytdan teng foydalana olishini ta'minlashdir.
+
+### QA ning tezkor 3 ta tekshiruvi:
+
+1. **Faqat klaviatura orqali boshqarish (Tab Navigation):**
+   * Sichqonchaga tegmasdan faqat `Tab` va `Enter` orqali butun shaklni to'ldirib, tugmani bosa olasizmi?
+   * Qaysi element tanlangani aniq ko'rinib turibdimi (`focus-visible`)?
+2. **Ranglar kontrasti (Color Contrast):**
+   * Oq fondagi och kulrang matn ko'zi zaif insonlar uchun deyarli ko'rinmaydi. Kontrast nisbati kamida **4.5:1** bo'lishi shart.
+3. **Rasmlar uchun alternativ matn (`alt` attribute):**
+   * Ekranni o'qib beruvchi dasturlar (Screen Readers) rasmda nima borligini aytib berishi uchun har bir rasmda `alt="Mahsulot rasmi"` bo'lishi shart.
+
+<Callout type="info">
+  **Vosita:** Google Chrome DevTools dagi **Lighthouse** bo'limini ochib, bitta tugma bilan saytingizning Accessibility bo'yicha bahosini (0 dan 100 gacha) tekshirishingiz mumkin.
+</Callout>

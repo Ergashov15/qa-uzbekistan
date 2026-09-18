@@ -1,0 +1,41 @@
+import { Cards } from 'nextra/components'
+
+# Agile, DevOps va Reliz Boshqaruvi
+
+Zamonaviy dasturiy ta'minot ishlab chiqishda QA muhandisi o'z qobig'iga o'ralib olgan alohida sinovchi emas — u Agile jamoaning faol a'zosi, CI/CD quvurlarining (pipeline) qo'riqchisi va reliz xatarlarini boshqaruvchi mutaxassisdir.
+
+Ushbu modulda dasturni ishlab chiqishdan to jonli ishlab chiqarish (production) muhitigacha bo'lgan to'liq tsikl va monitoring jarayonlari o'rganiladi.
+
+---
+
+## Modul mazmuni
+
+<Cards>
+  <Cards.Card
+    title="Agile va CI/CD da QA"
+    href="/devops-release/agile-and-cicd"
+  >
+    Scrum marosimlari, Definition of Done (DoD), Shift-Left falsafasi va avtomatlashtirilgan CI/CD sinovlari.
+  </Cards.Card>
+  <Cards.Card
+    title="Bug Triage va Reliz Boshqaruvi"
+    href="/devops-release/bug-triage-and-release"
+  >
+    Triage uchrashuvlari, Go / No-Go reliz qarorini qabul qilish va favqulodda Hotfix jarayoni.
+  </Cards.Card>
+  <Cards.Card
+    title="Production Sinovi va Observability"
+    href="/devops-release/production-and-observability"
+  >
+    Feature Flags, Canary Deployments, xatoliklarni Sentry va Datadog loglari orqali kuzatish.
+  </Cards.Card>
+</Cards>
+
+---
+
+## Zamonaviy QA ning roli
+
+Eski "Waterfall" uslubida dasturchilar 3 oy kod yozib, keyin QA ga "Mana sinab ber" deb tashlab ketishar edi. Zamonaviy Agile va DevOps muhitida:
+* QA har kuni dasturchilar bilan birga ishlaydi;
+* Har bir kod commit qilinganda avtomatik testlar ishga tushadi;
+* Kuniga 10 martalab xavfsiz relizlar (Continuous Deployment) amalga oshiriladi.

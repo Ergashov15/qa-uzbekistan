@@ -1,0 +1,48 @@
+import { Callout } from 'nextra/components'
+
+# OWASP Top 10 — Veb Xavfsizlik Asoslari
+
+**OWASP (Open Worldwide Application Security Project)** — veb-ilovalarning xavfsizligini oshirish bilan shug'ullanuvchi global notijorat tashkilot. Ular har bir necha yilda bir marta dunyo bo'ylab eng ko'p uchraydigan 10 ta eng xavfli kiberxatarlar ro'yxatini e'lon qiladi.
+
+QA muhandisi sifatida ushbu xatarlarni tushunish sizga test caselarni xavfsizlik nuqtai nazaridan to'g'ri loyihalashga yordam beradi.
+
+---
+
+## OWASP Top 10 ro'yxati (Asosiylari)
+
+### 1. Broken Access Control (Kirish huquqining buzilishi)
+Foydalanuvchilar o'zlariga tegishli bo'lmagan amallarni bajarishi yoki begona ma'lumotlarni ko'ra olishi.
+* **Misol (IDOR / BOLA):** Shaxsiy profil havolasidagi raqamni o'zgartirish: `GET /api/user/105` o'rniga `GET /api/user/106` deb yozganda begona foydalanuvchining ma'lumotlari ochilib qolishi.
+* **QA nima qilishi kerak:** Har bir rol (Oddiy foydalanuvchi, Menejer, Admin) faqat o'z huquqi doirasidagi amallarni bajara olishini salbiy testlar (Negative testing) bilan sinash.
+
+---
+
+### 2. Cryptographic Failures (Kriptografik xatoliklar)
+Maxfiy ma'lumotlarning (parollar, karta raqamlari, pasport ma'lumotlari) shifrlanmasdan ochiq matnda saqlanishi yoki uzatilishi.
+* **Misol:** Ma'lumotlar bazasida parollarning `bcrypt` yoki `argon2` kabi kuchli algoritmlar bilan hashlanmay, `123456` holida saqlanishi yoki saytning `HTTP` (shifrlanmagan) orqali ishlashi.
+* **QA nima qilishi kerak:** DevTools Network oynasida parollar yoki to'lov ma'lumotlari uzatilayotgan so'rovlarni va ma'lumotlar bazasini ko'zdan kechirish.
+
+---
+
+### 3. Injection (Kodni kiritib yuborish)
+Tizim foydalanuvchi tomonidan kiritilgan ma'lumotni shunchaki matn deb emas, balki bajarilishi kerak bo'lgan buyruq yoki dasturiy kod deb qabul qilishi.
+* **Turlari:** SQL Injection, Command Injection, LDAP Injection.
+* **Misol:** Qidiruv qatoriga yozilgan SQL kod bazaning butun ma'lumotlarini oshkor qilib yuborishi.
+
+---
+
+### 4. Insecure Design (Xavfsiz bo'lmagan dizayn)
+Arxitektura va loyihalash bosqichidayoq xavfsizlik qoidalariga rioya qilinmaganligi.
+* **Misol:** Parolni tiklash (Forgot Password) jarayonida bitta savol ("Onangizning qizlik familiyasi") berilishi va urinishlar soni cheklanmaganligi (Brute force himoyasi yo'qligi).
+
+---
+
+### 5. Security Misconfiguration (Xavfsizlik konfiguratsiyasidagi nuqsonlar)
+Standart (default) parollarni o'zgartirmaslik, keraksiz ochiq portlar va xatolik matnlarida serverning ichki sirlarini oshkor qilish.
+* **Misol:** Xatolik yuz berganda server foydalanuvchiga butun stack trace (server kataloglari yo'li, baza parollari, kutubxonalar versiyasi)ni ko'rsatib yuborishi (`500 Error` sahifasida).
+
+---
+
+<Callout type="info">
+  **Eslatma:** Har qanday QA muhandisi uchun eng asosiy qoida: **"Foydalanuvchidan kelayotgan hech qanday ma'lumotga ishonmaslik kerak (Never trust user input)".**
+</Callout>

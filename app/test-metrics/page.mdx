@@ -1,0 +1,68 @@
+import { Callout } from 'nextra/components'
+
+# Sifat Metrikalari va Test Qamrovi (Test Metrics & Coverage)
+
+*"O'lchab bo'lmaydigan narsani boshqarib ham bo'lmaydi"* (Lord Kelvin). Sifatni ta'minlashda his-tuyg'ular bilan emas, aniq muhandislik ko'rsatkichlari (metrikalar) bilan gapirish talab etiladi.
+
+---
+
+## 1. Test Coverage va Code Coverage farqi
+
+Yangi boshlovchilar tez-tez bu ikki tushunchani chalkashtirib yuborishadi:
+
+```
+┌────────────────────────────────────────┐     ┌────────────────────────────────────────┐
+│   Code Coverage (Kod qamrovi)          │     │   Test Coverage (Talablar qamrovi)     │
+├────────────────────────────────────────┤     ├────────────────────────────────────────┤
+│ • Dasturchilar testlari (Unit tests)   │     │ • QA testlari (Funksional sinov)       │
+│ • Avtomatik hisoblanadi (Jest/JaCoCo)  │     │ • Qabul mezonlari (AC) bo'yicha        │
+│ • Kodning qaysi qatorlari bajarilgani  │     │ • Tizim barcha biznes talablarni       │
+│   (Line, Branch, Statement coverage)   │     │   qamrab olgan-olmaganligi             │
+└────────────────────────────────────────┘     └────────────────────────────────────────┘
+```
+
+<Callout type="warning">
+  **Katta xato:** 100% Code Coverage dasturda umuman xatolik yo'qligini anglatmaydi! Dasturda kod qatorlari sinovdan o'tgan bo'lishi mumkin, lekin talab qilingan muhim funksiya (masalan, internet uzilgandagi xatti-harakat) umuman yozilmagan bo'lsa, kod qamrovi buni ko'rsata olmaydi.
+</Callout>
+
+---
+
+## 2. Eng muhim QA samaradorlik metrikalari
+
+### 2.1. Defect Removal Efficiency (DRE — Xatolarni yo'qotish samaradorligi)
+QA jamoasi relizgacha bo'lgan davrda barcha xatoliklarning qancha foizini ushlab qola olganini ko'rsatuvchi eng muhim sanoat ko'rsatkichi.
+
+```
+DRE = [Test paytida topilgan buglar / (Testdagi buglar + Productionda mijozlar topgan buglar)] * 100%
+```
+
+* **Standart:** Yuqori darajadagi jamoalarda DRE kamida **90% - 95%** bo'lishi lozim. Agar 100 ta xatodan 95 tasini QA topsa va faqat 5 tasi Productionga chiqib ketsa, bu a'lo natijadir.
+
+---
+
+### 2.2. Defect Density (Nuqsonlar zichligi)
+Har 1,000 qator kodga (KLOC) to'g'ri keladigan xatolar soni:
+
+```
+Defect Density = Topilgan xatoliklar soni / Modul hajmi (KLOC)
+```
+
+* **Amaliy foydasi:** Agar qaysidir modulda nuqsonlar zichligi keskin yuqori bo'lsa (masalan, to'lov modulida 1000 qator kodga 25 ta xato to'g'ri kelsa), demak bu modul arxitekturasi yomon yozilgan va uni qayta yozish (Refactoring) talab etiladi.
+
+---
+
+### 2.3. MTTR va MTTD
+* **MTTD (Mean Time to Detect):** Xatolik yuzaga kelgandan to u aniqlanguncha ketgan o'rtacha vaqt.
+* **MTTR (Mean Time to Resolve):** Kritik xato aniqlangandan to u to'liq tuzatilib, deploy bo'lguncha ketgan o'rtacha vaqt.
+
+---
+
+## 3. Testlarning muvaffaqiyat darajasi (Test Pass Rate)
+
+Sprint yoki reliz davomida yurgizilgan barcha test holatlarining nisbati:
+
+```
+Pass Rate = (Muvaffaqiyatli o'tgan testlar / Barcha yurgizilgan testlar) * 100%
+```
+
+* Odatda relizga chiqish uchun **Pass Rate > 95%** bo'lishi va qolgan 5% faqatgina past jiddiylikdagi (Low severity) kosmetik holatlar bo'lishi shart.

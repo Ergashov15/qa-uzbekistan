@@ -1,0 +1,83 @@
+import { Callout } from 'nextra/components'
+
+# Postman to'plamlarini Newman va CI/CD orqali avtomatlashtirish
+
+Postman grafik interfeysida (GUI) so'rovlarni "Send" tugmasi orqali yurgizish qulay, biroq avtomatlashtirilgan sinovda testlar inson ishtirokisiz, har safar yangi kod yuborilganda terminalda yurgizilishi kerak. Buning uchun **Newman (Postman CLI)** ishlatiladi.
+
+---
+
+## 1. Newman nima va uni o'rnatish
+
+**Newman** — bu Postman kolleksiyalari va atrof-muhit o'zgaruvchilarini to'g'ridan-to'g'ri buyruqlar satrida (Terminal) ishga tushiruvchi Node.js vositasidir.
+
+O'rnatish:
+```bash
+npm install -g newman
+```
+
+Qo'shimcha chiroyli HTML hisobot generatori bilan:
+```bash
+npm install -g newman-reporter-htmlextra
+```
+
+---
+
+## 2. Kolleksiyani eksport qilish va terminalda yurgizish
+
+1. Postman dasturida o'z kolleksiyangiz yonidagi `...` tugmasini bosing va **Export** qiling (masalan, `User_API.postman_collection.json`).
+2. Agar Environment (muhit o'zgaruvchilari) bo'lsa, uni ham eksport qiling (`Staging.postman_environment.json`).
+
+Terminalda testlarni ishga tushirish:
+```bash
+newman run User_API.postman_collection.json -e Staging.postman_environment.json
+```
+
+HTML hisobot bilan yurgizish:
+```bash
+newman run User_API.postman_collection.json -e Staging.postman_environment.json -r cli,htmlextra
+```
+
+---
+
+## 3. GitHub Actions CI/CD ga ulash
+
+Dasturchi yangi kodni GitHub ga yuborganida (Push / Pull Request) Postman testlarini avtomatik yurgizish:
+
+Repozitoriyangizda `.github/workflows/api-tests.yml` faylini yarating:
+
+```yaml
+name: API Regression Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repozitoriyni ko'chirish
+        uses: actions/checkout@v4
+
+      - name: Node.js o'rnatish
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Newman o'rnatish
+        run: npm install -g newman
+
+      - name: API Testlarni ishga tushirish
+        run: |
+          newman run tests/User_API.postman_collection.json \
+            --env-var "baseUrl=https://staging.mysite.uz/api" \
+            --reporters cli
+```
+
+Agar bitta test yiqilsa, GitHub Actions qizil (`FAIL`) ko'rsatadi va xatolik borligini jamoaga darhol xabar qiladi.
+
+<Callout type="info">
+  **Maslahat:** CI/CD da sirlar (API tokenlar va parollar) ni hech qachon ochiq JSON fayl ichida saqlamang. Ularni GitHub Settings -> Secrets bo'limida saqlab, `--env-var "apiToken=${{ secrets.API_TOKEN }}"` ko'rinishida uzating.
+</Callout>

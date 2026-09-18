@@ -1,0 +1,51 @@
+import { Callout } from 'nextra/components'
+
+# Mobil Sinov Stsenariylari va Uzilishlar (Interrupt Testing)
+
+Mobil ilovalar sinovida eng ko'p uchraydigan kutilmagan xatolar foydalanuvchi ilova bilan ishlayotgan paytda smartfonning boshqa funksiyalari aralashganda yuzaga keladi. Ushbu sinov turi **Interrupt Testing (Uzilishlarni sinash)** deb ataladi.
+
+---
+
+## 1. Interrupt Testing (Kutilmagan to'siqlar) cheklisti
+
+Har bir asosiy funksiyani (ayniqsa ro'yxatdan o'tish, ariza to'ldirish yoki to'lov qilish jarayonida) quyidagi holatlarda sinash shart:
+
+### 1.1. Kiruvchi qo'ng'iroq:
+* Foydalanuvchi ma'lumotlarni to'ldirayotganda telefoniga qo'ng'iroq kelishi.
+* **Tekshirish:**
+  1. Qo'ng'iroqni rad qilganda ilova to'xtagan joyidan davom etadimi?
+  2. Qo'ng'iroqni qabul qilib, 1 daqiqa gaplashib qaytganda ilova o'chib qolmaydimi (Crash)? Kiritilgan matnlar saqlanib qolganmi?
+
+### 1.2. Fon rejimi va qayta tiklanish (State Restoration):
+* Ilovani o'rtasida "Home" tugmasi orqali minimallashtirish (background) va boshqa og'ir ilovani (masalan, YouTube yoki kamera) ochish.
+* Oradan 5-10 daqiqa o'tib ilovaga qaytish.
+* **Xavf:** Operatsion tizim operativ xotira (RAM) yetishmagani uchun ilovamizni orqa fonda o'ldirib (kill) qo'yishi mumkin. Ilova qayta ochilganda oq ekran (White screen) bo'lib qolmasligi yoki qulamasligi kerak.
+
+### 1.3. Batareya va xabarnomalar:
+* Batareya 20% yoki 10% qolganda chiquvchi tizim ogohlantirishi ekranni to'sib qo'yganda;
+* Budilnik jiringlaganda yoki favqulodda push-xabarnoma kelganda.
+
+---
+
+## 2. Tarmoq o'zgarishlari (Network Transition Testing)
+
+Mobil qurilmalar doimo harakatda bo'lganligi sababli tarmoq holati tez-tez o'zgaradi:
+
+1. **Wi-Fi dan 4G ga o'tish:** Ofisdan yoki uydan ko'chaga chiqib ketayotgan paytda yuklanayotgan fayl yoki to'lov jarayoni uzilib qolmasligi kerak.
+2. **Internetning butunlay uzilishi (Offline):** Metroga yoki liftga kirganda ("Samolyot rejimi" orqali sinash).
+   * **Noto'g'ri holat:** Cheksiz aylanuvchi doira (Endless loading spinner) yoki dasturning to'satdan yopilib ketishi.
+   * **To'g'ri holat:** *"Internet aloqasi yo'q. Qaytadan urinib ko'ring"* degan aniq xabarnoma va qayta urinish (Retry) tugmasi chiqishi.
+
+---
+
+## 3. Ruxsatnomalar (Permissions Testing)
+
+Ilova birinchi marta o'rnatilganda foydalanuvchidan turli ruxsatlarni so'raydi (Kamera, Geolokatsiya, Kontaktlar, Bildirishnomalar).
+
+QA quyidagi salbiy holatlarni tekshirishi shart:
+* **Foydalanuvchi "Rad etish" (Deny / Don't Allow) tugmasini bosganda:** Dastur darhol qulab tushmasligi kerak. Buning o'rniga: *"Rasmni yuklash uchun kameradan foydalanishga ruxsat berishingiz kerak"* deb sozlamalarga yo'naltiruvchi tushunarli dialog chiqishi lozim.
+* **Sozlamalardan ruxsatni qaytarib olganda:** Agar foydalanuvchi telefon sozlamalariga kirib berilgan ruxsatni o'chirib qo'ysa, dastur buni to'g'ri qabul qilishi kerak.
+
+<Callout type="info">
+  **Eslatma:** Dasturchilar ko'pincha ruxsat berilgan (Happy Path) holatni yaxshi yozishadi, lekin "Rad etish" bosilgandagi holat sinovdan o'tkazilmagan bo'lsa, foydalanuvchi telefonida ilova har safar ochilganda qulab tushadi.
+</Callout>

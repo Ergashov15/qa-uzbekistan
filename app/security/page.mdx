@@ -1,0 +1,34 @@
+import { Cards } from 'nextra/components'
+
+# Xavfsizlikni Sinash (Security Testing)
+
+Xavfsizlik — dasturiy ta'minot sifatining eng nozik va mas'uliyatli sohasidir. Funksional jihatdan mukammal ishlayotgan ilova, agar foydalanuvchilarning shaxsiy ma'lumotlari yoki pullarini himoya qila olmasa, butun biznesni halokatga yetaklashi mumkin.
+
+Bu bo'limda QA muhandisi bilishi shart bo'lgan eng xavfli zaifliklar (vulnerabilities) va ularni aniqlash yo'llari o'rganiladi.
+
+---
+
+## Modul mazmuni
+
+<Cards>
+  <Cards.Card
+    title="OWASP Top 10"
+    href="/security/owasp-top-10"
+  >
+    Veb ilovalardagi eng keng tarqalgan 10 ta kritik xavfsizlik zaifliklari va ularning tahlili.
+  </Cards.Card>
+  <Cards.Card
+    title="Amaliy Zaifliklar (SQLi, XSS, IDOR)"
+    href="/security/qa-vulnerabilities"
+  >
+    QA amaliyotida SQL Injection, XSS va IDOR (BOLA) xatolarini qidirish bo'yicha ko'rsatmalar.
+  </Cards.Card>
+</Cards>
+
+---
+
+## QA nima uchun xavfsizlikni tekshirishi kerak?
+
+1. **Maxsus Security jamoasi barcha kompaniyalarda ham yo'q:** Aksariyat startaplar va o'rta bizneslarda alohida xavfsizlik mutaxassisi (AppSec/Pentester) bo'lmaydi. Dastlabki himoya devori aynan QA hisoblanadi.
+2. **Kritik ma'lumotlar xavfsizligi:** Foydalanuvchilarning parollari, to'lov kartalari yoki shaxsiy yozishmalari sizib chiqishi kompaniya obro'siga tuzatib bo'lmas zarar yetkazadi.
+3. **Shift-Left xavfsizlik (DevSecOps):** Zaifliklarni dastur production muhitiga chiqmasidan oldin, ishlab chiqish va sinov bosqichidayoq aniqlash tuzatish narxini 100 barobargacha kamaytiradi.

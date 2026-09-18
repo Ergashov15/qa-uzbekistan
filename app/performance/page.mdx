@@ -1,0 +1,32 @@
+import { Cards } from 'nextra/components'
+
+# Performance Testing (Samaradorlikni sinash)
+
+Dasturiy ta'minot faqatgina to'g'ri ishlashi (funksionalligi) yetarli emas — u minglab yoki millionlab foydalanuvchilar bir vaqtda kirganda ham tez va barqaror ishlashi lozim. **Performance Testing** tizimning yuklama ostidagi tezligi, javob berish vaqti, o'tkazuvchanligi va resurs sarfini tekshiradi.
+
+---
+
+## Modul mazmuni
+
+<Cards>
+  <Cards.Card
+    title="Turlar va Metrikalar"
+    href="/performance/types-and-metrics"
+  >
+    Load, Stress, Spike va Soak sinovlari. Response time, Latency, Throughput (RPS) va Error rate.
+  </Cards.Card>
+  <Cards.Card
+    title="k6 bilan amaliy sinov"
+    href="/performance/k6-testing"
+  >
+    JavaScript asosidagi zamonaviy k6 vositasi orqali yuklama testlari, Virtual Users (VU) va chegaralar (Thresholds).
+  </Cards.Card>
+</Cards>
+
+---
+
+## Nima uchun Performance Testing muhim?
+
+1. **Amazon tahlili:** Sahifa yuklanishining har 100 millisekundga sekinlashishi kompaniya savdosini 1% ga tushiradi.
+2. **Kutilmagan Black Friday / Aksiyalar:** Yangi yil yoki chegirma kunlarida minglab xaridorlar bir vaqtda to'lov oynasiga kelganda server "qulab tushmasligi" kerak.
+3. **Resurslar sarfi va Cloud xarajatlari:** Optimallashtirilmagan SQL so'rovlar yoki xotira sizib chiqishi (memory leak) AWS/Google Cloud server xarajatlarini asossiz oshirib yuboradi.

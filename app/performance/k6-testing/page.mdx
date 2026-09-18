@@ -1,0 +1,108 @@
+import { Callout } from 'nextra/components'
+
+# k6 bilan Zamonaviy Yuklama Sinovi
+
+**k6** (Grafana Labs tomonidan rivojlantiriladi) — bugungi kunda muhandislar orasida eng mashhur, yengil va zamonaviy ochiq manbali yuklama sinovi vositasidir. U Go tilida yozilgan bo'lib, test skriptlari oddiy JavaScript da tuziladi.
+
+Eski GUI vositalardan (masalan, JMeter) farqli ravishda, k6 to'liq kod orqali (Testing as Code) ishlaydi va Git repozitoriyasida avtotestlar kabi saqlanadi hamda CI/CD ga oson ulanadi.
+
+---
+
+## 1. O'rnatish
+
+Windows foydalanuvchilari uchun `winget` yoki `choco` orqali:
+```bash
+winget install k6 --source winget
+```
+
+Mac yoki Linux foydalanuvchilari uchun:
+```bash
+# macOS
+brew install k6
+
+# Linux (Ubuntu/Debian)
+sudo gpg -k
+sudo gpg --no-default-keyring --keyring /usr/share/keyrings/k6-archive-keyring.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C5AD17C747E3415A3642D57D77C6C491D6AC1D69
+echo "deb [signed-by=/usr/share/keyrings/k6-archive-keyring.gpg] https://dl.k6.io/deb stable main" | sudo tee /etc/apt/sources.list.d/k6.list
+sudo apt-get update
+sudo apt-get install k6
+```
+
+---
+
+## 2. Birinchi oddiy test skripti
+
+Quyidagi faylni `test.js` nomi bilan saqlang:
+
+```javascript
+import http from 'k6/http';
+import { sleep, check } from 'k6';
+
+export const options = {
+  vus: 10,         // 10 ta parallel virtual foydalanuvchi (Virtual Users)
+  duration: '30s', // Test 30 soniya davom etadi
+};
+
+export default function () {
+  // Sinovdan o'tkazilayotgan API endpoint
+  const res = http.get('https://test-api.k6.io/public/crocodiles/');
+
+  // Natijani tekshirish (Assertion)
+  check(res, {
+    'Status 200 bo‘ldi': (r) => r.status === 200,
+    'Javob vaqti < 500ms': (r) => r.timings.duration < 500,
+  });
+
+  // Har bir virtual foydalanuvchi oradagi 1 soniya kutadi (inson xatti-harakati)
+  sleep(1);
+}
+```
+
+Testni yurgizish:
+```bash
+k6 run test.js
+```
+
+---
+
+## 3. Bosqichli yuklama (Ramping Up/Down)
+
+Haqiqiy hayotda 1000 ta odam bir vaqtda 1-millisekundda kirmaydi. Odamlar asta-sekin ko'payadi, cho'qqiga chiqadi va yana kamayadi. Buni `stages` orqali ifodalaymiz:
+
+```javascript
+export const options = {
+  stages: [
+    { duration: '1m', target: 50 },  // 1 daqiqa ichida yuklama 0 dan 50 tagacha oshadi (Ramp-up)
+    { duration: '3m', target: 50 },  // 3 daqiqa davomida 50 ta yuklamada barqaror ushlab turiladi (Plateau)
+    { duration: '1m', target: 200 }, // 1 daqiqada 200 tagacha keskin oshiriladi (Stress)
+    { duration: '1m', target: 0 },   // 1 daqiqada yana 0 gacha tushiriladi (Ramp-down)
+  ],
+};
+```
+
+---
+
+## 4. Qat'iy chegaralar (Thresholds / SLA tekshiruvi)
+
+k6 ning eng kuchli jihati — bu CI/CD da testni o'tkazish yoki yiqitish (`PASS / FAIL`) uchun qoidalar o'rnatishdir:
+
+```javascript
+export const options = {
+  vus: 20,
+  duration: '1m',
+  thresholds: {
+    // 95% so'rovlar 300 millisekunddan tezroq javob berishi shart
+    http_req_duration: ['p(95)<300'],
+    // Xatoliklar soni 1% dan kam bo'lishi shart
+    http_req_failed: ['rate<0.01'],
+  },
+};
+```
+
+Agar server sekinlashib, p95 ko'rsatkichi 300 ms dan oshib ketsa, k6 xatolik kodi bilan to'xtaydi va GitHub Actions dagi deployni avtomatik to'xtatadi.
+
+---
+
+<Callout type="info">
+  **Maslahat:** Performance testlarni o'tkazayotganda doimo orqa fondagi server resurslarini (CPU, RAM, Database Connections) monitoring qilib turing. Ko'pincha API sekinlashishining 70% sababi optimallashtirilmagan ma'lumotlar bazasi so'rovlari bo'ladi.
+</Callout>

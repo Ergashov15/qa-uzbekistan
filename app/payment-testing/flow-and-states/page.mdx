@@ -1,0 +1,59 @@
+import { Callout } from 'nextra/components'
+
+# To'lov Arxitekturasi va Tranzaksiya Holatlari
+
+Onlayn to'lov shunchaki bitta tugmani bosish emas. Orqa fonda bir nechta mustaqil moliyaviy institutlar o'rtasida xavfsiz ma'lumotlar almashinuvi yuz beradi.
+
+---
+
+## 1. To'lov zanjiri ishtirokchilari
+
+```
+[Xaridor] ──► [Bizning Sayt] ──► [To'lov Shlyuzi] ──► [Emitent Bank]
+ (Karta egasi)  (Merchant)       (Payme / Click /       (Kartani chiqargan bank)
+                                  Stripe)
+```
+
+1. **Merchant (Sotuvchi):** Bizning dastur yoki veb-saytimiz.
+2. **Payment Gateway (To'lov shlyuzi):** Karta ma'lumotlarini qabul qilib, ularni shifrlangan holda bank tarmog'iga yo'naltiruvchi tizim (masalan, Stripe, Payme, Click).
+3. **Issuing Bank (Emitent bank):** Xaridorning kartasini chiqargan bank (masalan, Ipak Yo'li, Kapitalbank yoki xorijiy Chase). Aynan shu bankda pul yetarli ekanligi tekshiriladi.
+
+---
+
+## 2. To'lov bosqichlari: Authorization vs Capture
+
+To'lov operatsiyasi aksariyat professional tizimlarda ikki bosqichda amalga oshadi:
+
+```
+[1. AUTHORIZATION] ────────► [2. CAPTURE]
+Mablag' kartada muzlatiladi    Pul sotuvchining hisobiga 
+(bloklanadi), lekin yechilmaydi  haqiqatan o'tkaziladi
+```
+
+### Amaliy misol (Taksi va Mehmonxona):
+* **Uber / Yandex Go:** Safar boshlanganda taxminiy summa (masalan, 30,000 so'm) kartada **muzlatiladi (Authorization)**.
+* Safar muvaffaqiyatli yakunlangach, aniq summa (masalan, 28,000 so'm) **yechib olinadi (Capture)**, qolgan 2,000 so'm blokdan chiqariladi.
+* Agar haydovchi buyurtmani bekor qilsa, summa komissiyasiz darhol **bekor qilinadi (Void)**.
+
+---
+
+## 3. Pulni qaytarish: Void va Refund farqi
+
+Intervyularda va amaliyotda eng ko'p so'raladigan farqlardan biri:
+
+| Xususiyat | Void (Bekor qilish) | Refund (Pulni qaytarish) |
+| :--- | :--- | :--- |
+| **Qachon yuz beradi?** | Tranzaksiya hali bank tomonidan yakunlanmagan (Settlement bo'lmagan) dastlabki bir necha soat ichida. | Pul allaqachon sotuvchining hisobiga o'tib bo'lganidan so'ng (kunlar yoki haftalar o'tgach). |
+| **Mijozga pul tushish tezligi:** | Bir zumda (blokdan yechiladi). Mijoz hisobida hech qanday chiqim ko'rinmaydi. | Bankka qarab 3 kundan 14 ish kunigacha cho'zilishi mumkin. |
+| **Komissiya:** | To'lov shlyuzi tranzaksiya komissiyasini ushlab qolmaydi. | Komissiya sotuvchi hisobidan yo'qotiladi. |
+
+---
+
+## 4. Qisman qaytarish (Partial Refund)
+
+Xaridor 3 ta mahsulot xarid qildi (jami 300,000 so'm). Ulardan bittasini (100,000 so'mlik) qaytarib berdi.
+* **QA tekshiruvi:** Tizim aynan 100,000 so'mni qaytarishi, qolgan 200,000 so'mlik buyurtma holati buzilmasligi va kvitansiya to'g'ri yangilanishi kerak.
+
+<Callout type="info">
+  **Eslatma:** Hech qachon test muhitida haqiqiy bank kartasidan foydalanmang! To'lov shlyuzlari (Stripe, Payme) taqdim etadigan maxsus test karta raqamlari (Test Card Numbers) bilan sinov o'tkazing.
+</Callout>
