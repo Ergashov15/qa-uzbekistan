@@ -1,0 +1,88 @@
+import { Steps, Callout } from 'nextra/components'
+
+# 🎯 QA Engineer Yo'l Xaritasi (Roadmap)
+
+Ushbu yo'l xaritasi yangi boshlovchilar uchun noldan boshlab kuchli **QA Engineer** yoki **SDET (Software Development Engineer in Test)** bo'lishgacha bo'lgan barcha bosqichlarni o'z ichiga oladi.
+
+---
+
+<Steps>
+
+### 1-bosqich: Kompyuter va Internet asoslari
+
+Har qanday testlovchi birinchi navbatda dastur qanday ishlashini tushunishi kerak:
+
+- **Mijoz-Server (Client-Server) arxitekturasi:** Frontend, Backend va Database qanday bog'lanadi?
+- **Internet va Tarmoqlar:** HTTP/HTTPS protokollari, DNS, IP manzillar.
+- **Ma'lumotlar formati:** JSON va XML nima va ularning tuzilishi.
+- **Brauzer DevTools:** Elements, Console, Network (request/response tahlili), Application (Cookie, LocalStorage).
+
+### 2-bosqich: Dasturiy ta'minotni sinash nazariyasi (Manual QA)
+
+Sifatli testlashning asosi mustahkam nazariy bilimlarga tayanadi (ISTQB standartlari):
+
+- **SDLC va STLC:** Dasturiy ta'minotni yaratish va sinash hayotiy sikllari.
+- **Metodologiyalar:** Agile, Scrum, Kanban, Waterfall.
+- **Sinov darajalari:** Unit, Integration, System, Acceptance (UAT).
+- **Sinov turlari:** Funksional (Smoke, Sanity, Regression) va No-funksional (Performance, Security, Usability).
+- **Test dizayn texnikalari:**
+  - Chegaraviy qiymatlarni tahlil qilish (Boundary Value Analysis - BVA)
+  - Ekvivalentlik sinflariga bo'lish (Equivalence Partitioning - EP)
+  - Qarorlar jadvali (Decision Table Testing)
+  - Holatlar o'tishi (State Transition Testing)
+
+### 3-bosqich: Test Hujjatlari va Vazifalarni boshqarish
+
+Professional QA mutaxassisi aniq va tushunarli hujjat yoza olishi shart:
+
+- **Test Case:** Preconditions, Steps, Test Data, Expected vs Actual Result.
+- **Checklist:** Qisqa va tezkor sinov ro'yxatlari.
+- **Bug Report:** Summary, Severity vs Priority, Steps to Reproduce, Logs & Screenshots.
+- **Boshqaruv vositalari:** Jira, Trello, TestRail, ClickUp, Allure TestOps.
+
+### 4-bosqich: Ma'lumotlar bazasi (SQL)
+
+Foydalanuvchi kiritgan ma'lumotlar bazada to'g'ri saqlanayotganini tekshirish:
+
+- **SQL asoslari:** `SELECT`, `WHERE`, `ORDER BY`, `GROUP BY`, `HAVING`.
+- **Jadval birlashtirish:** `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`.
+- **Ma'lumotlarni o'zgartirish:** `INSERT`, `UPDATE`, `DELETE`.
+- **RDBMS vositalari:** PostgreSQL, MySQL, DBeaver.
+
+### 5-bosqich: API Testing (Backend sinovi)
+
+UI hali tayyor bo'lmaganida yoki xatolarni erta aniqlash uchun API testlash o'rganiladi:
+
+- **REST API tamoyillari:** HTTP metodlari (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`).
+- **Status kodlar:** 2xx (Success), 3xx (Redirect), 4xx (Client Error), 5xx (Server Error).
+- **Vositalar:** Postman, Insomnia, Swagger / OpenAPI.
+- **Avtomatlashtirish:** Postman Tests yozish (JavaScript), Environment Variables, Newman orqali terminalda yurgizish.
+
+### 6-bosqich: Testlarni Avtomatlashtirish (QA Automation)
+
+Qayta-qayta bajariladigan regressiya testlarini kod orqali tezlashtirish:
+
+- **Dasturlash tili:** Python yoki TypeScript / JavaScript (yoki Java).
+- **Zamonaviy Web UI freymvorklari:**
+  - **Playwright** (Tavsiya etiladi: tezkor, qulay va ko'p brauzerli)
+  - **Cypress**
+  - **Selenium WebDriver**
+- **API Automation:** Python `pytest` + `requests` yoki TypeScript `axios`/`playwright-api`.
+- **Arxitektura:** Page Object Model (POM) va Clean Code prinsiplari.
+
+### 7-bosqich: CI/CD va DevOps vositalari
+
+Avtotestlarni umumiy dastur yetkazib berish quvuriga (pipeline) ulash:
+
+- **Git & GitHub:** Branching, Pull Requests, Merge.
+- **CI/CD vositalari:** GitHub Actions, GitLab CI, Jenkins.
+- **Konteynerlash:** Docker asoslari (testlarni konteynerda yurgizish).
+- **Hisobotlar:** Allure Report integratsiyasi.
+
+</Steps>
+
+---
+
+<Callout type="info">
+  **Maslahat:** Hammasini bir kunda o'rganishga shoshilmang! Avval Manual QA va API testingni mustahkam qiling, so'ngra Automation bosqichiga o'ting.
+</Callout>
