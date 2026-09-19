@@ -1,0 +1,52 @@
+import { Callout } from 'nextra/components'
+
+# Gibrid SDLC Modeli
+
+**Gibrid model** — ikki yoki undan ortiq SDLC modellarining eng yaxshi xususiyatlarini (ko'pincha Waterfall ning tuzilishi va hujjatlashuvi bilan Agile/Spiral ning iterativ moslashuvchanligini) o'zida mujassamlashtirgan amaliy yondashuvdir.
+
+Zamonaviy korporativ tashkilotlarda (Enterprise) bitta sof modelni qo'llash har doim ham samarali bo'lmaydi. Shu sababli, yuqori darajada qat'iy reja va qoidalarga ega bo'lgan, ammo amalda tezkor o'zgarishlarni talab qiluvchi loyihalarda Gibrid model tanlanadi.
+
+---
+
+## Waterfall va Agile Gibridi (Water-Scrum-Fall)
+
+Eng keng tarqalgan gibrid shakl — bu **Water-Scrum-Fall** deb ataladi:
+
+```mermaid
+flowchart LR
+    subgraph Phase1 ["Boshlang'ich (Waterfall)"]
+        W1["Talablar tahlili\nva Budjet tasdiqlash"]
+        W2["Arxitektura & Dizayn"]
+    end
+
+    subgraph Phase2 ["Rivojlantirish (Agile / Scrum)"]
+        S1["Sprint 1\n(Dev + QA)"] --> S2["Sprint 2\n(Dev + QA)"] --> S3["Sprint N\n(Dev + QA)"]
+    end
+
+    subgraph Phase3 ["Yakuniy (Waterfall / DevOps)"]
+        D1["Yakuniy UAT & Xavfsizlik"]
+        D2["Production ga chiqarish"]
+    end
+
+    Phase1 --> Phase2 --> Phase3
+```
+
+---
+
+## Gibrid Modelning Asosiy Xususiyatlari
+
+1. **Strategik rejalashtirish bosqichi:** Loyihaning umumiy byudjeti, muddatlari va arxitekturaviy asosi klassik tarzda rasmiylashtiriladi.
+2. **Tezkor ishlab chiqish (Sprints):** Kodlash va birlamchi sinovlar 2-3 haftalik iteratsiyalarda (Scrum/Kanban) amalga oshiriladi.
+3. **Qat'iy sifat nazorati:** Chiqarilish (Release) oldidan to'liq regressiya, xavfsizlik va integratsion sinovlar o'tkaziladi.
+
+---
+
+## SDLC Modellari Qiyosiy Matrisasi
+
+| Xususiyat | Waterfall | Spiral | Prototype | V-Model | Gibrid |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Talablar moslashuvchanligi** | Juda past | Yuqori | Juda yuqori | Qat'iy | O'rtacha/Yuqori |
+| **Xatarlarni boshqarish** | Past | Eng yuqori | O'rtacha | O'rtacha | Yuqori |
+| **QA jalb qilinishi** | Eng oxirida | Har bir siklda | O'rtacha | Eng boshidanoq | Doimiy |
+| **Hujjatlashtirish** | To'liq | Yuqori | Kam | Juda yuqori | Balanslangan |
+| **Katta loyihalarga mosligi** | Yo'q | Ha | Yo'q | Ha | Ha |

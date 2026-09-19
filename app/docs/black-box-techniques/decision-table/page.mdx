@@ -1,0 +1,42 @@
+import { Callout } from 'nextra/components'
+
+# Decision Table (Qarorlar Jadvali) Texnikasi
+
+**Decision Table Testing** (Qarorlar jadvali sinovi) — bir nechta kiruvchi shartlar (Conditions) va ularning kombinatsiyasiga bog'liq bo'lgan chiquvchi harakatlar (Actions) mavjud bo'lgan murakkab biznes mantiqini sinash uchun qo'llaniladigan mukammal qora quti texnikasidir.
+
+Tizimda "agar bu bo'lsa va u bo'lsa, unda bu amal bajarilsin" qabilidagi ko'p tarmoqli qoidalar mavjud bo'lganda, qarorlar jadvali birorta ham kombinatsiya nazardan chetda qolmasligini kafolatlaydi.
+
+---
+
+## Qarorlar Jadvali Strukturasi
+
+Qarorlar jadvali 4 ta asosiy qismdan iborat:
+1. **Shartlar (Conditions):** Tizimga kiritiladigan omillar yoki mantiqiy talablar.
+2. **Shart variantlari (Condition Alternatives):** Shartlarning qiymatlari (`Y` / `N` — Ha/Yo'q yoki `True` / `False`).
+3. **Harakatlar (Actions):** Shartlar bajarilganda tizim chiqarishi kerak bo'lgan natijalar.
+4. **Harakat qaydlari (Action Entries):** Qaysi qoidada qaysi harakat bajarilishi (`X` belgisi bilan ko'rsatiladi).
+
+Agar jadvalda `N` ta ikkilik (True/False) shart bo'lsa, jami mumkin bo'lgan qoidalar (ustunlar) soni:
+```text
+Qoidalar soni = 2^N
+```
+
+---
+
+## Amaliy Misol: Bank Krediti Berish Mantiqi
+
+Talab: *Mijozga avtokredit berish uchun uning yoshi kamida 21 da bo'lishi, rasmiy oylik daromadi mavjud bo'lishi va salbiy kredit tarixi (qora ro'yxat) bo'lmasligi lozim.*
+
+Bizda 3 ta shart mavjud (`N = 3` bo'lganda, `2^3 = 8` ta qoida):
+
+| Qismlar | Shartlar / Harakatlar | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 |
+| :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Shart 1** | Yoshi >= 21 | **Y** | **Y** | **Y** | **Y** | **N** | **N** | **N** | **N** |
+| **Shart 2** | Rasmiy daromad bormi? | **Y** | **Y** | **N** | **N** | **Y** | **Y** | **N** | **N** |
+| **Shart 3** | Yaxshi kredit tarixi? | **Y** | **N** | **Y** | **N** | **Y** | **N** | **Y** | **N** |
+| **Harakat 1** | Kredit ajratish | **X** | | | | | | | |
+| **Harakat 2** | Rad etish | | **X** | **X** | **X** | **X** | **X** | **X** | **X** |
+
+<Callout type="info">
+  **Jadvalni optimallashtirish (Qisqartirish):** Agar mijozning yoshi 21 dan kichik bo'lsa (`Shart 1 = N`), uning daromadi yoki kredit tarixi qanday bo'lishidan qat'i nazar kredit rad etiladi. Bunday hollarda Q5, Q6, Q7, Q8 qoidalarini bitta "Yosh yetarli emas -> Rad etish" qoidasiga birlashtirib, test-keyslar sonini kamaytirish mumkin.
+</Callout>

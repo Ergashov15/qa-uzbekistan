@@ -1,0 +1,57 @@
+import { Callout } from 'nextra/components'
+
+# Manual va Automation Testing: Qo'lda va Avtomatlashtirilgan Sinov
+
+Dasturiy ta'minotni sinash amaliyotida eng asosiy bo'linish — bu testlarning inson tomonidan qo'lda bajarilishi yoki maxsus dasturiy skriptlar yordamida avtomatik ishga tushirilishidir.
+
+---
+
+## 1. Manual Testing (Qo'lda Sinash)
+
+**Manual testing** — hech qanday maxsus avtomatlashtirish vositalari yoki test skriptlaridan foydalanmasdan, QA mutaxassisining o'zi dasturiy interfeys bilan bevosita muloqot qilgan holda funksionallikni tekshirish jarayonidir.
+
+### Afzalliklari:
+- **Insoniy omil va vizual baho:** Foydalanuvchi interfeysining qulayligi (UX), shriftlar, ranglar uyg'unligi va dizayn xatolarini faqat inson his qila oladi.
+- **Dastlabki xarajatlarning kamligi:** Maxsus avtomatlashtirish infratuzilmasini sozlash yoki qimmat dasturchi-avtomatizatorlarni jalb qilish talab etilmaydi.
+- **Tadqiqiy sinov (Exploratory Testing):** Kutilmagan g'oyalar, nostandart foydalanuvchi xatti-harakatlarini tezkor sinab ko'rish imkoniyati.
+- **Tez o'zgaruvchan loyihalarda qulaylik:** Interfeys har kuni o'zgarib tursa, skriptlar sinib qoladi, manual test esa zudlik bilan moslashadi.
+
+### Kamchiliklari:
+- Takroriy (regressiya) testlarda inson tez toliqadi va e'tiborsizlik tufayli xatolar o'tkazib yuboriladi.
+- Katta hajmdagi ma'lumotlar va minglab foydalanuvchilar yuklamasini (Load testing) qo'lda sinash jismonan imkonsiz.
+- Sinov tezligi cheklangan.
+
+---
+
+## 2. Automation Testing (Avtomatlashtirilgan Sinov)
+
+**Automation testing** — oldindan yozilgan dasturiy test skriptlari (Playwright, Selenium, Cypress va boshqalar) yordamida test holatlarini inson aralashuvisiz, kompyuter tezligida takroriy ishga tushirish jarayonidir.
+
+### Afzalliklari:
+- **Yuqori tezlik va aniqlik:** Yuzlab test-keyslar bir necha daqiqada inson xatosiz bajariladi.
+- **Muntazam regressiya:** CI/CD konveyerida har bir yangi kod qo'shilganda testlar avtomatik yuguradi.
+- **Keng qamrov:** Bir vaqtning o'zida turli brauzerlar, ekran o'lchamlari va operatsion tizimlarda parallel sinash.
+- **Investitsiya daromadi (ROI):** Uzoq muddatli loyihalarda jamoa vaqtini va kompaniya mablag'ini keskin tejaydi.
+
+### Kamchiliklari:
+- Avtomatlashtirish infratuzilmasi va skriptlarni yozish yuqori dasturlash bilimlarini va katta boshlang'ich vaqtni talab qiladi.
+- Skriptlar faqat qat'iy yozilgan buyruqlarnigina tekshiradi, nostandart xatolarni yoki dizayndagi vizual xunuklikni seza olmaydi.
+- Mahsulot interfeysi o'zgarganda skriptlarni doimiy ravishda yangilab turish (maintenance) shart.
+
+---
+
+## Qiyosiy Solishtirish Jadvali
+
+| Mezon | Manual Testing | Automation Testing |
+| :--- | :--- | :--- |
+| **Ijrochi** | Inson (QA muhandisi) | Dasturiy vosita va skriptlar |
+| **Bajarilish tezligi** | Sekin (inson tezligida) | Juda tez (soniyalar ichida) |
+| **Dastlabki xarajat** | Past | Yuqori |
+| **Uzoq muddatli ROI** | O'rtacha | Juda yuqori |
+| **Regressiya sinovlari** | Qiyin, zerikarli va xatoga moyil | Ideal yechim |
+| **UI/UX qulaylik sinovi** | Zo'r darajada | Deyarli imkonsiz |
+| **Qo'llanish doirasi** | Exploratory, Usability, Ad-hoc | Regression, Load, Sanity, Data-driven |
+
+<Callout type="info">
+  **Oltin qoida:** Dasturiy ta'minot sifatini ta'minlashda bu ikki yo'nalish bir-birini inkor etmaydi, balki to'ldiradi. Mukammal sifatga erishish uchun 100% avtomatlashtirishga urinish xatodir — strategik testlar avtomatlashtiriladi, yangi funksionallik va UX esa manual tekshiriladi.
+</Callout>

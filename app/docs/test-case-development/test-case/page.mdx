@@ -1,0 +1,55 @@
+import { Callout } from 'nextra/components'
+
+# Test Case: Test-keys Tuzilishi va Yozish Qoidalari
+
+**Test Case (Test-keys)** — dasturiy ta'minotning ma'lum bir funksiyasi yoki qoidasi to'g'ri ishlayotganligini tekshirish maqsadida oldindan belgilangan kiruvchi parametrlar (Test Data), boshlang'ich shartlar (Preconditions), bosqichma-bosqich harakatlar (Test Steps) va kutilayotgan natijalar (Expected Result) majmuidir.
+
+Test-keys shunday yozilishi kerakki, loyihaga bugun kelgan har qanday begona mutaxassis ham uni hech qanday ikkilanishsiz bir xil natija bilan bajara olsin.
+
+---
+
+## Test-keysning Majburiy Komponentlari (Atributlari)
+
+| Komponent Nomi | Tavsifi va Namunasi |
+| :--- | :--- |
+| **Test Case ID** | Har bir testning yagona identifikatori (Masalan: `TC_AUTH_001`) |
+| **Test Title / Description** | Sinovning qisqa va lo'nda mazmuni (Masalan: *Yaroqli email va parol orqali tizimga kirish*) |
+| **Preconditions (Boshlang'ich shartlar)** | Testni boshlashdan oldin tizim qanday holatda bo'lishi kerakligi (Masalan: *Foydalanuvchi tizimda ro'yxatdan o'tgan va hisobi faol*) |
+| **Test Steps (Qadamlar)** | Bajariladigan harakatlarning raqamlangan ketma-ketligi (1. Saytga kiring. 2. Loginni kiriting...) |
+| **Test Data (Sinov ma'lumotlari)** | Qadamlarda kiritiladigan aniq qiymatlar (Masalan: `user@example.com`, `P@ssw0rd123`) |
+| **Expected Result (Kutilgan natija)** | Dastur talab bo'yicha qanday javob berishi kerakligi (Masalan: *Dashboard ochiladi va "Xush kelibsiz" xabari ko'rinadi*) |
+| **Actual Result (Amaldagi natija)** | Sinov o'tkazilganda dastur amalda nima natija berganligi |
+| **Status (Holat)** | Natija: `Pass` (Muvaffaqiyatli), `Fail` (Muvaffaqiyatsiz), `Blocked` (Bloklangan) |
+
+---
+
+## Amaliy Test-keys Namunasi
+
+```text
+Test Case ID: TC_LOGIN_001
+Sarlavha: To'g'ri login va parol orqali tizimga muvaffaqiyatli kirish
+Boshlang'ich shart: Foydalanuvchi login sahifasida turibdi (/login).
+
+Qadamlar:
+1. "Email" maydoniga "tester@qa.uz" qiymatini kiriting.
+2. "Parol" maydoniga "SecurePass123!" qiymatini kiriting.
+3. "Kirish" (Sign In) tugmasini bosing.
+
+Kutilgan Natija:
+- Foydalanuvchi "/dashboard" sahifasiga yo'naltiriladi.
+- Yuqori o'ng burchakda profil ismi "Tester" deb ko'rinadi.
+- URL manzili va sahifa holati xatosiz ochiladi.
+
+Amaldagi Natija: Kutilgan natija bilan 100% mos keldi.
+Holati: PASS
+```
+
+---
+
+## Sifatli Test-keys Yozishning 5 Oltin Qoidasi
+
+1. **Bir ma'nolilik:** Noaniq va subyektiv so'zlardan qoching (masalan: *"sahifa tez ochiladi"* o'rniga *"sahifa 2 soniya ichida to'liq yuklanadi"* deb yozing).
+2. **Qayta takrorlanuvchanlik (Repeatable):** Test-keys necha marta ishga tushirilsa ham, bir xil sharoitda bir xil natija berishi shart.
+3. **Mustaqillik:** Bitta test-keysning o'tishi boshqa bir test-keysning natijasiga to'g'ridan-to'g'ri bog'liq bo'lib qolmasligi lozim.
+4. **Ijobiy va salbiy muvozanat:** Faqat to'g'ri yo'lni (Positive) emas, balki xato ma'lumotlar bilan tizim qulamasligini (Negative) ham qamrab oling.
+5. **Eski testlarni yangilab turish (Maintenance):** Talablar o'zgarganda test-keyslar darhol yangilanishi kerak, aks holda ular foydasiz yukka aylanadi.

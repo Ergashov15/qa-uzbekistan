@@ -1,0 +1,39 @@
+import { Callout } from 'nextra/components'
+
+# Severity vs Priority: Jiddiylik va Ustuvorlik
+
+Har qanday loyihada o'nlab yoki yuzlab xatoliklar aniqlanishi mumkin. Biroq dasturchilarning vaqti cheklangan. Shuning uchun qaysi xatolikni birinchi navbatda tuzatish kerakligini belgilash uchun **Severity (Jiddiylik)** va **Priority (Ustuvorlik)** tushunchalari qo'llaniladi.
+
+---
+
+## 1. Severity (Og'irlik / Jiddiylik Darajasi)
+
+**Severity** — aniqlangan nuqsonning dasturiy ta'minotning texnik ishlashiga, arxitekturasiga yoki tizim barqarorligiga ko'rsatadigan **zarari va texnik og'irlik darajasidir**.
+- **Kim belgilaydi?** QA muhandisi (Tester) texnik mezonlarga qarab belgilaydi.
+- **Darajalari:**
+  1. *Blocker / Critical:* Tizim butunlay qulagan, asosiy funksiya ishlamaydi, sinovni davom ettirib bo'lmaydi.
+  2. *Major:* Asosiy biznes funksiyalaridan biri buzilgan, ammo muqobil aylanma yo'l (workaround) mavjud.
+  3. *Minor:* Tizim ishlaydi, kichik mantiqiy yoki vizual noqulayliklar bor.
+  4. *Trivial:* Imlo xatolari, piktogramma qiyshiqligi kabi ahamiyatsiz kamchiliklar.
+
+---
+
+## 2. Priority (Ustuvorlik)
+
+**Priority** — aniqlangan nuqsonni biznes nuqtai nazaridan **qanchalik tez va qaysi ketma-ketlikda tuzatish kerakligini** belgilovchi vaqt ko'rsatkichidir.
+- **Kim belgilaydi?** Mahsulot menejeri (Product Manager), Loyiha rahbari (PM) yoki Biznes vakili belgilaydi.
+- **Darajalari:**
+  1. *High (Yuqori):* Zudlik bilan, keyingi 2-4 soat ichida tuzatilishi shart.
+  2. *Medium (O'rtacha):* Navbatdagi rejaviy yig'ilmada tuzatiladi.
+  3. *Low (Past):* Vaqt ortib qolganda yoki keyingi katta relizlarda ko'rib chiqiladi.
+
+---
+
+## Severity va Priority ning 4 Xil Klassik Kombinatsiyasi
+
+| Kombinatsiya | Tavsifi va Real Misoli |
+| :--- | :--- |
+| **High Severity & High Priority** | *Tizim qulagan va buni darhol tuzatish shart:* Bank ilovasida "To'lash" tugmasi bosilganda ilova qulab tushmoqda yoki foydalanuvchilar balansini ko'ra olmayapti. |
+| **Low Severity & High Priority** | *Texnik jihatdan xavfsiz, ammo biznes uchun sharmandali:* Kompaniya bosh sahifasida brend logotipi o'rnida xato rasm chiqib turibdi yoki prezidentning ismi xato yozilgan. Tizim ishlayapti (Low Severity), ammo obro' uchun zudlik bilan tuzatish shart (High Priority). |
+| **High Severity & Low Priority** | *Texnik jihatdan og'ir fojia, ammo amalda kam uchraydi:* Faqat 2010 yildagi juda eski Windows XP operatsion tizimida dastur to'xtab qolmoqda. Texnik jihatdan bu crash (High Severity), lekin bu tizimdan mijozlarning 0.01% qismi ham foydalanmaydi (Low Priority). |
+| **Low Severity & Low Priority** | *Kichik va shoshilinch bo'lmagan xatolik:* Sahifa eng pastidagi foydalanish shartlari matnida bitta vergul tushib qolgan. |

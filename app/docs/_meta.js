@@ -10,60 +10,70 @@ export default {
     title: 'Asosiy Nazariya'
   },
   fundamentals: {
-    title: '▶️ QA Asoslari'
+    title: '▶️ Sinov Asoslari'
   },
-  manual: {
-    title: '▶️ Manual QA'
+  'sdlc-models': {
+    title: '▶️ SDLC Modellari'
   },
-  '-- types-sep': {
+  'test-types': {
+    title: '▶️ Sinov Turlari'
+  },
+  '-- techniques-sep': {
     type: 'separator',
-    title: 'Sinov Yo\'nalishlari'
+    title: 'Sinov Texnikalari'
   },
-  'web-testing': {
-    title: '▶️ Web Testing'
+  'white-box-techniques': {
+    title: '▶️ Oq Quti Texnikalari'
   },
-  'api-testing': {
-    title: '▶️ API Testing'
+  'black-box-techniques': {
+    title: '▶️ Qora Quti Texnikalari'
   },
-  mobile: {
-    title: '▶️ Mobile QA'
-  },
-  'payment-testing': {
-    title: '▶️ To\'lov Tizimlari'
-  },
-  '-- tech-sep': {
+  '-- levels-sep': {
     type: 'separator',
-    title: 'Muhandislik & Kod'
+    title: 'Darajalar & Turlar'
   },
-  automation: {
-    title: '▶️ QA Automation'
+  'functional-testing': {
+    title: '▶️ Funksional Sinov'
   },
-  performance: {
-    title: '▶️ Performance Testing'
+  'non-functional-testing': {
+    title: '▶️ Nofunksional Sinov'
   },
-  'database-git': {
-    title: '▶️ SQL va Git'
+  'other-testing-types': {
+    title: '▶️ Qo\'shimcha Sinov Turlari'
   },
-  '-- cert-sep': {
+  '-- management-sep': {
     type: 'separator',
-    title: 'Standartlar & Karyera'
+    title: 'Hujjatlar & Boshqaruv'
   },
-  'test-metrics': {
-    title: '▶️ Sifat Metrikalari'
+  'test-case-development': {
+    title: '▶️ Test-keys va Hujjatlar'
   },
-  istqb: {
-    title: '▶️ ISTQB CTFL'
+  'test-management': {
+    title: '▶️ Sinov Boshqaruvi (RTM & Plan)'
   },
-  career: {
-    title: '▶️ Karyera va Portfolio'
+  'defect-tracking': {
+    title: '▶️ Nuqsonlar (Defect Tracking)'
   },
-  security: {
-    display: 'hidden'
+  '-- tools-sep': {
+    type: 'separator',
+    title: 'Sinov Asboblari'
   },
-  'devops-release': {
-    display: 'hidden'
+  'testing-tools': {
+    title: '▶️ Sinov Vositalari'
   },
-  'ai-testing': {
-    display: 'hidden'
-  }
+  // Qo'shimcha amaliy yo'nalishlar (sidebar xotirjamligi uchun yashirilgan)
+  manual: { display: 'hidden' },
+  'web-testing': { display: 'hidden' },
+  'api-testing': { display: 'hidden' },
+  mobile: { display: 'hidden' },
+  'payment-testing': { display: 'hidden' },
+  automation: { display: 'hidden' },
+  performance: { display: 'hidden' },
+  'database-git': { display: 'hidden' },
+  'test-metrics': { display: 'hidden' },
+  istqb: { display: 'hidden' },
+  career: { display: 'hidden' },
+  security: { display: 'hidden' },
+  'devops-release': { display: 'hidden' },
+  'ai-testing': { display: 'hidden' }
 }

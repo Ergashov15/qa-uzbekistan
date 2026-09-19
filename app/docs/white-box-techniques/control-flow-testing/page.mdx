@@ -1,0 +1,56 @@
+import { Callout } from 'nextra/components'
+
+# Control Flow Testing: Boshqaruv Oqimi Sinovi
+
+**Control Flow Testing** — dasturiy modulning bajarilish mantiqini yo'naltirilgan grafik (Control Flow Graph — CFG) shaklida tasvirlash va ushbu grafik orqali dasturdagi barcha mustaqil yo'llarni (Independent Paths) aniqlashga asoslangan strukturaviy oq quti uslubidir.
+
+---
+
+## 1. Boshqaruv Grafigi (CFG) Elementlari
+
+Boshqaruv grafigida dastur mantiqi quyidagi ikkita asosiy element orqali ifodalanadi:
+- **Tugunlar (Nodes):** Dasturning ketma-ket bajariladigan operatorlar guruhi yoki shartli qaror qabul qiluvchi nuqtalari.
+- **Qirralar (Edges / Qovurg'alar):** Bajarilish oqimining bir tugundan ikkinchisiga o'tish yo'nalishi (strelkalar).
+
+---
+
+## 2. Mak-Keybning Siklomatik Murakkabligi (Cyclomatic Complexity)
+
+Tomas Mak-Keyb (Thomas J. McCabe) tomonidan 1976 yilda taklif etilgan ushbu metrika dastur kodining mantiqiy murakkabligini va barcha mustaqil yo'llarni sinash uchun **eng kamida nechta test-keys kerakligini** aniq matematik hisoblab beradi.
+
+### Siklomatik Murakkablikni Hisoblashning 3 Xil Yo'li:
+
+1. **Qirralar va Tugunlar bo'yicha:**
+   ```text
+   V(G) = E - N + 2P
+   ```
+   *bu yerda:*
+   - `E` — Grafikdagi qirralar (yo'nalishlar) soni;
+   - `N` — Grafikdagi tugunlar soni;
+   - `P` — Bog'langan komponentlar soni (bitta funksiya uchun `P = 1`).
+
+2. **Yopiq sohalar (Regions) bo'yicha:**
+   ```text
+   V(G) = Yopiq sohalar soni + 1
+   ```
+
+3. **Predikatli tugunlar (Predicate Nodes) bo'yicha:**
+   ```text
+   V(G) = Shartli tugunlar soni + 1
+   ```
+   *bu yerda:* shartli qaror qabul qiluvchi (`if`, `while`, `for`) tugunlar soni.
+
+---
+
+## Murakkablik Darajasining Baholanishi
+
+| Siklomatik Murakkablik V(G) | Xatarlilik Darajasi | Sinovdan O'tkazish Osonligi |
+| :--- | :--- | :--- |
+| **1 — 10** | Oddiy, xavf darajasi past | Sinash juda oson, barqaror kod |
+| **11 — 20** | O'rtacha murakkab | Sinash mumkin, ehtiyotkorlik talab etiladi |
+| **21 — 50** | Yuqori murakkablik | Sinash juda qiyin, refaktoring talab etiladi |
+| **> 50** | O'ta xatarli, boshqarib bo'lmas | Kodni alohida modullarga ajratish shart! |
+
+<Callout type="info">
+  **Amaliy foydasi:** Agar funksiyaning siklomatik murakkabligi `V(G) = 4` chiqsa, bu mazkur funksiyadagi barcha mustaqil mantiqiy yo'llarni 100% sinash uchun aynan 4 ta mustaqil test-keys yozilishi shartligini bildiradi.
+</Callout>

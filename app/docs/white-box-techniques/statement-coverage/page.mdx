@@ -1,0 +1,51 @@
+import { Callout } from 'nextra/components'
+
+# Statement Coverage (Operatorlar Qamrovi)
+
+**Statement Coverage** (shuningdek, *Line Coverage* deb ataladi) — dasturning manba kodidagi har bir bajariluvchi operator (statement / satr) sinov jarayonida kamida bir marta ishga tushirilganligini ta'minlovchi oq quti sinov texnikasidir.
+
+Bu metrika kodning qaysi qismlari sinovlar tomonidan umuman tekshirilmaganligini aniqlashga xizmat qiladi.
+
+---
+
+## Hisoblash Formulasi
+
+```text
+Statement Coverage = (Bajarilgan operatorlar soni / Jami bajariluvchi operatorlar soni) * 100%
+```
+
+---
+
+## Amaliy Kod Misoli
+
+Quyidagi sodda dasturiy funksiyani ko'rib chiqaylik:
+
+```javascript
+function checkDiscount(totalAmount, isVip) {
+  let discount = 0; // Satr 1
+  if (totalAmount > 100 && isVip) { // Satr 2
+    discount = 20; // Satr 3
+  }
+  return discount; // Satr 4
+}
+```
+
+### Sinov Holati 1 (100% Statement Coverage ga erishish):
+- **Kiruvchi parametrlar:** `totalAmount = 150`, `isVip = true`
+- **Bajarilish yo'li:** Satr 1 -> Satr 2 -> Satr 3 -> Satr 4.
+- **Natija:** Barcha 4 ta satr to'liq bajarildi.
+- **Operatorlar qamrovi:** `(4 / 4) * 100% = 100%`.
+
+---
+
+## Statement Coverage Cheklovi: Nega 100% Yetarli Emas?
+
+Ko'plab yangi boshlovchilar 100% Statement Coverage ga erishilsa, dasturda xato qolmaydi deb yanglishadilar.
+
+Yuqoridagi misolda faqat bitta test o'tkazilganda barcha satrlar ishladi. Biroq, `totalAmount = 50` yoki `isVip = false` bo'lgan holat (ya'ni `if` shartining `False` bo'lish tarmog'i) alohida sinab ko'rilmadi.
+
+Agar `isVip` o'zgaruvchisi `null` bo'lganda nima yuz berishi tekshirilmadi.
+
+<Callout type="warning">
+  **Xulosa:** Statement Coverage — eng oddiy va birlamchi oq quti ko'rsatkichidir. U kodning "o'lik" (ishlamaydigan) qismlarini aniqlashda juda foydali, ammo mantiqiy xatolarni to'liq kafolatlay olmaydi. Shu sababli u Branch Coverage bilan birga qo'llanilishi shart.
+</Callout>

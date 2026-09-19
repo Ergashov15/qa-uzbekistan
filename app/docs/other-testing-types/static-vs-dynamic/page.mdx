@@ -1,0 +1,44 @@
+import { Callout } from 'nextra/components'
+
+# Static Testing va Dynamic Testing: Farqlari
+
+Dasturiy ta'minot sifatini ta'minlash faqat dastur kodini ishga tushirib sinash bilangina cheklanmaydi. Dasturiy ta'minotni sinashning ikki asosiy fundamental shakli mavjud: **Static Testing (Statik sinov)** va **Dynamic Testing (Dinamik sinov)**.
+
+---
+
+## 1. Static Testing (Statik Sinov)
+
+**Static Testing** — dastur kodini **ishga tushirmasdan (bajarilmasdan)** turib, dasturiy hujjatlarni, arxitektura chizmalarini va manba kodini tekshirish, tahlil qilish va baholash jarayonidir.
+
+### Statik Sinovning Asosiy Turlari:
+- **Ko'rib chiqishlar (Reviews):**
+  - *Informal Review:* Norasmiy ravishda hamkasbga hujjatni ko'rsatib fikr olish.
+  - *Walkthrough:* Muallif jamoaga o'z hujjati yoki kodini qadamma-qadam tushuntirib berishi.
+  - *Peer Review / Code Review:* Dasturchilar bir-birlarining yozgan kodlarini qat'iy tahlil qilishi.
+  - *Inspection (Inspeksiya):* Qat'iy rasmiy qoidalar va moderator ishtirokidagi eng yuqori darajadagi ko'rik.
+- **Statik Kod Tahlili (Static Code Analysis):** Avtomatik tahlil vositalari (masalan: *SonarQube*, *ESLint*) yordamida sintaksis xatolari, xavfsizlik zaifliklari va o'lik kodlarni aniqlash.
+
+---
+
+## 2. Dynamic Testing (Dinamik Sinov)
+
+**Dynamic Testing** — dasturiy ta'minotni **haqiqiy server yoki kompyuter xotirasida ishga tushirgan (ijro etgan)** holda, unga real kiruvchi parametrlarni berish va chiquvchi natijalarni kutilgan natijalar bilan solishtirish jarayonidir.
+
+- Dynamic testing har doim dasturning ishlab turgan holatini talab qiladi.
+- Barcha Birlik (Unit), Integratsion, Tizimli va Qabul (UAT) sinovlari dinamik sinov hisoblanadi.
+
+---
+
+## Qiyosiy Solishtirish
+
+| Mezon | Static Testing | Dynamic Testing |
+| :--- | :--- | :--- |
+| **Kodni ishga tushirish** | Talab qilinmaydi (kod yurgizilmaydi) | **Majburiy** (kod kompyuterda ishga tushadi) |
+| **Qachon o'tkaziladi?** | Dasturlashdan oldin va kod yozish jarayonida | Kod to'liq kompilyatsiya qilingandan so'ng |
+| **Nima topiladi?** | Xatoliklarning ildiz sababi (*Root Cause / Defect*) | Xatoliklar oqibati (*Failures*) |
+| **Xarajat** | Xatoliklarni yo'qotish juda arzon | Xatoliklarni tuzatish nisbatan qimmat |
+| **Qamrovi** | Talablar (SRS), Arxitektura, Dastur kodi | Faqat ishlayotgan dasturiy modul |
+
+<Callout type="info">
+  **Erta sinash kuchi:** Dasturiy nuqsonlarning qariyb 50% qismi aynan talablar va spetsifikatsiyalardagi noaniqliklar oqibatida kelib chiqadi. Statik sinov ushbu xatolarni dasturchi kod yozishni boshlamasidanoq yo'q qilish imkonini beradi.
+</Callout>

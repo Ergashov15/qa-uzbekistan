@@ -1,0 +1,44 @@
+import { Callout } from 'nextra/components'
+
+# White Box (Oq Quti) Sinovi
+
+**White Box Testing** (shuningdek, *Shaffof quti*, *Shisha quti* yoki *Strukturaviy sinov* deb ham ataladi) — dasturiy ta'minotning ichki kod tuzilishi, mantiqiy tarmoqlari, algoritmlari va ma'lumotlar oqimini to'liq bilgan va ko'rgan holda sinash uslubidir.
+
+Oq quti sinovida sinovchi faqat "tizim nima qiladi?" deb emas, balki "kod ichkarida qanday ishlayapti va qaysi qatorlar bajarilmoqda?" degan savolga javob izlaydi.
+
+---
+
+## Oq Quti Sinovining Asosiy Mohiyati
+
+```mermaid
+flowchart LR
+    In["Kiruvchi parametrlar"] --> CodeBox["KODNING ICHKI TUZILISHI\n(Funksiyalar, Sikllar, Shartlar: if-else)"]
+    CodeBox --> Out["Natija va Kod Qamrovi"]
+```
+
+Ushbu uslubda dasturning manba kodi ochiq bo'ladi va sinovchi quyidagilarni tekshiradi:
+- Kodning har bir operatori (statement) bajariladimi?
+- Mantiqiy shartlarning `True` va `False` tarmoqlari to'g'ri ishlaydimi?
+- Cheksiz sikllar yoki bajarilmaydigan "o'lik kodlar" (dead code) bormi?
+- O'zgaruvchilar to'g'ri e'lon qilingan va xotiradan o'z vaqtida tozalanadimi?
+
+---
+
+## Kimlar Bajaradi?
+
+Oq quti sinovini asosan **Dasturchilar (Software Developers)** va chuqur texnik bilimga ega bo'lgan **SDET (Software Development Engineer in Test)** muhandislari bajaradilar.
+
+Chunki bu uslubni qo'llash uchun quyidagi ko'nikmalar talab etiladi:
+- Manba kodini mukammal o'qiy olish va tahlil qilish (Java, Python, TypeScript, C++ va h.k.).
+- Dasturiy arxitektura va ma'lumotlar tuzilmalarini tushunish.
+- Birlik sinov (Unit Testing) freymvorklaridan (JUnit, PyTest, Jest) foydalana olish.
+
+---
+
+## Afzalliklari va Kamchiliklari
+
+| Afzalliklari | Kamchiliklari |
+| :--- | :--- |
+| **Erta va chuqur optimizatsiya:** Kodning ichki xatolari, xotira sizib chiqishi (memory leak) va samarasiz algoritmlar erta aniqlanadi | Juda qimmat va mutaxassislardan yuqori dasturlash bilimini talab qiladi |
+| Yashirin xatoliklar va o'lik kodlarni yo'qotish orqali tizim ixchamlashadi | Sinov kodi hajmi asosiy dastur kodi hajmidan oshib ketishi mumkin |
+| Kod qamrovini (Code Coverage) 100% aniqlikda o'lchash imkoniyati | Tizimning biznes talablarga to'g'ri kelishini (foydalanuvchi ko'zi bilan) kafolatlamaydi |
