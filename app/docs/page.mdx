@@ -1,154 +1,76 @@
-import { Tabs, Cards, Callout } from 'nextra/components'
+import { Cards, Callout } from 'nextra/components'
 
 # Dasturiy Ta'minotni Sinash (QA) Qo'llanmalari
 
-Dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasiga oid barcha fundamental nazariy bilimlar, texnikalar, standartlar va amaliy asboblar to'plami.
+Dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasiga oid barcha fundamental nazariy bilimlar, hayotiy sikllar, sinov darajalari va metodologiyalar to'plami.
 
-Ushbu ta'lim dasturi xalqaro **TpointTech Software Testing Tutorial** hamda **ISTQB (International Software Testing Qualifications Board)** standartlariga qat'iy asoslangan holda, sof adabiy o'zbek tilida bayon etilgan.
+Ushbu o'quv dasturi xalqaro **TpointTech Software Testing Tutorial** hamda **ISTQB** standartlari asosida to'liq adabiy o'zbek tilida bayon etilgan.
 
 ---
 
-<Tabs items={['Nazariya & Modellar', 'Sinov Texnikalari', 'Darajalar & Turlar', 'Hujjatlar & Boshqaruv', 'Sinov Vositalari']}>
+## Software Testing O'quv Dasturi
 
-<Tabs.Tab>
-### Asosiy Nazariya va SDLC Modellari
-
-Dasturiy ta'minotni sinashning bosh tamoyillari, hayotiy sikllar va ishlab chiqish modellari.
+Quyidagi 10 ta asosiy bo'lim orqali dasturiy ta'minotni sinashning barcha poydevor tushunchalarini o'rganishingiz mumkin:
 
 <Cards num={2}>
   <Cards.Card
-    title="▶️ Sinov Asoslari (Fundamentals)"
-    href="/docs/fundamentals"
+    title="▶️ 1. Software Testing Tutorial"
+    href="/docs/software-testing/software-testing-tutorial"
   >
-    Sinov mohiyati, 7 ta oltin tamoyil, SDLC va STLC hayotiy sikllari, Error/Defect/Failure hamda TMM modeli.
+    Dasturiy sinovning mohiyati, ahamiyati, biznesdagi o'rni va asosiy sifat atributlari.
   </Cards.Card>
   <Cards.Card
-    title="▶️ SDLC Modellari"
-    href="/docs/sdlc-models"
+    title="▶️ 2. Software Testing Principles"
+    href="/docs/software-testing/software-testing-principles"
   >
-    Waterfall, Spiral, Prototype, V-Model (Verification & Validation) va Gibrid ishlab chiqish modellari.
+    Sinovning 7 ta oltin tamoyili: nuqsonlar borligi, to'liq sinovning imkonsizligi va pestitsid paradoksi.
   </Cards.Card>
   <Cards.Card
-    title="▶️ Sinov Turlari & Manual QA"
-    href="/docs/test-types"
+    title="▶️ 3. Software Development Life Cycle (SDLC)"
+    href="/docs/software-testing/software-development-life-cycle"
   >
-    Manual va Avtomatlashtirilgan sinov farqlari, Oq quti (White Box), Qora quti (Black Box) va Kulrang quti (Grey Box).
+    Dasturiy mahsulot ishlab chiqish hayotiy siklining barcha 6 bosqichi va ularning natijalari.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ 4. Software Testing Life Cycle (STLC)"
+    href="/docs/software-testing/software-testing-life-cycle"
+  >
+    Sinov hayotiy sikli, kirish va chiqish mezonlari hamda bosqichma-bosqich sinov faoliyati.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ 5. Types of Software Testing"
+    href="/docs/software-testing/types-of-software-testing"
+  >
+    Dasturiy sinov turlarining to'liq tasnifi: Manual vs Automation, Funksional va Nofunksional sinovlar.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ 6. Levels of Testing"
+    href="/docs/software-testing/levels-of-testing"
+  >
+    Sinov darajalari piramidasi: Unit, Integration (Stubs/Drivers), System va Acceptance (Alpha/Beta).
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ 7. Test Maturity Model (TMM)"
+    href="/docs/software-testing/test-maturity-model"
+  >
+    Tashkilotning sinov jarayonlari yetukligini baholovchi 5 darajali xalqaro TMM modeli.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ 8. API Testing Tutorial"
+    href="/docs/software-testing/api-testing-tutorial"
+  >
+    Dasturiy interfeyslarni (API) sinash asoslari: HTTP metodlari, status kodlari va JSON validatsiyasi.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ 9. Acceptance Test Driven Development (ATDD)"
+    href="/docs/software-testing/acceptance-test-driven-development"
+  >
+    Qabul sinovlariga asoslangan dasturlash, "Uch Do'st" (The Three Amigos) va 4D rivojlanish sikli.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ 10. Methodological Types"
+    href="/docs/software-testing/methodological-types"
+  >
+    Sinov va tadqiqot metodologiyalari turlari: Miqdoriy, Sifat, Agile, V-Model va Risk-based yondashuvlar.
   </Cards.Card>
 </Cards>
-</Tabs.Tab>
-
-<Tabs.Tab>
-### Sinov Texnikalari (Test Design Techniques)
-
-Minimal testlar soni bilan maksimal xatoliklarni aniqlash imkonini beruvchi matematik va mantiqiy usullar.
-
-<Cards num={2}>
-  <Cards.Card
-    title="▶️ Oq Quti Texnikalari (White Box)"
-    href="/docs/white-box-techniques"
-  >
-    Statement Coverage, Branch & Decision Coverage, Control Flow (CFG, Siklomatik murakkablik) va Data Flow testing.
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Qora Quti Texnikalari (Black Box)"
-    href="/docs/black-box-techniques"
-  >
-    Boundary Value Analysis (BVA), Equivalence Partitioning (EP), Decision Table, State Transition, Cause-Effect va Use Case.
-  </Cards.Card>
-</Cards>
-</Tabs.Tab>
-
-<Tabs.Tab>
-### Sinov Darajalari va Maxsus Turlar
-
-Piramida bo'yicha birlik sinovidan to qabul sinovigacha bo'lgan darajalar hamda nofunksional yo'nalishlar.
-
-<Cards num={2}>
-  <Cards.Card
-    title="▶️ Funksional Sinov Darajalari"
-    href="/docs/functional-testing"
-  >
-    Unit Testing (Mock/Stub), Integration Testing (Top-Down, Bottom-Up, Stubs/Drivers), System Testing va Acceptance (Alpha/Beta).
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Nofunksional Sinov"
-    href="/docs/non-functional-testing"
-  >
-    Performance (Load, Stress, Spike, Soak), Usability (UX qoidalari), Compatibility (Kross-brauzer) va GUI testing.
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Qo'shimcha Maxsus Sinov Turlari"
-    href="/docs/other-testing-types"
-  >
-    Smoke vs Sanity, Regression vs Retesting, Static vs Dynamic, Exploratory, Database (ACID) va Agile Testing.
-  </Cards.Card>
-</Cards>
-</Tabs.Tab>
-
-<Tabs.Tab>
-### Test Hujjatlari va Sifat Boshqaruvi
-
-Professional QA jamoasining rasmiy hujjatlar arxitekturasi, xatoliklarni kuzatish va nazorat qilish.
-
-<Cards num={2}>
-  <Cards.Card
-    title="▶️ Test-keys va Hujjatlar"
-    href="/docs/test-case-development"
-  >
-    Testing Documentation majmuasi, Test Scenario tuzish qoidalari va sifatli Test Case atributlari.
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Sinov Boshqaruvi (Test Management)"
-    href="/docs/test-management"
-  >
-    Test Plan (IEEE 829 standarti), Test Strategy, Test Case Review jarayoni va Talablar Kuzatuvchanligi Matrisasi (RTM).
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Nuqsonlar va Bug Life Cycle"
-    href="/docs/defect-tracking"
-  >
-    Xatolik hayot sikli (barcha holatlar), Severity vs Priority matrisasi, Test Environment va Bug Triage yig'ilishlari.
-  </Cards.Card>
-</Cards>
-</Tabs.Tab>
-
-<Tabs.Tab>
-### Sinov Vositalari va Asboblari
-
-Zamonaviy QA muhandislari qo'llaydigan professional dasturlar ekotizimi va qiyosiy tahlili.
-
-<Cards num={2}>
-  <Cards.Card
-    title="▶️ Test Boshqaruv Tizimlari"
-    href="/docs/testing-tools/test-management-tools"
-  >
-    TestRail, Jira Xray, Zephyr va zamonaviy test bazasini yuritish platformalari.
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Bug Tracking Vositalari"
-    href="/docs/testing-tools/defect-tracking-tools"
-  >
-    Atlassian Jira, Bugzilla, MantisBT va professional bug report tuzish talablari.
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Avtomatlashtirish Vositalari"
-    href="/docs/testing-tools/automation-tools"
-  >
-    Playwright, Selenium WebDriver va Cypress imkoniyatlari hamda qiyosiy matrisasi.
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ Yuklama Sinov Vositalari"
-    href="/docs/testing-tools/performance-tools"
-  >
-    Apache JMeter va Grafana k6 vositalarining ishlash mexanizmi va server yuklamasi.
-  </Cards.Card>
-  <Cards.Card
-    title="▶️ API Sinov Vositalari"
-    href="/docs/testing-tools/api-tools"
-  >
-    Postman, Newman, Rest-Assured orqali REST API larni sinash va CI/CD ga ulash.
-  </Cards.Card>
-</Cards>
-</Tabs.Tab>
-
-</Tabs>

@@ -1,0 +1,49 @@
+import { Callout } from 'nextra/components'
+
+# Test Maturity Model (TMM): Test Yetuklik Modeli
+
+Har bir IT tashkilotida sinov jarayonining sifat darajasi turlicha bo'ladi: ayrim kompaniyalarda sinov tartibsiz va rejasiz amalga oshirilsa, yetakchi korporatsiyalarda sinov aniq metrikalar va avtomatlashtirilgan profilaktika tizimiga asoslanadi.
+
+**Test Maturity Model (TMM)** — tashkilotning dasturiy ta'minotni sinash jarayonlari qanchalik etuk, samarali va bashorat qilinadigan ekanligini baholovchi hamda ularni bosqichma-bosqich yuksaltirishga xizmat qiluvchi 5 darajali xalqaro modeldir.
+
+---
+
+## TMM Yetuklik Darajalari Zinapoyasi
+
+```mermaid
+flowchart TD
+    L1["1-Daraja: Boshlang'ich (Initial)\nXaotik, rejasiz sinov, hujjatlar yo'q"] --> L2["2-Daraja: Belgilangan (Definition)\nSinov alohida jarayon, test rejalari mavjud"]
+    L2 --> L3["3-Daraja: Integratsiyalashgan (Integration)\nSDLC bilan uzviy bog'liq, mustaqil QA jamoasi"]
+    L3 --> L4["4-Daraja: O'lchanadigan (Management & Measurement)\nMetrikalar, sifat monitoringi va ko'riklar"]
+    L4 --> L5["5-Daraja: Takomillashtirilgan (Optimization)\nNuqsonlar profilaktikasi, avtomatlashtirish, sifat madaniyati"]
+```
+
+---
+
+## TMM ning 5 Bosqichi Tafsiloti
+
+### 1-Daraja: Boshlang'ich Bosqich (Initial)
+- **Xususiyati:** Sinov jarayoni xaotik, rejasiz va butunlay tizimsiz xarakterga ega.
+- **Kamchiligi:** Aniq test rejasi, test-keyslar yoki sifat mezonlari mavjud emas. Sinov faqat kod yozib bo'lingandan so'ng dasturning umumiy ishlashini yuzaki ko'rish bilan cheklanadi.
+- **Maqsad:** Faqat dasturning ishlayotganini isbotlash.
+
+### 2-Daraja: Belgilangan Bosqich (Definition / Phase Definition)
+- **Xususiyati:** Sinov dasturlashdan alohida mustaqil muhandislik bosqichi sifatida tan olinadi.
+- **Yutuqlari:** Asosiy Test Plan tuziladi, sinov maqsadlari belgilanadi va test-keyslar yozila boshlaydi.
+- **Kamchiligi:** Sinov hali ham reaktiv bo'lib, faqat kod tayyor bo'lgandan keyin (kechikib) boshlanadi.
+
+### 3-Daraja: Integratsiyalashgan Bosqich (Integration)
+- **Xususiyati:** Sinov butun SDLC davomida parallel ravishda olib boriladi (Erta sinash tamoyili).
+- **Yutuqlari:** Tashkilotda professional, mustaqil QA bo'limi tashkil qilinadi. Talablar tahlili va dizayn hujjatlari ham tekshiruvdan (Verification & Reviews) o'tadi.
+
+### 4-Daraja: Boshqariladigan va O'lchanadigan Bosqich (Management and Measurement)
+- **Xususiyati:** Sinov jarayoni aniq sonli metrikalar (Metrics) yordamida o'lchanadi va boshqariladi.
+- **Yutuqlari:** Defektlar zichligi (Defect Density), test qamrovi foizi, sinov tezligi va DRE (Defect Removal Efficiency) metrikalari monitoring qilinadi.
+
+### 5-Daraja: Takomillashtirilgan Bosqich (Optimization / Defect Prevention)
+- **Xususiyati:** Tashkilotning bosh maqsadi nuqsonlarni topishdan — **nuqsonlarning paydo bo'lishining oldini olishga (Defect Prevention)** o'zgaradi.
+- **Yutuqlari:** O'tgan loyihalardagi xatolar tahlil qilinadi, ilg'or asboblar va avtomatlashtirish keng joriy etiladi, sifat nazorati butun kompaniya madaniyatiga aylanadi.
+
+<Callout type="info">
+  **TMM va CMMI:** TMM dasturiy ta'minot ishlab chiqish bo'yicha mashhur CMMI (Capability Maturity Model Integration) modeli asosida, aynan sinov jarayonlari uchun moslashtirib yaratilgan.
+</Callout>
