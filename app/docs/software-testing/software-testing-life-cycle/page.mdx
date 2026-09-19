@@ -1,56 +1,104 @@
 import { Callout } from 'nextra/components'
 
-# Software Testing Life Cycle (STLC): Dasturiy Sinov Hayotiy Sikli
+# Dasturiy Ta'minotni Sinash Hayotiy Davri (STLC)
 
-**Software Testing Life Cycle (STLC)** — dasturiy ta'minotning sifatini kafolatlash maqsadida faqat sinov faoliyatiga yo'naltirilgan, har biri aniq kirish va chiqish mezonlariga ega bo'lgan bosqichma-bosqich jarayonlar ketma-ketligidir.
+Dasturiy ta'minotni sinash tartibi **STLC (Software Testing Life Cycle — Dasturiy Ta'minotni Sinash Hayotiy Davri)** deb ham yuritiladi va u sinov jarayonining barcha bosqichlarini o'z ichiga oladi. Sinov jarayoni puxta rejalashtirilgan va tizimli tarzda amalga oshiriladi. Barcha faoliyatlar dasturiy mahsulotning sifatini yaxshilash maqsadida bajariladi.
 
-STLC dasturiy ta'minotni ishlab chiqish sikli (SDLC) ichida mustaqil ravishda harakatlanadi va sinovlarning tizimli, o'lchanadigan hamda to'liq bo'lishini ta'minlaydi.
+Keling, STLC ning turli bosqichlarini ko'rib chiqamiz.
 
----
-
-## STLC Bosqichlari Arxitekturasi
+Dasturiy ta'minotni sinash hayotiy davri quyidagi asosiy bosqichlardan iborat:
+1. **Talablar tahlili (Requirement Analysis)**
+2. **Sinov rejasini yaratish (Test Plan Creation)**
+3. **Muhitni sozlash (Environment Setup)**
+4. **Test-keyslarni bajarish (Test Case Execution)**
+5. **Nuqsonlarni qayd etish (Defect Logging)**
+6. **Sinov tsiklini yakunlash (Test Cycle Closure)**
 
 ```mermaid
 flowchart TD
-    S1["1. Talablar tahlili\n(Requirement Analysis)"] --> S2["2. Sinovni rejalashtirish\n(Test Planning)"]
-    S2 --> S3["3. Test-keyslar yaratish\n(Test Case Development)"]
-    S3 --> S4["4. Sinov muhitini sozlash\n(Environment Setup)"]
-    S4 --> S5["5. Testlarni bajarish\n(Test Execution)"]
-    S5 --> S6["6. Siklni yakunlash\n(Test Cycle Closure)"]
+    S1["1. Talablar tahlili\n(Requirement Analysis)"] --> S2["2. Sinov rejasini yaratish\n(Test Plan Creation)"]
+    S2 --> S3["3. Muhitni sozlash\n(Environment Setup)"]
+    S3 --> S4["4. Test-keyslarni bajarish\n(Test Case Execution)"]
+    S4 --> S5["5. Nuqsonlarni qayd etish\n(Defect Logging)"]
+    S5 --> S6["6. Sinov tsiklini yakunlash\n(Test Cycle Closure)"]
 ```
 
 ---
 
-## STLC ning 6 Bosqichi Tafsiloti
+## 1. Talablar Tahlili (Requirement Analysis)
 
-### 1. Requirement Analysis (Talablar Tahlili)
-- **Mazmuni:** QA jamoasi funksional va nofunksional talablarni batafsil tahlil qiladi, sinovdan o'tkazilishi mumkin bo'lgan (testable) talablarni aniqlaydi va noaniq joylar bo'yicha biznes tahlilchilarga savollar ro'yxatini (RFI / Query List) taqdim etadi.
-- **Natijaviy hujjat:** RTM (Kuzatuvchanlik matrisasi qoralamasi), Talablar bo'yicha savol-javob qaydlari.
+Qo'lda sinash (manual testing) jarayonining birinchi qadami talablar tahlili hisoblanadi. Ushbu bosqichda tester mijoz tomonidan bildirilgan talablarni o'rganish uchun SDLC (Dasturiy ta'minotni ishlab chiqish hayotiy davri) ning talablar hujjatini tahlil qiladi. Talablarni chuqur o'rganib chiqqach, tester dastur talablarga javob berayotganligi yoki yo'qligini tekshirish uchun sinov rejasini tuzadi.
 
-### 2. Test Planning (Sinovni Rejalashtirish)
-- **Mazmuni:** QA rahbari (Test Lead / QA Manager) sinov strategiyasini, ko'lamini (Scope), zaruriy resurslar, muddatlar, sinov muhiti talablari va xatarlarni belgilaydi.
-- **Natijaviy hujjat:** Test Plan (Sinov rejasi — IEEE 829 standarti), Vaqt va mehnat sarfi baholashi (Test Estimation).
-
-### 3. Test Case Development (Test-keyslarni Ishlab Chiqish)
-- **Mazmuni:** QA muhandislari talablar asosida batafsil sinov ssenariylari (Test Scenarios), test-keyslar (Test Cases) va kerakli sinov ma'lumotlarini (Test Data) tayyorlaydilar.
-- **Natijaviy hujjat:** Tasdiqlangan Test-keyslar to'plami, Test ma'lumotlari.
-
-### 4. Test Environment Setup (Sinov Muhitini Sozlash)
-- **Mazmuni:** Sinovdan o'tkaziladigan dastur uchun serverlar, ma'lumotlar bazalari, tarmoq parametrlari va test asboblari o'rnatiladi va sozlanadi. Tizimning ishlashini dastlabki tekshirish uchun Smoke-test o'tkaziladi.
-- **Natijaviy hujjat:** Ishga tayyor Test muhiti, Smoke-test natijalari.
-
-### 5. Test Execution (Testlarni Bajarish)
-- **Mazmuni:** QA muhandislari test-keyslarni belgilangan muhitda qadamma-qadam bajaradilar. Aniqlangan xatoliklar (Bug) tizimga (Jira, Bugzilla) kiritiladi, dasturchilar tuzatgach qayta tekshiriladi (Retest) va regressiya sinovlari o'tkaziladi.
-- **Natijaviy hujjat:** Bajarilgan testlar hisoboti, Xatolik hisobotlari (Bug Reports).
-
-### 6. Test Cycle Closure (Sinov Siklini Yakunlash)
-- **Mazmuni:** Sinov muddati tugagach, jamoa erishilgan sifat natijalarini, qamrov foizini, qoldiq xatarlarni tahlil qiladi va xulosaviy hisobot tayyorlaydi. O'tkazilgan sinov darslari (Lessons learned) jamlanadi.
-- **Natijaviy hujjat:** Test Summary Report (Yakuniy hisobot), Sifat ko'rsatkichlari metrikalari.
+| Bo'lim | Tafsiloti |
+| :--- | :--- |
+| **Kirish mezonlari (Entry Criteria)** | Sinov rejasini tuzish uchun talablar spetsifikatsiyasi, ilova arxitekturasi hujjati hamda aniq belgilangan qabul mezonlari (acceptance criteria) mavjud bo'lishi kerak. |
+| **Bajariladigan ishlar (Activities)** | • Barcha talablar va tushunarsiz savollar ro'yxatini tayyorlash hamda ularni texnik rahbar (Lead), tizim arxitektori, biznes tahlilchi va mijoz bilan hal qilish.<br/>• O'tkazilishi lozim bo'lgan barcha sinov turlari (Unumdorlik, Funksional va Xavfsizlik) ro'yxatini shakllantirish.<br/>• Test-keyslarni bajarish uchun kerak bo'ladigan barcha vositalarni o'z ichiga olgan sinov muhiti tafsilotlari ro'yxatini tayyorlash. |
+| **Natijaviy hujjatlar (Deliverables)** | Sinovdan o'tkaziladigan talablar uchun zarur barcha sinovlar ro'yxati hamda Sinov muhiti tafsilotlari. |
 
 ---
 
-## Kirish va Chiqish Mezonlari (Entry & Exit Criteria)
+## 2. Sinov Rejasini Yaratish (Test Plan Creation)
 
-Har bir STLC bosqichining sifatini kafolatlash uchun ikki asosiy mezon belgilanadi:
-- **Kirish mezoni (Entry Criteria):** Muayyan bosqichni boshlash uchun nimalar tayyor bo'lishi shartligi (masalan: Testlarni bajarishni boshlash uchun dasturchilardan barqaror yig'ilma va tayyor muhit talab etiladi).
-- **Chiqish mezoni (Exit Criteria):** Bosqichni yakunlangan deb hisoblash uchun qanday shartlar bajarilishi kerakligi (masalan: barcha kritik Blocker xatoliklar 100% yopilgan bo'lishi shart).
+Sinov rejasini yaratish — STLC ning eng muhim bosqichi bo'lib, unda barcha sinov strategiyalari belgilanadi. Tester butun loyiha uchun sarflanadigan taxminiy mehnat va xarajatlarni aniqlaydi. Ushbu bosqich Talablar tahlili bosqichi muvaffaqiyatli yakunlangach boshlanadi. Sinov strategiyasi va mehnat sarfini baholash hujjatlari ushbu bosqichda taqdim etiladi. Test-keyslarni bajarish faqat sinov rejasini yaratish muvaffaqiyatli yakunlangandan keyingina boshlanishi mumkin.
+
+| Bo'lim | Tafsiloti |
+| :--- | :--- |
+| **Kirish mezonlari (Entry Criteria)** | Talablar hujjati (Requirement Document). |
+| **Bajariladigan ishlar (Activities)** | • Dasturiy ta'minotning maqsadi hamda qamrov doirasini (scope) belgilash.<br/>• Sinovda qo'llaniladigan usullarni ro'yxatga olish.<br/>• Sinov jarayonining umumiy ko'rinishi (sharhi).<br/>• Sinov muhitini belgilash.<br/>• Sinov jadvallari va nazorat tartib-qoidalarini tayyorlash.<br/>• Rollar va mas'uliyatlarni taqsimlash.<br/>• Sinov natijalari (deliverables) ro'yxatini tuzish va mavjud xatarlarni aniqlash. |
+| **Natijaviy hujjatlar (Deliverables)** | • Sinov strategiyasi hujjati (Test strategy document).<br/>• Sinov mehnat sarfini baholash hujjatlari (Testing effort estimation documents). |
+
+---
+
+## 3. Muhitni Sozlash (Environment Setup)
+
+Sinov muhitini sozlash mustaqil faoliyat turi bo'lib, uni test-keyslarni ishlab chiqish bilan parallel ravishda boshlash mumkin. Bu qo'lda sinash jarayonining ajralmas qismidir, chunki muhitsiz sinovni amalga oshirib bo'lmaydi. Muhitni sozlash test muhitini yaratish uchun zarur bo'lgan apparat va dasturiy ta'minotlar majmuasini talab qiladi. Test jamoasi sinov muhitini o'rnatishda bevosita ishtirok etmaydi, uni odatda katta (senior) dasturchilar yaratadilar.
+
+| Bo'lim | Tafsiloti |
+| :--- | :--- |
+| **Kirish mezonlari (Entry Criteria)** | • Sinov strategiyasi va sinov rejasi hujjati.<br/>• Test-keyslar hujjati.<br/>• Sinov ma'lumotlari (Testing data). |
+| **Bajariladigan ishlar (Activities)** | • Talablar spetsifikatsiyasini tahlil qilish orqali dasturiy va apparat ta'minoti ro'yxatini tayyorlash.<br/>• Sinov muhiti o'rnatilgach, muhitning sinovga tayyorligini tekshirish uchun Smoke test-keyslarni bajarish. |
+| **Natijaviy hujjatlar (Deliverables)** | • Sinovni bajarish hisoboti (Execution report).<br/>• Nuqsonlar hisoboti (Defect report). |
+
+---
+
+## 4. Test-keyslarni Bajarish (Test Case Execution)
+
+Test-keyslarni bajarish sinovni rejalashtirish muvaffaqiyatli yakunlangach amalga oshiriladi. Ushbu bosqichda test jamoasi test-keyslarni ishlab chiqish va ularni bajarish faoliyatini boshlaydi. Test jamoasi batafsil test-keyslarni yozadi, shuningdek, agar kerak bo'lsa, sinov ma'lumotlarini (test data) tayyorlaydi. Tayyorlangan test-keyslar jamoa a'zolari (peer review) yoki Sifat Nazorati rahbari (QA Lead) tomonidan ko'rib chiqiladi.
+
+Ushbu bosqichda **RTM (Requirement Traceability Matrix — Talablarning Kuzatuvchanlik Matrisasi)** ham tayyorlanadi. RTM sanoat darajasidagi format bo'lib, talablarni kuzatib borish uchun ishlatiladi. Har bir test-keys talablar spetsifikatsiyasi bilan bog'lanadi (xaritaga tushiriladi). RTM orqali orqaga va oldinga qarab kuzatuvchanlikni (backward & forward traceability) amalga oshirish mumkin.
+
+| Bo'lim | Tafsiloti |
+| :--- | :--- |
+| **Kirish mezonlari (Entry Criteria)** | Talablar hujjati (Requirement Document). |
+| **Bajariladigan ishlar (Activities)** | • Test-keyslarni yaratish.<br/>• Test-keyslarni bajarish.<br/>• Test-keyslarni talablarga moslashtirish (bog'lash). |
+| **Natijaviy hujjatlar (Deliverables)** | • Sinov ijro natijasi (Test execution result).<br/>• Nuqsonlarning batafsil tushuntirishiga ega funksiyalar ro'yxati. |
+
+---
+
+## 5. Nuqsonlarni Qayd Etish (Defect Logging)
+
+Testerlar va dasturchilar dasturiy ta'minotning yakunlanish mezonlarini test qamrovi, sifati, vaqt sarfi, xarajatlar va muhim biznes maqsadlari asosida baholaydilar. Ushbu bosqich dasturiy ta'minotning xarakteristikalari va kamchiliklarini aniqlaydi. Test-keyslar va xatoliklar hisoboti (bug reports) nuqson turi hamda uning jiddiyligini (severity) aniqlash uchun chuqur tahlil qilinadi.
+
+Nuqsonlarni qayd etish tahlili asosan xatoliklarning jiddiyligi va turlariga qarab taqsimlanishini aniqlash uchun ishlaydi. Agar biror nuqson aniqlansa, dastur xatolikni tuzatish uchun ishlab chiqish jamoasiga qaytariladi, so'ngra dasturiy ta'minot sinovning barcha jihatlari bo'yicha qayta sinovdan (re-test) o'tkaziladi.
+
+Sinov tsikli to'liq tugagach, testni yakunlash hisoboti va test metrikalari tayyorlanadi.
+
+| Bo'lim | Tafsiloti |
+| :--- | :--- |
+| **Kirish mezonlari (Entry Criteria)** | • Test-keyslarni bajarish hisoboti.<br/>• Nuqsonlar hisoboti (Defect report). |
+| **Bajariladigan ishlar (Activities)** | • Dasturning tugallanish mezonlarini test qamrovi, sifati, vaqt sarfi, xarajati va muhim biznes maqsadlari asosida baholash.<br/>• Xatoliklarni turlari va jiddiyligiga ajratish orqali ularning taqsimlanishini aniqlash. |
+| **Natijaviy hujjatlar (Deliverables)** | • Yakuniy hisobot (Closure report).<br/>• Test metrikalari (Test metrics). |
+
+---
+
+## 6. Sinov Tsiklini Yakunlash (Test Cycle Closure)
+
+Sinov tsiklini yakunlash hisoboti dasturiy ta'minot dizayni, ishlab chiqilishi, sinov natijalari va nuqsonlar hisoboti bilan bog'liq barcha hujjatlarni o'z ichiga oladi.
+
+Ushbu bosqich kelajakda xuddi shunday spetsifikatsiyaga ega dasturiy ta'minot ishlab chiqilsa, ushbu amaliyotlardan foydalanish maqsadida ishlab chiqish strategiyasini, sinov tartibini va ehtimoliy nuqsonlarni baholaydi.
+
+| Bo'lim | Tafsiloti |
+| :--- | :--- |
+| **Kirish mezonlari (Entry Criteria)** | Dasturiy ta'minotga oid barcha hujjatlar va hisobotlar. |
+| **Bajariladigan ishlar (Activities)** | Xuddi shunday spetsifikatsiyaga ega dastur bo'lganda kelajakda ushbu amaliyotlardan foydalanish uchun ishlab chiqish strategiyasi, sinov tartibi va ehtimoliy nuqsonlarni baholash. |
+| **Natijaviy hujjatlar (Deliverables)** | Sinovni yakunlash hisoboti (Test closure report). |
