@@ -4,7 +4,7 @@ export default {
   'software-testing-principles': "Dasturiy Ta'minotni Sinash Tamoyillari",
   'software-development-life-cycle': "Dasturiy Ta'minotni Ishlab Chiqish Hayotiy Davri (SDLC)",
   'software-testing-life-cycle': "Dasturiy Ta'minotni Sinash Hayotiy Davri (STLC)",
-  'types-of-software-testing': 'Types of Software Testing',
+  'types-of-software-testing': "Dasturiy Ta'minotni Sinash Turlari",
   'levels-of-testing': 'Levels of Testing',
   'test-maturity-model': 'Test Maturity Model',
   'api-testing-tutorial': 'API Testing Tutorial',
