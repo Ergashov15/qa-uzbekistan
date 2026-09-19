@@ -1,45 +1,46 @@
 import { Callout } from 'nextra/components'
 
-# Prototip Modeli (Prototype Model)
+# Dasturiy Sinovda Prototip Modeli (Prototype Model in Software Testing)
 
-**Prototip modeli (Prototype Model)** — dasturiy ta'minotni ishlab chiqish hayotiy davrining (SDLC) maxsus modeli bo'lib, unda yakuniy mahsulotni to'liq dasturlashdan oldin mijozning fikr-mulohazalarini to'plash maqsadida dasturiy ta'minotning dastlabki namunasi (prototip) yaratiladi. 
+**Prototip modeli (Prototype Model)** — dasturiy ta'minotni ishlab chiqish hayotiy davrining (SDLC) maxsus modeli bo'lib, unda yakuniy mahsulotni to'liq dasturlashdan oldin foydalanuvchilarning fikr-mulohazalarini to'plash maqsadida dasturiy ta'minotning dastlabki ishchi namunasi (prototipi) yaratiladi.
 
-Bu yondashuv talablarni aniqlashtirishga, tushunmovchiliklarni yo'qotishga va loyihaning keyingi bosqichlarida talab o'zgarishi tufayli yuzaga keladigan xarajatlarni keskin qisqartirishga yordam beradi.
+Bu yondashuv tizim talablarini aniqlashtirishga, tushunmovchiliklarni yo'qotishga va loyihaning keyingi bosqichlarida talablarning o'zgarishi natijasida yuzaga keladigan ortiqcha xarajatlar va xatarlarni keskin qisqartirishga yordam beradi.
 
 ---
 
 ## Prototip Modeli Nima? (What is the Prototype Model?)
 
-**Prototip modeli** — boshlang'ich talablar asosida mahsulotning ishchi prototipi (namuna yoki vizual maketi) yaratiladigan va haqiqiy dasturlash boshlanishidan oldin mijozga baholash uchun taqdim etiladigan tizimdir.
+**Prototip modeli** — boshlang'ich talablar asosida mahsulotning ishchi prototipi (namunaviy yoki maket versiyasi) ishlab chiqiladigan va haqiqiy dasturlash boshlanishidan oldin mijozga baholash hamda fikr-mulohaza (feedback) bildirish uchun taqdim etiladigan yondashuvdir.
 
-Buyurtmachining fikr-mulohazalari (feedback) asosida prototip talablar to'liq tushunarli va qoniqarli bo'lmaguncha qayta-qayta takomillashtiriladi. Faqat mijoz prototipni to'liq ma'qullagandan so'nggina loyihalash va asosiy kodlash ishlari boshlanadi.
+Buyurtmachining bildirgan takliflari asosida prototip talablar to'liq tushunarli va qoniqarli bo'lguniga qadar takroriy ravishda takomillashtiriladi. Barcha talablar uzil-kesil tasdiqlangandan so'ngгина ishlab chiquvchilar jamoasi haqiqiy dasturiy mahsulotni qurishga kirishadi.
+
+Prototip modeli ayniqsa loyiha talablari eng boshida to'liq aniqlanmagan yoki buyurtmachi bilan tez-tez fikr almashish talab etiladigan loyihalarda juda foydalidir. U mijozlar va dasturchilar o'rtasidagi anglashilmovchiliklarni kamaytiradi hamda dasturlash jarayonida talablar bilan bog'liq o'zgarishlar xavfini minimallashtiradi.
 
 ```mermaid
 flowchart TD
-    A["1. Talablarni to'plash (Requirement Analysis)"] --> B["2. Texnik-iqtisodiy asoslash (Feasibility Study)"]
-    B --> C["3. Prototip yaratish (Static / Dynamic Prototype)"]
+    A["1. Talablar tahlili (Requirement Analysis)"] --> B["2. Texnik-iqtisodiy asoslash (Feasibility Study)"]
+    B --> C["3. Prototip yaratish (Static / Dynamic)"]
     C --> D["4. Prototip sinovi (UI / Look & Feel)"]
     D --> E["5. Mijoz ko'rib chiqishi va tasdiqlashi"]
-    E -->|"O'zgartirish kerak bo'lsa"| C
-    E -->|"Mijoz tasdiqlagach"| F["6. Tizim dizayni (HLD / LLD)"]
-    F --> G["7. Kodlash / Dasturlash (Coding)"]
-    G --> H["8. Tizimli Sinov (Functional Testing)"]
-    H --> I["9. O'rnatish va Xizmat Ko'rsatish (Deployment)"]
+    E -->|"O'zgartirish talab etilsa"| C
+    E -->|"Mijoz ma'qullagach"| F["6. Tizim dizayni (HLD & LLD)"]
+    F --> G["7. Kodlash va Dasturlash (Coding)"]
+    G --> H["8. Funksional Sinov (Testing)"]
+    H --> I["9. O'rnatish va Texnik Xizmat (Installation & Maintenance)"]
 ```
 
 ---
 
-## Prototip Modeli Qachon Ishlatiladi?
+## Prototip Modeli Qachon Qo'llaniladi?
 
 Odatda ushbu model quyidagi sabablarga ko'ra tanlanadi:
-1. **Mijoz IT sohasida yangi bo'lganda:** Buyurtmachi dasturiy ta'minot sohasida tajribasiz bo'lib, dasturga qo'yiladigan talablarni texnik tilda qanday bayon qilishni bilmaganda.
-2. **Dasturchilar sohada (domain) yangi bo'lganda:** Ishlab chiquvchilar jamoasi loyiha sohasining nozik jihatlarini to'liq tushunib yetmaganda.
-3. **Talablar noaniq yoki doimiy o'zgaruvchan bo'lganda:** Yakuniy mahsulot qanday ko'rinishda bo'lishi haqida oldindan aniq tasavvur bo'lmaganda.
+1. **Mijoz IT sohasida yangi bo'lganda:** Buyurtmachi dasturiy ta'minot sohasida tajribaga ega bo'lmaganda yoki kompaniyaga o'z talablarini qanday qilib to'g'ri taqdim etishni bilmaganda.
+2. **Dasturchilar ushbu sohaga (domain) yangi bo'lganda:** Ishlab chiquvchilar jamoasi loyiha sohasining nozik jihatlari va biznes mantig'ini chuqur bilmagan holatlarda.
 
 <Callout type="info">
-**Oddiy Sinov va Prototip Sinovi O'rtasidagi Asosiy Farq:**
-- **Oddiy Sinov (Testing):** Ilovaning to'liq funksionalligi, ma'lumotlar bazasi bilan aloqasi, kiritilgan ma'lumotlar (inputs) va qaytgan natijalar (outputs) aniqligini tekshiradi.
-- **Prototip Sinovi (Prototype Testing):** Faqat tashqi ko'rinish va qulaylikni (**Look and Feel**), ya'ni foydalanuvchi interfeysi (UI), sahifalar dizayni, elementlar joylashuvi va havolalar oqimini tekshiradi.
+**Oddiy Sinov (Testing) va Prototip Sinovi (Prototype Testing) O'rtasidagi Farq:**
+- **Oddiy Sinov (Testing):** Ilovaning to'liq funksionalligi ustida ishlaydi, ya'ni tizimga qandaydir kiruvchi ma'lumotlar (**input**) kiritiladi va kutilgan chiquvchi natijalar (**output**) tekshiriladi.
+- **Prototip Sinovi (Prototype Testing):** Faqat tashqi ko'rinish va qulaylikni (**Look and Feel**), ya'ni foydalanuvchi interfeysi (UI) va frontend qismining vizual to'g'riligini tekshiradi.
 </Callout>
 
 ---
@@ -47,56 +48,76 @@ Odatda ushbu model quyidagi sabablarga ko'ra tanlanadi:
 ## Prototip Modelining 9 Asosiy Bosqichi
 
 ### 1. Talablar Tahlili (Requirement Analysis)
-Model mijozdan batafsil biznes talablarini to'plashdan boshlanadi. Bu vazifani tahlilchilar bajaradi:
-- **Biznes tahlilchi (Business Analyst — BA):** Odatda xizmat ko'rsatishga yo'naltirilgan (service-based) IT kompaniyalarda buyurtmachilar bilan ishlaydi.
-- **Mahsulot tahlilchisi (Product Analyst — PA):** O'z mahsulotiga ega bo'lgan (product-based) kompaniyalarda bozor va foydalanuvchilar ehtiyojlarini tahlil qiladi.
+Model mijozdan loyiha talablarini to'plashdan boshlanadi. Loyihaning ushbu talablari juda batafsil bo'lishi shart. Talablar quyidagi mutaxassislar tomonidan qabul qilinadi:
+- **Biznes tahlilchi (Business Analyst — BA):** Xizmat ko'rsatishga yo'naltirilgan (service-based) dasturiy ta'minot kompaniyalarida mijoz talablarini o'rganadi.
+- **Mahsulot tahlilchisi (Product Analyst — PA):** Mahsulotga yo'naltirilgan (product-based) kompaniyalarda bozor ehtiyojlarini tahlil qiladi.
 
 ### 2. Texnik-Iqtisodiy Asoslash (Feasibility Study)
-Ushbu bosqichda kompaniyaning yetakchi mutaxassislari (BA, kadrlar bo'limi/HR, dasturiy arxitektor va moliya bo'limi rahbarlari) birgalikda yig'ilish o'tkazadilar:
-- Mahsulotning umumiy tannarxi va byudjeti.
-- Zaruriy inson va texnik resurslar miqdori.
-- Qaysi dasturlash tillari va freymvorklardan foydalanilishi.
-- Ishlab chiqish va mijozga yetkazib berishning aniq muddatlari kelishib olinadi.
+Navbatdagi bosqichda kompaniyaning yetakchi bo'lim rahbarlari (**BA, HR, Arxitektura va Moliya guruhi**) birgalikda yig'ilib:
+- Mahsulotning umumiy tannarxi va byudjeti;
+- Qanday insoniy va apparat resurslari zarurligi;
+- Mahsulotni ishlab chiqish uchun qaysi texnologiyalar qo'llanilishi;
+- Mahsulotni to'liq yakunlash va yetkazib berish uchun qancha vaqt kerakligini muhokama qiladilar.
 
 ### 3. Prototip Yaratish (Create a Prototype)
-Mijozdan to'plangan ma'lumotlar asosida vizual maket (namuna yoki xomaki versiya) tayyorlanadi. Zamonaviy amaliyotda prototiplar ikki xil bo'ladi:
+Texnik-iqtisodiy asoslash tugallangach, mijozdan to'plangan ma'lumotlar asosida prototip (namunaviy yoki qoralama maket) yaratiladi. Veb-dasturchi yoki dizayner ushbu prototipni loyihalashtiradi.
+
+Prototipning 2 ta asosiy turi mavjud:
 
 ```mermaid
 graph LR
     P{"Prototip Turlari"}
-    P -->|"Hujjatli / Statik"| S["Statik Prototip (Static Prototype)<br/>• Word/PDF hujjatlar<br/>• Vizual skrinshotlar va chizmalar<br/>• Tavsiflar va yo'riqnomalar"]
-    P -->|"Interaktiv / Dinamik"| D["Dinamik Prototip (Dynamic Prototype)<br/>• Brauzerda ishlaydigan HTML/UI maket<br/>• Tugmalar va havolalar bosiladi<br/>• Haqiqiy backend ma'lumotlari kiritilmaydi"]
+    P -->|"Statik"| S["Statik Prototip (Static Prototype)<br/>• Word/PDF hujjat<br/>• Ko'rsatmalar, skrinshotlar<br/>• Tavsiflar va qoidalar"]
+    P -->|"Dinamik"| D["Dinamik Prototip (Dynamic Prototype)<br/>• Brauzerda ochiluvchi HTML maket<br/>• Sahifalararo o'tishlar va tugmalar<br/>• Ma'lumotlarsiz dummy interfeys"]
 ```
 
-- **Statik Prototip (Static Prototype):** Talablarning butun maketi maxsus hujjatda (masalan, Word yoki PDF) saqlanadi. Unda mahsulot qanday ko'rinishi, yo'riqnomalar, eskizlar va har bir ekranning vazifasi yozma bayon etiladi.
-- **Dinamik Prototip (Dynamic Prototype):** Foydalanuvchi brauzerida yoki maxsus dizayn platformalarida (Figma, Adobe XD) ko'riladigan interaktiv sahifalar. Foydalanuvchi tugmalarni bosib, sahifalararo o'tishni ko'rishi mumkin, biroq tizimda real ma'lumotlar bazasi yoki backend logikasi mavjud bo'lmaydi.
+1. **Statik Prototip (Static Prototype):**
+   - Talablarning butun prototipi Word yoki PDF hujjatida saqlanadi.
+   - Unda dasturni qanday qurish kerakligi, yakuniy mahsulot qanday ko'rinishga ega bo'lishi va qanday ishlashi haqidagi barcha yo'riqnomalar, chizmalar va skrinshotlar aks etadi.
+2. **Dinamik Prototip (Dynamic Prototype):**
+   - Brauzerda ochiladigan interaktiv maket. Biroq bunda haqiqiy ma'lumotlar bazasi mavjud bo'lmaydi, faqat ma'lumotlarsiz funksional ko'rinish bo'ladi.
+   - Bu mahsulotning imkoniyatlarini ifodalovchi teglarga, havolalarga va tugmalarga ega bo'lgan HTML/CSS dummy sahifalar to'plamidir.
 
 ### 4. Prototip Sinovi (Prototype Testing)
-Prototip tayyor bo'lgach, biznes tahlilchi yoki test muhandisi uning tashqi ko'rinishi va qulayligini (Look and Feel, UI/UX) bir raund tekshiruvdan o'tkazadi.
+Prototip qurilgach, biznes tahlilchi (BA) uni bir raund prototip sinovidan o'tkazadi. Unda faqat tizimning tashqi ko'rinishi va qulayligi (Look and Feel, UI/frontend) tekshiriladi.
 
 ### 5. Mijoz Ko'rib Chiqishi va Tasdiqlashi (Customer Review and Approval)
-Sinovdan o'tgan prototip buyurtmachiga topshiriladi. Agar mijoz berilgan namunadan qoniqmasa, uning taklif va mulohazalari asosida prototipga tuzatish kiritiladi. Bu jarayon mijoz to'liq rozi bo'lguniga qadar takrorlanadi.
+Prototip sinovi yakunlangach, u mijozga ko'rib chiqish va tasdiqlash uchun topshiriladi:
+- Agar mijoz taqdim etilgan namunadan qoniqmasa, uning taklif va mulohazalari asosida prototipga tuzatish kiritiladi.
+- Ushbu jarayon mijoz prototipdan to'liq qoniqquncha va uni tasdiqlaguncha davom etadi. Bu biroz vaqt talab qiluvchi jarayon, chunki prototipga qayta-qayta o'zgartirish kiritiladi.
 
 ### 6. Loyihalash va Dizayn (Design)
-Mijoz prototipni rasman tasdiqlagach, dasturchilar va arxitektorlar tizimning yakuniy Yuqori Darajali (HLD) va Quyi Darajali (LLD) texnik arxitekturasini loyihalashtiradilar.
+Mijoz tomonidan tasdiqlangan prototip olingach, yakuniy mahsulot uchun Yuqori Darajali (HLD) va Quyi Darajali (LLD) dizaynni ishlab chiqish boshlanadi hamda yakuniy prototip paytida mijoz bildirgan barcha takliflar inobatga olinadi.
 
 ### 7. Kodlash (Coding)
-Dizayn tayyor bo'lgach, dasturchilar tanlangan dasturlash tillarida (Java, Python, C#, JavaScript va h.k.) haqiqiy dastur kodini yozishga kirishadilar.
+Dizayn bosqichi muvaffaqiyatli yakunlangach, dasturlash bosqichiga o'tiladi. Tegishli dasturchi o'z dasturlash bilimlari asosida mahsulot kodini yozishga kirishadi.
 
-### 8. Tizimli Sinov (Testing)
-Dasturiy kod tayyor bo'lgach, u test muhandislariga topshiriladi. Test muhandislari barcha kirish va chiqish ma'lumotlarini, tizim funksiyalarini va xavfsizligini to'liq tekshiradilar.
+### 8. Sinov (Testing)
+Dasturlash yakunlangach, tizim test muhandisiga topshiriladi. Test muhandisi ilovaning barcha funksionalligini hamda kiritiluvchi va chiquvchi barcha ma'lumotlarni (inputs & outputs) to'liq sinovdan o'tkazadi.
 
 ### 9. O'rnatish va Texnik Xizmat Ko'rsatish (Installation and Maintenance)
-Mahsulot to'liq sinovdan o'tgach, ishchi serverlarga (production) joylashtiriladi va keyinchalik nosozliklarning oldini olish uchun doimiy monitoring qilib boriladi.
+Yakuniy mahsulot prototipga muvofiq ishlab chiqilib, to'liq sinovdan o'tgach, u ishchi muhitga (production) o'rnatiladi. Mahsulot jiddiy nosozliklarning oldini olish va uzilishlarni kamaytirish uchun doimiy texnik nazoratdan o'tib boradi.
+
+---
+
+## Amaliy Xususiyatlar va Zamonaviy Yondashuv
+
+<Callout type="info">
+**Muhim Jihatlar:**
+1. **Talablar to'plashdan Mijoz tasdig'igacha** bo'lgan jarayon hujjat shaklidan prototip shakliga o'tkaziladi, chunki bu kengaytirilgan talablar yig'ish bosqichi hisoblanadi. Asosiy haqiqiy loyihalash esa bevosita Dizayn bosqichidan boshlanadi.
+2. **Tarixiy va zamonaviy amaliyot:** Ilgari prototipni yaratish bevosita dasturchilar tomonidan bajarilgan bo'lsa, hozirgi kunda bu vazifa maxsus kontent tuzuvchilar, UI/UX dizaynerlar va veb-dizaynerlar tomonidan zamonaviy vizual vositalar yordamida amalga oshiriladi.
+3. **Xarajatlarning tejalishi:** Mijoz eng boshidanoq talablarga o'zgartirish kiritish imkoniyatiga ega bo'ladi, chunki haqiqiy dasturga qaraganda prototipga o'zgartirish kiritish ancha oson va arzon. Natijada xarajatlar keskin kamayadi va mijoz kutgan natijaga to'liq erishiladi.
+</Callout>
 
 ---
 
 ## Prototip Modelining Afzalliklari va Kamchiliklari
 
-| Afzalliklari (Advantages) | Kamchiliklari (Disadvantages) |
+| Afzalliklari (Advantage) | Kamchiliklari (Disadvantage) |
 | :--- | :--- |
-| **Yetishmayotgan funksiyalarni barvaqt aniqlash:** Loyiha boshidanoq unutilgan yoki noto'g'ri tushunilgan talablar yuzaga chiqadi. | **Vaqt sarfi:** Agar mijoz prototipga qayta-qayta yangi o'zgartirishlar kiritaversa, jarayon cho'zilib ketishi mumkin. |
-| **Mijoz bilan shaffof muloqot:** Buyurtmachi dasturning qanday chiqishini eng boshidanoq o'z ko'zi bilan ko'radi. | **Asosiy ishning kechikishi:** Prototip ustidagi cheksiz munozaralar haqiqiy dasturlash jarayonini kechiktiradi. |
-| **Yuqori mijoz qoniqishi:** Mijoz o'zi tasdiqlagan maket bo'yicha tayyorlangan mahsulotdan maksimal darajada mamnun bo'ladi. | **Parallel ishlashning yo'qligi:** Prototip mijoz tomonidan to'liq tasdiqlanmaguncha, dasturchilar asosiy kodni yoza olmaydilar. |
-| **Qayta foydalanish imkoniyati:** Yaratilgan prototip dizayn bosqichida va keyingi o'xshash loyihalarda andaza sifatida ishlatilishi mumkin. | **Mijoz diqqatini yo'qotish xavfi:** Prototip ko'rinishi bilan yakuniy mahsulot o'rtasida texnik farqlar bo'lsa, mijozda tushunmovchilik tug'ilishi mumkin. |
-| **Rad etish xavfining pastligi:** Mahsulotning buyurtmachi tomonidan butunlay rad etilishi xavfi deyarli nolga tenglashadi. | **Chala tahlil xavfi:** Dastlabki prototipga haddan tashqari ko'p diqqat qaratilib, chuqur arxitektura va xavfsizlik tahlili e'tibordan chetda qolishi mumkin. |
+| **Yetishmayotgan funksiyalarni oson aniqlash:** Tizimda unutilgan yoki qolib ketgan funksionallikni loyiha boshidayoq aniqlash juda oson. | **Ko'p vaqt sarfi:** Bu ko'p vaqt oladigan jarayon, chunki mijoz prototipga qayta-qayta o'zgartirish kiritsa, soxta maket ustidagi ishlar cho'zilib, haqiqiy loyihaning boshlanishi kechikadi. |
+| **Mijoz va jamoa o'rtasidagi shaffof muloqot:** Dasturlash jamoasi va mijoz o'rtasida talablar hamda yakuniy mahsulot natijasi bo'yicha juda aniq va ravshan muloqot bo'ladi. | **Talablar ko'rib chiqilmasligi:** Jarayonda rasmiy talablarni ko'rib chiqish (requirement review) mavjud emas, faqat prototipni ko'rib chiqish o'tkaziladi. |
+| **Mijozning yuqori qoniqishi:** Mijoz mahsulotni eng boshidanoq ko'rib tasdiqlagani sababli, unda to'liq qoniqish mavjud bo'ladi. | **Parallel yetkazib berishning yo'qligi:** Ikki jamoa bir vaqtda parallel ishlay olmaydi (prototip tasdiqlanmaguncha kodlash boshlanmaydi). |
+| **Prototipdan qayta foydalanish:** Yaratilgan prototipni dizayn bosqichida va keyingi shunga o'xshash ilovalarda qayta ishlatish mumkin. | **Qisman tizim xatari:** Ba'zida tizimning chala yoki qisman ko'rsatilishi dasturiy ta'minotni to'liq loyihalashtirilgan tizim kabi ishlatilmasligiga sabab bo'lishi mumkin. |
+| **Mijoz tomonidan rad etishning kamligi:** Boshqa SDLC modellariga qaraganda buyurtmachi tomonidan mahsulotning rad etilishi ehtimoli ancha past bo'ladi. | **Muammoning to'liq bo'lmagan tahlili:** Muammoning yetarli emas yoki chala tahlil qilinishi (insufficient or partial problem analysis) xavfi mavjud. |
+| **Muammolarni erta aniqlash:** Kamchiliklar va xatolarni dastlabki bosqichlardayoq barvaqt aniqlash imkoni mavjud. | **Mijoz e'tiborini yo'qotish:** Agar mijoz dastlabki prototipdan yoki yakuniy natijadan qoniqmasa, uning e'tibori va qiziqishi yo'qolishi mumkin. |
