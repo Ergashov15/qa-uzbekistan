@@ -1,74 +1,83 @@
 import { Callout } from 'nextra/components'
 
-# Software Testing Principles: Sinovning 7 ta Asosiy Tamoyili
+# Dasturiy Ta'minotni Sinash Tamoyillari (Software Testing Principles)
 
-Dasturiy ta'minotni sinash shunchaki tajriba yoki tasodifiy qadamlarga emas, balki xalqaro **ISTQB (International Software Testing Qualifications Board)** tomonidan rasmiylashtirilgan va **TpointTech** dasturida bayon etilgan 7 ta fundamental qoidaga (tamoyilga) asoslanadi.
+Dasturiy ta'minotni sinash — dastur yoki ilovadagi nuqson va xatoliklarni (bug) aniqlash uchun uni amalda ishga tushirish hamda tekshirish jarayonidir. Dasturiy ta'minot yoki ilovani samarali sinash uchun mahsulotni nuqsonlardan xoli qilishga yordam beruvchi muayyan tamoyillarga amal qilishimiz zarur. Ushbu qoidalar test muhandislariga (QA) o'z vaqti va kuch-g'ayratini to'g'ri taqsimlagan holda dasturni puxta tekshirish imkonini beradi. Mazkur bo'limda biz dasturiy ta'minotni sinashning 7 ta muhim tamoyilini o'rganamiz.
 
-Ushbu tamoyillarni bilish QA muhandisiga xatolarga yo'l qo'ymaslik, vaqtni to'g'ri taqsimlash va loyihada to'g'ri sinov strategiyasini qurish imkonini beradi.
+Keling, sinovning ushbu 7 ta asosiy tamoyilini birma-bir ko'rib chiqamiz:
 
----
-
-## Sinovning 7 ta Fundamental Tamoyili
+1. **Sinov nuqsonlar mavjudligini ko'rsatadi (Testing shows the presence of defects)**
+2. **To'liq (tugallangan) sinov o'tkazish imkonsiz (Exhaustive Testing is not possible)**
+3. **Erta sinash (Early Testing)**
+4. **Nuqsonlarning to'planishi (Defect Clustering)**
+5. **Pestitsid paradoksi (Pesticide Paradox)**
+6. **Sinov kontekstga bog'liqdir (Testing is context-dependent)**
+7. **Xatoliklarning yo'qligi haqidagi xomxayol (Absence of errors fallacy)**
 
 ```mermaid
 flowchart TD
-    P["SINOVNING 7 TA ASOSIY TAMOYILI"] --> P1["1. Nuqsonlar borligini ko'rsatadi, yo'qligini emas"]
-    P --> P2["2. To'liq sinov imkonsiz (Exhaustive Testing)"]
-    P --> P3["3. Erta sinash (Early Testing)"]
-    P --> P4["4. Nuqsonlar klasteri (Defect Clustering)"]
-    P --> P5["5. Pestitsid paradoksi (Pesticide Paradox)"]
-    P --> P6["6. Sinov kontekstga bog'liq (Context Dependent)"]
-    P --> P7["7. Xatolar yo'qligi xomxayoli (Absence-of-Errors)"]
+    P["Dasturiy Ta'minotni Sinash Tamoyillari"]
+    P --> P1["1. Sinov nuqsonlar mavjudligini ko'rsatadi"]
+    P --> P2["2. To'liq sinov imkonsiz"]
+    P --> P3["3. Erta sinash"]
+    P --> P4["4. Nuqsonlar to'planishi (Klasterlanishi)"]
+    P --> P5["5. Pestitsid paradoksi"]
+    P --> P6["6. Sinov kontekstga bog'liq"]
+    P --> P7["7. Xatolar yo'qligi xomxayoli"]
 ```
 
 ---
 
-## 1. Sinov Nuqsonlar Borligini Ko'rsatadi, Yo'qligini Emas
+## 1. Sinov Nuqsonlar Mavjudligini Ko'rsatadi (Testing shows the presence of defects)
 
-Sinov o'tkazish orqali dasturdagi mavjud nuqsonlarni topish va ularning sonini kamaytirish mumkin. Biroq, agar barcha testlar muvaffaqiyatli o'tsa ham, bu **"dasturda umuman xatolik qolmagan"** degan ma'noni anglatmaydi.
-- *Xulosa:* QA muhandisi hech qachon "Dastur 100% bugsiz" deb kafolat bera olmaydi. Sinov faqat ochilmagan nuqsonlar ehtimolini kamaytiradi.
+Test muhandisi ilovada hech qanday xatolik yoki nuqson yo'qligiga ishonch hosil qilish uchun uni sinovdan o'tkazadi. Biroq, sinov jarayonida biz faqatgina ilova yoki dasturda xatoliklar borligini aniqlashimiz mumkin. Sinovning asosiy maqsadi — turli xil usullar va sinov texnikalari yordamida noma'lum xatoliklar (bug) sonini aniqlashdir. Chunki butun sinov jarayoni buyurtmachi talablariga muvofiq kuzatib borilishi (traceable) lozim, ya'ni mahsulotning mijoz ehtiyojlarini qondirolmay qolishiga sabab bo'ladigan har qanday nuqsonlarni fosh etish kerak.
+
+Har qanday ilovani sinovdan o'tkazish orqali biz xatoliklar sonini kamaytira olamiz, biroq bu dastur nuqsonlardan mutlaq xoli ekanligini anglatmaydi. Chunki ba'zan uning ustida bir necha turdagi sinovlar o'tkazilayotganda dasturiy ta'minot mutlaqo xatosizdek ko'rinishi mumkin. Ammo mahsulot ishchi serverga (production server) o'rnatilganda (deployment), yakuniy foydalanuvchi sinov jarayonida topilmagan yangi xatoliklarga duch kelishi ehtimoli doimo saqlanib qoladi.
 
 ---
 
-## 2. To'liq (Tugallangan) Sinov Imkonsiz
+## 2. To'liq (Tugallangan) Sinov O'tkazish Imkonsiz (Exhaustive Testing is not possible)
 
-Dasturdagi barcha mumkin bo'lgan kiruvchi ma'lumotlar, bosilishi mumkin bo'lgan tugmalar va shartlar kombinatsiyasini (Exhaustive Testing) to'liq tekshirib chiqish cheksiz vaqt va resurs talab qiladi.
-- *Misol:* Oddiygina 10 ta belgilik matn maydoniga harflar, raqamlar, probellar va maxsus belgilarni kiritish $10^{15}$ dan ortiq kombinatsiyani keltirib chiqaradi.
-- *Yechim:* Barcha kombinatsiyalarni sinash o'rniga xatarlarni tahlil qilish (Risk-based testing) hamda test dizayn texnikalari (BVA, Equivalence Partitioning) qo'llaniladi.
+Haqiqiy sinov jarayonida barcha modullarni va ularning funksiyalarini kiritiladigan ma'lumotlarning barcha mumkin bo'lgan to'g'ri va noto'g'ri kombinatsiyalari orqali tekshirib chiqish ba'zan o'ta mushkul yoki imkonsizdir.
+
+Shu sababli, to'liq (barcha ehtimollarni qamrab oluvchi) sinovni amalga oshirish haddan tashqari cheksiz kuch-g'ayrat talab qilishi va bu mehnating ko'p qismi samarasiz bo'lishi sababli, biz sinovlarni modullarning muhimlik darajasiga (prioritetiga) qarab tashkil qilamiz. Chunki mahsulotni yetkazib berish muddatlari (deadline) bizga barcha sinov ssenariylarini to'liq bajarishga imkon bermaydi.
 
 ---
 
 ## 3. Erta Sinash (Early Testing)
 
-Sinov faoliyati dastur kodi yozilib bo'lishini kutmasdan, loyihaning eng birinchi bosqichida — talablar tahlili (Requirement Analysis) paytidayoq boshlanishi shart.
-- *Nima uchun?* Talablardagi noaniqlik yoki xatolikni hujjat darajasidayoq tuzatish bir necha daqiqa vaqt oladi. Agar ushbu xato kodga aylanib, keyin ishlab chiqarishda aniqlansa, uni tuzatish xarajati yuz barobargacha ortadi.
+Bu yerda erta sinash deganda, dasturiy ta'minotni ishlab chiqish hayotiy davrining (SDLC) eng dastlabki — talablarni tahlil qilish bosqichidanoq barcha sinov harakatlarini boshlash tushuniladi. Chunki xatoliklarni dastlabki bosqichlarda topsak, ular o'sha zahotiyoq bartaraf etiladi. Bu esa sinov jarayonining keyingi bosqichlarida aniqlanadigan xatoliklarni tuzatishga qaraganda ancha kam xarajat talab qiladi.
+
+Sinovni amalga oshirish uchun bizga talablar spetsifikatsiyasi hujjatlari kerak bo'ladi. Shuning uchun, agar talablar noto'g'ri yoki noaniq shakllantirilgan bo'lsa, ularni keyingi bosqichlarda — ya'ni ishlab chiqish (kodlash) davrida emas, balki to'g'ridan-to'g'ri talablar bosqichidayoq tuzatish maqsadga muvofiqdir.
 
 ---
 
-## 4. Nuqsonlar To'planishi (Defect Clustering / Pareto Qonuni)
+## 4. Nuqsonlarning To'planishi (Defect clustering)
 
-Amaliyotda dasturdagi nuqsonlarning qariyb **80% qismi tizim modullarining atigi 20% qismida** to'planadi (Pareto qoidasi).
-- Tizimning eng murakkab, eng ko'p matematik hisob-kitoblarga yoki tashqi integratsiyalarga ega bo'lgan bir yoki ikki moduli asosiy xatoliklar manbai bo'ladi.
-- *QA harakati:* Sinov resurslari aynan ushbu "xatarli klasterlar"ga ko'proq yo'naltirilishi lozim.
+Nuqsonlarning to'planishi (klasterlanishi) shuni anglatadiki, sinov jarayonida biz aniqlaydigan xatoliklarning katta qismi tizimning kam sonli modullariga bog'liq bo'ladi. Buning turli sabablari bor: masalan, ushbu modullar haddan tashqari murakkab bo'lishi, dasturlash kodi chalkash tuzilganligi va boshqa omillar.
 
----
-
-## 5. Pestitsid Paradoksi (Pesticide Paradox)
-
-Agar qishloq xo'jaligida ekinlarga bir xil pestitsid dori qayta-qayta sepilsa, zararkunanda hasharotlar unga ko'nikib, o'lmaydigan bo'lib qoladi.
-- Xuddi shuningdek, agar QA jamoasi har doim bir xil test-keyslarni takroran ishga tushiraversa, ushbu testlar yangi paydo bo'lgan nuqsonlarni aniqlay olmay qoladi.
-- *Yechim:* Test-keyslar va avtomatlashtirilgan skriptlar doimiy ravishda yangilanib, yangi ssenariylar bilan boyitib borilishi shart.
+Bunday dasturiy ta'minot yoki ilovalar **Pareto tamoyili**ga (80/20 qoidasi) amal qiladi. Unga ko'ra, taxminan 80 foiz murakkablik va xatoliklar ilovaning atigi 20 foiz modullarida mujassamlashgan bo'ladi. Ushbu tamoyil yordamida biz xavfli va noaniq modullarni oldindan aniqlay olamiz. Biroq bu usulning ham o'ziga xos qiyinchiliklari bor: agar bir xil testlar muntazam ravishda bajarilsa, ular tizimda yangi paydo bo'ladigan nuqsonlarni aniqlay olmay qoladi.
 
 ---
 
-## 6. Sinov Kontekstga Bog'liqdir (Context Dependent)
+## 5. Pestitsid Paradoksi (Pesticide paradox)
 
-Hamma dasturlar bir xil tarzda sinovdan o'tkazilmaydi. Sinov usuli, chuqurligi va vositalari loyihaning tabiatiga qarab tubdan farq qiladi.
-- Oddiy ma'lumot beruvchi blog yoki yangiliklar saytini sinash uslubi bilan, inson salomatligiga mas'ul bo'lgan tibbiyot apparati dasturini yoki millionlab tranzaksiyalarni o'tkazuvchi bank ilovasini sinash mutlaqo boshqa-boshqa yondashuvlarni talab qiladi.
+Ushbu tamoyilga ko'ra, agar biz muayyan vaqt davomida bir xil test-keyslar to'plamini qayta-qayta ishga tushiraversak, bunday testlar dastur yoki ilovadagi yangi paydo bo'lgan xatoliklarni topishga ojizlik qilib qoladi. Ushbu pestitsid paradoksini yengib o'tish uchun barcha test-keyslarni doimiy ravishda qayta ko'rib chiqish va yangilab borish nihoyatda muhimdir.
+
+Dasturiy ta'minot yoki ilovaning turli qismlarini amalda sinash uchun yangi va bir-biridan farq qiluvchi testlarni yozish zarur bo'lib, bu bizga ko'proq xatoliklarni aniqlashga ko'maklashadi.
 
 ---
 
-## 7. Xatoliklarning Yo'qligi Haqidagi Xomxayol (Absence-of-Errors Fallacy)
+## 6. Sinov Kontekstga Bog'liqdir (Testing is context-dependent)
 
-Agar dastur barcha testlardan 100% xatosiz o'tgan bo'lsa-yu, ammo u mijozning haqiqiy biznes ehtiyojlarini qondirmasa yoki foydalanuvchiga umuman kerak bo'lmasa — bu dastur muvaffaqiyatsiz hisoblanadi.
-- Tizim shunchaki "xatosiz" bo'lishi kifoya emas, u eng avvalo **foydalanuvchi talab qilgan to'g'ri vazifani bajarishi shart** (Validation tamoyili).
+Sinov kontekstga bog'liq degan tamoyil shuni ta'kidlaydiki, bugungi kunda bozorda turli sohalarga oid ilovalar — elektron tijorat (e-commerce) veb-saytlari, tijoriy korporativ tizimlar va boshqa ko'plab yo'nalishlar mavjud. Tijoriy saytni hamda elektron tijorat saytlarini sinashning o'ziga xos aniq uslublari mavjud, chunki har bir ilova o'zining shaxsiy ehtiyojlari, o'ziga xos xususiyatlari va funksionalligiga ega.
+
+Bunday turdagi ilovalarni tekshirish uchun biz turli xil sinov turlari, turlicha texnikalar, yondashuvlar va bir qancha usullardan foydalanamiz. Binobarin, sinov jarayoni bevosita ilovaning qaysi soha va kontekstga tegishli ekanligiga bog'liqdir.
+
+---
+
+## 7. Xatoliklarning Yo'qligi Haqidagi Xomxayol (Absence of errors fallacy)
+
+Agar ilova to'liq sinovdan o'tkazilgan bo'lsa va mahsulot ommaga taqdim etilishidan (release) oldin unda hech qanday xatolik aniqlanmagan bo'lsa, biz ilovani 99 foiz nuqsonlardan xoli deb aytishimiz mumkin. Ammo ilova noto'g'ri shakllantirilgan talablar asosida sinovdan o'tkazilgan bo'lsa, nuqsonlarni aniqlash va ularni belgilangan muddatda tuzatish hech qanday naf keltirmaydi. Chunki sinov mijozning haqiqiy talablariga to'g'ri kelmaydigan noto'g'ri spetsifikatsiya bo'yicha amalga oshirilgan bo'ladi.
+
+Xatoliklarning yo'qligi haqidagi xomxayol shuni bildiradiki: agar ilova foydalanish uchun noqulay bo'lsa hamda mijozning haqiqiy ehtiyojlari va talablarini bajara olmasa, undagi xatoliklarni topish va tuzatish mahsulotni muvaffaqiyatli qila olmaydi.
