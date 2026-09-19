@@ -2,7 +2,7 @@ export default {
   index: 'Software Testing Asoslari',
   'software-testing-tutorial': 'Dasturiy Ta\'minotni Sinash Qo\'llanmasi (Software Testing Tutorial)',
   'software-testing-principles': "Dasturiy Ta'minotni Sinash Tamoyillari",
-  'software-development-life-cycle': 'Software Development Life Cycle',
+  'software-development-life-cycle': "Dasturiy Ta'minotni Ishlab Chiqish Hayotiy Davri (SDLC)",
   'software-testing-life-cycle': 'Software Testing Life Cycle',
   'types-of-software-testing': 'Types of Software Testing',
   'levels-of-testing': 'Levels of Testing',
