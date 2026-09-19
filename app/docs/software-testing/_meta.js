@@ -8,5 +8,5 @@ export default {
   'levels-of-testing': "Dasturiy Ta'minotni Sinash Darajalari",
   'api-testing-tutorial': "API Sinovlari Bo'yicha Qo'llanma",
   'acceptance-test-driven-development': "Qabul Sinovlariga Asoslangan Ishlab Chiqish (ATDD)",
-  'methodological-types': 'Methodological Types'
+  'methodological-types': "Metodologik Turlar (Methodological Types)"
 }
