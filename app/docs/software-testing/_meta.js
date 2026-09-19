@@ -7,6 +7,6 @@ export default {
   'types-of-software-testing': "Dasturiy Ta'minotni Sinash Turlari",
   'levels-of-testing': "Dasturiy Ta'minotni Sinash Darajalari",
   'api-testing-tutorial': "API Sinovlari Bo'yicha Qo'llanma",
-  'acceptance-test-driven-development': 'Acceptance Test Driven Development(ATDD)',
+  'acceptance-test-driven-development': "Qabul Sinovlariga Asoslangan Ishlab Chiqish (ATDD)",
   'methodological-types': 'Methodological Types'
 }
