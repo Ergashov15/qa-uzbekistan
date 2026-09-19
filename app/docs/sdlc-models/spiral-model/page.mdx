@@ -1,18 +1,20 @@
 import { Callout } from 'nextra/components'
 
-# Spiral Modeli (Spiral Model)
+# Dasturiy Sinovda Spiral Modeli (Spiral Model in Software Testing)
 
-**Spiral modeli (Spiral Model)** — dasturiy ta'minotni ishlab chiqish hayotiy davrining (SDLC) iterativ modellari sirasiga kiradi. U iterativ rivojlanish konsepsiyasini tizimli xavflarni tahlil qilish (systematic risk analysis) tamoyillari bilan birlashtiradi. Mazkur modelda dasturiy ta'minot ketma-ket takrorlanuvchi sikllar — spirallar (spirals) orqali bosqichma-bosqich takomillashtirib boriladi.
+**Spiral modeli (Spiral Model)** — dasturiy ta'minotni ishlab chiqish hayotiy davrining (SDLC) iterativ modellaridan biri bo'lib, u takrorlanuvchi rivojlanishni tizimli xavflarni tahlil qilish (systematic risk analysis) tamoyillari bilan birlashtiradi. Ushbu modelda dasturiy ta'minot ketma-ket takrorlanuvchi sikllar — spirallar (spirals) orqali bosqichma-bosqich ishlab chiqiladi.
 
-Ushbu bo'limda siz Spiral modeli, uning 4 asosiy bosqichi, ish oqimi, modulli o'zgarishlar mexanizmi, afzalliklari va cheklovlarini batafsil o'rganasiz.
+Ushbu bo'limda siz Spiral modeli, uning 4 ta asosiy bosqichi, ish oqimi, modullararo sinov shartlari, MS Excel misoli, o'zgarishlar turlari hamda afzalliklari va kamchiliklarini batafsil o'rganasiz.
 
 ---
 
 ## Spiral Modeli Nima? (What is the Spiral Model?)
 
-**Spiral modeli** — bu dasturiy ta'minot bir nechta takrorlanuvchi iteratsiyalar (spirallar) orqali quriladigan SDLC modelidir. Har bir spiral talablarni aniqlash, loyihalash, dasturlash, sinov va eng muhimi xavf-xatarlarni tahlil qilish bosqichlarini o'z ichiga oladi. Har bir sikl yakunida dasturiy ta'minotning yanada takomillashgan va boyitilgan yangi versiyasi (build) yuzaga keladi.
+**Spiral modeli** — bu dasturiy ta'minot bir nechta takrorlanuvchi iteratsiyalar (spirallar) orqali ishlab chiqiladigan SDLC modelidir. Har bir spiral o'z ichiga rejalashtirish, loyihalash, ishlab chiqish, sinov va xavflarni tahlil qilish bosqichlarini qamrab oladi. Har bir yangi spiral natijasida dasturiy ta'minotning tobora takomillashgan va boyitilgan versiyasi yuzaga keladi.
 
-Sharshara modelidan farqli o'laroq, Spiral modelida loyiha davomida talablarning bosqichma-bosqich o'zgarishi va rivojlanishiga ruxsat beriladi. Har bir iteratsiyada texnik va moliyaviy xavflarni o'z vaqtida aniqlash va bartaraf etishga birlamchi e'tibor qaratilganligi sababli, bu model yirik va murakkab loyihalar uchun eng ma'qul yechim hisoblanadi.
+Sharshara modelidan farqli o'laroq, Spiral modelida loyiha jarayonida talablarning bosqichma-bosqich shakllanishi va o'zgarishiga ruxsat beriladi. Shuningdek, har bir iteratsiyada xatarlarni aniqlash va ularni bartaraf etishga birlamchi urg'u beriladi, bu esa uni yirik va murakkab loyihalar uchun eng mos modelga aylantiradi.
+
+Spiral modeli buyurtmachilarga har bir iteratsiyadan so'ng dasturiy ta'minotni ko'rib chiqish va fikr-mulohazalar (feedback) bildirish imkonini beradi. Ushbu fikrlar navbatdagi rivojlanish sikllariga to'liq kiritiladi.
 
 ```mermaid
 flowchart TD
@@ -28,113 +30,111 @@ flowchart TD
 
 ## Spiral Modelining 4 Asosiy Bosqichi
 
-Har bir spiral (iteratsiya) qat'iy ravishda quyidagi to'rtta asosiy bosqichdan tashkil topadi:
+Spiral modelining har bir iteratsiyasi qat'iy ravishda quyidagi to'rtta bosqichdan iborat bo'ladi:
 
 ### 1. Talablar Tahlili (Requirement Analysis)
-Spiral modeli jarayoni biznes ehtiyojlarini to'plashdan boshlanadi. Har bir yangi spiralda tizim talablari, quyi tizim talablari va alohida modullarning hujjatlari to'ldirib boriladi.
-- Biznes tahlilchi (Business Analyst) va buyurtmachi doimiy aloqada bo'ladi, bu esa tizim talablarini to'liq va xatosiz anglashga xizmat qiladi.
-- Barcha talablar aniqlangach va sikl to'liq yakunlangach, tegishli funksionallik ishlab chiqarishga (market/production) topshiriladi.
+Spiral modeli jarayoni mijozning biznes ehtiyojlarini to'plashdan boshlanadi:
+- Keyingi spirallarda tizim talablari (system requirements), birlik talablari (unit requirements) va quyi tizim ehtiyojlari (subsystem needs) hujjatlashtirib boriladi.
+- Biznes tahlilchi (Business Analyst) va buyurtmachi doimiy muloqotda bo'lganligi sababli tizim talablarini to'liq tushunish oson kechadi.
+- Sikl to'liq yakunlangach, dastur bozorga yoki mijoz muhitiga (production) joylashtiriladi.
 
 ### 2. Loyihalash va Dizayn (Design)
-Ikkinchi bosqichda tizimning arxitekturasi va mantiqiy loyihasi tuziladi:
-- Mantiqiy dizayn (logical design) va arxitektura dizayni (architectural design).
-- Ma'lumotlar oqimi sxemalari (flow charts) va qaror daraxtlari (decision trees).
-- Modullarning o'zaro integratsiyalashuv sxemalari.
+Spiral modelining ikkinchi bosqichi dizayn hisoblanadi:
+- Unda mantiqiy dizayn (logical design) va arxitektura dizayni (architectural design) rejalashtiriladi.
+- Ma'lumotlar oqimi sxemalari (flow charts), qaror daraxtlari (decision trees) va tizim bloklari ishlab chiqiladi.
 
-### 3. Kodlash va Qurish (Coding)
-Dizayn tayyor bo'lgach, dasturchilar mijoz talablariga muvofiq dasturiy kodni yozishga kirishadilar:
-- Bu bosqich har bir siklda haqiqiy ishlaydigan ilovaning yangi qismini qurishni anglatadi.
-- Talablari va dizayn tafsilotlari aniq belgilangan har bir oraliq natija maxsus versiya raqami berilgan yig'ilma (**build**, masalan v1.0, v1.1) deb ataladi.
-- Ushbu yig'ilmalar mijozga ko'rib chiqish va mulohaza bildirish uchun taqdim etiladi.
+### 3. Kodlash va Dasturlash (Coding)
+Dizayn bosqichi yakunlangach, kodlash bosqichiga o'tiladi:
+- Dasturchilar mijozning talablari va oldingi fikr-mulohazalari asosida mahsulotni ishlab chiqadilar.
+- Ushbu bosqich har bir siklda haqiqiy ishchi dasturiy ilovani qurishni anglatadi.
+- Talablari va dizayn tafsilotlari aniq belgilangan har bir oraliq dasturiy natija versiya raqamiga ega bo'lgan **yig'ilma (build)** deb ataladi. Shundan so'ng ushbu yig'ilmalar mijozga ko'rib chiqish va javob olish uchun yuboriladi.
 
 ### 4. Sinov va Xavflarni Tahlil Qilish (Testing and Risk Analysis)
-Dasturlash bosqichi muvaffaqiyatli yakunlangach, yig'ilma har bir sikl oxirida keng qamrovli sinovdan o'tkaziladi:
-- Dasturiy ta'minot turli jihatlar bo'yicha tahlil qilinadi: texnik imkoniyatlar (technical feasibility), xavflarni boshqarish va nosozliklarni barvaqt aniqlash.
-- Shundan so'ng mijoz ilovani sinab ko'radi va keyingi spiral uchun o'z taklif va tuzatishlarini kiritadi.
+Dasturlash muvaffaqiyatli yakunlangach, birinchi sikl oxirida yig'ilma sinovdan o'tkaziladi:
+- Dasturiy ta'minot turli jihatlar, xususan xavflarni boshqarish, nosozliklarni barvaqt aniqlash va texnik imkoniyatlarni (technical feasibility) kuzatish bo'yicha tahlil qilinadi.
+- Shundan so'ng buyurtmachi ilovani sinab ko'radi va keyingi qadamlar uchun o'z mulohazalarini bildiradi.
 
 ---
 
-## Spiral Modeliga Amaliy Misol (MS Excel Misolida)
+## Spiral Modeliga Amaliy Misol (Modulli Rivojlanish)
 
-Spiral modelida dasturiy ta'minot kichik modullar ko'rinishida bosqichma-bosqich ishlab chiqiladi. Faraz qilaylik, bizda **A ilovasi** mavjud bo'lib, u ketma-ket **P**, **Q**, **R** modullari yordamida yaratilishi kerak:
-
-- **P Moduli**: Talab tahlili (RP) $\rightarrow$ Dizayn (DP) $\rightarrow$ Kodlash (CP) $\rightarrow$ Sinov (TP).
-- **Q Moduli**: P moduli to'liq tayyor bo'lgach boshlanadi: (RQ $\rightarrow$ DQ $\rightarrow$ CQ $\rightarrow$ TQ).
-- **R Moduli**: P va Q modullari to'liq bitgach boshlanadi: (RR $\rightarrow$ DR $\rightarrow$ CR $\rightarrow$ TR).
+Spiral modelida dasturiy ta'minot kichik modullar ko'rinishida bosqichma-bosqich ishlab chiqiladi. Faraz qilaylik, bizda **A ilovasi** mavjud bo'lib, u ketma-ket **P**, **Q**, **R** modullari yordamida yaratilishi lozim:
 
 ```mermaid
 flowchart LR
-    subgraph Iteration1["1-Spiral: Modul P"]
-        RP["Talab (RP)"] --> DP["Dizayn (DP)"] --> CP["Kod (CP)"] --> TP["Sinov (TP)"]
+    subgraph P["1-Spiral: Modul P"]
+        RP["RP: Talab"] --> DP["DP: Dizayn"] --> CP["CP: Kod"] --> TP["TP: Sinov"]
     end
-    subgraph Iteration2["2-Spiral: Modul Q"]
-        RQ["Talab (RQ)"] --> DQ["Dizayn (DQ)"] --> CQ["Kod (CQ)"] --> TQ["Sinov (TQ + P integratsiya)"]
+    subgraph Q["2-Spiral: Modul Q"]
+        RQ["RQ: Talab"] --> DQ["DQ: Dizayn"] --> CQ["CQ: Kod"] --> TQ["TQ: Sinov"]
     end
-    subgraph Iteration3["3-Spiral: Modul R"]
-        RR["Talab (RR)"] --> DR["Dizayn (DR)"] --> CR["Kod (CR)"] --> TR["Sinov (R, Q, P integratsiya)"]
+    subgraph R["3-Spiral: Modul R"]
+        RR["RR: Talab"] --> DR["DR: Dizayn"] --> CR["CR: Kod"] --> TR["TR: Sinov"]
     end
-    Iteration1 --> Iteration2 --> Iteration3
+    P --> Q --> R
 ```
 
-### Sinov Shartlari va Ketma-ketlik:
-1. **Modul Q ni sinashda:**
-   - Q modulining o'zi alohida tekshiriladi (Unit test).
-   - Q modulining P moduli bilan integratsiyasi tekshiriladi (Integration test).
-   - P moduli ta'sirlanmaganligini tasdiqlash uchun qayta tekshiriladi (Regression/Re-test).
-2. **Modul R ni sinashda:**
-   - R, Q va P modullarining har biri alohida tekshiriladi.
-   - Modullar integratsiyasi zanjir bo'yicha to'liq tekshiriladi: $R \rightarrow Q$, $R \rightarrow P$, va $(P + Q) \rightarrow R$.
+Yuqoridagi belgilashlar quyidagilarni anglatadi:
+- **RP, RQ, RR:** Tegishlicha P, Q, R modullarining talablar tahlili (Requirement Analysis).
+- **DP, DQ, DR:** Tegishlicha P, Q, R modullarining dizayni (Design).
+- **CP, CQ, CR:** Tegishlicha P, Q, R modullarini kodlash (Coding).
+- **TP, TQ, TR:** Tegishlicha P, Q, R modullarini sinash (Testing).
 
-<Callout type="info">
-**Real Hayotiy Misol — Microsoft Excel:**
-MS Excel ilovasi spiral modeliga eng yorqin misoldir. Excel elektron jadvali bir nechta katakchalardan (cells) iborat:
-1. **P Moduli:** Avvalo katakchalar to'ri (grid of cells) yaratiladi.
-2. **Q Moduli:** Katakchalar tayyor bo'lgach, ular ustida operatsiyalar bajarish — katakchalarni bo'lish (split cells) yoki birlashtirish (merge cells) funksiyasi qo'shiladi.
-3. **R Moduli:** Jadval ma'lumotlari asosida grafiklar va diagrammalar (charts/graphs) chizish imkoniyati qo'shiladi.
+### Jarayon va Sinov Shartlari:
+1. **P Modulida:** Avval talab olinadi, so'ng modul loyihalanadi va xatolar sinovdan o'tkazilgach kodlash yakunlanadi.
+2. **Q Modulida:** Q moduli faqat P moduli to'liq qurib bo'lingandan so'ng yaratiladi. Q modulini sinashda quyidagi 3 ta shart qat'iy tekshiriladi:
+   - Q modulining o'zini sinash (Unit testing).
+   - Q modulining P moduli bilan integratsiyasini sinash (Integration testing).
+   - P modulining o'zini qayta sinash (Regression / Re-testing).
+3. **R Modulida:** P va Q modullari yaratilgach, R moduliga o'tiladi va quyidagi shartlar tekshiriladi:
+   - Avvalo har bir modulni tekshirish: R, Q va P.
+     - So'ngra modullar integratsiyasini quyidagi tartibda tekshirish: `R → Q`, `(R va P) → (P va Q)`
+
+<Callout type="warning">
+**Muhim Qoida:**
+Sikl bir nechta modullar uchun davom etganda, Q moduli faqat P moduli to'g'ri va to'liq qurilgandan keyingina boshlanishi mumkin. Xuddi shuningdek, R moduli ham P va Q to'liq tayyor bo'lgach boshlanadi.
 </Callout>
+
+### Real Hayotiy Misol: Microsoft Excel
+Spiral modeliga eng mos tushadigan amaliy misol — **MS-Excel** dasturidir:
+- Excel elektron jadvali bir nechta katakchalardan (cells) tashkil topgan.
+- **P Moduli:** Dastlab katakchalar to'ri yaratiladi.
+- **Q Moduli:** Katakchalar tayyor bo'lgach, ular ustida amallar bajarish — katakchalarni ikkiga bo'lish (split cells) va birlashtirish (merge cells) imkoniyati qo'shiladi.
+- **R Moduli:** Katakchalar va ulardagi ma'lumotlar asosida jadvalda grafiklar va diagrammalar (draw graphs/charts) chizish moduli quriladi.
 
 ---
 
-## O'zgarishlar Turlari (Major vs Minor Changes)
+## Spiral Modelida O'zgarishlar Turlari (Major vs Minor Changes)
 
-Spiral modelida mijoz tomonidan bildirilgan talab o'zgarishlari ikki toifaga bo'linadi:
+Spiral modelida talablarga kiritiladigan o'zgarishlar ikki turga bo'linadi:
 
 ```mermaid
 graph TD
-    Change{"O'zgarish Turi"}
-    Change -->|"Katta o'zgarish"| Major["Katta O'zgarishlar (Major Changes)<br/>• Biznes mantiq yoki asosiy funksionallik<br/>• Yangi alohida spiral talab etadi<br/>• Birlik va integratsiya to'liq sinovdan o'tadi"]
-    Change -->|"Kichik o'zgarish"| Minor["Kichik O'zgarishlar (Minor Changes)<br/>• Frontend / UI / Vizual elementlar<br/>• Yangi sikl ochilmaydi<br/>• Navbatdagi modul bilan birgalikda kiritiladi"]
+    Change{"O'zgarish Turlari"}
+    Change -->|"Funksional o'zgarish"| Major["Katta O'zgarishlar (Major Changes)<br/>• Dasturning asosiy funksionalligi<br/>• Yangi alohida sikl/spiral talab etadi<br/>• Birlik va integratsiya to'liq sinovdan o'tadi"]
+    Change -->|"Tashqi interfeys"| Minor["Kichik O'zgarishlar (Minor Changes)<br/>• UI / Frontend vizual o'zgarishlari<br/>• Yangi sikl ochilmaydi<br/>• Yangi modul bilan bir vaqtda bitta siklda bajariladi"]
 ```
 
 ### 1. Katta O'zgarishlar (Major Changes)
-Buyurtmachi ma'lum bir modul bo'yicha asosiy funksionallik yoki biznes mantig'iga jiddiy o'zgartirish kiritishni talab qilganda yuz beradi:
-- Bunday o'zgarish mavjud boshqa modullarga ham ta'sir qilishi mumkin.
-- Shuning uchun har doim **yangi alohida sikl (iteratsiya)** ochiladi.
-- Ushbu modul uchun ham birlik (unit), ham barcha bog'liq modullar bilan integratsiya sinovlari qaytadan to'liq amalga oshiriladi.
+Buyurtmachi ma'lum bir modul uchun talablarga jiddiy o'zgartirish kiritishni so'raganda yuz beradi:
+- Faqat o'sha modul o'zgartiriladi hamda birlik (unit) va integratsion sinovlar to'liq qayta o'tkaziladi.
+- Bunday o'zgarish uchun **har doim bitta yangi sikl (iteratsiya)** ochiladi, chunki u mavjud boshqa modullarga ta'sir ko'rsatishi mumkin.
+- Katta o'zgarishlar odatda dasturning biznes funksionalligi bilan bog'liq bo'ladi.
 
 ### 2. Kichik O'zgarishlar (Minor Changes)
-Ilovaning tashqi ko'rinishi yoki ikkinchi darajali elementlari (masalan, foydalanuvchi interfeysi (UI), ranglar, shriftlar, matnlar) bo'yicha kichik o'zgarishlar so'ralganda:
-- Bu o'zgarishlar mavjud biznes funksionallikka salbiy ta'sir ko'rsatmaydi.
-- Shuning uchun **yangi sikl yoki iteratsiya boshlanmaydi**, chunki bu ortiqcha vaqt va resurs sarfiga olib keladi.
-- Kichik o'zgarish ishlab chiqilayotgan navbatdagi yangi modul bilan bir vaqtda, bitta sikl ichida amalga oshiriladi.
+Mijoz dasturda kichik o'zgarish kiritishni so'raganda:
+- Dasturlash jamoasi ushbu kichik o'zgarishlarni navbatdagi yangi modul bilan birgalikda, bitta sikl ichida amalga oshiradi.
+- Bu holatda **hech qachon yangi sikl yoki iteratsiya ochilmaydi**, chunki kichik o'zgarish mavjud funksionallikka salbiy ta'sir ko'rsatmaydi va yangi sikl ochish ortiqcha vaqt hamda resurs talab qiladi.
+- Kichik o'zgarishlar odatda foydalanuvchi interfeysi (UI / frontend) tuzatishlari bo'ladi.
 
 ---
 
 ## Spiral Modelining Afzalliklari va Kamchiliklari
 
-| Afzalliklari (Advantages) | Kamchiliklari (Disadvantages) |
+| Afzalliklari (Advantage) | Kamchiliklari (Disadvantage) |
 | :--- | :--- |
-| **Moslashuvchanlik:** Ishlab chiqish jarayonining istalgan bosqichida o'zgarishlar kiritishga ruxsat beriladi. | **Kichik loyihalar uchun qimmat:** Kichik va xavf darajasi past loyihalar uchun iqtisodiy jihatdan samarasiz va qimmatga tushadi. |
-| **Kichik qismlarga bo'linish:** Katta tizimlar boshqarish oson bo'lgan kichik modullar ko'rinishida barpo etiladi. | **Murakkab boshqaruv:** Ko'p sonli spirallar va versiyalarni boshqarish maxsus tajriba va yuqori malakali menejmentni talab qiladi. |
-| **Erta foydalanish:** Buyurtmachi dastlabki spirallardanoq dasturning ishlaydigan prototipidan foydalanishi mumkin. | **Ortiqcha hujjatbozlik:** Har bir oraliq bosqich uchun ko'plab hisobotlar va hujjatlar talab etiladi. |
-| **Risk tahlili:** Xavflar va muammolar har bir spiralda oldindan baholanib, o'z vaqtida zararsizlantiriladi. | **Klassik yondashuv cheklovi:** Tarixiy jihatdan ko'pincha dasturchilarning o'zlari sinov ishlarini bajarganligi sababli xolislik susayishi mumkin. |
-| **Mijoz qoniqishi:** Har bir iteratsiya yakunida mijoz fikri inobatga olingani uchun yakuniy noroziliklar deyarli bo'lmaydi. | **Parallel yetkazib berish yo'qligi:** Oldingi modul to'liq tayyor bo'lmaguncha, keyingisi boshlanmasligi mumkin. |
-
----
-
-## Spiral Modeli Qachon Qo'llaniladi?
-
-- Loyiha hajmi katta, murakkab va uzoq muddatli bo'lganda.
-- Texnik, moliyaviy yoki operatsion xavflarni muntazam tahlil qilish zarur bo'lganda.
-- Loyiha talablari boshida to'liq aniq bo'lmaganda yoki ular bozor talabi bilan tez-tez o'zgarib turganda.
-- Buyurtmachi dasturning dastlabki funksional yig'ilmalarini erta ko'rishni va doimiy fikr bildirishni istaganda.
+| **Moslashuvchan o'zgarishlar:** Spiral modelida loyiha davomida moslashuvchan o'zgartirishlar kiritishga ruxsat beriladi. | **Kichik loyihalar uchun mos emas:** Kichik va xavf darajasi past bo'lgan mahsulotlar uchun to'g'ri kelmaydi, chunki bu kichik loyiha uchun juda qimmatga tushishi mumkin. |
+| **Kichik qismlarga taqsimlash:** Ishlab chiqish jarayonini boshqarish oson bo'lgan kichik qismlarga (modullarga) bo'lish mumkin. | **An'anaviy sinov cheklovi:** Bu klassik model bo'lib, unda sinov vazifalarini ham asosan dasturchilarning o'zlari bajargan. |
+| **Erta foydalanish:** Buyurtmachi dastlabki bosqichlardanoq ilovadan foydalanishi va baholashi mumkin. | **Ko'rib chiqish va parallel ish yo'qligi:** Unda maxsus ko'rib chiqish (review) jarayoni talab qilinmaydi va parallel yetkazib berishga ruxsat etilmaydi. |
+| **Mutaxassislar uchun ravshanlik:** Dasturchilar va test muhandislari uchun loyiha maqsadlari juda aniq va ravshan bo'ladi. | **Murakkab boshqaruv:** Spiral modelida loyihani boshqarish biroz qiyin, shu sababli u ancha kompleks jarayon hisoblanadi. |
+| **Prototiplardan keng foydalanish:** Tizim talablarini tushunish uchun prototiplardan keng foydalanish imkoniyatini yaratadi. | **Keraksiz qog'ozbozlik:** Ko'p sonli oraliq bosqichlar mavjudligi ortiqcha va keraksiz hujjatbozlikni talab etadi. |
