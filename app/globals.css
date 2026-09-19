@@ -1,0 +1,499 @@
+/* ==========================================================================
+   QA Journey — Classical Academic Design System (Times New Roman & Clean UX)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Root Typography & Theme Variables (Times New Roman Standard)
+   -------------------------------------------------------------------------- */
+:root {
+  --font-serif: var(--font-times), 'Times New Roman', Times, 'Tinos', Georgia, Cambria, serif;
+  --font-mono: var(--font-mono), 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+
+  /* Nextra internal engine hooks */
+  --x-font-sans: var(--font-serif);
+  --x-font-mono: var(--font-mono);
+
+  /* Primary Brand Hue */
+  --nextra-primary-hue: 221deg;
+  --nextra-primary-saturation: 83%;
+  --nextra-primary-lightness: 45%;
+
+  /* Academic & Professional Palette - Light Mode */
+  --bg-page: #ffffff;
+  --bg-surface: #fbfbfb;
+  --bg-subtle: #f3f4f6;
+  --border-color: #d1d5db;
+  --border-hover: #9ca3af;
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --brand-color: #1d4ed8;
+  --brand-hover: #1e40af;
+  --brand-light: #eff6ff;
+  --menu-bg: #ffffff;
+  --menu-border: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-dropdown: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+:is(.dark) {
+  /* Academic & Professional Palette - Dark Mode */
+  --bg-page: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-subtle: #334155;
+  --border-color: #334155;
+  --border-hover: #475569;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --brand-color: #60a5fa;
+  --brand-hover: #93c5fd;
+  --brand-light: #1e293b;
+  --menu-bg: #1e293b;
+  --menu-border: #334155;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-dropdown: 0 12px 28px -4px rgba(0, 0, 0, 0.5), 0 6px 12px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   2. Global Typography (Times New Roman / 14pt - 16.5px Standard)
+   -------------------------------------------------------------------------- */
+html,
+body,
+article,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+table,
+button,
+input {
+  font-family: var(--font-serif) !important;
+}
+
+body {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nextra-navbar-height, 64px) + 1.5rem);
+}
+
+/* Monospace & Code */
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono) !important;
+}
+
+:not(pre) > code {
+  font-size: 0.88em !important;
+  padding: 0.15em 0.4em !important;
+  border-radius: 4px !important;
+  background-color: var(--bg-subtle) !important;
+  color: var(--brand-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Content Headings (Professional Academic Hierarchy) */
+article h1 {
+  font-size: 2.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1.25rem !important;
+  color: var(--text-primary) !important;
+}
+
+article h2 {
+  font-size: 1.65rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
+  padding-bottom: 0.4rem !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+article h3 {
+  font-size: 1.35rem !important;
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+  margin-top: 1.6rem !important;
+  margin-bottom: 0.5rem !important;
+  color: var(--text-primary) !important;
+}
+
+article p {
+  font-size: 1.05rem !important;
+  line-height: 1.65 !important;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+article strong,
+article b {
+  font-weight: 700 !important;
+  color: var(--text-primary);
+}
+
+article ul,
+article ol {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+article li {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header & Navbar UX (Clean Left Alignment & Clear Structure)
+   -------------------------------------------------------------------------- */
+.nextra-navbar {
+  border-bottom: 1px solid var(--border-color) !important;
+  background-color: var(--bg-page) !important;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.nextra-navbar > nav {
+  gap: 8px !important;
+}
+
+/* Brand Logo (Classical & Dignified) */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-family: var(--font-serif) !important;
+  margin-right: 1.25rem;
+}
+
+.brand-badge {
+  background-color: #1e3a8a;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.brand-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+/* Top Nav Links & Dropdown Buttons (Fixed/Stable Dimensions, Zero Layout Shift) */
+.nextra-navbar nav a:not(.brand-logo),
+.nextra-navbar button[aria-haspopup="menu"] {
+  font-family: var(--font-serif) !important;
+  font-size: 15.5px !important;
+  font-weight: 600 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  border: 1px solid transparent !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.nextra-navbar nav a:not(.brand-logo):hover,
+.nextra-navbar button[aria-haspopup="menu"]:hover {
+  background-color: var(--bg-subtle) !important;
+  color: var(--brand-color) !important;
+}
+
+/* Open state for Dropdown button — keeps exact same size, zero layout shift */
+.nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] {
+  background-color: var(--bg-subtle) !important;
+  color: var(--brand-color) !important;
+  border-color: transparent !important;
+  width: auto !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Arrow rotation when open */
+.nextra-navbar button[aria-haspopup="menu"] svg {
+  transition: transform 0.2s ease !important;
+}
+
+.nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] svg {
+  transform: rotate(270deg) !important;
+}
+
+/* Dropdown Floating Menu Panel ONLY (Strictly targets the popup menu, never the button) */
+div[role="menu"] {
+  min-width: 220px !important;
+  max-width: 300px !important;
+  width: max-content !important;
+  padding: 6px !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--menu-border) !important;
+  background-color: var(--menu-bg) !important;
+  box-shadow: var(--shadow-dropdown) !important;
+  z-index: 9999 !important;
+  box-sizing: border-box !important;
+}
+
+div[role="menu"] [role="menuitem"],
+div[role="menu"] a {
+  font-family: var(--font-serif) !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  border-radius: 5px !important;
+  margin: 2px 0 !important;
+  padding: 8px 14px !important;
+  color: var(--text-primary) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  white-space: nowrap !important;
+  text-decoration: none !important;
+  box-sizing: border-box !important;
+  transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease !important;
+}
+
+div[role="menu"] [role="menuitem"]:hover,
+div[role="menu"] a:hover,
+div[role="menu"] [data-focus] {
+  background-color: var(--brand-light) !important;
+  color: var(--brand-color) !important;
+  padding-left: 17px !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Sidebar & Navigation
+   -------------------------------------------------------------------------- */
+.nextra-sidebar-container {
+  scrollbar-width: thin;
+  border-right: 1px solid var(--border-color);
+}
+
+.nextra-sidebar-container [data-separator] {
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  color: var(--text-muted) !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.35rem !important;
+  padding-left: 0.75rem !important;
+}
+
+.nextra-sidebar-container a {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+}
+
+.nextra-sidebar-container a[aria-current="page"] {
+  background-color: var(--brand-light) !important;
+  color: var(--brand-color) !important;
+  font-weight: 700 !important;
+  border-left: 3px solid var(--brand-color) !important;
+  border-radius: 0 6px 6px 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Cards Grid & Content Presentation
+   -------------------------------------------------------------------------- */
+.nextra-cards {
+  gap: 1.25rem !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.75rem !important;
+}
+
+.nextra-card {
+  border-radius: 10px !important;
+  border: 1px solid var(--border-color) !important;
+  background-color: var(--bg-surface) !important;
+  padding: 1.25rem 1.4rem !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: all 0.2s ease !important;
+}
+
+.nextra-card:hover {
+  border-color: var(--brand-color) !important;
+  box-shadow: var(--shadow-md) !important;
+  transform: translateY(-2px) !important;
+}
+
+.nextra-card > span {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+.nextra-card:hover > span {
+  color: var(--brand-color) !important;
+}
+
+.nextra-card p {
+  font-size: 0.98rem !important;
+  line-height: 1.5 !important;
+  color: var(--text-secondary) !important;
+  margin-top: 0.4rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Home Page Layout (Classical Academic Portal)
+   -------------------------------------------------------------------------- */
+.portal-header {
+  padding: 1.5rem 0 1rem 0;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.portal-title {
+  font-size: 2.3rem !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  color: var(--text-primary) !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.portal-subtitle {
+  font-size: 1.12rem !important;
+  line-height: 1.65 !important;
+  color: var(--text-secondary) !important;
+  max-width: 850px;
+  margin-bottom: 1.25rem !important;
+}
+
+.portal-nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.portal-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.portal-nav-link-primary {
+  background-color: #1e3a8a;
+  color: #ffffff !important;
+}
+
+.portal-nav-link-primary:hover {
+  background-color: #1e40af;
+}
+
+.portal-nav-link-secondary {
+  background-color: var(--bg-surface);
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color);
+}
+
+.portal-nav-link-secondary:hover {
+  background-color: var(--bg-subtle);
+  border-color: var(--border-hover);
+}
+
+/* Overview Summary Box */
+.portal-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 1.5rem 0 2rem 0;
+}
+
+.portal-summary-card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.1rem 1.25rem;
+  background-color: var(--bg-surface);
+}
+
+.portal-summary-card h4,
+.portal-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.portal-summary-card p,
+.portal-card-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Tables & Callouts
+   -------------------------------------------------------------------------- */
+article table {
+  width: 100% !important;
+  margin: 1.5rem 0 !important;
+  border-collapse: collapse !important;
+  border: 1px solid var(--border-color) !important;
+  font-size: 0.98rem !important;
+}
+
+article th {
+  background-color: var(--bg-subtle) !important;
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1rem !important;
+  border: 1px solid var(--border-color) !important;
+  text-align: left !important;
+}
+
+article td {
+  padding: 0.75rem 1rem !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.55 !important;
+}
+
+article tr:hover td {
+  background-color: var(--brand-light) !important;
+}
+
+.nextra-callout {
+  border-radius: 8px !important;
+  border: 1px solid var(--border-color) !important;
+  padding: 1rem 1.25rem !important;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+}

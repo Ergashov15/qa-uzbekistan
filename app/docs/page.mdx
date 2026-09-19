@@ -1,0 +1,246 @@
+import { Tabs, Cards, Callout } from 'nextra/components'
+
+# QA Qo'llanmalari va Dokumentatsiya
+
+Dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasiga oid barcha amaliy va nazariy qo'llanmalar to'plami. Quyidagi toifalar orqali o'zingizga kerakli yo'nalishni tanlang.
+
+<Tabs items={['QA Asoslari', 'Manual QA', 'Web & API', 'Mobile & To\'lovlar', 'Muhandislik', 'ISTQB & Metrikalar', 'Karyera']}>
+
+<Tabs.Tab>
+### QA Asoslari (Fundamentals)
+
+Dasturiy ta'minotni sinashning asosiy qonuniyatlari, darajalari va tamoyillari.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ Dasturiy ta'minotni sinash nima?"
+    href="/docs/fundamentals/what-is-testing"
+  >
+    Sinovning mohiyati, biznesdagi qiymati va real nosozliklar tahlili.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Error, Defect va Failure"
+    href="/docs/fundamentals/error-defect-failure"
+  >
+    Inson xatosi, kod defekti va tizim ishdan chiqishi o'rtasidagi farq.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ QA va QC o'rtasidagi farq"
+    href="/docs/fundamentals/qa-vs-qc"
+  >
+    Proaktiv sifat kafolati (QA) va reaktiv sinov (QC) mas'uliyatlari.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Sinovning 7 ta oltin qoidasi"
+    href="/docs/fundamentals/principles"
+  >
+    ISTQB xalqaro standartining fundamental sinov tamoyillari.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ V-Model va Sinov Darajalari"
+    href="/docs/fundamentals/v-model-levels"
+  >
+    Unit, Integration, System va Acceptance (UAT) sinovlarining o'rni.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Verification va Validation"
+    href="/docs/fundamentals/verification-validation"
+  >
+    Hujjatlarni tekshirish (Verification) va mahsulotni sinash (Validation).
+  </Cards.Card>
+</Cards>
+</Tabs.Tab>
+
+<Tabs.Tab>
+### Manual QA & Test Dizayn
+
+STLC jarayoni, test-keyslar yozish, bug reportlar va test dizayn texnikalari.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ SDLC va STLC Jarayonlari"
+    href="/docs/manual/sdlc-stlc"
+  >
+    Dasturiy ta'minot hayotiy sikli va testlash bosqichlarining ketma-ketligi.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Test Dizayn Texnikalari"
+    href="/docs/manual/test-design"
+  >
+    BVA, Equivalence Partitioning, Decision Table va State Transition.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Test Case va Bug Report"
+    href="/docs/manual/test-cases-bugs"
+  >
+    Professional test hujjatlari, kutilgan natijalar va sifatli bug report.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Severity vs Priority"
+    href="/docs/manual/severity-vs-priority"
+  >
+    Xatolikning og'irlik darajasi va biznes uchun uning tuzatilish ustuvorligi.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Test Plan va Test Strategiya"
+    href="/docs/manual/test-plan-strategy"
+  >
+    Loyiha sinov strategiyasini belgilash va resurslarni rejalashtirish.
+  </Cards.Card>
+</Cards>
+</Tabs.Tab>
+
+<Tabs.Tab>
+### Web & API Testing
+
+Zamonaviy brauzer vositalari, tarmoq tahlili va REST API sinovlari.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ DevTools & Storage"
+    href="/docs/web-testing/devtools-and-storage"
+  >
+    Chrome DevTools, Network so'rovlari, Cookies va LocalStorage bilan ishlash.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ CORS va Accessibility (WCAG)"
+    href="/docs/web-testing/cors-and-accessibility"
+  >
+    Cross-Origin xatoliklari tahlili va hamma uchun qulay interfeys tekshiruvi.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Postman API Testing"
+    href="/docs/api-testing/postman"
+  >
+    REST API so'rovlari, HTTP status kodlari va JavaScript assertion yozish.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Newman va CI/CD"
+    href="/docs/api-testing/newman-cicd"
+  >
+    Postman to'plamlarini terminal orqali CI/CD quvurlarida avtomatik yurgizish.
+  </Cards.Card>
+</Cards>
+</Tabs.Tab>
+
+<Tabs.Tab>
+### Mobile QA & To'lov Tizimlari
+
+Mobil platformalar spetsifikatsiyasi va moliya/to'lov tizimlari xavfsizligi.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ Mobile QA Asoslari"
+    href="/docs/mobile/fundamentals"
+  >
+    iOS vs Android arxitekturasi, ruxsatnomalar va batareya sarfi sinovlari.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Ssenariylar va Interruptlar"
+    href="/docs/mobile/scenarios-and-interrupts"
+  >
+    Qo'ng'iroq, SMS, internet uzilishi va fon rejimi holatlarini tekshirish.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ ADB va Proksi Vositalari"
+    href="/docs/mobile/tools-and-proxies"
+  >
+    Android Debug Bridge buyruqlari, Charles va Proxyman orqali trafik tutish.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ To'lov Tizimlari Oqimlari"
+    href="/docs/payment-testing/flow-and-states"
+  >
+    Authorization, Capture, Refund, 3D Secure va tranzaksiya holatlari.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ To'lov Edge-Cases va Webhooks"
+    href="/docs/payment-testing/scenarios-and-edge-cases"
+  >
+    Idempotency kalitlari, tarmoq xatolari va webhook hodisalarini sinash.
+  </Cards.Card>
+</Cards>
+</Tabs.Tab>
+
+<Tabs.Tab>
+### Muhandislik, Kod & Avtomatlashtirish
+
+Playwright orqali E2E avtomatlashtirish, k6 yuklama sinovlari, SQL va Git.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ QA Automation (Playwright)"
+    href="/docs/automation/playwright"
+  >
+    Playwright arxitekturasi, lokatorlar, kutish strategiyasi va Page Object Model.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Yuklama Sinovlari Turlari"
+    href="/docs/performance/types-and-metrics"
+  >
+    Load, Stress, Spike sinovlari va p90/p95/p99 javob vaqti ko'rsatkichlari.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ k6 orqali Performance Testing"
+    href="/docs/performance/k6-testing"
+  >
+    JavaScript ssenariylari, virtual foydalanuvchilar (VUs) va pollar sinovi.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ SQL for QA"
+    href="/docs/database-git/sql-for-qa"
+  >
+    Relyatsion ma'lumotlar bazalarini tekshirish uchun SELECT, JOIN va WHERE so'rovlari.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Git for QA"
+    href="/docs/database-git/git-for-qa"
+  >
+    Branchlar, commitlar, pull requestlar va jamoaviy hamkorlik asoslari.
+  </Cards.Card>
+</Cards>
+</Tabs.Tab>
+
+<Tabs.Tab>
+### Standartlar & Sifat Metrikalari
+
+ISTQB CTFL 4.0.1 xalqaro sertifikati va dasturiy ta'minot sifati metrikalari.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ ISTQB CTFL Boblar Xulosasi"
+    href="/docs/istqb/chapters-summary"
+  >
+    Xalqaro sertifikat syllabusining barcha boblari bo'yicha asosiy tushunchalar.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ ISTQB Namunaviy Testlar"
+    href="/docs/istqb/sample-questions"
+  >
+    Rasmiy imtihon uslubidagi amaliy savollar va ularning batafsil tahlili.
+  </Cards.Card>
+  <Cards.Card
+    title="▶️ Sifat Metrikalari"
+    href="/docs/test-metrics"
+  >
+    Test Coverage, Defect Density, DRE va MTTD/MTTR ko'rsatkichlarini hisoblash.
+  </Cards.Card>
+</Cards>
+</Tabs.Tab>
+
+<Tabs.Tab>
+### Karyera va Portfolio
+
+Rezyume tayyorlash, GitHub portfoliosi va mehnat bozoriga chiqish strategiyalari.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ Karyera, Rezyume va Portfolio"
+    href="/docs/career/portfolio-and-resume"
+  >
+    XYZ formulasi asosida kuchli rezyume, GitHub loyihalar va xalqaro bozorga yo'l.
+  </Cards.Card>
+</Cards>
+</Tabs.Tab>
+
+</Tabs>
