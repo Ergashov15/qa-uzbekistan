@@ -1,64 +1,83 @@
 import { Callout } from 'nextra/components'
 
-# Software Testing Tutorial: Dasturiy Ta'minotni Sinash Bo'yicha Boshlang'ich Qo'llanma
+# Dasturiy Ta'minotni Sinash Qo'llanmasi (Software Testing Tutorial)
 
-**Software Testing (Dasturiy ta'minotni sinash)** — bu dasturiy mahsulotning belgilangan talablarga to'liq mos kelishini aniqlash, uning xatolar va kamchiliklardan xoli ekanligini baholash hamda barcha xususiyatlarini (ishonchlilik, xavfsizlik, unumdorlik, qulaylik) tekshirishga qaratilgan tizimli jarayondir.
+*Oxirgi yangilanish: 9-iyul, 2026-yil*
 
-Dasturiy ta'minot sinovi har bir axborot texnologiyalari loyihasining ajralmas qismidir, chunki sinovdan o'tkazilmagan dasturni foydalanuvchilarga topshirish jiddiy moliyaviy, obro'-e'tibor va hatto inson hayotiga daxldor xatarlarni keltirib chiqaradi.
+Ushbu dasturiy ta'minotni sinash qo'llanmasi dasturiy ta'minotni sinashning boshlang'ich va ilg'or tushunchalarini taqdim etadi. Bizning dasturiy ta'minotni sinash bo'yicha qo'llanmamiz yangi boshlovchilar hamda tajribali mutaxassislar uchun mo'ljallangan.
+
+Dasturiy ta'minotni sinash axborot texnologiyalarida keng qo'llaniladigan soha hisoblanadi, chunki har bir dasturiy ta'minotni ishlab chiqarishga (deployment) chiqarishdan oldin uni to'liq sinovdan o'tkazish majburiydir.
+
+Bizning dasturiy ta'minotni sinash qo'llanmamiz sinov sohasining barcha mavzularini o'z ichiga oladi: usullar (Black Box Testing — Qora quti sinovi, White Box Testing — Oq quti sinovi, Visual Box Testing — Vizual quti sinovi va Gray Box Testing — Kulrang quti sinovi); sinov darajalari (Unit Testing — Birlik sinovi, Integration Testing — Integratsion sinov, Regression Testing — Regressiya sinovi, Functional Testing — Funksional sinov, System Testing — Tizimli sinov, Acceptance Testing — Qabul sinovi, Alpha Testing, Beta Testing, Non-Functional Testing — Nofunksional sinov, Security Testing — Xavfsizlik sinovi, Portability Testing — Ko'chuvchanlik sinovi).
 
 ---
 
-## 1. Sinov (Testing) O'zi Nima?
+## Dasturiy Ta'minotni Sinash Nima? (What is Software Testing)
 
-**Sinov** — bu dasturiy ta'minotni oldindan belgilangan ssenariylar asosida ishga tushirish, uning amaldagi xatti-harakatini kutilgan natija bilan solishtirish va mavjud nuqsonlarni (defektlarni) fosh etish texnikalari majmuidir.
+**Dasturiy ta'minotni sinash** — dasturning barcha sifat atributlarini (Ishonchlilik, Kengayuvchanlik, Ko'chuvchanlik, Qayta ishlatiluvchanlik, Qulaylik) inobatga olgan holda uning to'g'riligini aniqlash hamda dasturiy xatolar, nuqsonlar yoki defektlarni topish maqsadida dasturiy komponentlarning bajarilishini baholash jarayonidir.
 
-Sinovning bosh maqsadi — dasturning barcha sharoitlarda mukammal ishlashini isbotlash emas, balki **uning qaysi sharoitlarda xato ishlashini yoki ishlamay qolishini aniqlash va tuzatishga erishishdir**.
+Dasturiy ta'minotni sinash dasturga mustaqil va xolisona nigoh bilan qarash imkonini beradi hamda uning foydalanishga to'liq yaroqli ekanligiga kafolat beradi. U barcha komponentlarning belgilangan xizmatlar doirasida kerakli talablarni qondirayotganligi yoki yo'qligini tasdiqlash uchun ularni sinashni qamrab oladi. Bu jarayon, shuningdek, buyurtmachiga dasturiy ta'minotning sifati haqida to'liq va ishonchli ma'lumot taqdim etadi.
+
+Sinov o'tkazish majburiydir, chunki yetarli darajada sinovdan o'tkazilmagani sababli dastur biror vaqt ishdan chiqsa, bu o'ta xavfli vaziyatni keltirib chiqarishi mumkin. Shu sababli, sinovdan o'tkazilmagan dasturiy ta'minot yakuniy foydalanuvchiga topshirilishi mumkin emas.
+
+---
+
+## Sinov O'zi Nima? (What is Testing)
+
+**Sinov** — oldindan belgilangan ssenariylar asosida ilovaning to'g'riligini aniqlovchi texnikalar majmuidir, ammo sinov dasturdagi barcha nuqsonlarni mutlaq topib berishga qodir emas. Sinovning bosh niyati — ilovadagi nosozliklarni (failure) fosh etish, toki bu nosozliklar o'z vaqtida aniqlanib, to'g'rilansin. Sinov mahsulotning barcha sharoitlarda to'g'ri ishlashini isbotlamaydi, balki uning aynan qaysi muayyan sharoitlarda ishlamay qolishini ko'rsatib beradi.
+
+Sinov dasturning xatti-harakati va holatini taqqoslash mexanizmlari bilan solishtirish imkonini beradi, chunki muammoni faqatgina mezonlar orqali tanib olish mumkin. Ushbu mexanizm aynan shu mahsulotning o'tmishdagi versiyalarini, o'xshash raqobatchi mahsulotlarni, kutilayotgan maqsadli interfeyslarni, tegishli standartlarni yoki boshqa mezonlarni o'z ichiga olishi mumkin, ammo bular bilan cheklanmaydi.
+
+Sinov manba kodini tekshirishni hamda kodni turli muhitlarda, turli sharoitlarda ishga tushirishni va kodning barcha tahliliy jihatlarini ko'rib chiqishni qamrab oladi. Hozirgi dasturiy ta'minotni ishlab chiqish amaliyotida sinov jamoasi dasturchilar jamoasidan mustaqil faoliyat yuritishi mumkin, buning natijasida sinovdan olingan xolis axborot dasturiy ta'minotni ishlab chiqish jarayonining o'zini to'g'rilash va takomillashtirish uchun xizmat qiladi.
+
+Dasturiy ta'minotning muvaffaqiyati uning maqsadli auditoriyasi tomonidan qabul qilinishiga, qulay grafik foydalanuvchi interfeysiga, kuchli funksionallik va yuklama sinovlariga bog'liqdir. Masalan, bank sohasining auditoriyasi video o'yinlar auditoriyasidan tubdan farq qiladi. Shuning uchun tashkilot dasturiy mahsulot ishlab chiqarayotganda, ushbu mahsulot o'z xaridorlari va boshqa auditoriyasiga real manfaat keltiradimi-yo'qligini baholay oladi.
+
+---
+
+## Dasturiy Sinov Turlari (Type of Software Testing)
+
+Bozorda ilova yoki dasturiy ta'minotni sinash uchun qo'llaniladigan turli xil sinov turlari mavjud.
+
+Quyidagi chizma orqali dasturiy ta'minotni sinash turlarini osongina tushunish mumkin:
 
 ```mermaid
-flowchart LR
-    Input["Kiruvchi Ma'lumotlar\n(Test Data)"] --> App["Dasturiy Tizim\n(Application Under Test)"]
-    App --> Actual["Amaldagi Natija\n(Actual Result)"]
-    Expected["Kutilgan Natija\n(Expected Result)"] --> Compare{"Taqqoslash\n(Comparison)"}
-    Actual --> Compare
-    Compare -- "Mos keldi" --> Pass["Muvaffaqiyatli (Pass)"]
-    Compare -- "Farq qildi" --> Bug["Nuqson / Xatolik (Defect)"]
+flowchart TD
+    ST["Dasturiy Ta'minotni Sinash\n(Software Testing)"]
+    ST --> MT["Manual Testing\n(Qo'lda Sinash)"]
+    ST --> AT["Automation Testing\n(Avtomatlashtirilgan Sinov)"]
+
+    MT --> WB["White Box Testing\n(Oq quti sinovi)"]
+    MT --> BB["Black Box Testing\n(Qora quti sinovi)"]
+    MT --> GB["Gray Box Testing\n(Kulrang quti sinovi)"]
 ```
 
----
+### Manual Testing (Qo'lda Sinash)
 
-## 2. Nima Uchun Dasturiy Ta'minotni Sinash Shart?
+Ilovaning funksionalligini avtomatlashtirish vositalaridan hech qanday yordam olmagan holda, mijozning ehtiyojlariga muvofiq tekshirish jarayoni **Manual testing (qo'lda sinash)** deb ataladi. Biror ilovada qo'lda sinovni amalga oshirishda bizdan qandaydir sinov vositasi bo'yicha maxsus bilim talab qilinmaydi, aksincha mahsulotni to'g'ri tushunish yetarlidir — shu orqali biz test hujjatlarini osongina tayyorlay olamiz.
 
-Dasturiy ta'minot insonlar tomonidan yaratiladi, inson esa tabiatan charchaydi, noaniq tushunadi yoki adashadi. Shu sababli dasturiy kodda nuqsonlar bo'lishi tabiiydir.
+Qo'lda sinash o'z navbatida uch turga bo'linadi:
+- **White box testing (Oq quti sinovi)**
+- **Black box testing (Qora quti sinovi)**
+- **Gray box testing (Kulrang quti sinovi)**
 
-Sinovning zarurligini quyidagi 4 omil belgilaydi:
-1. **Moliyaviy yo'qotishlarning oldini olish:** Ishlab chiqarishga (Production) chiqib ketgan bitta xatolik kompaniyaga millionlab dollar zarar keltirishi mumkin. Tarixda 2012 yilda *Knight Capital* kompaniyasi dasturdagi 45 daqiqalik xatolik tufayli 440 million dollar yo'qotgan.
-2. **Foydalanuvchilar ishonchi va obro' (Reputation):** Agar bank ilovasi yoki to'lov tizimi bir necha daqiqa ishlamay qolsa, mijozlar raqobatchi xizmatlarga o'tib ketadilar.
-3. **Xavfsizlik (Security):** Sinov dasturda yashirin teshiklar, zaifliklar va xakerlar kirishi mumkin bo'lgan ochiq eshiklar yo'qligini kafolatlaydi.
-4. **Mahsulot sifati (Quality Assurance):** Mahsulotning uzoq muddat barqaror va kengayuvchan ishlashini ta'minlaydi.
+### Automation Testing (Avtomatlashtirilgan Sinov)
 
----
-
-## 3. Dasturiy Ta'minot Sifatining Asosiy Atributlari
-
-Sinov jarayonida dastur quyidagi 5 ta muhim sifat mezoni bo'yicha baholanadi:
-
-| Sifat Atributi | Mezon Mazmuni |
-| :--- | :--- |
-| **Ishonchlilik (Reliability)** | Tizimning belgilangan vaqt davomida uzluksiz va barqaror ishlay olish qobiliyati. |
-| **Kengayuvchanlik (Scalability)** | Foydalanuvchilar va ma'lumotlar hajmi keskin oshganda tizimning yuklamani ko'tara olishi. |
-| **Ko'chuvchanlik (Portability)** | Dasturning turli xil operatsion tizimlar, brauzerlar va qurilmalarda bir xil ishlashi. |
-| **Qulaylik (Usability)** | Interfeysning intuitiv, o'rganishga oson va foydalanuvchi uchun yoqimli bo'lishi. |
-| **Qayta ishlatiluvchanlik (Reusability)** | Dasturiy modullarning boshqa tizimlarda ham qo'shimcha o'zgarishsiz ishlatila olinishi. |
+Har qanday qo'lda bajariladigan test-keyslarni avtomatlashtirish asboblari yoki biror dasturlash tili yordamida test skriptlariga aylantirish jarayoni **Automation testing (avtomatlashtirilgan sinov)** deb ataladi. Avtomatlashtirilgan sinov yordamida biz testlarning ijro etilish tezligini sezilarli darajada oshira olamiz, chunki bu yerda inson mehnati talab etilmaydi. Biz test skriptini yozishimiz va ushbu skriptlarni avtomatik ishga tushirishimiz lozim bo'ladi.
 
 ---
 
-## 4. Dasturiy Sinovning Birlamchi Turlari
+## Boshlang'ich Talablar (Prerequisite)
 
-Bajarilish uslubiga ko'ra dasturiy ta'minot sinovi ikki asosiy yo'nalishga ajratiladi:
+Dasturiy ta'minotni sinashni o'rganishdan oldin siz kompyuterning asosiy ishlash funksiyalari, boshlang'ich matematika, dasturlash tili asoslari va mantiqiy operatorlar bo'yicha bazaviy bilimlarga ega bo'lishingiz lozim.
 
-1. **Manual Testing (Qo'lda sinash):** QA muhandisining o'zi dastur bilan foydalanuvchi sifatida bevosita muloqot qiladi, tugmalarni bosadi va natijalarni qo'lda tekshiradi.
-2. **Automation Testing (Avtomatlashtirilgan sinov):** Oldindan yozilgan test skriptlari (Playwright, Selenium, JMeter) orqali testlarni kompyuter tezligida, inson aralashuvisiz bajarish.
+---
 
-<Callout type="info">
-  **O'rganish uchun talablar (Prerequisites):** Dasturiy ta'minotni sinash sohasini mukammal egallash uchun kompyuter savodxonligi, mantiqiy fikrlash, algoritmlar asoslari hamda ingliz tilidagi texnik atamalarni tushunish yetarlidir.
-</Callout>
+## Maqsadli Auditoriya (Audience)
+
+Bizning dasturiy ta'minotni sinash bo'yicha qo'llanmamiz yangi boshlovchilar hamda sohadagi professional mutaxassislar uchun mo'ljallangan.
+
+---
+
+## Savollar va Fikr-Mulohazalar (Problems & Feedback)
+
+Ishonchimiz komilki, ushbu Dasturiy Ta'minotni Sinash Qo'llanmasida siz hech qanday muammoga duch kelmaysiz. Biroq, agar biror xatolik yoki kamchilik uchrasa, iltimos, muammoni fikr-mulohaza shakli orqali bizga yuboring.

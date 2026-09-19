@@ -1,6 +1,6 @@
 export default {
   index: 'Software Testing Asoslari',
-  'software-testing-tutorial': 'Software Testing Tutorial',
+  'software-testing-tutorial': 'Dasturiy Ta\'minotni Sinash Qo\'llanmasi (Software Testing Tutorial)',
   'software-testing-principles': 'Software Testing Principles',
   'software-development-life-cycle': 'Software Development Life Cycle',
   'software-testing-life-cycle': 'Software Testing Life Cycle',
