@@ -1,0 +1,154 @@
+import { Callout } from 'nextra/components'
+
+# Birlik Sinovi (Unit Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Birlik sinovi (Unit Testing)** — dasturiy ta'minot sinovining birinchi darajasi bo'lib, unda ilovaning eng kichik tekshirilishi mumkin bo'lgan qismlari, masalan: funksiyalar, metodlar yoki klasslar alohida (izolyatsiyalangan holda) sinovdan o'tkaziladi. U har bir birlik boshqa komponentlar bilan integratsiya qilinishidan oldin o'z vazifasini to'g'ri bajarayotganligini tasdiqlaydi.
+
+Ushbu bobda siz birlik sinovi nima ekanligi, u qanday ishlashi, afzalliklari, cheklovlari va qo'llanish sohalari bilan tanishasiz.
+
+---
+
+## Birlik Sinovi Nima? (What is Unit Testing?)
+
+**Birlik sinovi (Unit Testing)** — dasturiy ta'minot sinovining birinchi darajasi bo'lib, unda ilovaning eng kichik tekshirilishi mumkin bo'lgan qismlari, masalan: funksiyalar, metodlar yoki klasslar alohida (izolyatsiyalangan holda) sinovdan o'tkaziladi. U har bir birlik boshqa komponentlar bilan integratsiya qilinishidan oldin o'z vazifasini to'g'ri bajarayotganligini tasdiqlaydi.
+
+Birlik sinovining asosiy maqsadi — dasturning har bir komponenti mustaqil ravishda kutilganidek ishlashini tekshirishdir. Alohida komponentlar bir-biridan ajratilgan holda tekshirilishi sababli, nuqsonlar ilovaning boshqa qismlariga ta'sir qilmasdan oldin erta aniqlanadi va tuzatiladi.
+
+Birlik sinovi odatda **Oq quti sinovi (White Box Testing)** yondashuviga tayanadi, chunki bu kodning ichki tuzilmasi va amalga oshirilishini bilishni talab qiladi. Odatda bu sinov dasturchilar tomonidan dastlabki kod yozilayotgan yoki o'zgartirilayotgan paytda amalga oshiriladi.
+
+Alohida birliklar muvaffaqiyatli sinovdan o'tkazilgach, ular sinovning yuqori bosqichlari — **Integratsion sinov (Integration Testing)** va **Tizimli sinov (System Testing)** uchun birlashtiriladi.
+
+---
+
+## Nega Birlik Sinovi Kerak? (Why Unit Testing?)
+
+Sinov darajalari iyerarxiyasida birlik sinovi integratsiya va boshqa qolgan darajalardan oldin o'tkaziladigan eng birinchi bosqich hisoblanadi. U sinov jarayoni uchun mustaqil modullardan foydalanadi, bu esa boshqa qismlarning tayyor bo'lishini kutib o'tirishga bo'lgan ehtiyojni kamaytiradi. Birlik sinovida ko'makchi sifatida birlik sinovi freymvorklari (Unit testing frameworks), steblar (stubs), drayverlar (drivers) va mox-obyektlar (mock objects) qo'llaniladi.
+
+Odatda dasturiy ta'minot to'rtta sinov bosqichidan o'tadi:
+1. **Birlik sinovi (Unit Testing)**
+2. **Integratsion sinov (Integration Testing)**
+3. **Tizimli sinov (System Testing)**
+4. **Qabul qilish sinovi (Acceptance Testing)**
+
+Lekin ba'zida vaqt yetishmasligi tufayli test muhandislari birlik sinovini juda kam yoki yuzaki o'tkazadilar. Birlik sinovini o'tkazib yuborish esa keyingi Integratsion, Tizimli, Qabul qilish sinovlarida yoki hatto dastur chiqarilgandan keyingi Beta sinovlarida ancha ko'p nuqsonlar yuzaga kelishiga sabab bo'ladi.
+
+### Birlik sinovining asosiy afzalliklari:
+- Dasturchilar va testchilarga kodning asosiy poydevorini tushunishga yordam beradi, bu esa xatolik keltirib chiqargan kodni tezda tuzatish imkonini beradi.
+- Hujjatlashtirish (dokumentatsiya) jarayoniga ko'maklashadi.
+- Ishlab chiqish bosqichidayoq xatoliklarni erta aniqlaydi va tuzatadi, bu esa keyingi sinov bosqichlarida kamroq nuqsonlar chiqishini ta'minlaydi.
+- Kod va test holatlarini qayta ishlatishga (*code reusability*) yordam beradi.
+
+---
+
+## Birlik Sinoviga Amaliy Misol (Example of Unit Testing)
+
+Birlik sinovi tushunchasini yaxshiroq anglash uchun amaliy misolni ko'rib chiqaylik.
+
+Pul o'tkazmasi (**Amount transfer**) moduli uchun talablar quyidagicha:
+- **1. Pul o'tkazmasi (Amount transfer)**
+  - **1.1 Chiqim hisob raqami (From Account Number - FAN)** → Matn maydoni (Text Box)
+    - *1.1.1 FAN faqat 4 ta raqam qabul qilishi kerak*
+  - **1.2 Kirim hisob raqami (To Account Number - TAN)** → Matn maydoni (Text Box)
+    - *1.2.1 TAN faqat 4 ta raqam qabul qilishi kerak*
+  - **1.3 Miqdor (Amount)** → Matn maydoni (Text Box)
+    - *1.3.1 Miqdor maksimal 4 ta raqam qabul qilishi kerak*
+  - **1.4 O'tkazish (Transfer)** → Tugma (Button)
+    - *1.4.1 O'tkazish tugmasi faol (Enabled) bo'lishi kerak*
+  - **1.5 Bekor qilish (Cancel)** → Tugma (Button)
+    - *1.5.1 Bekor qilish tugmasi faol (Enabled) bo'lishi kerak*
+
+### Ilovaga kirish yo'li (mijoz tomonidan taqdim etilgan):
+- **URL** → Kirish sahifasi (Login Page)
+- **Foydalanuvchi nomi / Parol / OK** → Bosh sahifa (Home Page)
+- **Pul o'tkazmasi moduliga o'tish:** Kreditlar (Loans) → Sotuvlar (Sales) → Pul o'tkazmasi (Amount transfer)
+
+### Birlik sinovini o'tkazish qoidalari:
+- Birlik sinovini boshlash uchun kamida bitta modul tayyor bo'lishi kerak.
+- Ijobiy (positive) qiymatlar bilan sinash.
+- Salbiy (negative) qiymatlar bilan sinash.
+- Me'yordan ortiq keraksiz sinov (over-testing) qilmaslik.
+- Taxminlarga tayanmaslik.
+- Maksimal test qamrovi (test coverage) olingach, sinovni to'xtatish.
+
+---
+
+### Alohida Komponentlar Bo'yicha Birlik Sinovlari:
+
+#### 1. Chiqim hisob raqami (FAN) komponenti uchun:
+
+| Kiritilgan qiymat | Tavsif / Kutilgan natija |
+| :--- | :--- |
+| `1234` | Qabul qilinadi (Accept) |
+| `4311` | Xatolik xabari → Hisob raqami mavjudmi yoki yo'qmi |
+| Bo'sh qoldirish | Xatolik xabari → Qiymat kiriting |
+| 5 ta raqam / 3 ta raqam | Xatolik xabari → Faqat 4 ta raqam qabul qilinadi |
+| Harf va belgilar (Alfanumerik) | Xatolik xabari → Faqat raqamlar qabul qilinadi |
+| Bloklangan hisob raqami | Xatolik xabari ko'rsatiladi |
+| Nusxalab qo'yish (Copy & Paste) | Xatolik xabari → Qiymatni qo'lda tering |
+| FAN va TAN bir xil bo'lsa | Xatolik xabari ko'rsatiladi |
+
+#### 2. Kirim hisob raqami (TAN) komponenti uchun:
+Chiqim hisob raqami (FAN) komponenti kabi bir xil qiymatlar va shartlar bilan tekshiriladi.
+
+#### 3. Miqdor (Amount) komponenti uchun:
+FAN va TAN komponentlari singari chegaraviy va to'g'ri/noto'g'ri qiymatlar bilan tekshiriladi.
+
+#### 4. O'tkazish (Transfer) tugmasi uchun:
+1. To'g'ri FAN qiymati kiritiladi.
+2. To'g'ri TAN qiymati kiritiladi.
+3. To'g'ri miqdor (Amount) kiritiladi.
+4. "Transfer" tugmasi bosiladi → Mablag' muvaffaqiyatli o'tkaziladi (tasdiqlash xabari chiqishi kerak).
+
+#### 5. Bekor qilish (Cancel) tugmasi uchun:
+1. FAN, TAN va miqdor qiymatlari kiritiladi.
+2. "Cancel" tugmasi bosiladi → Barcha kiritilgan ma'lumotlar tozalanishi kerak.
+
+---
+
+## Birlik Sinovi Asboblari (Unit Testing Tools)
+
+Bozorda keng qo'llaniladigan mashhur birlik sinov vositalari:
+- **NUnit** (.NET platformasi uchun)
+- **JUnit** (Java platformasi uchun)
+- **PHPUnit** (PHP dasturlash tili uchun)
+- **Parasoft Jtest** (Java uchun avtomatlashtirilgan testlash)
+- **EMMA** (Java kod qamrovini o'lchash vositasi)
+
+---
+
+## Birlik Sinovi Texnikalari (Unit Testing Techniques)
+
+Birlik sinovi dasturiy ta'minot kodiga tayanadi, shuning uchun barcha oq quti sinov texnikalaridan foydalanadi:
+- **Ma'lumotlar oqimi sinovi** (*Data Flow Testing*)
+- **Boshqaruv oqimi sinovi** (*Control Flow Testing*)
+- **Tarmoqlar qamrovi sinovi** (*Branch Coverage Testing*)
+- **Operatorlar qamrovi sinovi** (*Statement Coverage Testing*)
+- **Qarorlar qamrovi sinovi** (*Decision Coverage Testing*)
+
+---
+
+## Birlik Sinovida Eng Yaxshi Natijaga Qanday Erishish Mumkin?
+
+Murakkablikni oshirib yubormasdan va chalkashmasdan sifatli natijaga erishish uchun quyidagi qoidalarga amal qilish lozim:
+- **Mustaqil test keyslar:** Test holatlari bir-biriga bog'liq bo'lmasligi kerak, shunda talablar o'zgarganda bir-biriga ta'sir qilmaydi.
+- **Izchil nomlash:** Test keys nomlari nima tekshirilayotganini aniq ifodalashi lozim.
+- **Xatolarni darhol tuzatish:** Birlik sinovida topilgan kamchiliklar keyingi bosqichga o'tmasdan oldin bartaraf etilishi kerak.
+- **Bitta amal:** Bir vaqtda bitta kod bo'lagi sinovdan o'tkazilishi lozim.
+- **Test-Driven Development (TDD):** Testlarni kod yozish bilan parallel ravishda ishlab chiqish maqsadga muvofiqdir.
+- **Regressiya nazorati:** Modul kodi o'zgarsa, mos birlik testi ham yangilanishi kerak.
+
+---
+
+## Birlik Sinovining Afzalliklari va Kamchiliklari
+
+### Afzalliklari
+- **Modulli yondashuv:** Har qanday qismni boshqa qismlarning sinovi tugashini kutmasdan mustaqil ravishda sinab ko'rish mumkin.
+- **Aniq tushuncha:** Dasturchilar jamoasi birlikning taqdim etilayotgan funksionalligiga va uning API'sini tushunishga e'tibor qaratadi.
+- **Refaktoring xavfsizligi:** Dasturchi istalgan vaqtda kodni qayta ishlashi va modulning xatolarsiz ishlayotganiga tezda ishonch hosil qilishi mumkin.
+
+### Kamchiliklari
+- **Integratsiya xatolarini aniqlay olmaydi:** U faqat alohida bloklar darajasida ishlagani uchun modullar birlashgandagi muammolarni ko'rsatmaydi.
+- **Barcha yo'llarni qamrab ololmaydi:** Dasturdagi barcha bajarilish yo'llarini to'liq tekshirish qiyin, shuning uchun birlik sinovi hamma xatoni topa olmaydi.
+- Faqatgina o'zi yetarli emas, balki **boshqa sinov turlari bilan birgalikda** o'tkazilishi shart.

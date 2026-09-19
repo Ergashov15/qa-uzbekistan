@@ -1,4 +1,4 @@
-# QA Journey (qa-uzbekistan)
+# QA COMPASS (qa-uzbekistan)
 
 > O'zbekistondagi ochiq manbali QA (Quality Assurance) ta'lim platformasi va qo'llanmasi.
 
@@ -51,4 +51,4 @@ Loyiha to'liq **Open Source** hisoblanadi. Qo'llanmaga yangi mavzular qo'shish y
 
 ## Litsenziya
 
-MIT License © 2026 QA Journey
+MIT License © 2026 QA COMPASS

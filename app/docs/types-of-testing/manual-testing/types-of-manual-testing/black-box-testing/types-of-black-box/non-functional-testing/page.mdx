@@ -1,0 +1,78 @@
+import { Callout } from 'nextra/components'
+
+# Nofunksional Sinov (Non-Functional Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Nofunksional sinov (Non-Functional Testing)** — dasturiy ta'minotning ishonchliligi, yuklamaga bardoshliligi, tezkorligi, xavfsizligi va unumdorligi kabi nofunksional parametrlarini tekshirishga mo'ljallangan sinov turidir. 
+
+Ushbu sinovning bosh maqsadi — tizimning nofunksional parametrlar bo'yicha ishlash tezligi va sifat ko'rsatkichlarini baholashdir. Qoidaga ko'ra, nofunksional parametrlar hech qachon **funksional sinovdan oldin tekshirilmaydi** (dastlab funksiyalar to'g'ri ishlashi, so'ngra ularning tezligi va xavfsizligi tekshiriladi).
+
+Nofunksional sinov ham funksional sinov kabi juda muhim bo'lib, foydalanuvchilar va mijozlarning mahsulotdan qoniqish hosil qilishida (customer satisfaction) hal qiluvchi o'rin tutadi.
+
+> **Misol:** Dasturiy ta'minotda bir vaqtning o'zida qancha foydalanuvchi tizim sekinlashmasdan va qotib qolmasdan birgalikda ishlay olishini sinovdan o'tkazish nofunksional sinovga misoldir.
+
+---
+
+## Nima Uchun Nofunksional Sinov Zarur?
+
+Yangi ishlab chiqilgan har qanday dasturiy mahsulot uchun **funksional va nofunksional sinovlarning ikkalasi ham majburiydir**:
+- **Funksional sinov** dasturning ichki funksiyalari to'g'ri natija berayotganligini tekshiradi;
+- **Nofunksional sinov** esa dasturning tashqi muhitda, turli qurilmalarda va yuqori yuklamalar ostida ishlash qobiliyatini baholaydi.
+
+U dasturiy ta'minotni o'rnatish (installation), sozlash (setup) va amalda ishga tushirish jarayonlariga zamin yaratadi. Ichki tadqiqot va ishlanmalar uchun o'lchovlar hamda metrikalar aynan nofunksional sinov davomida to'planadi.
+
+Nofunksional sinov mahsulotning xatti-harakati va qo'llanilgan texnologiyalar imkoniyatlari haqida batafsil ma'lumot beradi. Bu esa ishlab chiqarish (production) muhitidagi xavflarni va dasturiy ta'minot bilan bog'liq kutilmagan moliyaviy xarajatlarni kamaytirishga yordam beradi.
+
+---
+
+## Nofunksional Sinov Doirasida Tekshiriladigan Asosiy Parametrlar
+
+Nofunksional sinov quyidagi muhim yo'nalishlarni o'z ichiga oladi:
+
+### 1. Unumdorlik sinovi (Performance Testing)
+Dasturning sekin va cheklangan ishlashiga sabab bo'lgan omillarni aniqlaydi va bartaraf etadi. Tizimning javob qaytarish tezligi imkon qadar yuqori bo'lishi kerak. Unumdorlik sinovi uchun kutilayotgan tezlik bo'yicha aniq va ravshan mezonlar belgilanishi lozim, aks holda sinov natijasi (muvaffaqiyatli yoki muvaffaqiyatsiz) noaniq bo'lib qoladi.
+
+### 2. Yuklama sinovi (Load Testing)
+Tizimning yuklama ko'tarish quvvatini sinashni o'z ichiga oladi. Yuklama quvvati — bu tizimda bir vaqtning o'zida qancha ko'p foydalanuvchi barqaror ishlay olishini anglatadi.
+
+### 3. Xavfsizlik sinovi (Security Testing)
+Dasturiy ilovaning xavfsizlik zaifliklarini (*security flaws/vulnerabilities*) aniqlash uchun o'tkaziladi. Sinov tizim arxitekturasini tahlil qilish hamda ehtimoliy tajovuzkor (xaker) nigohi bilan qarash orqali olib boriladi. Test keyslar kodning kiberhujumga uchrash ehtimoli eng yuqori bo'lgan sohalarini tekshirishga qaratiladi.
+
+### 4. Ko'chuvchanlik sinovi (Portability Testing)
+Dasturning turli xil operatsion tizimlarda (Windows, macOS, Linux, Android, iOS) xatoliklarsiz ishlay olishini tekshiradi. Shuningdek, operatsion tizim bir xil bo'lib, apparat ta'minoti (hardware — protsessor, xotira, ekran o'lchami) har xil bo'lgan qurilmalarda ham dastur to'g'ri ishlashi baholanadi.
+
+### 5. Hisobdorlik sinovi (Accountability Testing)
+Tizim o'z vazifasini aniq va barqaror bajarayotganligini tekshirish uchun o'tkaziladi. Har bir funksiya qanday maqsad uchun yaratilgan bo'lsa, har safar aynan shunday kutilgan natijani berishi lozim. Agar tizim kutilgan chiqishni bersa, testdan o'tadi, aks holda muvaffaqiyatsiz hisoblanadi.
+
+### 6. Ishonchlilik sinovi (Reliability Testing)
+Dasturiy ta'minot ma'lum bir belgilangan sharoitlarda, ma'lum vaqt oralig'ida va belgilangan jarayonlar soni davomida uzilishlarsiz va xatolarsiz ishlay olishini tekshiradi. Agar tizim belgilangan shartlar ostida to'xtab qolsa, ishonchlilik sinovi muvaffaqiyatsiz tugaydi.
+
+### 7. Samaradorlik sinovi (Efficiency Testing)
+Dasturiy tizimni ishlab chiqish uchun qancha resurs talab etilganligi va ulardan qanday foydalanilganligini tahlil qiladi. U o'z ichiga quyidagi talablarni oladi:
+- Dasturiy tizim mijozning ehtiyojlarini to'liq qondirishi kerak;
+- Tizim belgilangan spetsifikatsiyalarga to'liq javob berishi lozim;
+- Mahsulotni yaratish uchun sarflangan sa'y-harakatlar o'zini oqlashi kerak.
+
+---
+
+## Nofunksional Sinovning Afzalliklari va Kamchiliklari
+
+### Afzalliklari:
+- **Yuqori darajadagi xavfsizlik:** Tizimni kiberhujumlardan va noqonuniy kirishlardan ishonchli himoya qilishga yordam beradi.
+- **Katta yuklamalarga chidamlilik:** Bir vaqtning o'zida ko'p sonli foydalanuvchilar oqimi kelganda tizim barqarorligini ta'minlaydi.
+- **Tizim unumdorligini oshirish:** Dasturning tez va chaqqon ishlashiga zamin yaratadi.
+- **Test keyslarning barqarorligi:** Nofunksional test holatlari tez-tez o'zgarmaydi, shu sababli ularni qayta-qayta yangidan yozish talab etilmaydi.
+- **Vaqtni tejash:** Boshqa keng qamrovli qayta loyihalash jarayonlariga nisbatan vaqtni ancha tejaydi.
+
+### Kamchiliklari:
+- **Har bir yangilanishda qayta o'tkazish:** Dasturga har safar yangi funksiyalar qo'shilganda yoki kod yangilanganda, nofunksional testlar (ayniqsa yuklama va unumdorlik) qaytadan o'tkazilishi shart.
+- **Xarajatlarning yuqoriligi:** Qayta sinovlar maxsus vositalar, serverlar va vaqt talab qilganligi sababli dasturiy ta'minot tannarxini oshirishi mumkin.
+
+---
+
+## Xulosa
+
+<Callout type="info">
+Dasturiy ta'minot nafaqat funksional jihatdan to'g'ri ishlashi, balki tezkor, xavfsiz va yuqori yuklamalarga chidamli bo'lishi lozim. Nofunksional sinov aynan ushbu sifat ko'rsatkichlarini ta'minlab beruvchi ajralmas bosqichdir.
+</Callout>

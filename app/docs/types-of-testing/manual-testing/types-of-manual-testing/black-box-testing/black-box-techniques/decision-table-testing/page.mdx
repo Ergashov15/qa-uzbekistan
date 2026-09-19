@@ -1,0 +1,84 @@
+import { Callout } from 'nextra/components'
+
+# Qarorlar Jadvali Sinovi (Decision Table Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Qarorlar jadvali sinovi (Decision Table Testing)** — kiruvchi shartlarning turli kombinatsiyalarida tizimning o'zini qanday tutishini tekshirish uchun qo'llaniladigan qora quti sinov texnikasidir. U samarali test keyslarni (test cases) loyihalash maqsadida shartlar va ularga mos keladigan harakatlarni (natijalarni) jadval ko'rinishida ifodalaydi.
+
+Ushbu bobda siz qarorlar jadvali sinovi nima ekanligi, u qanday ishlashi, qarorlar jadvalini qanday tuzish hamda tizimga kirish (Login) funksiyasi misolidagi amaliy qo'llanilishi bilan tanishasiz.
+
+---
+
+## Qarorlar Jadvali Sinovi Nima? (What is Decision Table Testing?)
+
+**Qarorlar jadvali sinovi** — tizimning chiqish natijasi bir nechta kiruvchi shartlarga bog'liq bo'lgan holatlarda, ushbu shartlarning barcha kombinatsiyalarini va ularga mos kutilayotgan harakatlarni jadvalda ifodalovchi test loyihalash texnikasidir.
+
+Ushbu texnika, shuningdek, **Sabab-Oqibat Jadvali (Cause-Effect Table)** deb ham yuritiladi, chunki u kiruvchi shartlar (sabablar) va tizimning kutilayotgan xatti-harakati (oqibatlar) o'rtasidagi mantiqiy bog'liqlikni o'rnatadi.
+
+Qarorlar jadvali sinovi kiruvchi shartlarning barcha muhim kombinatsiyalarini to'liq hisobga olish orqali test keyslarni ishlab chiqishga tizimli yondashuvni ta'minlaydi. U, ayniqsa, murakkab biznes qoidalari, ma'lumotlarni tekshirish (validatsiya) mantig'i yoki ko'p tarmoqli qaror qabul qilish nuqtalariga ega ilovalar uchun juda foydali hisoblanadi.
+
+Qarorlar jadvalida:
+- **Shartlar (Conditions):** kiruvchi qiymatlar yoki biznes qoidalarini ifodalaydi.
+- **Harakatlar (Actions):** kutilayotgan chiqish natijasi yoki tizimning beradigan javobini ifodalaydi.
+
+---
+
+## Test Keyslar Sonini Hisoblash Formulasi
+
+Mumkin bo'lgan barcha test holatlari (kombinatsiyalar) soni quyidagi formula orqali aniqlanadi:
+
+```text
+Test keyslar soni = 2^n
+```
+
+Bu yerda **n** — ikkilik qiymat qabul qiluvchi (masalan, to'g'ri/noto'g'ri, ha/yo'q) kiruvchi shartlar soni.
+
+Masalan, agar dasturda 2 ta kiruvchi shart mavjud bo'lsa, jami kombinatsiyalar soni:
+```text
+2^2 = 4 ta test keys
+```
+
+---
+
+## Login Funksiyasi Misolida Qarorlar Jadvali
+
+Quyidagi misolda qarorlar jadvali ilovaning tizimga kirish (Login) funksiyasini tekshirish uchun qanday qo'llanilishi ko'rsatilgan.
+
+Faraz qilaylik, kirish sahifasida ikkita kiritish maydoni talab etiladi:
+1. **Elektron pochta manzili (Email Address)**
+2. **Maxfiy so'z (Password)**
+
+Ilova quyidagi biznes mantiqi asosida ishlaydi:
+- Agar elektron pochta ham, parol ham to'g'ri bo'lsa, foydalanuvchi **Bosh sahifaga (Home Page)** yo'naltiriladi.
+- Agar elektron pochta to'g'ri, lekin parol noto'g'ri bo'lsa, tizim **"Noto'g'ri parol" (Incorrect Password)** xabarini ko'rsatadi.
+- Agar elektron pochta noto'g'ri, lekin parol to'g'ri bo'lsa, tizim **"Noto'g'ri elektron pochta" (Incorrect Email)** xabarini ko'rsatadi.
+- Agar elektron pochta ham, parol ham noto'g'ri bo'lsa, tizim **"Noto'g'ri elektron pochta" (Incorrect Email)** xabarini ko'rsatadi.
+
+---
+
+### Login Funksiyasi Uchun Qarorlar Jadvali
+
+Quyidagi jadvalda barcha mumkin bo'lgan kiruvchi kombinatsiyalar va ularning kutilayotgan natijalari aks ettirilgan:
+
+| Qismlar | Shartlar va Harakatlar | 1-Test keys | 2-Test keys | 3-Test keys | 4-Test keys |
+| :--- | :--- | :---: | :---: | :---: | :---: |
+| **Shartlar (Conditions)** | Elektron pochta to'g'rimi? | Rost (True) | Rost (True) | Yolg'on (False) | Yolg'on (False) |
+| | Parol to'g'rimi? | Rost (True) | Yolg'on (False) | Rost (True) | Yolg'on (False) |
+| **Harakatlar (Actions)** | Bosh sahifaga yo'naltirish | Ha | Yo'q | Yo'q | Yo'q |
+| | "Noto'g'ri parol" xatosi | Yo'q | Ha | Yo'q | Yo'q |
+| | "Noto'g'ri elektron pochta" xatosi | Yo'q | Yo'q | Ha | Ha |
+
+---
+
+## Tahlil va Natijalarni Tekshirish
+
+Ushbu jadval kiruvchi shartlarning barcha mumkin bo'lgan kombinatsiyalarini to'liq qamrab oladi. 
+
+Sinov jarayonida dasturning haqiqiy natijasi (actual output) jadvaldagi kutilgan natija (expected output) bilan solishtiriladi:
+- Agar ikkala natija bir-biriga to'liq mos kelsa, test keys muvaffaqiyatli (**Passed**) deb hisoblanadi.
+- Agar nomuvofiqlik aniqlansa, nuqson (bug) qayd etiladi va tuzatish uchun ishlab chiquvchilar jamoasiga hisobot beriladi.
+
+<Callout type="info">
+Qarorlar jadvali bir-biriga bog'liq ko'p sonli shartlar bo'lganda birorta ham holat nazardan chetda qolib ketmasligini ta'minlovchi eng kuchli qora quti texnikalaridan biridir.
+</Callout>

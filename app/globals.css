@@ -1,5 +1,5 @@
 /* ==========================================================================
-   QA Journey — Classical Academic Design System (Times New Roman & Clean UX)
+   QA COMPASS — Classical Academic Design System (Times New Roman & Clean UX)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -79,11 +79,12 @@ input {
 }
 
 body {
-  font-size: 16.5px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 1.75;
   color: var(--text-primary);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nextra-navbar-height, 64px) + 1.5rem);
 }
@@ -97,8 +98,8 @@ pre {
 }
 
 :not(pre) > code {
-  font-size: 0.88em !important;
-  padding: 0.15em 0.4em !important;
+  font-size: 0.9em !important;
+  padding: 0.18em 0.45em !important;
   border-radius: 4px !important;
   background-color: var(--bg-subtle) !important;
   color: var(--brand-color) !important;
@@ -107,39 +108,39 @@ pre {
 
 /* Content Headings (Professional Academic Hierarchy) */
 article h1 {
-  font-size: 2.2rem !important;
+  font-size: 2.45rem !important;
   font-weight: 700 !important;
   line-height: 1.25 !important;
   margin-top: 1rem !important;
-  margin-bottom: 1.25rem !important;
+  margin-bottom: 1.35rem !important;
   color: var(--text-primary) !important;
 }
 
 article h2 {
-  font-size: 1.65rem !important;
+  font-size: 1.85rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
-  margin-top: 2rem !important;
-  margin-bottom: 0.75rem !important;
-  padding-bottom: 0.4rem !important;
+  margin-top: 2.25rem !important;
+  margin-bottom: 0.85rem !important;
+  padding-bottom: 0.45rem !important;
   border-bottom: 1px solid var(--border-color) !important;
   color: var(--text-primary) !important;
 }
 
 article h3 {
-  font-size: 1.35rem !important;
+  font-size: 1.48rem !important;
   font-weight: 700 !important;
   line-height: 1.4 !important;
-  margin-top: 1.6rem !important;
-  margin-bottom: 0.5rem !important;
+  margin-top: 1.75rem !important;
+  margin-bottom: 0.6rem !important;
   color: var(--text-primary) !important;
 }
 
 article p {
-  font-size: 1.05rem !important;
-  line-height: 1.65 !important;
+  font-size: 1.15rem !important;
+  line-height: 1.75 !important;
   color: var(--text-secondary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.35rem;
 }
 
 article strong,
@@ -150,15 +151,15 @@ article b {
 
 article ul,
 article ol {
-  font-size: 1.05rem;
-  line-height: 1.65;
-  margin-bottom: 1.25rem;
-  padding-left: 1.5rem;
+  font-size: 1.15rem !important;
+  line-height: 1.75 !important;
+  margin-bottom: 1.35rem;
+  padding-left: 1.75rem;
 }
 
 article li {
-  margin-top: 0.35rem;
-  margin-bottom: 0.35rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -175,40 +176,56 @@ article li {
   gap: 8px !important;
 }
 
-/* Brand Logo (Classical & Dignified) */
+/* Brand Logo (Classical & Dignified QA COMPASS) */
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   text-decoration: none;
   font-family: var(--font-serif) !important;
   margin-right: 1.25rem;
+  transition: opacity 0.2s ease;
+}
+
+.brand-compass-icon {
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.brand-logo:hover .brand-compass-icon {
+  transform: rotate(20deg) scale(1.08);
 }
 
 .brand-badge {
-  background-color: #1e3a8a;
+  background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 100%);
   color: #ffffff;
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.5px;
+  box-shadow: 0 1px 3px rgba(3, 105, 161, 0.25);
 }
 
 .brand-text {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.01em;
+  font-size: 21px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 0.04em;
 }
 
-/* Top Nav Links & Dropdown Buttons (Fixed/Stable Dimensions, Zero Layout Shift) */
+:is(.dark) .brand-text {
+  color: #f8fafc;
+}
+
+/* Top Nav Links & Dropdown Buttons (High Contrast & Clear Typography) */
 .nextra-navbar nav a:not(.brand-logo),
 .nextra-navbar button[aria-haspopup="menu"] {
   font-family: var(--font-serif) !important;
-  font-size: 15.5px !important;
+  font-size: 17px !important;
   font-weight: 600 !important;
-  padding: 6px 12px !important;
+  color: #0f172a !important;
+  padding: 6px 13px !important;
   border-radius: 6px !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -221,23 +238,67 @@ article li {
   max-width: none !important;
   box-sizing: border-box !important;
   border: 1px solid transparent !important;
-  transition: background-color 0.15s ease, color 0.15s ease !important;
+  text-decoration: none !important;
+  letter-spacing: 0.01em !important;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
 }
 
+/* Dark mode nav link color */
+:is(.dark) .nextra-navbar nav a:not(.brand-logo),
+:is(.dark) .nextra-navbar button[aria-haspopup="menu"] {
+  color: #f8fafc !important;
+}
+
+/* Hover state */
 .nextra-navbar nav a:not(.brand-logo):hover,
 .nextra-navbar button[aria-haspopup="menu"]:hover {
-  background-color: var(--bg-subtle) !important;
-  color: var(--brand-color) !important;
+  background-color: #f1f5f9 !important;
+  color: #1d4ed8 !important;
+  border-color: #e2e8f0 !important;
+}
+
+:is(.dark) .nextra-navbar nav a:not(.brand-logo):hover,
+:is(.dark) .nextra-navbar button[aria-haspopup="menu"]:hover {
+  background-color: #334155 !important;
+  color: #93c5fd !important;
+  border-color: #475569 !important;
+}
+
+/* Active Page State */
+.nextra-navbar nav a:not(.brand-logo)[aria-current="true"],
+.nextra-navbar nav a:not(.brand-logo)[aria-current="page"],
+.nextra-navbar nav a:not(.brand-logo)[data-active="true"],
+.nextra-navbar nav a:not(.brand-logo).active {
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+  font-weight: 700 !important;
+  border-color: #bfdbfe !important;
+}
+
+:is(.dark) .nextra-navbar nav a:not(.brand-logo)[aria-current="true"],
+:is(.dark) .nextra-navbar nav a:not(.brand-logo)[aria-current="page"],
+:is(.dark) .nextra-navbar nav a:not(.brand-logo)[data-active="true"],
+:is(.dark) .nextra-navbar nav a:not(.brand-logo).active {
+  background-color: rgba(30, 58, 138, 0.45) !important;
+  color: #60a5fa !important;
+  font-weight: 700 !important;
+  border-color: rgba(96, 165, 250, 0.35) !important;
 }
 
 /* Open state for Dropdown button — keeps exact same size, zero layout shift */
 .nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] {
-  background-color: var(--bg-subtle) !important;
-  color: var(--brand-color) !important;
-  border-color: transparent !important;
+  background-color: #f1f5f9 !important;
+  color: #1d4ed8 !important;
+  border-color: #e2e8f0 !important;
   width: auto !important;
   min-width: 0 !important;
   box-sizing: border-box !important;
+}
+
+:is(.dark) .nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] {
+  background-color: #334155 !important;
+  color: #93c5fd !important;
+  border-color: #475569 !important;
 }
 
 /* Arrow rotation when open */
@@ -247,6 +308,69 @@ article li {
 
 .nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] svg {
   transform: rotate(270deg) !important;
+}
+
+/* Navbar Action Icons (GitHub, Telegram, Theme toggle, Hamburger) */
+.nextra-navbar a:not(.brand-logo):not([aria-current]) svg,
+.nextra-navbar button:not([aria-haspopup="menu"]) svg,
+.nextra-navbar .nextra-hamburger svg {
+  color: #0f172a !important;
+  transition: color 0.15s ease, transform 0.15s ease !important;
+}
+
+:is(.dark) .nextra-navbar a:not(.brand-logo):not([aria-current]) svg,
+:is(.dark) .nextra-navbar button:not([aria-haspopup="menu"]) svg,
+:is(.dark) .nextra-navbar .nextra-hamburger svg {
+  color: #f8fafc !important;
+}
+
+.nextra-navbar a:not(.brand-logo):hover svg,
+.nextra-navbar button:hover svg {
+  color: #1d4ed8 !important;
+}
+
+:is(.dark) .nextra-navbar a:not(.brand-logo):hover svg,
+:is(.dark) .nextra-navbar button:hover svg {
+  color: #60a5fa !important;
+}
+
+/* Navbar Search Input & Kbd Badges */
+.nextra-search input,
+.nextra-navbar input {
+  font-family: var(--font-serif) !important;
+  font-size: 15.5px !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.nextra-search input::placeholder,
+.nextra-navbar input::placeholder {
+  color: #64748b !important;
+  font-size: 15px !important;
+}
+
+:is(.dark) .nextra-search input,
+:is(.dark) .nextra-navbar input {
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+:is(.dark) .nextra-search input::placeholder,
+:is(.dark) .nextra-navbar input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.nextra-search kbd,
+.nextra-navbar kbd {
+  font-size: 12px !important;
+  color: #334155 !important;
+  border-color: #cbd5e1 !important;
+}
+
+:is(.dark) .nextra-search kbd,
+:is(.dark) .nextra-navbar kbd {
+  color: #cbd5e1 !important;
+  border-color: #475569 !important;
 }
 
 /* Dropdown Floating Menu Panel ONLY (Strictly targets the popup menu, never the button) */
@@ -266,12 +390,12 @@ div[role="menu"] {
 div[role="menu"] [role="menuitem"],
 div[role="menu"] a {
   font-family: var(--font-serif) !important;
-  font-size: 15px !important;
-  font-weight: 500 !important;
+  font-size: 16.5px !important;
+  font-weight: 600 !important;
   border-radius: 5px !important;
   margin: 2px 0 !important;
   padding: 8px 14px !important;
-  color: var(--text-primary) !important;
+  color: #0f172a !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -281,24 +405,110 @@ div[role="menu"] a {
   transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease !important;
 }
 
+:is(.dark) div[role="menu"] [role="menuitem"],
+:is(.dark) div[role="menu"] a {
+  color: #f8fafc !important;
+}
+
 div[role="menu"] [role="menuitem"]:hover,
 div[role="menu"] a:hover,
 div[role="menu"] [data-focus] {
-  background-color: var(--brand-light) !important;
-  color: var(--brand-color) !important;
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
   padding-left: 17px !important;
 }
 
-/* --------------------------------------------------------------------------
-   4. Sidebar & Navigation
-   -------------------------------------------------------------------------- */
-.nextra-sidebar-container {
-  scrollbar-width: thin;
-  border-right: 1px solid var(--border-color);
+:is(.dark) div[role="menu"] [role="menuitem"]:hover,
+:is(.dark) div[role="menu"] a:hover,
+:is(.dark) div[role="menu"] [data-focus] {
+  background-color: #334155 !important;
+  color: #60a5fa !important;
+  padding-left: 17px !important;
 }
 
-.nextra-sidebar-container [data-separator] {
-  font-size: 0.8rem !important;
+/* Mobile Nav Drawer Items */
+.nextra-mobile-nav a,
+.nextra-mobile-nav button {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: #0f172a !important;
+}
+
+:is(.dark) .nextra-mobile-nav a,
+:is(.dark) .nextra-mobile-nav button {
+  color: #f8fafc !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Sidebar & Navigation (Enhanced for Deeply Nested Topics)
+   -------------------------------------------------------------------------- */
+/* Sidebar Desktop Width: Expand to 320px - 340px to give ample room for deep items */
+.nextra-sidebar.x\:w-64,
+aside.nextra-sidebar.x\:w-64,
+div.x\:max-xl\:hidden.x\:w-64 {
+  width: 320px !important;
+  min-width: 320px !important;
+}
+
+@media (min-width: 1440px) {
+  .nextra-sidebar.x\:w-64,
+  aside.nextra-sidebar.x\:w-64,
+  div.x\:max-xl\:hidden.x\:w-64 {
+    width: 340px !important;
+    min-width: 340px !important;
+  }
+}
+
+.nextra-sidebar {
+  scrollbar-width: thin;
+  border-right: 1px solid var(--border-color) !important;
+}
+
+/* Sidebar Wrapper internal padding */
+.nextra-sidebar div[class*="overflow-y-auto"] {
+  padding-left: 10px !important;
+  padding-right: 8px !important;
+}
+
+/* Compact nested indentation: reduce from 24px (12+12) down to 14px (6+8) per level */
+.nextra-sidebar .x\:ms-3 {
+  margin-inline-start: 6px !important;
+}
+
+.nextra-sidebar .x\:ps-3 {
+  padding-inline-start: 8px !important;
+}
+
+/* Prevent awkward word breaks and wrap text elegantly */
+.nextra-sidebar a,
+.nextra-sidebar button,
+.nextra-sidebar li {
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  white-space: normal !important;
+  text-wrap: pretty !important;
+  hyphens: none !important;
+}
+
+/* Sidebar Links & Buttons */
+.nextra-sidebar a,
+.nextra-sidebar button {
+  font-size: 15.5px !important;
+  line-height: 1.4 !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+}
+
+/* Deep nested levels (level 2+) slight adjustment */
+.nextra-sidebar ul ul a,
+.nextra-sidebar ul ul button {
+  font-size: 14.8px !important;
+  padding: 5px 8px !important;
+}
+
+.nextra-sidebar [data-separator] {
+  font-size: 0.88rem !important;
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
@@ -308,14 +518,7 @@ div[role="menu"] [data-focus] {
   padding-left: 0.75rem !important;
 }
 
-.nextra-sidebar-container a {
-  font-size: 15px !important;
-  font-weight: 500 !important;
-  padding: 6px 12px !important;
-  border-radius: 6px !important;
-}
-
-.nextra-sidebar-container a[aria-current="page"] {
+.nextra-sidebar a[aria-current="page"] {
   background-color: var(--brand-light) !important;
   color: var(--brand-color) !important;
   font-weight: 700 !important;
@@ -348,7 +551,7 @@ div[role="menu"] [data-focus] {
 }
 
 .nextra-card > span {
-  font-size: 1.15rem !important;
+  font-size: 1.22rem !important;
   font-weight: 700 !important;
   color: var(--text-primary) !important;
 }
@@ -358,10 +561,10 @@ div[role="menu"] [data-focus] {
 }
 
 .nextra-card p {
-  font-size: 0.98rem !important;
-  line-height: 1.5 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.6 !important;
   color: var(--text-secondary) !important;
-  margin-top: 0.4rem !important;
+  margin-top: 0.45rem !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -445,16 +648,16 @@ div[role="menu"] [data-focus] {
 
 .portal-summary-card h4,
 .portal-card-title {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.4rem;
 }
 
 .portal-summary-card p,
 .portal-card-desc {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.6;
   color: var(--text-secondary);
   margin: 0;
 }
@@ -467,23 +670,25 @@ article table {
   margin: 1.5rem 0 !important;
   border-collapse: collapse !important;
   border: 1px solid var(--border-color) !important;
-  font-size: 0.98rem !important;
+  font-size: 1.05rem !important;
 }
 
 article th {
   background-color: var(--bg-subtle) !important;
   color: var(--text-primary) !important;
   font-weight: 700 !important;
-  padding: 0.75rem 1rem !important;
+  padding: 0.85rem 1.1rem !important;
   border: 1px solid var(--border-color) !important;
   text-align: left !important;
+  font-size: 1.05rem !important;
 }
 
 article td {
-  padding: 0.75rem 1rem !important;
+  padding: 0.85rem 1.1rem !important;
   border: 1px solid var(--border-color) !important;
   color: var(--text-secondary) !important;
-  line-height: 1.55 !important;
+  line-height: 1.6 !important;
+  font-size: 1.05rem !important;
 }
 
 article tr:hover td {
@@ -493,7 +698,7 @@ article tr:hover td {
 .nextra-callout {
   border-radius: 8px !important;
   border: 1px solid var(--border-color) !important;
-  padding: 1rem 1.25rem !important;
-  font-size: 1rem !important;
-  line-height: 1.6 !important;
+  padding: 1.1rem 1.35rem !important;
+  font-size: 1.08rem !important;
+  line-height: 1.7 !important;
 }

@@ -1,0 +1,116 @@
+import { Callout } from 'nextra/components'
+
+# Operatorlar Qamrovi Sinovi (Statement Coverage Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Operatorlar qamrovi sinovi (Statement Coverage Testing)** — dasturdagi har bir bajariluvchi operator (executable statement) sinov davomida kamida bir marta ishga tushirilganligini tekshiradigan oq quti sinov texnikasidir. U dastlabki kodning (source code) test holatlari bilan qanchalik qamrab olinganligini o'lchaydi.
+
+Ushbu bobda siz operatorlar qamrovi sinovi nima ekanligi, u qanday ishlashi, qanday hisoblanishi hamda ikki xil ssenariy misolidagi amaliy hisob-kitoblar bilan tanishasiz.
+
+---
+
+## Operatorlar Qamrovi Sinovi Nima? (What is Statement Coverage Testing?)
+
+**Operatorlar qamrovi sinovi** — dastur kodidagi barcha bajariluvchi buyruq va operatorlar sinov jarayonida kamida bir marta bajarilishini kafolatlaydigan oq quti sinov usulidir. U test keyslar yordamida dastur kodining necha foizi tekshirilganligini baholash uchun xizmat qiladi.
+
+Ushbu texnikada sinov holatlari dasturning ichki mantiqiy tuzilmasiga asoslanib ishlab chiqiladi. Asosiy maqsad — dasturdagi har bir operatorni ishlatib ko'rish va umuman sinovdan o'tmagan kod qismlarini aniqlashdir.
+
+Operatorlar qamrovi shartli nuqtalarning mumkin bo'lgan natijalariga emas, aynan **dastur operatorlarining bajarilishiga** e'tibor qaratadi. U ko'pincha birlik sinovlari (Unit Testing) jarayonida testlarning to'liqligini baholash va kodning sinovdan chetda qolgan qismlarini fosh etish uchun keng qo'llaniladi.
+
+---
+
+## Operatorlar Qamrovini Hisoblash Formulasi
+
+Operatorlar qamrovi foizi sinovda bajarilgan operatorlar sonini dasturdagi jami bajariluvchi operatorlar soniga bo'lish orqali aniqlanadi:
+
+```text
+Operatorlar qamrovi = (Bajarilgan operatorlar soni / Jami operatorlar soni) * 100%
+```
+
+---
+
+## Dastur K构ilishi va Vazifasi
+
+Keling, ikkita butun sonni qabul qilib, ularning yig'indisini aniqlovchi funksiya tuzilishini ko'rib chiqamiz:
+
+1. Ikkita qiymatni qabul qilish (masalan, `a` va `b`).
+2. Ushbu ikki qiymat yig'indisini topish (`sum = a + b`).
+3. Agar yig'indi 0 dan katta bo'lsa, `"This is a positive result"` xabarini chiqarish.
+4. Agar yig'indi 0 dan kichik bo'lsa, `"This is a negative result"` xabarini chiqarish.
+
+```c
+input (int a, int b) {   
+    int sum = a + b;   
+    if (sum > 0) {   
+        print ("This is a positive result");   
+    } else {   
+        print ("This is a negative result");   
+    }   
+}   
+```
+
+Dasturning jami operatorlar soni: **7 ta**.
+
+Endi ushbu kod uchun ikkita turli sinov ssenariysini va operatorlar qamrovining hisoblanishini ko'rib chiqamiz.
+
+---
+
+## 1-Ssenariy: a = 5, b = 4
+
+```c
+print (int a, int b) {   
+    int sum = a + b;   
+    if (sum > 0)   
+        print ("This is a positive result");   
+    else   
+        print ("This is a negative result");   
+}   
+```
+
+1-ssenariyda yig'indi qiymati `9` ga teng bo'ladi (`sum = 5 + 4 = 9`). Bu `0` dan katta bo'lgani uchun, `if` sharti rost bo'lib, ekranga `"This is a positive result"` xabari chop etiladi. `else` tarmog'idagi buyruq esa bajarilmay qoladi.
+
+- **Jami operatorlar soni:** 7
+- **Bajarilgan operatorlar soni:** 5
+
+```text
+Operatorlar qamrovi = (5 / 7) * 100% = 500 / 7 ≈ 71%
+```
+
+---
+
+## 2-Ssenariy: a = -2, b = -7
+
+```c
+print (int a, int b) {   
+    int sum = a + b;   
+    if (sum > 0)   
+        print ("This is a positive result");   
+    else   
+        print ("This is a negative result");   
+}   
+```
+
+2-ssenariyda yig'indi qiymati `-9` ga teng bo'ladi (`sum = -2 + (-7) = -9`). Bu `0` dan kichik bo'lgani uchun, `if` sharti yolg'on bo'lib, dastur `else` tarmog'iga o'tadi va `"This is a negative result"` xabarini chop etadi.
+
+- **Jami operatorlar soni:** 7
+- **Bajarilgan operatorlar soni:** 6
+
+```text
+Operatorlar qamrovi = (6 / 7) * 100% = 600 / 7 ≈ 85%
+```
+
+---
+
+## Umumiy Qamrov Xulosasi
+
+Ikkala ssenariy birgalikda bajarilganda dasturning barcha operatorlari to'liq qamrab olinadi:
+
+```text
+Umumiy operatorlar qamrovi = 100%
+```
+
+<Callout type="info">
+**Operatorlar qamrovi texnikasining ahamiyati:**  
+Ushbu usul dasturdagi **o'lik kodlarni (dead code)**, **ishlatilmay qolgan keraksiz kodlarni (unused code)** va barcha tarmoqlardagi amallarning haqiqatda bajarilishini aniqlashga xizmat qiladi.
+</Callout>

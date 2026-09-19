@@ -21,16 +21,16 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata = {
   title: {
-    template: '%s | QA Journey',
-    default: "QA Journey — O'zbekcha QA Qo'llanmasi"
+    template: '%s | QA COMPASS',
+    default: "QA COMPASS — O'zbekcha QA Qo'llanmasi"
   },
   description: "Yangi o'rganuvchilar va tajribali QA muhandislari uchun to'liq bepul ochiq manbali qo'llanma.",
   keywords: ['QA', 'Software Testing', 'Manual Testing', 'Automation Testing', 'Playwright', 'Postman', 'SDET', 'Uzbekistan QA']
 }
 
 const banner = (
-  <Banner storageKey="qa-journey-welcome">
-    <strong>QA Journey</strong> — Dasturiy ta'minot sifatini ta'minlash (QA) bo'yicha ochiq ta'limiy platforma.
+  <Banner storageKey="qa-compass-welcome">
+    <strong>QA COMPASS</strong> — Dasturiy ta'minot sifatini ta'minlash (QA) bo'yicha ochiq ta'limiy platforma.
   </Banner>
 )
 
@@ -40,12 +40,37 @@ const TelegramIcon = (
   </svg>
 )
 
+const QACompassIcon = () => (
+  <svg
+    width="28"
+    height="28"
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="brand-compass-icon"
+  >
+    <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="1.8" strokeOpacity="0.25" />
+    <circle cx="20" cy="20" r="14" stroke="#0284c7" strokeWidth="1" strokeDasharray="2 2" strokeOpacity="0.5" />
+    <path d="M20 3V6.5M20 33.5V37M3 20H6.5M33.5 20H37" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" />
+    <polygon points="20,6 22,14 20,12.5 18,14" fill="#0284c7" />
+    <path
+      d="M12 21L18 27L31 9"
+      stroke="#0284c7"
+      strokeWidth="3.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="20" cy="20" r="2.8" fill="#f59e0b" stroke="#ffffff" strokeWidth="1" />
+  </svg>
+)
+
 const navbar = (
   <Navbar
     logo={
       <span className="brand-logo">
+        <QACompassIcon />
         <span className="brand-badge">QA</span>
-        <span className="brand-text">Journey</span>
+        <span className="brand-text">COMPASS</span>
       </span>
     }
     projectLink="https://github.com/Ergashov15/qa-uzbekistan"
@@ -59,7 +84,7 @@ const footer = (
   <Footer>
     MIT {new Date().getFullYear()} ©{' '}
     <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer">
-      QA Journey
+      QA COMPASS
     </a>
     . Ochiq manbali ta'lim platformasi.
   </Footer>

@@ -1,0 +1,91 @@
+import { Callout } from 'nextra/components'
+
+# Foydalanish Ssenariysi Sinovi (Use Case Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Foydalanish ssenariysi sinovi (Use Case Testing)** — tizimning funksionalligini oxirgi foydalanuvchi nuqtai nazaridan tekshiruvchi qora quti sinov texnikasidir. U ilovaning real hayotiy ish jarayonlarini aks ettiruvchi foydalanish holatlarini (use cases) aniqlash va ularga asoslangan test ssenariylarini bajarish uchun xizmat qiladi.
+
+Ushbu bobda siz foydalanish ssenariysi sinovi nima ekanligi, u qanday ishlashi, tarkibiy qismlari, prototipdan farqi va afzalliklari bilan tanishasiz.
+
+---
+
+## Foydalanish Ssenariysi Sinovi Nima? (What is Use Case Testing?)
+
+**Foydalanish ssenariysi sinovi** — test holatlari dasturiy ta'minotning foydalanish ssenariylari (use cases) asosida tuziladigan qora quti sinov usulidir. Foydalanish ssenariysi foydalanuvchi ma'lum bir maqsadga erishish uchun jarayon boshidan to oxirigacha tizim bilan qanday o'zaro ta'sirlashishini bosqichma-bosqich tasvirlaydi.
+
+Ushbu texnika turli xil foydalanuvchi rollari va biznes ssenariylari uchun dasturning kutilganidek ishlashini tasdiqlaydi. U alohida izolyatsiyalangan funksiyalarni emas, balki foydalanuvchining to'liq ish jarayonini (workflow) tekshirish orqali funksional talablarni baholashga qaratilgan.
+
+---
+
+## Foydalanish Ssenariysining Asosiy Tarkibiy Qismlari
+
+Har bir foydalanish ssenariysi odatda quyidagi 4 ta asosiy qismdan iborat bo'ladi:
+
+1. **Aktiyor / Ishtirokchi (Actor):** Dastur bilan o'zaro aloqada bo'lgan oxirgi foydalanuvchi yoki tashqi tizim.
+2. **Boshlang'ich shart (Pre-condition):** Ssenariy bajarilishidan oldin mavjud bo'lishi shart bo'lgan shartlar (masalan: foydalanuvchi tizimga kirgan bo'lishi lozim).
+3. **Harakatlar ketma-ketligi (Action):** Foydalanuvchi tomonidan birin-ketin bajariladigan qadamlar ketma-ketligi.
+4. **Yakuniy holat (Post-condition):** Barcha amallar bajarilgandan so'ng tizimning erishgan kutilayotgan holati (masalan: tranzaksiya yakunlandi va balans o'zgardi).
+
+### Foydalanuvchi Rollari Misolida:
+Foydalanuvchi roliga qarab turlicha imkoniyatlar beruvchi tizimni ko'rib chiqaylik:
+- **Admin:** barcha mavjud funksiyalarga to'liq kirish huquqiga ega.
+- **Pulli foydalanuvchi (Paid User):** faqat pulli obuna doirasidagi tanlangan funksiyalarga ega.
+- **Bepul foydalanuvchi (Free User):** premium funksiyalarga cheklangan yoki umuman kirish huquqiga ega emas.
+
+Har bir rol uchun alohida boshlang'ich shartlar, harakatlar va yakuniy holatlar belgilanadi hamda tizim talablarga muvofiq ishlayotganligi tekshiriladi.
+
+---
+
+## Foydalanish Ssenariysini Kim Yozadi?
+
+Foydalanish ssenariylari loyihada quyidagi tartibda shakllanadi:
+
+1. **Mijoz (Client):** Dastur uchun mijoz talablari spetsifikatsiyasini (**CRS** — Customer Requirement Specification) taqdim etadi.
+2. **Ishlab chiquvchilar jamoasi:** Ushbu CRS asosida foydalanish ssenariylarini (Use Cases) yozadi va mijozga ko'rib chiqish (review) uchun yuboradi.
+3. **Mijoz tasdiqlashi:** Mijoz ssenariylarni ma'qullagach, ular loyihalash va kod yozish uchun dasturchilarga, shuningdek test rejasini tuzish va test keyslarni yozish uchun **test jamoasiga (QA)** beriladi.
+
+---
+
+## Amaliy Misol: Onlayn Pul O'tkazmasi Ssenariysi
+
+Onlayn pul o'tkazish ilovasi misolida bosqichma-bosqich funksionallikni ko'rib chiqamiz:
+
+1. Foydalanuvchi tizimga kiradi (autentifikatsiyadan o'tish uchun).
+2. Tizim foydalanuvchining ID va parolini ma'lumotlar bazasi orqali haqiqiy yoki haqiqiy emasligini tekshiradi.
+3. Agar tekshiruv muvaffaqiyatli bo'lsa, server foydalanuvchini shaxsiy hisob sahifasiga o'tkazadi, aks holda login sahifasiga qaytaradi.
+4. Shaxsiy hisob sahifasida foydalanuvchi "Pul o'tkazmalari" (Money Transfer) bo'limini tanlaydi.
+5. So'ngra pul yuboriladigan hisob raqamini, bank nomi, miqdor, filial va kerakli rekvizitlarni kiritadi.
+6. Oxirgi bosqichda xavfsizlik talablariga ko'ra karta ma'lumotlari yoki tasdiqlash kodini kiritib o'tkazmani tasdiqlaydi.
+
+Ushbu qadamlar ketma-ketligini batafsil tasvirlash orqali murakkab tizimlar uchun samarali test keyslarni loyihalash osonlashadi.
+
+---
+
+## Foydalanish Ssenariysi va Prototip O'rtasidagi Farq
+
+| Xususiyat | Foydalanish ssenariysi (Use Case) | Prototip (Prototype) |
+| :--- | :--- | :--- |
+| **Maqsadi** | Mahsulot qanday ishlashi kerakligini va uning funksional imkoniyatlarini mantiqiy hamda bosqichma-bosqich tasvirlab beradi. | Ilovaning vizual ko'rinishi (maketi). Unda oxirgi foydalanuvchining to'liq o'zaro ta'sirlashuv mantig'i ko'rinmaydi, chunki u shunchaki dasturning vizual andozasidir. |
+| **Format** | Matnli ssenariylar, UML Use Case diagrammalari. | Dizayn maketlari, statik yoki chala interaktiv vizual namunalar. |
+
+---
+
+## Dasturchilar Foydalanish Ssenariylarini Qanday Yaratadilar?
+
+Dasturchilar va tahlilchilar foydalanish ssenariylarini barcha uchun tushunarli bo'lishi maqsadida standart belgilardan — **UML (Unified Modeling Language)**dan foydalanadilar.
+
+Buning uchun **Rational Rose** kabi maxsus vositalar mavjud bo'lib, ular tayyor UML belgilariga ega (drag-and-drop orqali diagramma chizish imkonini beradi).
+
+---
+
+## Foydalanish Ssenariysi Sinovining Afzalliklari
+
+- **Tizimning to'liq funksional ehtiyojlarini qamrab oladi:** Talablarni to'liq tushunishga xizmat qiladi.
+- **Foydalanuvchi va uning amallari o'rtasidagi mantiqiy bog'liqlikni aks ettiradi:** Har bir qadamning o'rnini aniq belgilaydi.
+- **Boshlang'ich umumiy ko'rinishdan boshlanadi:** Tizim eng avvalo o'z foydalanuvchilari uchun xizmat qilishini ta'minlaydi.
+- **Murakkablikni bosqichma-bosqich tahlil qiladi:** Bir vaqtning o'zida bitta aniq funksiyaga diqqatni qaratish imkoniyatini beradi.
+
+<Callout type="info">
+Foydalanish ssenariylari orqali sinov o'tkazish tizimning alohida funksiyalari to'g'ri ishlashidan tashqari, real foydalanuvchi butun jarayonni boshidan oxirigacha muammosiz yakunlay olishini kafolatlaydi.
+</Callout>

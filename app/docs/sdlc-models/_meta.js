@@ -4,5 +4,5 @@ export default {
   'spiral-model': 'Spiral Modeli (Spiral Model in Software Testing)',
   'hybrid-model': 'Gibrid Model (Hybrid Model in Software Testing)',
   'prototype-model': 'Prototip Modeli (Prototype Model in Software Testing)',
-  'v-model': 'V-Model (Verification & Validation)'
+  'v-model': 'V-Model (V-Model in Software Testing)'
 }

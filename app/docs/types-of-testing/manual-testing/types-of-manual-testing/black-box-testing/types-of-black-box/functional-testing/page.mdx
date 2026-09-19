@@ -1,0 +1,108 @@
+import { Callout } from 'nextra/components'
+
+# Funksional Sinov (Functional Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Funksional sinov (Functional Testing)** — dasturiy ta'minot funksiyalari talablar spetsifikatsiyasiga (requirement specification) muvofiq ishlayotganligini tekshiruvchi sinov turidir. Funksional sinovda har bir funksiya ma'lum bir kiruvchi qiymatni berish, natijani aniqlash va haqiqiy natijani kutilgan qiymat bilan solishtirish orqali tekshiriladi.
+
+Funksional sinov **qora quti sinovi (black-box testing)** sifatida o'tkaziladi, chunki u dasturning ichki kodiga emas, balki ilovaning talablarga muvofiq tashqi xatti-harakatiga e'tibor qaratadi. Test muhandisi tizim kodini emas, aynan dastur funksiyalarining ishlashini baholaydi.
+
+### Funksional Sinovning Maqsadi
+Funksional sinovning bosh maqsadi — birlamchi kirish funksiyalari, asosiy amallar, foydalanuvchi interfeysi (GUI) navigatsiyasining to'g'ri ishlashini tekshirishdir. Shuningdek, foydalanuvchi ilovadan qulay foydalanishi uchun tizim kerakli o'rinlarda tegishli xatolik xabarlarini to'g'ri ko'rsatishini ta'minlaydi.
+
+---
+
+## Funksional Sinov Jarayoni (Process of Functional Testing)
+
+Test muhandislari funksional sinov davomida quyidagi bosqichlarni bosib o'tadilar:
+
+1. **Talablarni verifikatsiya qilish:** Dasturiy ta'minot talablari spetsifikatsiyasini chuqur tahlil qilish.
+2. **Sinovni rejalashtirish:** Tahlil asosida sinov rejasini (Test Plan) ishlab chiqish.
+3. **Test keyslarni loyihalash:** Aniq va to'liq sinov holatlarini (Test Cases) yozish.
+4. **Kuzatuvchanlik matritsasini tuzish:** Talablar va test keyslar bog'liqligini aks ettiruvchi hujjatni (**Traceability Matrix**) shakllantirish.
+5. **Test keyslarni bajarish:** Loyihalashtirilgan test holatlarini amalda ishga tushirish.
+6. **Qamrovni tahlil qilish:** Ilovaning sinov bilan qamrab olingan sohalarini baholash (Coverage Analysis).
+7. **Nuqsonlarni boshqarish:** Aniqlangan xatoliklarni qayd etish, ishlab chiquvchilarga yo'naltirish va tuzatilishini nazorat qilish (Defect Management).
+
+---
+
+## Funksional Sinovda Nimalar Tekshiriladi?
+
+Funksional sinovning asosiy vazifasi dastur tizimining funksionalligini baholash bo'lib, u quyidagi yo'nalishlarga e'tibor qaratadi:
+
+- **Asosiy qulaylik (Basic Usability):** Tizimning foydalanishga qulayligini tekshiradi — foydalanuvchi ekranlar bo'ylab qiyinchiliksiz, erkin harakatlana oladimi?
+- **Foydalana olish imkoniyati (Accessibility):** Funksiyadan to'siqlarsiz foydalanish imkoniyatini sinaydi.
+- **Asosiy funksiyalar (Mainline function):** Ilovaning eng asosiy va markaziy vazifalarini tekshirishga qaratilgan.
+- **Xatolik sharoitlari (Error Condition):** Xato ma'lumotlar kiritilganda tizim o'zini qanday tutishi va mos xatolik xabarlarini to'g'ri chiqarishini tekshiradi.
+
+---
+
+## Funksional Sinovni Bajarishning 5 Qadami
+
+1. Dastur talablarini to'liq va aniq tushunib olish.
+2. Sinov uchun kiruvchi ma'lumotlarni (*test input data*) aniqlash.
+3. Tanlangan kiruvchi qiymatlar uchun kutilayotgan natijani (*expected outcome*) hisoblab chiqish.
+4. Test holatlarini (*test cases*) bajarish.
+5. Haqiqiy natija (*actual result*) bilan kutilgan natijani solishtirish.
+
+---
+
+## Funksional Sinov Turlari
+
+Funksional sinov tizim komponentlarining har tomonlama ishlashini ta'minlash uchun bir qator ichki turlarga bo'linadi:
+
+1. **Birlik sinovi (Unit Testing):** Dasturning alohida eng kichik birliklari yoki komponentlarini sinash. Har bir modul to'g'ri ishlashini ta'minlaydi. Odatda dasturlash bosqichida dasturchilar tomonidan o'tkaziladi.
+2. **Smoke sinovi (Smoke Testing):** Tizimning eng asosiy funksionalligini yuzaki tekshirish. U *"Build Verification Testing"* (Yig'ilmani tekshirish sinovi) deb ham ataladi. Asosiy maqsad — yangi yig'ilma sinov uchun yaroqli ekanligiga ishonch hosil qilish (masalan, dastur ishga tushadimi, bosh sahifa ochiladimi).
+3. **Sanity sinovi (Sanity Testing):** Dasturga kiritilgan o'zgartirishlar yoki tuzatilgan xatoliklardan so'ng asosiy biznes ssenariylari to'g'ri ishlayotganligini tezkor tekshirish. Smoke sinovidan ko'ra chuqurroq bo'ladi (masalan, login ishlayaptimi, asosiy tugmalar bosilyaptimi).
+4. **Regressiya sinovi (Regression Testing):** Kodga kiritilgan yangi o'zgarishlar tizimning mavjud ishlab turgan funksiyalariga salbiy ta'sir ko'rsatmaganligiga ishonch hosil qilish.
+5. **Integratsion sinov (Integration Testing):** Alohida modullarni birlashtirib, ular o'rtasidagi ma'lumotlar almashinuvi va o'zaro ta'siridagi xatoliklarni aniqlash uchun o'tkaziladigan sinov.
+6. **Oq quti sinovi (White Box Testing):** Dasturning ichki tuzilmasi, arxitekturasi va kod mantiqini chuqur tekshiruvchi sinov.
+7. **Qora quti sinovi (Black Box Testing):** Tizimning ichki kodini bilmagan holda faqat kiritish va chiqarish natijalari asosida amalga oshiriladigan xatti-harakat sinovi.
+8. **Foydalanuvchi qabul qilish sinovi (UAT — User Acceptance Testing):** Dastur mijoz talablariga mos kelishini tasdiqlash uchun yakuniy bosqichda mijoz va oxirgi foydalanuvchilar tomonidan o'tkaziladigan sinov.
+9. **Qayta sinash (Retesting):** Avvalgi sinovda muvaffaqiyatsiz bo'lgan test keyslar dasturchi tomonidan tuzatilgandan so'ng xatolik bartaraf etilganligini tasdiqlash uchun qayta o'tkaziladigan sinov.
+10. **Ma'lumotlar bazasi sinovi (Database Testing):** Ma'lumotlar bazasining sxemasi, jadvallari, triggerlari va ma'lumotlar yaxlitligini tekshirish.
+    > **Bank ilovasi misoli:** Foydalanuvchi pul o'tkazganda tranzaksiya ma'lumotlari bazada to'g'ri saqlanishi, ma'lumot yo'qolib qolmasligi va ruxsatsiz shaxslar bu ma'lumotlarga kira olmasligi tekshiriladi.
+11. **Ad-hoc sinovi (Ad-hoc Testing):** Rejasiz, oldindan tayyorlangan test keyslarsiz, erkin tarzda tizimni "buzish" maqsadida amalga oshiriladigan norasmiy sinov.
+12. **Tiklanish sinovi (Recovery Testing):** Dastur tizimdagi nosozliklar, apparat xatoliklari yoki uzilishlardan so'ng o'z faoliyatini qay darajada tez va xatosiz tiklay olishini tekshiradi.
+13. **Statik sinov (Static Testing):** Kodni amalda bajarmasdan turib hujjatlar va kodni ko'rib chiqish (review) orqali dastlabki bosqichlardayoq xatoliklarni aniqlash texnikasi.
+14. **Komponent sinovi (Component Testing):** Dasturning har bir qismini boshqa qismlarga bog'lamasdan alohida holda tekshirish.
+15. **Kulrang quti sinovi (Grey Box Testing):** Oq quti va qora quti usullarining uyg'unlashuvi bo'lib, tizimning ichki tuzilmasi haqida qisman ma'lumotga ega bo'lgan holda sinov o'tkazish.
+
+---
+
+## Funksional Sinov Asboblari (Tools)
+
+Funksional sinovni qo'lda bajarishdan tashqari jarayonni tezlashtiruvchi va aniqlikni ta'minlovchi bir qator avtomatlashtirish vositalari mavjud:
+
+| Asbob (Tool) | Xususiyatlari va Imkoniyatlari |
+| :--- | :--- |
+| **Selenium** | Veb-ilovalarni avtomatlashtirilgan funksional sinash uchun dunyodagi eng mashhur ochiq kodli vosita. Turli brauzerlar va dasturlash tillarini (Java, Python, C# va h.k.) qo'llab-quvvatlaydi. |
+| **SoapUI** | Veb-servislar va API (REST va SOAP) larni funksional sinovdan o'tkazish uchun mo'ljallangan ochiq kodli vosita. |
+| **Cucumber** | BDD (*Behavior-Driven Development*) yondashuviga asoslangan ochiq kodli vosita bo'lib, test ssenariylarini tabiiy tilda (Gherkin sintaksisi) yozish imkonini beradi. |
+| **Sahi** | Veb-ilovalar uchun Java va JavaScript-da yozilgan ochiq kodli avtomatlashtirish vositasi. Proksi-server sifatida ishlaydi va brauzerga bog'liq emas. |
+| **Watir** | Ruby tiliga asoslangan, brauzerlarni avtomatlashtirish uchun qulay va ixcham vosita. |
+| **Canoo WebTest** | Veb-ilovalarni tez va oson funksional sinash uchun mo'ljallangan platformadan mustaqil vosita. |
+
+---
+
+## Funksional Sinovning Afzalliklari va Kamchiliklari
+
+### Afzalliklari:
+- **Nuqsonsiz mahsulot:** Tizimning talab qilingandek ishlashini ta'minlaydi.
+- **Mijoz mamnuniyati:** Dastur foydalanuvchilarning barcha ehtiyojlariga javob beradi.
+- **Xavfsizlik va barqarorlik:** Funksional xatoliklarning oldini oladi.
+- **Mahsulot sifati:** Tizimning ishonchlilik darajasini oshiradi.
+
+> **Misol:** Bank tizimida "A" bankdan "B" bankka pul o'tkazilganda summa to'g'ri bormasligi, qo'shimcha komissiya noto'g'ri ushlab qolinishi yoki valyuta noto'g'ri konvertatsiya qilinishi kabi o'ta jiddiy xatoliklar to'g'ri yo'lga qo'yilgan funksional sinov orqali o'z vaqtida bartaraf etiladi.
+
+### Kamchiliklari:
+- Dastur kodi ichidagi chuqur mantiqiy xatoliklarni e'tibordan chetda qoldirishi mumkin.
+- Funksional sinovning muvaffaqiyatli o'tishi dasturni ishlab chiqarishga (production) chiqarish uchun yagona to'liq kafolat bo'la olmaydi (nofunksional jihatlar ham muhim).
+- Katta loyihalarda ortiqcha va takroriy testlar o'tkazish xavfi mavjud.
+
+---
+
+## Xulosa
+
+Funksional sinov yuqori sifatli dasturiy mahsulot yaratishning poydevori hisoblanadi. U dasturning har bir qismi foydalanuvchilar talabiga binoan ishonchli ishlashini kafolatlaydi.

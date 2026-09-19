@@ -1,0 +1,119 @@
+import { Callout } from 'nextra/components'
+
+# Qarorlar Qamrovi Sinovi (Decision Coverage Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Qarorlar qamrovi sinovi (Decision Coverage Testing)** — dasturdagi har bir qaror qabul qilish nuqtasi barcha mumkin bo'lgan natijalar bo'yicha baholanganligini tekshiradigan oq quti sinov texnikasidir. U har bir qarorning ham **rost (true)**, ham **yolg'on (false)** natijalari sinovdan o'tkazilishini ta'minlaydi.
+
+Ushbu bobda siz qarorlar qamrovi sinovi nima ekanligi, u qanday ishlashi, qarorlar qamrovini hisoblash usullari hamda amaliy misolini o'rganasiz.
+
+---
+
+## Qarorlar Qamrovi Sinovi Nima? (What is Decision Coverage Testing?)
+
+**Qarorlar qamrovi sinovi** — dasturdagi har bir qaror qabul qilish nuqtasi (decision point) barcha mumkin bo'lgan natijalar bo'yicha kamida bir marta bajarilganligini tekshiruvchi oq quti sinov usulidir. U dasturdagi har bir mantiqiy (Boolean) ifoda sinov davomida kamida bir marta `true` (rost) va kamida bir marta `false` (yolg'on) natija qaytarishini kafolatlaydi.
+
+Dasturda qaror qabul qilish nuqtalari quyidagi boshqaruv operatorlari orqali yaratiladi:
+
+- `if`
+- `if...else`
+- `switch`
+- `while`
+- `do...while`
+- `for`
+- Shartli ternar operator (`?:`)
+
+Ushbu texnika dasturdagi barcha qaror nuqtalarini aniqlash va barcha mumkin bo'lgan natijalarni sinovdan o'tkazuvchi test holatlarini ishlab chiqish uchun **Boshqaruv Oqimi Grafigi (Control Flow Graph — CFG)**dan foydalanadi.
+
+Qarorlar qamrovi birlik sinovlarida (Unit Testing) shartli mantiqning to'g'riligini tekshirish va test holatlarining samaradorligini oshirish uchun keng qo'llaniladi.
+
+---
+
+## Qarorlar Qamrovini Hisoblash Formulasi
+
+Qarorlar qamrovi foizi quyidagi formula yordamida hisoblanadi:
+
+```text
+Qarorlar qamrovi = (Bajarilgan qaror natijalari soni / Jami mumkin bo'lgan qaror natijalari soni) * 100%
+```
+
+Oddiy `if` shart operatori uchun **2 ta mumkin bo'lgan natija** mavjud:
+1. **Rost (True)**
+2. **Yolg'on (False)**
+
+100% qarorlar qamroviga erishish uchun ushbu ikkala natija ham albatta sinov jarayonida ishga tushirilishi kerak.
+
+---
+
+## Qarorlar Qamrovi Sinoviga Amaliy Misol
+
+Quyidagi kod misolida Qarorlar qamrovi qanday hisoblanishini ko'rib chiqamiz:
+
+```c
+Test (int a) {   
+    if (a > 4)   
+        a = a * 3;   
+    print (a);   
+}   
+```
+
+Ushbu funksiya uchun 2 xil qiymat asosida ikkita alohida ssenariyni tahlil qilamiz.
+
+---
+
+### 1-Ssenariy: a ning qiymati 7 bo'lganda (a = 7)
+
+```c
+Test (int a = 7) {   
+    if (a > 4)   
+        a = a * 3;   
+    print (a);   
+}   
+```
+
+Ushbu ssenariyda `a = 7` bo'lganda `a > 4` sharti tekshiriladi va natija **Rost (True)** bo'ladi.
+- `a = 7 * 3 = 21` hisoblanadi.
+- Chiqish qiymati (Output): `21`.
+- Bu sinovda faqat **"True"** tarmog'i bajarildi.
+
+#### 1-Ssenariy bo'yicha qamrov hisobi:
+```text
+Qarorlar qamrovi = (1 / 2) * 100% = 100 / 2 = 50%
+```
+
+---
+
+### 2-Ssenariy: a ning qiymati 3 bo'lganda (a = 3)
+
+```c
+Test (int a = 3) {   
+    if (a > 4)   
+        a = a * 3;   
+    print (a);   
+}   
+```
+
+Ushbu ssenariyda `a = 3` bo'lganda `a > 4` sharti tekshiriladi va natija **Yolg'on (False)** bo'ladi.
+- `a = a * 3` qatori o'tkazib yuboriladi.
+- Chiqish qiymati (Output): `3`.
+- Bu sinovda faqat **"False"** tarmog'i bajarildi.
+
+#### 2-Ssenariy bo'yicha qamrov hisobi:
+```text
+Qarorlar qamrovi = (1 / 2) * 100% = 100 / 2 = 50%
+```
+
+---
+
+### Qarorlar Qamrovi Natijalari Jadvali
+
+| Test Keys (Test Case) | A ning qiymati | Chiqish natijasi (Output) | Sinovdan o'tgan qaror | Qarorlar qamrovi (Decision Coverage) |
+| :--- | :--- | :--- | :--- | :--- |
+| **1-Test keys** | 3 | 3 | Faqat False | **50%** |
+| **2-Test keys** | 7 | 21 | Faqat True | **50%** |
+| **Jami (1 va 2 birgalikda)** | 3 va 7 | 3 va 21 | True va False | **100%** |
+
+<Callout type="info">
+Yuqoridagi jadvaldan ko'rinib turibdiki, har bir test keys alohida olinganda 50% qamrov beradi. Ammo ikkala test keys birgalikda bajarilganda barcha mumkin bo'lgan qaror natijalari to'liq sinovdan o'tadi va umumiy qarorlar qamrovi **100%** ni tashkil etadi.
+</Callout>

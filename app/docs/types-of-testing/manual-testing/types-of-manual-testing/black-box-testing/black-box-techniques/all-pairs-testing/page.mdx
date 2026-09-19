@@ -1,0 +1,102 @@
+import { Callout } from 'nextra/components'
+
+# Barcha Juftliklar Sinovi (All-Pairs Testing / Pairwise Testing)
+
+> Oxirgi yangilanish: 25-iyul, 2026
+
+**Barcha juftliklar sinovi (All-Pairs Testing)** — shuningdek, **juftlik sinovi (Pairwise Testing)** deb ham ataluvchi qora quti sinov texnikasidir. U parametrlar qiymatlarining barcha mumkin bo'lgan diskret juftlik kombinatsiyalarini tekshirish uchun qo'llaniladi.
+
+Ushbu kombinatorik usul belgilash katakchalari (checkbox), radio tugmalar (radio button — bir vaqtning o'zida faqat bitta variant tanlanadigan maydon, masalan erkak/ayol jinsi), ro'yxat qutilari (list box) va matn maydonlaridan (text box) iborat shakllarni sinashda keng ishlatiladi.
+
+Faraz qilaylik, ilovada ma'lumot kiritish uchun 10 ta maydon mavjud va har bir maydon 10 xil qiymat qabul qilishi mumkin. Barcha kombinatsiyalarning umumiy soni 10^10 (10 milliard) tani tashkil etadi. Bunday ulkan hajmdagi kombinatsiyalarni to'liq tekshirib chiqish o'ta murakkab va juda ko'p vaqt talab qiladi.
+
+---
+
+## Amaliy Misol (Example of All-pairs Testing)
+
+Sinov jarayonini amaliy misol yordamida ko'rib chiqamiz:
+
+Aytaylik, tizimda quyidagi elementlardan iborat shakl mavjud:
+- 10 ta elementdan iborat **Ro'yxat qutisi (List Box)**
+- 1 dan 100 tagacha belgini qabul qiluvchi **Matn maydoni (Text Box)**
+- **Radio tugma (Radio Button)**
+- **Belgilash katakchasi (Checkbox)**
+- **"OK" tugmasi** (hech qanday qiymat qabul qilmaydi, faqat keyingi sahifaga o'tkazadi)
+
+### Maydonlar qabul qiladigan qiymatlar:
+- **Checkbox:** Belgilangan (`Checked`) yoki Belgilanmagan (`Unchecked`) — **2 ta qiymat**
+- **List Box:** 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 — **10 ta qiymat**
+- **Radio Button:** Yoqilgan (`ON`) yoki O'chirilgan (`OFF`) — **2 ta qiymat**
+- **Text Box:** 1 dan 100 gacha belgilar soni — **100 ta qiymat**
+- **OK tugmasi:** Qiymat qabul qilmaydi
+
+### Barcha mumkin bo'lgan kombinatsiyalar hisobi:
+
+```text
+Checkbox = 2
+List Box = 10
+Radio Button = 2
+Text Box = 100
+
+Jami test keyslar soni = 2 * 10 * 2 * 100 = 4000 ta
+```
+
+Salbiy (negative) test keyslarni ham qo'shib hisoblaganda jami test holatlari soni **4000 ta**ni tashkil etadi.
+
+---
+
+## Test Keyslar Sonini Qisqartirish Jarayoni
+
+4000 ta ijobiy va salbiy test holatlarini sinab chiqish juda uzoq vaqt talab qiladigan mashaqqatli jarayondir. Shu sababli, test jamoasining asosiy vazifasi test holatlari sonini oqilona kamaytirishdan iborat:
+
+1. **List Box qiymatlarini qisqartirish:** Test jamoasi ro'yxat qiymatlarini shunday guruhlaydiki, birinchi qiymat `0`, ikkinchisi esa har qanday sonli qiymat (`Boshqa`) bo'ladi. Natijada 10 ta qiymat **2 ta toifaga** keltiriladi.
+2. **Checkbox va Radio Button:** Har ikkalasida atigi 2 tadan holat bo'lgani uchun ularni bundan ortiq qisqartirib bo'lmaydi (**har biri 2 tadan**).
+3. **Text Box qiymatlarini qisqartirish:** Matn maydoniga kiritiladigan qiymatlar 3 ta ekvivalent toifaga bo'linadi:
+   - To'g'ri butun son (*Valid Integer*)
+   - Noto'g'ri butun son (*Invalid Integer*)
+   - Harfli-maxsus belgilar (*Alpha-Special Character*)
+
+Endi salbiy test holatlarini hisobga olgan holda jami kombinatsiyalar soni atigi **24 ta**ga qisqaradi:
+
+```text
+2 * 2 * 2 * 3 = 24 ta test keys
+```
+
+---
+
+## Barcha Juftliklar (Pairwise) Jadvalini Shakllantirish
+
+Navbatdagi vazifa — juftlik texnikasi (pairwise technique) yordamida har bir ustun teng miqdordagi qiymatlarga ega bo'lgan kombinatsiyalar jadvalini tuzishdir.
+
+1. Matn maydoni (Text Box) ustunida birinchi o'ringa eng ko'p uchraydigan kiritish qiymati — **To'g'ri butun son (Valid Integer)**, ikkinchi o'ringa **Noto'g'ri butun son (Invalid Integer)** va oxirgi o'ringa **Maxsus belgilar (Alpha Special Character)** qo'yiladi.
+2. So'ngra jadvalning qolgan ustunlari to'ldiriladi: 
+   - 1-ustun: **Text Box** (3 ta qiymat)
+   - 2-ustun: **List Box** (2 ta qiymat: 0 va Boshqa)
+   - 3-ustun: **Check Box** (2 ta qiymat: Check va Uncheck)
+   - 4-ustun: **Radio Button** (2 ta qiymat: ON va OFF)
+
+---
+
+### Juftlik Sinovi (Pairwise) Kombinatsiyalar Jadvali
+
+| № | Matn maydoni (Text box) | Ro'yxat qutisi (List Box) | Belgilash katakchasi (Check Box) | Radio tugma (Radio Button) |
+| :-: | :--- | :---: | :---: | :---: |
+| **1** | To'g'ri butun son (Valid Integer) | 0 | Check (Belgilangan) | ON (Yoqilgan) |
+| **2** | Noto'g'ri butun son (Invalid Integer) | Boshqa (Other) | Uncheck (Belgilanmagan) | OFF (O'chirilgan) |
+| **3** | To'g'ri butun son (Valid Integer) | 0 | Check (Belgilangan) | ON (Yoqilgan) |
+| **4** | Noto'g'ri butun son (Invalid Integer) | Boshqa (Other) | Uncheck (Belgilanmagan) | OFF (O'chirilgan) |
+| **5** | Maxsus belgilar (AlphaSpecialCharacter) | 0 | Check (Belgilangan) | ON (Yoqilgan) |
+| **6** | Maxsus belgilar (AlphaSpecialCharacter) | Boshqa (Other) | Uncheck (Belgilanmagan) | OFF (O'chirilgan) |
+
+---
+
+## Xulosa va Natija
+
+Ushbu jadvaldan ko'rinib turibdiki:
+- An'anaviy to'liq qamrov usuli dastlab **4000 ta** test holatini talab qilgan edi;
+- Ekvivalent toifalash orqali bu raqam **24 ta** test keysga tushirildi;
+- **Barcha juftliklar (Pairwise testing)** usuli yordamida esa barcha o'zaro parametrlar juftligini to'liq qamrab olgan holda atigi **6 ta test holati** kifoya qildi.
+
+<Callout type="info">
+**All-Pairs Testing** texnikasi testlar sonini keskin kamaytiradi, shu bilan birga dastur parametrlarining o'zaro ta'siridagi xatoliklarning katta qismini aniqlashda yuqori samaradorlikni ta'minlaydi.
+</Callout>

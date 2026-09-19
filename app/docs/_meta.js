@@ -18,6 +18,48 @@ export default {
   },
   'sdlc-models': {
     title: '🔄 SDLC Modellari'
+  },
+  '-- tot-sep': {
+    type: 'separator',
+    title: 'Sinov Turlari'
+  },
+  'types-of-testing': {
+    title: '🧪 Sinov Turlari'
+  },
+  '-- td-sep': {
+    type: 'separator',
+    title: 'Test Hujjatlari'
+  },
+  'test-documentation': {
+    title: '📑 Test Hujjatlari'
+  },
+  '-- tt-sep': {
+    type: 'separator',
+    title: 'Test Texnikalari'
+  },
+  'test-techniques': {
+    title: '🛠️ Test Texnikalari'
+  },
+  '-- tm-sep': {
+    type: 'separator',
+    title: 'Test Menejment'
+  },
+  'test-management': {
+    title: '📊 Test Menejment'
+  },
+  '-- dt-sep': {
+    type: 'separator',
+    title: 'Nuqsonlarni Kuzatish'
+  },
+  'defect-tracking': {
+    title: '🐛 Nuqsonlarni Kuzatish'
+  },
+  '-- ttls-sep': {
+    type: 'separator',
+    title: 'Sinov Vositalari'
+  },
+  'testing-tools': {
+    title: '🧰 Sinov Vositalari'
   }
 }
 
