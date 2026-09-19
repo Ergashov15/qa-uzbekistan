@@ -6,7 +6,7 @@ export default {
   'software-testing-life-cycle': "Dasturiy Ta'minotni Sinash Hayotiy Davri (STLC)",
   'types-of-software-testing': "Dasturiy Ta'minotni Sinash Turlari",
   'levels-of-testing': "Dasturiy Ta'minotni Sinash Darajalari",
-  'api-testing-tutorial': 'API Testing Tutorial',
+  'api-testing-tutorial': "API Sinovlari Bo'yicha Qo'llanma",
   'acceptance-test-driven-development': 'Acceptance Test Driven Development(ATDD)',
   'methodological-types': 'Methodological Types'
 }
