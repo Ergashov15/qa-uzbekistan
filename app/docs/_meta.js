@@ -11,5 +11,13 @@ export default {
   },
   'software-testing': {
     title: '▶️ Software Testing'
+  },
+  '-- sdlc-sep': {
+    type: 'separator',
+    title: 'SDLC Modellari'
+  },
+  'sdlc-models': {
+    title: '🔄 SDLC Modellari'
   }
 }
+
