@@ -18,11 +18,11 @@ import { Cards, Callout } from 'nextra/components'
     />
   </div>
   <h1 className="portal-title">QA COMPASS — Dasturiy Ta'minot Sifatini Ta'minlash Bo'yicha Qo'llanma</h1>
-  <div className="portal-subtitle">O'zbekistonda dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasini o'rganayotgan yangi mutaxassislar hamda amaliyotdagi muhandislar uchun tizimlashtirilgan ochiq ta'limiy platforma. Qo'llanma xalqaro ISTQB standartlari, amaliy sinov usullari va zamonaviy texnologiyalar asosida tuzilgan.</div>
+  <div className="portal-subtitle">O'zbekistonda dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasini o'rganayotgan yangi mutaxassislar hamda amaliyotdagi muhandislar uchun tizimlashtirilgan ochiq ta'limiy platforma. Xalqaro ISTQB standartlari, amaliy sinov usullari va zamonaviy texnologiyalar asosida tuzilgan.</div>
   <div className="portal-nav-bar">
     <a href="/docs" className="portal-nav-link portal-nav-link-primary">📖 Dokumentatsiya</a>
-    <a href="/roadmap" className="portal-nav-link portal-nav-link-secondary">Yo'l xaritasi (Roadmap)</a>
-    <a href="/interview" className="portal-nav-link portal-nav-link-secondary">Intervyu Savollari</a>
+    <a href="/roadmap" className="portal-nav-link portal-nav-link-secondary">🧭 Yo'l xaritasi (Roadmap)</a>
+    <a href="/interview" className="portal-nav-link portal-nav-link-secondary">💬 Intervyu Savollari</a>
     <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer" className="portal-nav-link portal-nav-link-secondary">GitHub Repozitoriy</a>
   </div>
 </div>
@@ -30,148 +30,140 @@ import { Cards, Callout } from 'nextra/components'
 <div className="portal-summary-grid">
   <div className="portal-summary-card">
     <div className="portal-card-title">Ochiq Manbali Ta'lim</div>
-    <div className="portal-card-desc">Qo'llanma barcha o'rganuvchilar uchun mutlaqo bepul va ochiq manba (Open Source) sifatida taqdim etiladi.</div>
+    <div className="portal-card-desc">Barcha o'rganuvchilar uchun mutlaqo bepul, tizimlashtirilgan va ochiq manba (Open Source) sifatida taqdim etiladi.</div>
   </div>
   <div className="portal-summary-card">
-    <div className="portal-card-title">ISTQB CTFL 4.0.1 Standarti</div>
-    <div className="portal-card-desc">Dasturiy ta'minotni sinash nazariyasi va amaliyoti xalqaro sertifikatlash dasturiga to'liq muvofiqlashtirilgan.</div>
+    <div className="portal-card-title">ISTQB Standartlari</div>
+    <div className="portal-card-desc">Dasturiy ta'minotni sinash nazariyasi va amaliyoti xalqaro sertifikatlash dasturi talablariga to'liq moslashtirilgan.</div>
   </div>
   <div className="portal-summary-card">
-    <div className="portal-card-title">Zamonaviy Texnologiyalar</div>
-    <div className="portal-card-desc">Postman, Playwright, k6, SQL, Git, DevTools va Charles Proxy vositalarida amaliy ko'nikmalar beriladi.</div>
+    <div className="portal-card-title">34+ Sinov Turlari</div>
+    <div className="portal-card-desc">Qo'lda va avtomatlashtirilgan, funksional hamda nofunksional sinovlarning keng qamrovli ensiklopediyasi.</div>
   </div>
   <div className="portal-summary-card">
-    <div className="portal-card-title">Kasbiy Rivojlanish</div>
-    <div className="portal-card-desc">Rezyume tuzish, portfolio yig'ish hamda texnik suhbatlarda beriladigan savollar tahlili o'rin olgan.</div>
+    <div className="portal-card-title">Amaliyot va Karyera</div>
+    <div className="portal-card-desc">Test hujjatlari shablonlari, real loyiha vaziyatlari va texnik suhbatlarda so'raladigan savollar tahlili.</div>
   </div>
 </div>
 
 ---
 
-## 1-bo'lim. Nazariy Asoslar va Xalqaro Standartlar
+## 🎯 Platformaning Real Maqsadlari va Hozirgi Holat
 
-Dasturiy ta'minotni sinashning fundamental qonuniyatlari, STLC bosqichlari va test dizayn texnikalari.
-
-<Cards num={2}>
-  <Cards.Card
-    title="QA Roadmap"
-    href="/roadmap"
-  >
-    Boshlang'ich darajadan to Senior QA va SDET darajasigacha bo'lgan tizimli o'quv rejasi.
-  </Cards.Card>
-  <Cards.Card
-    title="QA Asoslari"
-    href="/docs/fundamentals"
-  >
-    Sinovning 7 ta oltin qoidasi, V-Model, QA va QC farqi, Verification va Validation.
-  </Cards.Card>
-  <Cards.Card
-    title="Manual QA"
-    href="/docs/manual"
-  >
-    SDLC va STLC hayotiy sikllari, test dizayn usullari, Test Case va Bug Report yozish.
-  </Cards.Card>
-  <Cards.Card
-    title="ISTQB CTFL 4.0.1"
-    href="/docs/istqb"
-  >
-    Xalqaro sertifikat syllabusining asosiy qoidalari va namunaviy imtihon testlari.
-  </Cards.Card>
-  <Cards.Card
-    title="Sifat Metrikalari"
-    href="/docs/test-metrics"
-  >
-    Test Coverage, Defect Density, DRE hamda MTTD/MTTR ko'rsatkichlarini hisoblash.
-  </Cards.Card>
-</Cards>
-
----
-
-## 2-bo'lim. Amaliy Sinov Yo'nalishlari
-
-Turli arxitekturadagi tizimlarni funksional va texnik jihatdan tekshirish amaliyoti.
-
-<Cards num={2}>
-  <Cards.Card
-    title="Web Testing"
-    href="/docs/web-testing"
-  >
-    Chrome DevTools tahlili, Cookie, LocalStorage, CORS xatoliklari va WCAG qulayligi.
-  </Cards.Card>
-  <Cards.Card
-    title="API Testing"
-    href="/docs/api-testing"
-  >
-    REST API arxitekturasi, HTTP metodlari, Postman orqali test yozish va Newman CI/CD.
-  </Cards.Card>
-  <Cards.Card
-    title="Mobile QA"
-    href="/docs/mobile"
-  >
-    iOS va Android tizimlarini sinash, Interrupt testing, ADB buyruqlari va proksi vositalari.
-  </Cards.Card>
-  <Cards.Card
-    title="To'lov Tizimlari (Payment Testing)"
-    href="/docs/payment-testing"
-  >
-    Authorization, Capture, Refund amallari, 3D Secure, Idempotency va Webhooks sinovi.
-  </Cards.Card>
-</Cards>
-
----
-
-## 3-bo'lim. Texnik Vositalar va Avtomatlashtirish
-
-Zamonaviy muhandislik vositalari orqali sinov jarayonlarini avtomatlashtirish va samaradorlikni oshirish.
-
-<Cards num={2}>
-  <Cards.Card
-    title="QA Automation (Playwright)"
-    href="/docs/automation"
-  >
-    Playwright arxitekturasi, Page Object Model (POM) va avtomatlashtirilgan testlar to'plami.
-  </Cards.Card>
-  <Cards.Card
-    title="Performance Testing (k6)"
-    href="/docs/performance"
-  >
-    Yuklama va stress sinovlari, p95/p99 persentillar tahlili hamda k6 ssenariylari.
-  </Cards.Card>
-  <Cards.Card
-    title="SQL va Git"
-    href="/docs/database-git"
-  >
-    Relyatsion ma'lumotlar bazalarini tekshirish uchun SQL so'rovlari va Git versiya nazorati.
-  </Cards.Card>
-</Cards>
-
----
-
-## 4-bo'lim. Kasbiy Rivojlanish va Suhbatga Tayyorgarlik
-
-Mehnat bozorida talab yuqori bo'lgan mutaxassis bo'lish va texnik intervyulardan muvaffaqiyatli o'tish.
-
-<Cards num={2}>
-  <Cards.Card
-    title="Karyera va Portfolio"
-    href="/docs/career"
-  >
-    GitHub portfoliosini shakllantirish, XYZ formulasi bo'yicha rezyume yozish va bozor tahlili.
-  </Cards.Card>
-  <Cards.Card
-    title="Intervyu Savollari"
-    href="/interview"
-  >
-    Texnik, fundamental va situatsion savollar tahlili hamda professional tavsiyalar.
-  </Cards.Card>
-</Cards>
-
----
-
-## Hamjamiyat va Hissa Qo'shish
-
-Ushbu platforma o'zbek tilidagi sifatli texnik kontentni ko'paytirish va IT mutaxassislarini qo'llab-quvvatlash maqsadida jamoatchilik tomonidan yuritiladi.
+QA COMPASS loyihasining bosh maqsadi — O'zbekiston IT hamjamiyatida sifatli, tushunarli va to'liq o'zbek tilidagi professional QA bilimlar bazasini yaratishdir.
 
 <Callout type="info">
-  Qo'llanma **MIT litsenziyasi** ostida ochiq tarqatiladi. Matnlardagi xatoliklarni tuzatish, yangi amaliy misollar qo'shish yoki mavzularni kengaytirish uchun [GitHub repozitoriyamizda](https://github.com/Ergashov15/qa-uzbekistan) Pull Request ochishingiz mumkin.
+  **Hozir qilinayotgan faol ishlar:** Ayni paytda platformada 34 ta yangi qo'shilgan sinov turlari (Regression, Smoke, Sanity, Performance, Security va h.k.) bo'yicha amaliy materiallar boyitilmoqda hamda qo'lda va avtomatlashtirilgan sinov integratsiyasi ustida ish olib borilmoqda.
+</Callout>
+
+---
+
+## 1-bo'lim. Fundamental Nazariya va SDLC Modellari
+
+Dasturiy ta'minotni sinashning asosiy qonuniyatlari, ishlab chiqish va sinov hayotiy sikllari hamda modellar.
+
+<Cards num={2}>
+  <Cards.Card
+    title="▶️ Software Testing Asoslari"
+    href="/docs/software-testing"
+  >
+    SDLC, STLC, 7 ta oltin tamoyil, sinov darajalari, API sinovlari va ATDD metodologiyasi.
+  </Cards.Card>
+  <Cards.Card
+    title="🔄 SDLC Modellari Markazi"
+    href="/docs/sdlc-models"
+  >
+    Sharshara (Waterfall), Spiral, Gibrid, Prototip va V-Model modellarining qiyosiy tahlili.
+  </Cards.Card>
+</Cards>
+
+---
+
+## 2-bo'lim. Sinov Turlari va Amaliy Yo'nalishlar
+
+Dasturiy ta'minotni har tomonlama tekshirish uslublari, mobil platformalar hamda samarali test-keyslar yaratish ilmi.
+
+<Cards num={3}>
+  <Cards.Card
+    title="🧪 Sinov Turlari (34+ tur)"
+    href="/docs/types-of-testing"
+  >
+    Qo'lda sinash, avtomatlashtirilgan sinov, Regressiya, Smoke, Sanity, Yuklama, Xavfsizlik va boshqalar.
+  </Cards.Card>
+  <Cards.Card
+    title="📱 Mobil Ilovalarni Sinash"
+    href="/docs/mobile-testing"
+  >
+    Android va iOS tizimlarini sinash, Nativ/Gibrid ilovalar, Interrupt testing, ADB va proksi vositalari.
+  </Cards.Card>
+  <Cards.Card
+    title="🛠️ Test Texnikalari"
+    href="/docs/test-techniques"
+  >
+    Ekvivalentlik sinflari (EP), chegaraviy qiymatlar (BVA), qarorlar jadvali va oq quti qamrov texnikalari.
+  </Cards.Card>
+</Cards>
+
+---
+
+## 3-bo'lim. Test Hujjatlari va Sifat Menejmenti
+
+Sinov jarayonini rejalashtirish, xatarlarni baholash, hisobotlar tuzish va nuqsonlarni tizimli boshqarish.
+
+<Cards num={3}>
+  <Cards.Card
+    title="📑 Test Hujjatlari"
+    href="/docs/test-documentation"
+  >
+    Test Plan, Test Strategy, Test Scenarios, Test Cases, RTM va yakuniy sinov hisobotlari.
+  </Cards.Card>
+  <Cards.Card
+    title="📊 Test Menejment"
+    href="/docs/test-management"
+  >
+    Xatarlarni tahlil qilish (Risk Analysis), test baholash, monitoring va sifat nazorati.
+  </Cards.Card>
+  <Cards.Card
+    title="🐛 Nuqsonlarni Kuzatish"
+    href="/docs/defect-tracking"
+  >
+    Nuqson hayotiy sikli (Defect Life Cycle), Severity va Priority mezonlari hamda Jira amaliyoti.
+  </Cards.Card>
+</Cards>
+
+---
+
+## 4-bo'lim. Vositalar, Karyera va Suhbatga Tayyorgarlik
+
+Zamonaviy muhandislik vositalari bilan ishlash va texnik intervyulardan muvaffaqiyatli o'tish ko'nikmalari.
+
+<Cards num={3}>
+  <Cards.Card
+    title="🧰 Sinov Vositalari"
+    href="/docs/testing-tools"
+  >
+    Selenium, Playwright, Cypress, Postman, JMeter va boshqa asosiy vositalar tahlili.
+  </Cards.Card>
+  <Cards.Card
+    title="💬 Intervyu Savollari"
+    href="/interview"
+  >
+    Texnik, fundamental va situatsion savollar hamda professional javoblar tahlili.
+  </Cards.Card>
+  <Cards.Card
+    title="🧭 QA Yo'l Xaritasi (Roadmap)"
+    href="/roadmap"
+  >
+    Junior darajasidan SDET darajasigacha bo'lgan tizimli o'quv yo'li va platforma rivojlanish bosqichlari.
+  </Cards.Card>
+</Cards>
+
+---
+
+## 🤝 Hamjamiyat va Hissa Qo'shish
+
+Ushbu platforma o'zbek tilidagi sifatli texnik kontentni ko'paytirish va IT mutaxassislarini qo'llab-quvvatlash maqsadida ochiq manba (Open Source) sifatida yuritiladi.
+
+<Callout type="info">
+  Loyiha **MIT litsenziyasi** ostida erkin tarqatiladi. Matnlardagi xatoliklarni tuzatish, yangi amaliy misollar qo'shish yoki mavzularni kengaytirish uchun [GitHub repozitoriyamizda](https://github.com/Ergashov15/qa-uzbekistan) Pull Request ochishingiz mumkin.
 </Callout>

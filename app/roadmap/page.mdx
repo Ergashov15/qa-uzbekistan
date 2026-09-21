@@ -1,88 +1,132 @@
-import { Steps, Callout } from 'nextra/components'
+import { Steps, Callout, Cards } from 'nextra/components'
 
-# QA Engineer Yo'l Xaritasi (Roadmap)
+# QA Engineer Yo'l Xaritasi (Roadmap) va Loyiha Maqsadlari
 
-Ushbu yo'l xaritasi yangi boshlovchilar uchun noldan boshlab kuchli **QA Engineer** yoki **SDET (Software Development Engineer in Test)** bo'lishgacha bo'lgan barcha bosqichlarni o'z ichiga oladi.
+Ushbu yo'l xaritasi O'zbekistonda **Quality Assurance (QA)** sohasini noldan o'rganayotgan yangi mutaxassislar hamda amaliyotdagi muhandislar uchun tizimli o'quv rejasini, shuningdek, **QA COMPASS** ochiq ta'lim platformasining real maqsadlari va hozir qilinayotgan ishlarini o'z ichiga oladi.
 
 ---
 
+## 🎯 Loyiha Maqsadlari va Hozirgi Holat
+
+QA COMPASS — O'zbekiston IT hamjamiyatida xalqaro standartlar (ISTQB) va zamonaviy amaliyotga asoslangan birinchi keng qamrovli, ochiq manbali o'zbek tilidagi QA bilimlar bazasidir.
+
+### 1. Real Maqsadlarimiz
+- **Sifatli ochiq ta'lim:** Har bir o'rganuvchi uchun bepul, tizimlashtirilgan va adabiy o'zbek tilidagi to'liq QA darsliklarini taqdim etish.
+- **Nazariya va amaliyot uyg'unligi:** Quruq ta'riflardan qochib, real IT loyihalarida (e-tijorat, bank, to'lov tizimlari) qo'llaniladigan amaliy keyslarni yoritish.
+- **Karyeraga ko'mak:** Talabgor mutaxassis bo'lish uchun zarur bo'lgan texnik bilimlar, test hujjatlari andozalari hamda intervyu savollari bazasini yaratish.
+
+### 2. Platformada Hozirgi Holat
+
+| Holat | Bo'limlar | Tavsif |
+| :--- | :--- | :--- |
+| 🟢 **Tayyor** | [Software Testing Asoslari](/docs/software-testing) | SDLC, STLC, 7 ta tamoyil, sinov darajalari, ATDD va metodologiyalar. |
+| 🟢 **Tayyor** | [SDLC Modellari](/docs/sdlc-models) | Waterfall, Spiral, Gibrid, Prototip va V-Model tahlili. |
+| 🟢 **Tayyor** | [Test Hujjatlari](/docs/test-documentation) | Test Plan, Test Strategy, Test Case, RTM va Defect Report standartlari. |
+| 🟢 **Tayyor** | [Test Texnikalari](/docs/test-techniques) | Qora va Oq quti sinov texnikalari (BVA, EP, Decision Table, Coverage). |
+| 🟢 **Tayyor** | [Test Menejment](/docs/test-management) | Xatarlarni tahlil qilish, sinovni baholash va monitoring. |
+| 🟢 **Tayyor** | [Nuqsonlarni Kuzatish](/docs/defect-tracking) | Defect Life Cycle, Severity vs Priority mezonlari va Jira amaliyoti. |
+| 🟢 **Tayyor** | [Sinov Vositalari](/docs/testing-tools) | Playwright, Selenium, Postman, JMeter va boshqa asosiy vositalar sharhi. |
+| 🟢 **Tayyor** | [Mobil Ilovalarni Sinash](/docs/mobile-testing) | Android va iOS sinovi, Interrupt testing, emulyatorlar, ADB va cheklist. |
+| 🟢 **Tayyor** | [Intervyu Savollari](/interview) | Fundamental, texnik va situatsion savollar to'plami. |
+| 🔄 **Jarayonda** | [Sinov Turlari Katalogi](/docs/types-of-testing) | 34 ta sinov turi (Regression, Smoke, Sanity, Load, Stress va h.k.) sahifalarini amaliy materiallar bilan boyitish. |
+| 🔄 **Jarayonda** | Qo'lda va Avtomatlashtirilgan Sinov | Amaliy keyslar va sinov ssenariylari integratsiyasi. |
+| 🚀 **Kelgusida** | Amaliy Laboratoriya va Avtotestlar | Veb-ilova simulyatsiyasi, Postman va Playwright bo'yicha interaktiv amaliyot. |
+
+---
+
+## 🧭 QA Engineer Kasbiy O'quv Rejasi
+
+Yangi boshlovchilar uchun noldan boshlab kuchli **Manual QA**, **QA Engineer** yoki **SDET (Software Development Engineer in Test)** bo'lishgacha bo'lgan bosqichma-bosqich yo'l:
+
 <Steps>
 
-### 1-bosqich: Kompyuter va Internet asoslari
+### 1-bosqich: Kompyuter va Web texnologiyalari asoslari
 
-Har qanday testlovchi birinchi navbatda dastur qanday ishlashini tushunishi kerak:
+Har qanday sinovchi birinchi navbatda dastur va internet qanday ishlashini chuqur tushunishi kerak:
 
-- **Mijoz-Server (Client-Server) arxitekturasi:** Frontend, Backend va Database qanday bog'lanadi?
-- **Internet va Tarmoqlar:** HTTP/HTTPS protokollari, DNS, IP manzillar.
-- **Ma'lumotlar formati:** JSON va XML nima va ularning tuzilishi.
-- **Brauzer DevTools:** Elements, Console, Network (request/response tahlili), Application (Cookie, LocalStorage).
+- **Mijoz-Server (Client-Server) arxitekturasi:** Frontend, Backend va Ma'lumotlar bazasi qanday bog'lanadi?
+- **Internet va Tarmoqlar:** HTTP/HTTPS protokollari, DNS, IP manzillar, so'rov va javob (Request/Response) tuzilishi.
+- **Ma'lumotlar formati:** JSON va XML nima, ularning sintaksisi va ma'lumot uzatishdagi o'rni.
+- **Brauzer DevTools:** Elements (DOM tahlili), Console (xatoliklarni kuzatish), Network (API so'rovlar, status kodlar), Application (Cookie, LocalStorage, SessionStorage).
 
-### 2-bosqich: Dasturiy ta'minotni sinash nazariyasi (Manual QA)
+### 2-bosqich: Dasturiy ta'minotni sinash nazariyasi (Software Testing Fundamentals)
 
-Sifatli testlashning asosi mustahkam nazariy bilimlarga tayanadi (ISTQB standartlari):
+Sifatli testlashning asosi mustahkam xalqaro standartlarga (ISTQB) tayanadi:
 
-- **SDLC va STLC:** Dasturiy ta'minotni yaratish va sinash hayotiy sikllari.
-- **Metodologiyalar:** Agile, Scrum, Kanban, Waterfall.
-- **Sinov darajalari:** Unit, Integration, System, Acceptance (UAT).
-- **Sinov turlari:** Funksional (Smoke, Sanity, Regression) va No-funksional (Performance, Security, Usability).
-- **Test dizayn texnikalari:**
-  - Chegaraviy qiymatlarni tahlil qilish (Boundary Value Analysis - BVA)
+- **SDLC va STLC:** Dasturni ishlab chiqish va sinash hayotiy sikllari, ularning farqlari va o'zaro bog'liqligi.
+- **Sinovning 7 ta oltin tamoyili:** Nuqsonlar borligi, to'liq sinovning imkonsizligi, pestitsid paradoksi va h.k.
+- **SDLC Modellari:** Sharshara (Waterfall), V-Model, Spiral, Prototip hamda Agile (Scrum/Kanban) doirasida sinov.
+- **Sinov darajalari:** Unit testing, Integration testing, System testing va Acceptance testing (UAT, Alpha/Beta).
+
+### 3-bosqich: Sinov turlari katalogi va Mobil Sinov (Types of Testing & Mobile QA)
+
+Ilovalarni har tomonlama tekshirish uchun barcha asosiy sinov turlari va mobil muhit xususiyatlarini o'rganish:
+
+- **Funksional sinovlar:** [Smoke testing](/docs/types-of-testing/smoke-testing), [Sanity testing](/docs/types-of-testing/sanity-testing), [Regression testing](/docs/types-of-testing/regression-testing), [Integration testing](/docs/types-of-testing/manual-testing/types-of-manual-testing/black-box-testing/types-of-black-box/functional-testing/types-of-functional-testing/integration-testing).
+- **Nofunksional sinovlar:** [Performance (Unumdorlik)](/docs/types-of-testing/manual-testing/types-of-manual-testing/black-box-testing/types-of-black-box/non-functional-testing/types-of-non-functional-testing/performance-testing), [Load (Yuklama)](/docs/types-of-testing/load-testing), [Stress](/docs/types-of-testing/stress-testing), [Xavfsizlik (Security)](/docs/types-of-testing/security-testing), [Moslashuvchanlik (Compatibility)](/docs/types-of-testing/manual-testing/types-of-manual-testing/black-box-testing/types-of-black-box/non-functional-testing/types-of-non-functional-testing/compatibility-testing).
+- **Mobil ilovalarni sinash (Mobile QA):** [Mobil Sinov Markazi](/docs/mobile-testing) — Nativ, Gibrid, PWA, Interrupt sinovlari, tarmoq o'zgarishi, emulyatorlar va ADB buyruqlari.
+- **Maxsus yo'nalishlar:** [Exploratory testing](/docs/types-of-testing/exploratory-testing), [Adhoc testing](/docs/types-of-testing/adhoc-testing), [GUI testing](/docs/types-of-testing/gui-testing), [Accessibility testing](/docs/types-of-testing/accessibility-testing) va [Test strategiyasi](/docs/types-of-testing/test-strategy).
+
+### 4-bosqich: Test dizayn texnikalari (Test Design Techniques)
+
+Minimal miqdordagi test-keyslar bilan maksimal xatoliklarni topish mahorati:
+
+- **Qora quti texnikalari (Black-Box):**
   - Ekvivalentlik sinflariga bo'lish (Equivalence Partitioning - EP)
+  - Chegaraviy qiymatlar tahlili (Boundary Value Analysis - BVA)
   - Qarorlar jadvali (Decision Table Testing)
   - Holatlar o'tishi (State Transition Testing)
+  - Foydalanish ssenariylari (Use Case Testing)
+- **Oq quti texnikalari (White-Box):**
+  - Operatorlar qamrovi (Statement Coverage)
+  - Tarmoqlar qamrovi (Branch Coverage)
+  - Qarorlar va ma'lumotlar oqimi sinovlari (Decision / Data Flow Testing)
 
-### 3-bosqich: Test Hujjatlari va Vazifalarni boshqarish
+### 5-bosqich: Test hujjatlari va Nuqsonlarni boshqarish
 
-Professional QA mutaxassisi aniq va tushunarli hujjat yoza olishi shart:
+Professional QA muhandisi o'z fikrini tizimli va tushunarli hujjatlashtira olishi zarur:
 
-- **Test Case:** Preconditions, Steps, Test Data, Expected vs Actual Result.
-- **Checklist:** Qisqa va tezkor sinov ro'yxatlari.
-- **Bug Report:** Summary, Severity vs Priority, Steps to Reproduce, Logs & Screenshots.
-- **Boshqaruv vositalari:** Jira, Trello, TestRail, ClickUp, Allure TestOps.
+- **Hujjatlar:** Test Plan, Test Strategy, Test Scenarios, Test Cases, Checklists, RTM (Requirement Traceability Matrix).
+- **Nuqsonlar hayotiy sikli (Defect Life Cycle):** Yangi, Tasdiqlangan, Tuzatilgan, Qayta sinovdan o'tgan, Yopilgan.
+- **Bug Report tuzilishi:** Qisqa xulosa (Summary), Takrorlash qadamlari (Steps to Reproduce), Kutilgan vs Amaldagi natija, Skrinshot va loglar.
+- **Severity vs Priority:** Xatoning tizimga texnik ta'siri hamda biznes uchun ustuvorligini to'g'ri belgilash.
+- **Vositalar:** Jira, TestRail, Qase, Bugzilla, Trello.
 
-### 4-bosqich: Ma'lumotlar bazasi (SQL)
+### 6-bosqich: Ma'lumotlar bazasi (SQL) va API sinovlari
 
-Foydalanuvchi kiritgan ma'lumotlar bazada to'g'ri saqlanayotganini tekshirish:
+Faqat foydalanuvchi interfeysi (UI) bilan cheklanib qolmasdan, tizimning ichki qatlamlarini tekshirish:
 
-- **SQL asoslari:** `SELECT`, `WHERE`, `ORDER BY`, `GROUP BY`, `HAVING`.
-- **Jadval birlashtirish:** `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`.
-- **Ma'lumotlarni o'zgartirish:** `INSERT`, `UPDATE`, `DELETE`.
+- **SQL asoslari:** `SELECT`, `WHERE`, `ORDER BY`, `GROUP BY`, `HAVING`, funksiyalar (`COUNT`, `SUM`, `AVG`).
+- **Jadvallar integratsiyasi:** `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, ma'lumotlar yaxlitligi (ACID).
 - **RDBMS vositalari:** PostgreSQL, MySQL, DBeaver.
+- **REST API tamoyillari:** HTTP metodlari (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`), URL tuzilishi, Status kodlar (2xx, 3xx, 4xx, 5xx).
+- **API vositalari:** Postman (muhit o'zgaruvchilari, test skriptlari yozish, kolleksiyalar), Swagger / OpenAPI, Charles Proxy / Fiddler.
 
-### 5-bosqich: API Testing (Backend sinovi)
+### 7-bosqich: Testlarni Avtomatlashtirish (QA Automation)
 
-UI hali tayyor bo'lmaganida yoki xatolarni erta aniqlash uchun API testlash o'rganiladi:
+Regressiya va takroriy sinovlarni dasturiy kod orqali avtomatlashtirish:
 
-- **REST API tamoyillari:** HTTP metodlari (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`).
-- **Status kodlar:** 2xx (Success), 3xx (Redirect), 4xx (Client Error), 5xx (Server Error).
-- **Vositalar:** Postman, Insomnia, Swagger / OpenAPI.
-- **Avtomatlashtirish:** Postman Tests yozish (JavaScript), Environment Variables, Newman orqali terminalda yurgizish.
-
-### 6-bosqich: Testlarni Avtomatlashtirish (QA Automation)
-
-Qayta-qayta bajariladigan regressiya testlarini kod orqali tezlashtirish:
-
-- **Dasturlash tili:** Python yoki TypeScript / JavaScript (yoki Java).
-- **Zamonaviy Web UI freymvorklari:**
-  - **Playwright** (Tavsiya etiladi: tezkor, qulay va ko'p brauzerli)
+- **Dasturlash tili:** TypeScript / JavaScript yoki Python (sohada eng ko'p talab qilinadigan tillar).
+- **Web UI Automation:**
+  - **Playwright** (Zamonaviy, tezkor, auto-wait va ko'p brauzerli — tavsiya etiladi)
   - **Cypress**
   - **Selenium WebDriver**
-- **API Automation:** Python `pytest` + `requests` yoki TypeScript `axios`/`playwright-api`.
-- **Arxitektura:** Page Object Model (POM) va Clean Code prinsiplari.
+- **Arxitektura va andozalar:** Page Object Model (POM), test ma'lumotlarini boshqarish, Clean Code prinsiplari.
+- **API Automation:** Playwright API testing, Python `pytest` + `requests` yoki Supertest.
 
-### 7-bosqich: CI/CD va DevOps vositalari
+### 8-bosqich: CI/CD, DevOps vositalari va Karyera
 
-Avtotestlarni umumiy dastur yetkazib berish quvuriga (pipeline) ulash:
+Avtotestlarni umumiy dastur yetkazib berish quvuriga (pipeline) ulash hamda ishga joylashish:
 
-- **Git & GitHub:** Branching, Pull Requests, Merge.
-- **CI/CD vositalari:** GitHub Actions, GitLab CI, Jenkins.
-- **Konteynerlash:** Docker asoslari (testlarni konteynerda yurgizish).
+- **Versiyalar nazorati:** Git, GitHub / GitLab (branching, pull request, review).
+- **CI/CD quvurlari:** GitHub Actions yoki GitLab CI orqali har bir yangi kodda avtotestlarni avtomatik yurgizish.
 - **Hisobotlar:** Allure Report integratsiyasi.
+- **Intervyu va Karyera:** [Fundamental va situatsion intervyu savollari](/interview), professional rezyume tuzish, GitHub portfoliosini shakllantirish.
 
 </Steps>
 
 ---
 
 <Callout type="info">
-  **Maslahat:** Hammasini bir kunda o'rganishga shoshilmang! Avval Manual QA va API testingni mustahkam qiling, so'ngra Automation bosqichiga o'ting.
+  **Maslahat:** O'rganishni bir vaqtning o'zida hamma narsadan boshlamang! Dastlab nazariya, test hujjatlari, SQL va API testlashni chuqur o'rganing. Keyin avtomatlashtirishga o'tish ancha oson va samarali bo'ladi.
 </Callout>

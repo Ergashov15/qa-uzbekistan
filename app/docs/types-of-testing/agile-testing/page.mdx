@@ -1,0 +1,103 @@
+import { Callout } from 'nextra/components'
+
+# Agile sinov (Agile Testing)
+
+**Agile sinov (Agile Testing)** — bu tezkor dasturiy ta'minot ishlab chiqish (**Agile Software Development**) metodologiyasi tamoyillariga asoslangan, iterativ va uzluksiz amalga oshiriladigan sinov amaliyotidir.
+
+Klassik Waterfall modelidan farqli o'laroq, Agile sinovda testlash jarayoni ishlab chiqish yakunlangandan so'ng emas, balki loyihaning birinchi kunidanoq dasturchilar, testerlar, biznes tahlilchilar va mijozlarning yaqin hamkorligida (**Continuous Testing**) parallel olib boriladi.
+
+```mermaid
+flowchart LR
+    subgraph Sprint["Agile Sprint Iteratsiyasi"]
+        Plan["Rejalashtirish"] --> Code["Kod yozish (Dev)"]
+        Code --> Test["Uzluksiz sinov (QA)"]
+        Test --> Feedback["Tezkor fikr-mulohaza"]
+        Feedback --> Deploy["Reliz va Namoyish"]
+    end
+    Deploy --> Sprint
+```
+
+---
+
+## Agile sinovining 8 ta asosiy tamoyili
+
+```mermaid
+graph TD
+    Principles["Agile Testing tamoyillari"]
+    Principles --> P1["1. Doimiy fikr-mulohaza (Continuous Feedback)"]
+    Principles --> P2["2. Minimal hujjatbozlik (Less Documentation)"]
+    Principles --> P3["3. Uzluksiz sinov (Continuous Testing)"]
+    Principles --> P4["4. Mijoz qoniqishi (Customer Satisfaction)"]
+    Principles --> P5["5. Toza va sodda kod (Clean Code)"]
+    Principles --> P6["6. Butun jamoa javobgarligi (Whole Team)"]
+    Principles --> P7["7. Testga asoslangan rivojlanish (Test-Driven)"]
+    Principles --> P8["8. Tezkor reaksiya (Quick Response)"]
+```
+
+1. **Doimiy fikr-mulohaza:** Har bir yangi kod yoki o'zgarish bo'yicha darhol xulosa beriladi.
+2. **Kamroq hujjatbozlik:** Qalin test-planlar o'rniga qisqa chek-listlar, foydalanuvchi hikoyalari (User Stories) va qabul mezonlariga (Acceptance Criteria) tayaniladi.
+3. **Uzluksiz sinov (Continuous Testing):** Sinov jarayoni sprintning har bir bosqichida to'xtovsiz davom etadi.
+4. **Butun jamoaning ishtiroki (Whole-Team Approach):** Sifat faqat QA muhandisining emas, balki dasturchi, dizayner, PO (Product Owner) va testerlarning umumiy mas'uliyatidir.
+5. **Testga asoslanganlik (Test-Driven):** Kod yozishdan oldin yoki parallel ravishda testlar ishlab chiqiladi.
+
+---
+
+## Agile Testing Kvadrantlari (Brian Marick modeli)
+
+Agile metodologiyasida sinovlar o'z yo'nalishi va maqsadiga ko'ra to'rtta kvadrantga bo'linadi:
+
+```mermaid
+flowchart TD
+    subgraph BusinessFacing["Biznesga yo'naltirilgan (Business Facing)"]
+        Q2["2-Kvadrant: Funksional talablar
+        - User Story testlari
+        - Prototiplar va Simulyatsiyalar
+        - Avtomatlashtirilgan & Qo'lda"]
+        Q3["3-Kvadrant: Foydalanuvchi tajribasi
+        - Tadqiqiy sinov (Exploratory)
+        - Qulaylik sinovi (Usability)
+        - Qabul sinovi (UAT)
+        - Qo'lda sinash"]
+    end
+    subgraph TechnologyFacing["Texnologiyaga yo'naltirilgan (Technology Facing)"]
+        Q1["1-Kvadrant: Kod sifati
+        - Birlik sinovlari (Unit Tests)
+        - Komponent sinovlari (Component)
+        - To'liq Avtomatlashtirilgan"]
+        Q4["4-Kvadrant: Nofunksional sifat
+        - Ishlash unumdorligi (Performance)
+        - Xavfsizlik (Security)
+        - Yuklama va Stress sinovlari
+        - Maxsus asboblar (Tools)"]
+    end
+```
+
+| Kvadrant | Yo'nalishi | Bajarilish usuli | Sinov turlari |
+| :--- | :--- | :--- | :--- |
+| **Q1 (Ichki sifat)** | Texnologiyaga yo'naltirilgan | Avtomatlashtirilgan | Unit testlar, Komponent testlar, TDD |
+| **Q2 (Funksionallik)** | Biznesga yo'naltirilgan | Avtomatlashtirilgan va Qo'lda | Funksional testlar, User Story qabuli, BDD |
+| **Q3 (Mijoz nigohi)** | Biznesga yo'naltirilgan | Qo'lda sinash | Exploratory testing, Usability, UAT, Alfa/Beta |
+| **Q4 (Tizim kuchi)** | Texnologiyaga yo'naltirilgan | Asboblar (Tools) orqali | Yuklama, Stress, Xavfsizlik, Masshtablilik |
+
+---
+
+## Agile sinovidagi ilg'or metodologiyalar
+
+* **TDD (Test-Driven Development):** Kod yozishdan oldin muvaffaqiyatsiz test yoziladi, so'ngra testdan o'tadigan minimal kod yaratiladi va kod refaktoring qilinadi (`Red -> Green -> Refactor`).
+* **BDD (Behavior-Driven Development):** Texnik bo'lmagan shaxslar (mijoz, biznes tahlilchi) tushunadigan tabiiy tilda (`Given - When - Then`) ssenariylar yoziladi (Cucumber, SpecFlow).
+* **ATDD (Acceptance Test-Driven Development):** Butun jamoa birgalikda funksiyani topshirishdan oldin uning qabul mezonlarini belgilaydi.
+* **Exploratory Testing (Tadqiqiy sinov):** Qat'iy ssenariylarsiz ilovani erkin o'rganish orqali yashirin xatolar va mantiqiy nomuvofiqliklarni topish.
+
+---
+
+## Agile sinovining hayotiy sikli (5 bosqich)
+
+1. **Ta'sirni baholash (Impact Assessment):** Oldingi sprint natijalari va mijozlar talablari asosida yangi iteratsiya maqsadlari belgilanadi.
+2. **Agile sinovni rejalashtirish (Agile Test Planning):** Dasturchilar va testerlar har bir vazifa (Task) bo'yicha sinov hajmini kelishib oladi.
+3. **Kundalik uchrashuvlar (Daily Scrum):** Har kungi 15 daqiqalik yig'ilishda test jarayoni, to'siqlar va topilgan muhim xatolar muhokama qilinadi.
+4. **Relizga tayyorgarlik (Release Readiness):** Bajarilgan topshiriqlar "Done" (Bajarildi) mezonlariga mosligi va ishlab chiqarishga tayyorligi tekshiriladi.
+5. **Agile sharh va retrospektiva (Test Agility Review):** Sprint yakunida sinov jarayoni qanday o'tgani, nimani yaxshilash mumkinligi tahlil qilinadi.
+
+<Callout type="info">
+  Agile sinovda muvaffaqiyat garovi — **Avtomatlashtirilgan regressiya testlari (CI/CD)** dir. Kod har safar yangilanganda avtomatik testlar ishga tushib, tizim butunligini saqlab turadi.
+</Callout>

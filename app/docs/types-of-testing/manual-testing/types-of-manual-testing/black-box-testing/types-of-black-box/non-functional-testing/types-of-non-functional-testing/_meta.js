@@ -1,5 +1,5 @@
 export default {
-  'performance-testing': 'Unumdorlik sinovi',
-  'usability-testing': 'Foydalanish qulayligi sinovi',
-  'compatibility-testing': 'Moslashuvchanlik sinovi'
+  'performance-testing': 'Unumdorlik sinovi (Performance Testing)',
+  'usability-testing': 'Foydalanish qulayligi sinovi (Usability Testing)',
+  'compatibility-testing': 'Moslashuvchanlik sinovi (Compatibility Testing)'
 }

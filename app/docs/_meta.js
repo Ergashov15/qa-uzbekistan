@@ -33,6 +33,13 @@ export default {
   'test-documentation': {
     title: '📑 Test Hujjatlari'
   },
+  '-- istqb-sep': {
+    type: 'separator',
+    title: 'ISTQB Standartlari'
+  },
+  'istqb-foundation': {
+    title: '📘 ISTQB Foundation'
+  },
   '-- tt-sep': {
     type: 'separator',
     title: 'Test Texnikalari'
@@ -60,6 +67,19 @@ export default {
   },
   'testing-tools': {
     title: '🧰 Sinov Vositalari'
+  },
+  '-- mob-sep': {
+    type: 'separator',
+    title: 'Mobil Sinov'
+  },
+  'mobile-testing': {
+    title: '📱 Mobil Sinov (Mobile Testing)'
+  },
+  '-- net-sep': {
+    type: 'separator',
+    title: 'Tarmoqlar'
+  },
+  networks: {
+    title: '🌐 Tarmoqlar (Networks)'
   }
 }
-
