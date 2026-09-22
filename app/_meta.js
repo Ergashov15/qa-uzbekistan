@@ -13,10 +13,10 @@ export default {
   },
   roadmap: {
     title: 'Roadmap',
-    type: 'page'
-  },
-  interview: {
-    title: 'Intervyu',
-    type: 'page'
+    type: 'page',
+    theme: {
+      sidebar: false,
+      toc: true
+    }
   }
 }

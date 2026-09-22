@@ -76,7 +76,7 @@ const navbar = (
     projectLink="https://github.com/Ergashov15/qa-uzbekistan"
     chatLink="https://t.me"
     chatIcon={TelegramIcon}
-    align="left"
+    align="right"
   />
 )
 

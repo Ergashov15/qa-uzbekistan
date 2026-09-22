@@ -1,4 +1,17 @@
 import { Cards, Callout } from 'nextra/components'
+import {
+  SoftwareTestingIcon,
+  SdlcIcon,
+  IstqbIcon,
+  NetworkIcon,
+  TestTypesIcon,
+  MobileTestingIcon,
+  TestDocsIcon,
+  TestTechniquesIcon,
+  TestManagementIcon,
+  BugTrackingIcon,
+  ToolsIcon
+} from '@/components/icons'
 
 # Dasturiy Ta'minotni Sinash (QA) Qo'llanmalari
 
@@ -14,55 +27,64 @@ Dasturiy ta'minotni sinashning barcha poydevor tushunchalarini o'rganishingiz mu
 
 <Cards num={2}>
   <Cards.Card
-    title="▶️ 1. Dasturiy Ta'minotni Sinash Qo'llanmasi (Software Testing Tutorial)"
+    icon={<SoftwareTestingIcon />}
+    title="1. Dasturiy Ta'minotni Sinash Qo'llanmasi"
     href="/docs/software-testing/software-testing-tutorial"
   >
     Dasturiy sinovning mohiyati, ahamiyati, biznesdagi o'rni, sifat atributlari va sinov turlari.
   </Cards.Card>
   <Cards.Card
-    title="▶️ 2. Dasturiy Ta'minotni Sinash Tamoyillari"
+    icon={<SoftwareTestingIcon />}
+    title="2. Dasturiy Ta'minotni Sinash Tamoyillari"
     href="/docs/software-testing/software-testing-principles"
   >
     Sinovning 7 ta oltin tamoyili: nuqsonlar borligi, to'liq sinovning imkonsizligi va pestitsid paradoksi.
   </Cards.Card>
   <Cards.Card
-    title="▶️ 3. Dasturiy Ta'minotni Ishlab Chiqish Hayotiy Davri (SDLC)"
+    icon={<SoftwareTestingIcon />}
+    title="3. SDLC: Ishlab Chiqish Hayotiy Davri"
     href="/docs/software-testing/software-development-life-cycle"
   >
     Dasturiy mahsulot ishlab chiqish hayotiy siklining barcha 6 bosqichi va ularning natijalari.
   </Cards.Card>
   <Cards.Card
-    title="▶️ 4. Dasturiy Ta'minotni Sinash Hayotiy Davri (STLC)"
+    icon={<SoftwareTestingIcon />}
+    title="4. STLC: Sinash Hayotiy Davri"
     href="/docs/software-testing/software-testing-life-cycle"
   >
     Sinov hayotiy sikli, kirish va chiqish mezonlari hamda bosqichma-bosqich sinov faoliyati.
   </Cards.Card>
   <Cards.Card
-    title="▶️ 5. Dasturiy Ta'minotni Sinash Turlari"
+    icon={<SoftwareTestingIcon />}
+    title="5. Dasturiy Ta'minotni Sinash Turlari"
     href="/docs/software-testing/types-of-software-testing"
   >
     Dasturiy sinov turlarining to'liq tasnifi: Manual vs Automation, Funksional va Nofunksional sinovlar.
   </Cards.Card>
   <Cards.Card
-    title="▶️ 6. Dasturiy Ta'minotni Sinash Darajalari"
+    icon={<SoftwareTestingIcon />}
+    title="6. Dasturiy Ta'minotni Sinash Darajalari"
     href="/docs/software-testing/levels-of-testing"
   >
     Sinov darajalari piramidasi: Unit, Integration (Stubs/Drivers), System va Acceptance (Alpha/Beta).
   </Cards.Card>
   <Cards.Card
-    title="▶️ 7. API Sinovlari Bo'yicha Qo'llanma"
+    icon={<SoftwareTestingIcon />}
+    title="7. API Sinovlari Bo'yicha Qo'llanma"
     href="/docs/software-testing/api-testing-tutorial"
   >
     Dasturiy interfeyslarni (API) sinash asoslari: HTTP metodlari, status kodlari va JSON validatsiyasi.
   </Cards.Card>
   <Cards.Card
-    title="▶️ 8. Qabul Sinovlariga Asoslangan Ishlab Chiqish (ATDD)"
+    icon={<SoftwareTestingIcon />}
+    title="8. Qabul Sinovlariga Asoslangan Ishlab Chiqish (ATDD)"
     href="/docs/software-testing/acceptance-test-driven-development"
   >
     Qabul sinovlariga asoslangan dasturlash, "Uch Do'st" (The Three Amigos) va 4D rivojlanish sikli.
   </Cards.Card>
   <Cards.Card
-    title="▶️ 9. Metodologik Turlar (Methodological Types)"
+    icon={<SoftwareTestingIcon />}
+    title="9. Metodologik Turlar (Methodological Types)"
     href="/docs/software-testing/methodological-types"
   >
     Sinov va tadqiqot metodologiyalari turlari: Miqdoriy, Sifat, Agile, V-Model va Risk-based yondashuvlar.
@@ -77,37 +99,43 @@ Dasturiy ta'minotni ishlab chiqish va sinash strategiyasini belgilovchi asosiy S
 
 <Cards num={2}>
   <Cards.Card
-    title="🔄 SDLC Modellari Markazi"
+    icon={<SdlcIcon />}
+    title="SDLC Modellari Markazi"
     href="/docs/sdlc-models"
   >
     SDLC modellarining umumiy xaritasi, taqqoslash va har bir modelning sinov jarayonidagi o'rni.
   </Cards.Card>
   <Cards.Card
-    title="🌊 1. Sharshara Modeli (Waterfall Model)"
+    icon={<SdlcIcon />}
+    title="1. Sharshara Modeli (Waterfall Model)"
     href="/docs/sdlc-models/waterfall-model"
   >
     Klassik chiziqli ketma-ket model: 7 ta bosqich, texnik-iqtisodiy asoslash va qat'iy talablar.
   </Cards.Card>
   <Cards.Card
-    title="🌀 2. Spiral Modeli (Spiral Model)"
+    icon={<SdlcIcon />}
+    title="2. Spiral Modeli (Spiral Model)"
     href="/docs/sdlc-models/spiral-model"
   >
     Xatarlarni tahlil qilish va iterativ yondashuv: Katta va kichik o'zgarishlar, MS Excel moduli misoli.
   </Cards.Card>
   <Cards.Card
-    title="🧩 3. Gibrid Model (Hybrid Model)"
+    icon={<SdlcIcon />}
+    title="3. Gibrid Model (Hybrid Model)"
     href="/docs/sdlc-models/hybrid-model"
   >
     Spiral + Prototip hamda V-Model + Prototip kombinatsiyalari va ko'p bosqichli amaliy jarayon.
   </Cards.Card>
   <Cards.Card
-    title="🎨 4. Prototip Modeli (Prototype Model)"
+    icon={<SdlcIcon />}
+    title="4. Prototip Modeli (Prototype Model)"
     href="/docs/sdlc-models/prototype-model"
   >
     Mijoz tasdig'i uchun dastlabki ishchi model: Statik va Dinamik prototiplar hamda prototip sinovi.
   </Cards.Card>
   <Cards.Card
-    title="⚡ 5. V-Model (Verification & Validation)"
+    icon={<SdlcIcon />}
+    title="5. V-Model (Verification & Validation)"
     href="/docs/sdlc-models/v-model"
   >
     Verifikatsiya va Validatsiyaning 5 bosqichli parallel uyg'unligi, CRS vs SRS tafovutlari.
@@ -122,42 +150,49 @@ Dasturiy ta'minotni sinash bo'yicha global sertifikatlash dasturining 6 ta rasmi
 
 <Cards num={2}>
   <Cards.Card
-    title="📘 ISTQB Foundation Markazi"
+    icon={<IstqbIcon />}
+    title="ISTQB Foundation Markazi"
     href="/docs/istqb-foundation"
   >
     CTFL v4.0 standarti to'liq sharhi, imtihon tuzilishi, K-darajalari (K1-K4) va asosiy terminologiya.
   </Cards.Card>
   <Cards.Card
+    icon={<IstqbIcon />}
     title="1-bob. Sinov Asoslari (Fundamentals of Testing)"
     href="/docs/istqb-foundation/fundamentals-of-testing"
   >
-    Sinov nima, nima uchun zarur, 7 ta oltin tamoyil, test faoliyatlari va sinovchining fikrlash tarzi (mindset).
+    Sinov nima, nima uchun zarur, 7 ta oltin tamoyil, test faoliyatlari va sinovchining fikrlash tarzi.
   </Cards.Card>
   <Cards.Card
+    icon={<IstqbIcon />}
     title="2-bob. SDLC Davomida Sinov (Testing in SDLC)"
     href="/docs/istqb-foundation/testing-throughout-the-sdlc"
   >
     Ishlab chiqish modellari kontekstida testlash, sinov darajalari, sinov turlari va texnik xizmat sinovlari.
   </Cards.Card>
   <Cards.Card
+    icon={<IstqbIcon />}
     title="3-bob. Statik Sinov (Static Testing)"
     href="/docs/istqb-foundation/static-testing"
   >
-    Statik testlash asoslari, ko'rib chiqish jarayonlari (Reviews, Walkthrough, Technical Review, Inspection).
+    Statik testlash asoslari, ko'rib chiqish (Reviews) turlari va avtomatlashtirilgan statik tahlil.
   </Cards.Card>
   <Cards.Card
+    icon={<IstqbIcon />}
     title="4-bob. Test Tahlili va Dizayni (Test Analysis & Design)"
     href="/docs/istqb-foundation/test-analysis-and-design"
   >
-    Qora quti (EP, BVA, Decision Table, State Transition), Oq quti va Tajribaga asoslangan test dizayn texnikalari.
+    Qora quti (EP, BVA, Decision Table, State Transition), Oq quti va tajribaga asoslangan texnikalar.
   </Cards.Card>
   <Cards.Card
+    icon={<IstqbIcon />}
     title="5-bob. Sinov Faoliyatini Boshqarish (Managing Test Activities)"
     href="/docs/istqb-foundation/managing-the-test-activities"
   >
     Testni rejalashtirish, xatarlarni boshqarish (Risk Management), monitoring, nazorat va nuqsonlarni boshqarish.
   </Cards.Card>
   <Cards.Card
+    icon={<IstqbIcon />}
     title="6-bob. Sinov Vositalari (Test Tools)"
     href="/docs/istqb-foundation/test-tools"
   >
@@ -173,36 +208,42 @@ Har bir professional QA muhandisi tushunishi shart bo'lgan internet protokollari
 
 <Cards num={2}>
   <Cards.Card
-    title="🌐 Tarmoqlar Markazi"
+    icon={<NetworkIcon />}
+    title="Tarmoqlar Markazi"
     href="/docs/networks"
   >
     Veb-texnologiyalar, protokollar va tizimlararo ma'lumot almashinuvi asoslari.
   </Cards.Card>
   <Cards.Card
+    icon={<NetworkIcon />}
     title="Mijoz-Server (Client-Server) Arxitekturasi"
     href="/docs/networks/client-server-architecture"
   >
     Mijoz, server va ma'lumotlar bazasi o'rtasidagi bog'lanish va so'rov-javob sikli.
   </Cards.Card>
   <Cards.Card
+    icon={<NetworkIcon />}
     title="HTTP va HTTPS Protokollari"
     href="/docs/networks/http"
   >
     HTTP so'rov va javob strukturasi, sarlavhalar (headers), status kodlari va SSL/TLS xavfsizligi.
   </Cards.Card>
   <Cards.Card
+    icon={<NetworkIcon />}
     title="REST, SOAP va gRPC Arxitekturalari"
     href="/docs/networks/rest-soap-grpc"
   >
     Zamonaviy API protokollari tahlili, REST tamoyillari, SOAP XML va gRPC protobuffers.
   </Cards.Card>
   <Cards.Card
+    icon={<NetworkIcon />}
     title="Mikroservis Arxitekturasi"
     href="/docs/networks/microservice-architecture"
   >
     Monolit vs Mikroservislar, servislararo muloqot va API Gateway vazifasi.
   </Cards.Card>
   <Cards.Card
+    icon={<NetworkIcon />}
     title="Kesh Mexanizmlari (Cache)"
     href="/docs/networks/cache"
   >
@@ -218,13 +259,15 @@ Dasturiy ta'minot sifatini ta'minlashda qo'llaniladigan sinov turlari katalogi v
 
 <Cards num={2}>
   <Cards.Card
-    title="🧪 Sinov Turlari Katalogi (34+ tur)"
+    icon={<TestTypesIcon />}
+    title="Sinov Turlari Katalogi (34+ tur)"
     href="/docs/types-of-testing"
   >
     Qo'lda sinash, avtomatlashtirish, Regressiya, Smoke, Sanity, Yuklama (Load), Xavfsizlik va boshqalar.
   </Cards.Card>
   <Cards.Card
-    title="📱 Mobil Ilovalarni Sinash (Mobile QA)"
+    icon={<MobileTestingIcon />}
+    title="Mobil Ilovalarni Sinash (Mobile QA)"
     href="/docs/mobile-testing"
   >
     Android va iOS sinovi, Nativ/Gibrid ilovalar, Interrupt testing, emulyatorlar, ADB buyruqlari va cheklist.
@@ -239,13 +282,15 @@ Standart test hujjatlari, rejalari, hisobotlari hamda dizayn texnikalari:
 
 <Cards num={2}>
   <Cards.Card
-    title="📑 Test Hujjatlari Markazi"
+    icon={<TestDocsIcon />}
+    title="Test Hujjatlari Markazi"
     href="/docs/test-documentation"
   >
     Test Plan, Test Strategy, Test Scenario, Test Case, RTM, Defect Report va Sinov xulosa hisobotlari (ISO/IEC/IEEE 29119-3).
   </Cards.Card>
   <Cards.Card
-    title="🛠️ Test Texnikalari Markazi"
+    icon={<TestTechniquesIcon />}
+    title="Test Texnikalari Markazi"
     href="/docs/test-techniques"
   >
     Qora quti (EP, BVA, Decision Table, State Transition, Use Case), Oq quti (Statement, Branch Coverage) va Tajribaga asoslangan texnikalar.
@@ -260,19 +305,22 @@ Sinov jarayonini boshqarish, xatoliklarni kuzatish va zamonaviy vositalar ekotiz
 
 <Cards num={3}>
   <Cards.Card
-    title="📊 Test Menejment Markazi"
+    icon={<TestManagementIcon />}
+    title="Test Menejment Markazi"
     href="/docs/test-management"
   >
     Xatarlarni tahlil qilish (Risk Analysis), Testni baholash (Estimation), Monitoring va Nazorat.
   </Cards.Card>
   <Cards.Card
-    title="🐛 Nuqsonlarni Kuzatish Markazi"
+    icon={<BugTrackingIcon />}
+    title="Nuqsonlarni Kuzatish Markazi"
     href="/docs/defect-tracking"
   >
     Nuqsonning hayotiy sikli (Defect Life Cycle), Severity va Priority mezonlari hamda sifatli Bug Report tarkibi.
   </Cards.Card>
   <Cards.Card
-    title="🧰 Sinov Vositalari Markazi"
+    icon={<ToolsIcon />}
+    title="Sinov Vositalari Markazi"
     href="/docs/testing-tools"
   >
     Veb avtomatlashtirish (Selenium, Playwright, Cypress), Mobil (Appium), API (Postman), Yuklama (JMeter, k6).

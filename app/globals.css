@@ -18,6 +18,9 @@
   --nextra-primary-saturation: 83%;
   --nextra-primary-lightness: 45%;
 
+  /* Primary Column Alignment Guideline (Navbar and Page Content Shared Guideline) */
+  --qa-sidebar-width: 280px;
+
   /* Academic & Professional Palette - Light Mode */
   --bg-page: #ffffff;
   --bg-surface: #fbfbfb;
@@ -173,7 +176,7 @@ article li {
 }
 
 .nextra-navbar > nav {
-  gap: 8px !important;
+  gap: 12px !important;
 }
 
 /* Brand Logo (Classical & Dignified QA COMPASS) */
@@ -183,7 +186,6 @@ article li {
   gap: 8px;
   text-decoration: none;
   font-family: var(--font-serif) !important;
-  margin-right: 1.25rem;
   transition: opacity 0.2s ease;
 }
 
@@ -442,20 +444,35 @@ div[role="menu"] [data-focus] {
 /* --------------------------------------------------------------------------
    4. Sidebar & Navigation (Enhanced for Deeply Nested Topics)
    -------------------------------------------------------------------------- */
-/* Sidebar Desktop Width: Expand to 320px - 340px to give ample room for deep items */
-.nextra-sidebar.x\:w-64,
-aside.nextra-sidebar.x\:w-64,
-div.x\:max-xl\:hidden.x\:w-64 {
-  width: 320px !important;
-  min-width: 320px !important;
-}
-
-@media (min-width: 1440px) {
-  .nextra-sidebar.x\:w-64,
+/* Sidebar and Column Alignment (Desktop Shared Guideline) */
+@media (min-width: 768px) {
+  /* Sidebar occupies exactly var(--qa-sidebar-width) */
+  .nextra-sidebar,
+  aside.nextra-sidebar,
   aside.nextra-sidebar.x\:w-64,
   div.x\:max-xl\:hidden.x\:w-64 {
-    width: 340px !important;
-    min-width: 340px !important;
+    width: var(--qa-sidebar-width) !important;
+    min-width: var(--qa-sidebar-width) !important;
+    max-width: var(--qa-sidebar-width) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Placeholder on pages with hidden sidebar (Asosiy, Roadmap) matches var(--qa-sidebar-width) */
+  div.x\:max-xl\:hidden.x\:h-0,
+  div:has(> aside.x\:hidden) > div.x\:max-xl\:hidden,
+  div:has(> aside[class*="hidden"]) > div.x\:max-xl\:hidden {
+    display: block !important;
+    width: var(--qa-sidebar-width) !important;
+    min-width: var(--qa-sidebar-width) !important;
+    max-width: var(--qa-sidebar-width) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Article content starts right at var(--qa-sidebar-width), and its text has 13px padding
+     which aligns exactly with the 13px text padding of the navbar tabs (Asosiy, Dokumentatsiya, Roadmap) */
+  article {
+    padding-left: 13px !important;
+    padding-right: 2.5rem !important;
   }
 }
 

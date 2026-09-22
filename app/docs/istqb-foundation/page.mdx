@@ -1,4 +1,12 @@
 import { Cards, Callout } from 'nextra/components'
+import {
+  SoftwareTestingIcon,
+  SdlcIcon,
+  ExploratoryTestIcon,
+  TestTechniquesIcon,
+  TestManagementIcon,
+  ToolsIcon
+} from '@/components/icons'
 
 # ISTQB Foundation (Certified Tester Foundation Level — CTFL)
 
@@ -33,37 +41,43 @@ Quyidagi 6 ta asosiy bob orqali ISTQB Foundation darajasini to'liq va tizimli o'
 
 <Cards num={2}>
   <Cards.Card
-    title="▶️ 1. Sinov Asoslari (Fundamentals of Testing)"
+    icon={<SoftwareTestingIcon />}
+    title="1. Sinov Asoslari (Fundamentals of Testing)"
     href="/docs/istqb-foundation/fundamentals-of-testing"
   >
     Sinovning mohiyati, QA vs QC, xatoliklar zanjiri (Error-Defect-Failure) va 7 ta oltin tamoyil.
   </Cards.Card>
   <Cards.Card
-    title="🔄 2. SDLC da Sinov (Testing Throughout the SDLC)"
+    icon={<SdlcIcon />}
+    title="2. SDLC da Sinov (Testing in SDLC)"
     href="/docs/istqb-foundation/testing-throughout-the-sdlc"
   >
     SDLC modellari, 4 ta sinov darajasi, sinov turlari hamda qayta sinov va regressiya farqlari.
   </Cards.Card>
   <Cards.Card
-    title="🔍 3. Statik Sinov (Static Testing)"
+    icon={<ExploratoryTestIcon />}
+    title="3. Statik Sinov (Static Testing)"
     href="/docs/istqb-foundation/static-testing"
   >
     Statik sinovning ahamiyati, ko'rib chiqish (Reviews) turlari va avtomatlashtirilgan statik tahlil.
   </Cards.Card>
   <Cards.Card
-    title="🛠️ 4. Sinov Tahlili va Loyihalash (Test Analysis and Design)"
+    icon={<TestTechniquesIcon />}
+    title="4. Sinov Tahlili va Loyihalash (Test Analysis and Design)"
     href="/docs/istqb-foundation/test-analysis-and-design"
   >
     Qora quti (EP, BVA, Decision Table, State Transition), Oq quti va tajribaga asoslangan texnikalar.
   </Cards.Card>
   <Cards.Card
-    title="📊 5. Sinov Faoliyatlarini Boshqarish (Managing the Test Activities)"
+    icon={<TestManagementIcon />}
+    title="5. Sinov Faoliyatlarini Boshqarish (Managing Test Activities)"
     href="/docs/istqb-foundation/managing-the-test-activities"
   >
     Sinovni rejalashtirish, xatarlarni boshqarish (RBT), monitoring va nuqsonlarni kuzatish.
   </Cards.Card>
   <Cards.Card
-    title="🧰 6. Sinov Vositalari (Test Tools)"
+    icon={<ToolsIcon />}
+    title="6. Sinov Vositalari (Test Tools)"
     href="/docs/istqb-foundation/test-tools"
   >
     Sinov vositalari tasnifi, avtomatlashtirishning foydalari, xatarlari va pilot loyihalar.

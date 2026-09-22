@@ -1,4 +1,19 @@
 import { Cards, Callout } from 'nextra/components'
+import {
+  ClientServerIcon,
+  HttpIcon,
+  OsiIcon,
+  ApiIcon,
+  MicroservicesIcon,
+  CacheIcon,
+  StorageIcon,
+  WebSocketIcon,
+  AuthIcon,
+  ResourceIcon,
+  WebServiceIcon,
+  RenderingIcon,
+  DatabaseIcon
+} from '@/components/icons'
 
 # Tarmoqlar va Web Asoslari (Networks for QA)
 
@@ -12,79 +27,92 @@ Ushbu bo'limda tarmoq arxitekturasi, asosiy protokollar, API standartlari va veb
 
 <Cards num={2}>
   <Cards.Card
-    title="🖥️ Mijoz-Server Arxitekturasi"
+    icon={<ClientServerIcon />}
+    title="Mijoz-Server Arxitekturasi"
     href="/docs/networks/client-server-architecture"
   >
     Frontend, Backend va Database o'rtasidagi bog'liqlik hamda Request-Response sikli.
   </Cards.Card>
   <Cards.Card
-    title="📡 HTTP va HTTPS Protokollari"
+    icon={<HttpIcon />}
+    title="HTTP va HTTPS Protokollari"
     href="/docs/networks/http"
   >
     HTTP so'rov va javob strukturasi, HTTP metodlari, status kodlari, sarlavhalar va shifrlash.
   </Cards.Card>
   <Cards.Card
-    title="🧱 OSI va TCP/IP Modellari"
+    icon={<OsiIcon />}
+    title="OSI va TCP/IP Modellari"
     href="/docs/networks/osi-and-tcp-ip-models"
   >
     7 qatlamli OSI modeli, TCP vs UDP protokollari va ma'lumotlarni paketlash tamoyillari.
   </Cards.Card>
   <Cards.Card
-    title="🔌 REST, SOAP va gRPC"
+    icon={<ApiIcon />}
+    title="REST, SOAP va gRPC"
     href="/docs/networks/rest-soap-grpc"
   >
     Zamonaviy API protokollari qiyosi, RESTful tamoyillar, XML SOAP va tezkor gRPC.
   </Cards.Card>
   <Cards.Card
-    title="🧩 Mikroservis Arxitekturasi"
+    icon={<MicroservicesIcon />}
+    title="Mikroservis Arxitekturasi"
     href="/docs/networks/microservice-architecture"
   >
     Monolit vs Mikroservislar, API Gateway vazifasi va servislararo integratsiya sinovi.
   </Cards.Card>
   <Cards.Card
-    title="⚡ Kesh Mexanizmlari (Cache)"
+    icon={<CacheIcon />}
+    title="Kesh Mexanizmlari (Cache)"
     href="/docs/networks/cache"
   >
     Brauzer va server keshlari, Cache-Control, CDN va kesh bilan bog'liq xatoliklarni sinash.
   </Cards.Card>
   <Cards.Card
-    title="💾 Mijoz Tomonida Saqlash"
+    icon={<StorageIcon />}
+    title="Mijoz Tomonida Saqlash"
     href="/docs/networks/client-side-storage"
   >
     Cookies, LocalStorage, SessionStorage va IndexedDB o'rtasidagi farqlar hamda ularni tekshirish.
   </Cards.Card>
   <Cards.Card
-    title="🔄 Soket va Veb-soket (WebSocket)"
+    icon={<WebSocketIcon />}
+    title="Soket va Veb-soket (WebSocket)"
     href="/docs/networks/socket-websocket"
   >
     Haqiqiy vaqt (real-time) rejimida ikki tomonlama aloqa o'rnatish va uni sinash uslublari.
   </Cards.Card>
   <Cards.Card
-    title="🔑 Autentifikatsiya va Avtorizatsiya"
+    icon={<AuthIcon />}
+    title="Autentifikatsiya va Avtorizatsiya"
     href="/docs/networks/authentication-and-authorization"
   >
     AuthN vs AuthZ, Session vs Token (JWT), OAuth 2.0 va xavfsizlik tekshiruvlari.
   </Cards.Card>
   <Cards.Card
-    title="🌍 Vebdagi Resurslarni Identifikatsiya Qilish"
+    icon={<ResourceIcon />}
+    title="Vebdagi Resurslarni Identifikatsiya Qilish"
     href="/docs/networks/identifying-resources-on-the-web"
   >
     URI, URL va URN tuzilishi, parametrlar, encoding va yo'naltirish qoidalari.
   </Cards.Card>
   <Cards.Card
-    title="🌐 Veb-Servislar (Web Service)"
+    icon={<WebServiceIcon />}
+    title="Veb-Servislar (Web Service)"
     href="/docs/networks/web-service"
   >
     WSDL, XML-RPC va korporativ veb-servislarning ishlash tamoyillari.
   </Cards.Card>
   <Cards.Card
-    title="🎨 Vebda Renderlash (Rendering on the Web)"
+    icon={<RenderingIcon />}
+    title="Vebda Renderlash (Rendering on the Web)"
     href="/docs/networks/rendering-on-the-web"
   >
     SSR, CSR, SSG va ISR renderlash usullari hamda ularning sinov jarayonidagi ahamiyati.
   </Cards.Card>
   <Cards.Card
-    title="🗄️ Tarmoq Ma'lumotlar Bazasi"
+    icon={<DatabaseIcon />}
+    title="Tarmoq Ma'lumotlar Bazasi"
     href="/docs/networks/network-database"
   >
     Tarmoq ma'lumotlar bazasi modellari va ma'lumotlarni markazlashtirilgan saqlash.
