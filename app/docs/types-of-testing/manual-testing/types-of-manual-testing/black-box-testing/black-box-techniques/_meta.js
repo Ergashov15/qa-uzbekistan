@@ -1,4 +1,5 @@
 export default {
+  index: 'Qora Quti Texnikalari',
   'decision-table-testing': 'Qarorlar jadvali sinovi (Decision Table Testing)',
   'all-pairs-testing': 'Barcha juftliklar sinovi (All-Pairs Testing)',
   'cause-effect-testing': 'Sabab-oqibat sinovi (Cause-Effect Testing)',

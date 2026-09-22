@@ -2,15 +2,15 @@ import { Cards, Callout } from 'nextra/components'
 
 # Dasturiy Ta'minotni Sinash (QA) Qo'llanmalari
 
-Dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasiga oid barcha fundamental nazariy bilimlar, hayotiy sikllar, sinov darajalari va metodologiyalar to'plami.
+Dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasiga oid barcha fundamental nazariy bilimlar, hayotiy sikllar, sinov darajalari, tarmoq arxitekturasi va metodologiyalar to'plami.
 
-Ushbu o'quv dasturi xalqaro **TpointTech Software Testing Tutorial** hamda **ISTQB** standartlari asosida to'liq adabiy o'zbek tilida bayon etilgan.
+Ushbu o'quv dasturi xalqaro **ISTQB CTFL v4.0**, **ISO/IEC/IEEE 29119** hamda **TpointTech Software Testing Tutorial** standartlari asosida to'liq adabiy o'zbek tilida bayon etilgan.
 
 ---
 
-## Software Testing O'quv Dasturi
+## 1. Software Testing O'quv Dasturi
 
-Quyidagi 10 ta asosiy bo'lim orqali dasturiy ta'minotni sinashning barcha poydevor tushunchalarini o'rganishingiz mumkin:
+Dasturiy ta'minotni sinashning barcha poydevor tushunchalarini o'rganishingiz mumkin bo'lgan 9 ta asosiy mavzu:
 
 <Cards num={2}>
   <Cards.Card
@@ -71,7 +71,7 @@ Quyidagi 10 ta asosiy bo'lim orqali dasturiy ta'minotni sinashning barcha poydev
 
 ---
 
-## SDLC Modellari (Software Development Life Cycle Models)
+## 2. SDLC Modellari (Software Development Life Cycle Models)
 
 Dasturiy ta'minotni ishlab chiqish va sinash strategiyasini belgilovchi asosiy SDLC modellari:
 
@@ -116,43 +116,134 @@ Dasturiy ta'minotni ishlab chiqish va sinash strategiyasini belgilovchi asosiy S
 
 ---
 
-## Sinov Turlari
+## 3. ISTQB Foundation (CTFL v4.0 Standartlari)
 
-Dasturiy ta'minot sifatini ta'minlashda qo'llaniladigan asosiy sinov turlari:
+Dasturiy ta'minotni sinash bo'yicha global sertifikatlash dasturining 6 ta rasmiy moduli:
 
 <Cards num={2}>
   <Cards.Card
-    title="🖐️ 1. Qo'lda sinash"
-    href="/docs/types-of-testing/manual-testing"
-  />
-  <Cards.Card
-    title="⚡ 2. Avtomatlashtirilgan sinov"
-    href="/docs/types-of-testing/automation-testing"
-  />
-</Cards>
-
----
-
-## Test Hujjatlari (Test Documentation)
-
-Dasturiy sinov jarayonida qo'llaniladigan barcha standart test hujjatlari, rejalari va hisobotlari:
-
-<Cards num={1}>
-  <Cards.Card
-    title="📑 Test Hujjatlari Markazi"
-    href="/docs/test-documentation"
+    title="📘 ISTQB Foundation Markazi"
+    href="/docs/istqb-foundation"
   >
-    Test Plan, Test Strategy, Test Scenario, Test Case, RTM, Defect Report va Sinov xulosa hisobotlari.
+    CTFL v4.0 standarti to'liq sharhi, imtihon tuzilishi, K-darajalari (K1-K4) va asosiy terminologiya.
+  </Cards.Card>
+  <Cards.Card
+    title="1-bob. Sinov Asoslari (Fundamentals of Testing)"
+    href="/docs/istqb-foundation/fundamentals-of-testing"
+  >
+    Sinov nima, nima uchun zarur, 7 ta oltin tamoyil, test faoliyatlari va sinovchining fikrlash tarzi (mindset).
+  </Cards.Card>
+  <Cards.Card
+    title="2-bob. SDLC Davomida Sinov (Testing in SDLC)"
+    href="/docs/istqb-foundation/testing-throughout-the-sdlc"
+  >
+    Ishlab chiqish modellari kontekstida testlash, sinov darajalari, sinov turlari va texnik xizmat sinovlari.
+  </Cards.Card>
+  <Cards.Card
+    title="3-bob. Statik Sinov (Static Testing)"
+    href="/docs/istqb-foundation/static-testing"
+  >
+    Statik testlash asoslari, ko'rib chiqish jarayonlari (Reviews, Walkthrough, Technical Review, Inspection).
+  </Cards.Card>
+  <Cards.Card
+    title="4-bob. Test Tahlili va Dizayni (Test Analysis & Design)"
+    href="/docs/istqb-foundation/test-analysis-and-design"
+  >
+    Qora quti (EP, BVA, Decision Table, State Transition), Oq quti va Tajribaga asoslangan test dizayn texnikalari.
+  </Cards.Card>
+  <Cards.Card
+    title="5-bob. Sinov Faoliyatini Boshqarish (Managing Test Activities)"
+    href="/docs/istqb-foundation/managing-the-test-activities"
+  >
+    Testni rejalashtirish, xatarlarni boshqarish (Risk Management), monitoring, nazorat va nuqsonlarni boshqarish.
+  </Cards.Card>
+  <Cards.Card
+    title="6-bob. Sinov Vositalari (Test Tools)"
+    href="/docs/istqb-foundation/test-tools"
+  >
+    Sinov vositalari tasnifi, avtomatlashtirishning foydalari va xatarlari, vositalarni tanlash tamoyillari.
   </Cards.Card>
 </Cards>
 
 ---
 
-## Test Texnikalari (Test Design Techniques)
+## 4. Tarmoqlar va Web Asoslari (Networks for QA)
 
-Minimal test keyslar bilan maksimal sinov qamroviga erishishning standart ilmiy va amaliy texnikalari:
+Har bir professional QA muhandisi tushunishi shart bo'lgan internet protokollari va arxitektura:
 
-<Cards num={1}>
+<Cards num={2}>
+  <Cards.Card
+    title="🌐 Tarmoqlar Markazi"
+    href="/docs/networks"
+  >
+    Veb-texnologiyalar, protokollar va tizimlararo ma'lumot almashinuvi asoslari.
+  </Cards.Card>
+  <Cards.Card
+    title="Mijoz-Server (Client-Server) Arxitekturasi"
+    href="/docs/networks/client-server-architecture"
+  >
+    Mijoz, server va ma'lumotlar bazasi o'rtasidagi bog'lanish va so'rov-javob sikli.
+  </Cards.Card>
+  <Cards.Card
+    title="HTTP va HTTPS Protokollari"
+    href="/docs/networks/http"
+  >
+    HTTP so'rov va javob strukturasi, sarlavhalar (headers), status kodlari va SSL/TLS xavfsizligi.
+  </Cards.Card>
+  <Cards.Card
+    title="REST, SOAP va gRPC Arxitekturalari"
+    href="/docs/networks/rest-soap-grpc"
+  >
+    Zamonaviy API protokollari tahlili, REST tamoyillari, SOAP XML va gRPC protobuffers.
+  </Cards.Card>
+  <Cards.Card
+    title="Mikroservis Arxitekturasi"
+    href="/docs/networks/microservice-architecture"
+  >
+    Monolit vs Mikroservislar, servislararo muloqot va API Gateway vazifasi.
+  </Cards.Card>
+  <Cards.Card
+    title="Kesh Mexanizmlari (Cache)"
+    href="/docs/networks/cache"
+  >
+    Brauzer va server keshi, Cache-Control direktivalari va kesh tufayli yuzaga keladigan nuqsonlar.
+  </Cards.Card>
+</Cards>
+
+---
+
+## 5. Sinov Turlari va Mobil Sinov (Types of Testing & Mobile QA)
+
+Dasturiy ta'minot sifatini ta'minlashda qo'llaniladigan sinov turlari katalogi va mobil ilovalarni tekshirish:
+
+<Cards num={2}>
+  <Cards.Card
+    title="🧪 Sinov Turlari Katalogi (34+ tur)"
+    href="/docs/types-of-testing"
+  >
+    Qo'lda sinash, avtomatlashtirish, Regressiya, Smoke, Sanity, Yuklama (Load), Xavfsizlik va boshqalar.
+  </Cards.Card>
+  <Cards.Card
+    title="📱 Mobil Ilovalarni Sinash (Mobile QA)"
+    href="/docs/mobile-testing"
+  >
+    Android va iOS sinovi, Nativ/Gibrid ilovalar, Interrupt testing, emulyatorlar, ADB buyruqlari va cheklist.
+  </Cards.Card>
+</Cards>
+
+---
+
+## 6. Test Hujjatlari va Texnikalari
+
+Standart test hujjatlari, rejalari, hisobotlari hamda dizayn texnikalari:
+
+<Cards num={2}>
+  <Cards.Card
+    title="📑 Test Hujjatlari Markazi"
+    href="/docs/test-documentation"
+  >
+    Test Plan, Test Strategy, Test Scenario, Test Case, RTM, Defect Report va Sinov xulosa hisobotlari (ISO/IEC/IEEE 29119-3).
+  </Cards.Card>
   <Cards.Card
     title="🛠️ Test Texnikalari Markazi"
     href="/docs/test-techniques"
@@ -163,50 +254,27 @@ Minimal test keyslar bilan maksimal sinov qamroviga erishishning standart ilmiy 
 
 ---
 
-## Test Menejment (Test Management)
+## 7. Test Menejment, Nuqsonlar va Vositalar
 
-Dasturiy ta'minotni sinash jarayonini rejalashtirish, baholash, xatarlarni tahlil qilish, monitoring va sifat nazorati:
+Sinov jarayonini boshqarish, xatoliklarni kuzatish va zamonaviy vositalar ekotizimi:
 
-<Cards num={1}>
+<Cards num={3}>
   <Cards.Card
     title="📊 Test Menejment Markazi"
     href="/docs/test-management"
   >
-    Xatarlarni tahlil qilish (Risk Analysis), Testni baholash (Estimation), Monitoring va Nazorat, Nuqsonlarni boshqarish va Sinov xulosasi.
+    Xatarlarni tahlil qilish (Risk Analysis), Testni baholash (Estimation), Monitoring va Nazorat.
   </Cards.Card>
-</Cards>
-
----
-
-## Nuqsonlarni Kuzatish (Defect Tracking)
-
-Aniqlangan xatoliklar, ularning hayotiy sikli, holatlari, jiddiylik va ustuvorlik mezonlari hamda boshqaruv vositalari:
-
-<Cards num={1}>
   <Cards.Card
     title="🐛 Nuqsonlarni Kuzatish Markazi"
     href="/docs/defect-tracking"
   >
-    Nuqsonning hayotiy sikli (Defect Life Cycle), Severity va Priority mezonlari, sifatli Bug Report tarkibi va vositalar (Jira, Bugzilla, MantisBT).
+    Nuqsonning hayotiy sikli (Defect Life Cycle), Severity va Priority mezonlari hamda sifatli Bug Report tarkibi.
   </Cards.Card>
-</Cards>
-
----
-
-## Dasturiy Sinov Vositalari (Software Testing Tools)
-
-Sinov jarayonini avtomatlashtirish, tezlashtirish va monitoring qilish uchun qo'llaniladigan yetakchi dasturiy vositalar:
-
-<Cards num={1}>
   <Cards.Card
     title="🧰 Sinov Vositalari Markazi"
     href="/docs/testing-tools"
   >
-    Veb avtomatlashtirish (Selenium, Playwright, Cypress), Mobil (Appium), API (Postman, REST Assured), Yuklama (JMeter, k6) va Xavfsizlik vositalari.
+    Veb avtomatlashtirish (Selenium, Playwright, Cypress), Mobil (Appium), API (Postman), Yuklama (JMeter, k6).
   </Cards.Card>
 </Cards>
-
-
-
-
-

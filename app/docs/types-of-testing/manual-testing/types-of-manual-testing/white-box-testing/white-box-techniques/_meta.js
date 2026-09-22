@@ -1,4 +1,5 @@
 export default {
+  index: 'Oq Quti Texnikalari',
   'data-flow-testing': "Ma'lumotlar oqimi sinovi (Data Flow Testing)",
   'control-flow-testing': 'Boshqaruv oqimi sinovi (Control Flow Testing)',
   'branch-coverage-testing': 'Tarmoqlar qamrovi sinovi (Branch Coverage Testing)',

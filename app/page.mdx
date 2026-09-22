@@ -18,49 +18,18 @@ import { Cards, Callout } from 'nextra/components'
     />
   </div>
   <h1 className="portal-title">QA COMPASS — Dasturiy Ta'minot Sifatini Ta'minlash Bo'yicha Qo'llanma</h1>
-  <div className="portal-subtitle">O'zbekistonda dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasini o'rganayotgan yangi mutaxassislar hamda amaliyotdagi muhandislar uchun tizimlashtirilgan ochiq ta'limiy platforma. Xalqaro ISTQB standartlari, amaliy sinov usullari va zamonaviy texnologiyalar asosida tuzilgan.</div>
-  <div className="portal-nav-bar">
-    <a href="/docs" className="portal-nav-link portal-nav-link-primary">📖 Dokumentatsiya</a>
-    <a href="/roadmap" className="portal-nav-link portal-nav-link-secondary">🧭 Yo'l xaritasi (Roadmap)</a>
-    <a href="/interview" className="portal-nav-link portal-nav-link-secondary">💬 Intervyu Savollari</a>
-    <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer" className="portal-nav-link portal-nav-link-secondary">GitHub Repozitoriy</a>
-  </div>
+  <div className="portal-subtitle">O'zbekistonda dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasini o'rganayotgan yangi mutaxassislar hamda amaliyotdagi muhandislar uchun tizimlashtirilgan ochiq ta'limiy platforma. Xalqaro ISTQB standartlari, amaliy sinov usullari, tarmoq arxitekturasi va zamonaviy vositalar asosida tuzilgan.</div>
 </div>
 
-<div className="portal-summary-grid">
-  <div className="portal-summary-card">
-    <div className="portal-card-title">Ochiq Manbali Ta'lim</div>
-    <div className="portal-card-desc">Barcha o'rganuvchilar uchun mutlaqo bepul, tizimlashtirilgan va ochiq manba (Open Source) sifatida taqdim etiladi.</div>
-  </div>
-  <div className="portal-summary-card">
-    <div className="portal-card-title">ISTQB Standartlari</div>
-    <div className="portal-card-desc">Dasturiy ta'minotni sinash nazariyasi va amaliyoti xalqaro sertifikatlash dasturi talablariga to'liq moslashtirilgan.</div>
-  </div>
-  <div className="portal-summary-card">
-    <div className="portal-card-title">34+ Sinov Turlari</div>
-    <div className="portal-card-desc">Qo'lda va avtomatlashtirilgan, funksional hamda nofunksional sinovlarning keng qamrovli ensiklopediyasi.</div>
-  </div>
-  <div className="portal-summary-card">
-    <div className="portal-card-title">Amaliyot va Karyera</div>
-    <div className="portal-card-desc">Test hujjatlari shablonlari, real loyiha vaziyatlari va texnik suhbatlarda so'raladigan savollar tahlili.</div>
-  </div>
-</div>
-
----
-
-## 🎯 Platformaning Real Maqsadlari va Hozirgi Holat
-
-QA COMPASS loyihasining bosh maqsadi — O'zbekiston IT hamjamiyatida sifatli, tushunarli va to'liq o'zbek tilidagi professional QA bilimlar bazasini yaratishdir.
-
-<Callout type="info">
-  **Hozir qilinayotgan faol ishlar:** Ayni paytda platformada 34 ta yangi qo'shilgan sinov turlari (Regression, Smoke, Sanity, Performance, Security va h.k.) bo'yicha amaliy materiallar boyitilmoqda hamda qo'lda va avtomatlashtirilgan sinov integratsiyasi ustida ish olib borilmoqda.
+<Callout type="info" emoji="💡">
+  Quyidagi bo'limlar orqali dasturiy ta'minotni sinash nazariyasi, xalqaro **ISTQB CTFL v4.0** standartlari, tarmoqlar, test hujjatlari, 34+ sinov turlari hamda zamonaviy avtomatlashtirish texnologiyalarini o'rganishingiz mumkin.
 </Callout>
 
 ---
 
 ## 1-bo'lim. Fundamental Nazariya va SDLC Modellari
 
-Dasturiy ta'minotni sinashning asosiy qonuniyatlari, ishlab chiqish va sinov hayotiy sikllari hamda modellar.
+Dasturiy ta'minotni sinashning asosiy qonuniyatlari, ishlab chiqish va sinov hayotiy sikllari hamda modellar:
 
 <Cards num={2}>
   <Cards.Card
@@ -79,9 +48,30 @@ Dasturiy ta'minotni sinashning asosiy qonuniyatlari, ishlab chiqish va sinov hay
 
 ---
 
-## 2-bo'lim. Sinov Turlari va Amaliy Yo'nalishlar
+## 2-bo'lim. Xalqaro Standartlar va Web Texnologiyalari
 
-Dasturiy ta'minotni har tomonlama tekshirish uslublari, mobil platformalar hamda samarali test-keyslar yaratish ilmi.
+Global tan olingan ISTQB o'quv dasturi hamda har bir sinovchi bilishi shart bo'lgan kompyuter tarmoqlari asoslari:
+
+<Cards num={2}>
+  <Cards.Card
+    title="📘 ISTQB Foundation (CTFL 4.0)"
+    href="/docs/istqb-foundation"
+  >
+    Xalqaro sertifikatlash dasturining 6 ta bobi: Sinov asoslari, SDLC'da testlash, Statik sinov, Test tahlili va dizayni, Test faoliyatini boshqarish va Sinov vositalari.
+  </Cards.Card>
+  <Cards.Card
+    title="🌐 Tarmoqlar va Web Asoslari (Networks)"
+    href="/docs/networks"
+  >
+    Client-Server modeli, HTTP/HTTPS protokollari, REST/SOAP/gRPC, Mikroservislar, Kesh, DevTools va veb-xizmatlar arxitekturasi.
+  </Cards.Card>
+</Cards>
+
+---
+
+## 3-bo'lim. Sinov Turlari, Mobil Muhit va Test Texnikalari
+
+Dasturiy ta'minotni har tomonlama tekshirish uslublari, mobil platformalar hamda samarali test-keyslar yaratish ilmi:
 
 <Cards num={3}>
   <Cards.Card
@@ -106,16 +96,16 @@ Dasturiy ta'minotni har tomonlama tekshirish uslublari, mobil platformalar hamda
 
 ---
 
-## 3-bo'lim. Test Hujjatlari va Sifat Menejmenti
+## 4-bo'lim. Test Hujjatlari va Sifat Menejmenti
 
-Sinov jarayonini rejalashtirish, xatarlarni baholash, hisobotlar tuzish va nuqsonlarni tizimli boshqarish.
+Sinov jarayonini rejalashtirish, xatarlarni baholash, hisobotlar tuzish va nuqsonlarni tizimli boshqarish:
 
 <Cards num={3}>
   <Cards.Card
     title="📑 Test Hujjatlari"
     href="/docs/test-documentation"
   >
-    Test Plan, Test Strategy, Test Scenarios, Test Cases, RTM va yakuniy sinov hisobotlari.
+    Test Plan, Test Strategy, Test Scenarios, Test Cases, RTM va yakuniy sinov hisobotlari (ISO/IEC/IEEE 29119-3).
   </Cards.Card>
   <Cards.Card
     title="📊 Test Menejment"
@@ -133,9 +123,9 @@ Sinov jarayonini rejalashtirish, xatarlarni baholash, hisobotlar tuzish va nuqso
 
 ---
 
-## 4-bo'lim. Vositalar, Karyera va Suhbatga Tayyorgarlik
+## 5-bo'lim. Vositalar, Karyera va Yo'l Xaritasi
 
-Zamonaviy muhandislik vositalari bilan ishlash va texnik intervyulardan muvaffaqiyatli o'tish ko'nikmalari.
+Zamonaviy muhandislik vositalari bilan ishlash, bosqichma-bosqich o'quv rejasi va texnik intervyulardan muvaffaqiyatli o'tish ko'nikmalari:
 
 <Cards num={3}>
   <Cards.Card
@@ -145,16 +135,16 @@ Zamonaviy muhandislik vositalari bilan ishlash va texnik intervyulardan muvaffaq
     Selenium, Playwright, Cypress, Postman, JMeter va boshqa asosiy vositalar tahlili.
   </Cards.Card>
   <Cards.Card
-    title="💬 Intervyu Savollari"
-    href="/interview"
-  >
-    Texnik, fundamental va situatsion savollar hamda professional javoblar tahlili.
-  </Cards.Card>
-  <Cards.Card
     title="🧭 QA Yo'l Xaritasi (Roadmap)"
     href="/roadmap"
   >
-    Junior darajasidan SDET darajasigacha bo'lgan tizimli o'quv yo'li va platforma rivojlanish bosqichlari.
+    Junior darajasidan SDET darajasigacha bo'lgan xalqaro standartlarga asoslangan 10 bosqichli kasbiy o'quv rejasi.
+  </Cards.Card>
+  <Cards.Card
+    title="💬 Intervyu Savollari"
+    href="/interview"
+  >
+    Fundamental, texnik va situatsion savollar hamda suhbatdan muvaffaqiyatli o'tish sirlari.
   </Cards.Card>
 </Cards>
 
