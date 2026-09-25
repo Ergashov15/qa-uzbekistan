@@ -1,163 +1,154 @@
 import { Cards, Callout } from 'nextra/components'
-import {
-  SoftwareTestingIcon,
-  SdlcIcon,
-  IstqbIcon,
-  NetworkIcon,
-  TestTypesIcon,
-  MobileTestingIcon,
-  TestTechniquesIcon,
-  TestDocsIcon,
-  TestManagementIcon,
-  BugTrackingIcon,
-  ToolsIcon,
-  RoadmapIcon
-} from '@/components/icons'
 
-# QA COMPASS — Dasturiy Ta'minot Sifatini Ta'minlash Bo'yicha Qo'llanma
+<div className="hero-container">
+  {/* Status indikatori */}
+  <div className="status-badge">
+    <span className="status-dot-wrapper">
+      <span className="status-dot-ping"></span>
+      <span className="status-dot"></span>
+    </span>
+    Jonli Bilimlar Bazasi • QA Compass v2.0
+  </div>
 
-O'zbekistonda dasturiy ta'minot sifatini ta'minlash (Quality Assurance) sohasini o'rganayotgan yangi mutaxassislar hamda amaliyotdagi muhandislar uchun tizimlashtirilgan ochiq ta'limiy platforma. Xalqaro ISTQB standartlari, amaliy sinov usullari, tarmoq arxitekturasi va zamonaviy vositalar asosida tuzilgan.
+  {/* Katta Gradient Sarlavha */}
+  <h1 className="hero-title">
+    Sifatni Kafolatlash Uchun <br />
+    <span className="hero-gradient-text">
+      Yagona Kompas
+    </span>
+  </h1>
 
+  {/* Qisqacha ta'rif */}
+  <p className="hero-description">
+    Dasturiy ta'minot sinovi asoslari, test artefaktlari, real-time tarmoq protokollari hamda xalqaro ISTQB standartlari bo'yicha to'liq o'zbek tilidagi professional bilimlar bazasi.
+  </p>
 
-<Callout type="info" emoji="💡">
-  Quyidagi bo'limlar orqali dasturiy ta'minotni sinash nazariyasi, xalqaro **ISTQB CTFL v4.0** standartlari, tarmoqlar, test hujjatlari, 34+ sinov turlari hamda zamonaviy avtomatlashtirish texnologiyalarini o'rganishingiz mumkin.
-</Callout>
+  {/* Boshqaruv tugmalari */}
+  <div className="hero-buttons">
+    <a
+      href="/docs/test-documentation"
+      className="btn-primary"
+    >
+      O'rganishni Boshlash →
+    </a>
+    <a
+      href="/docs/networks/socket-websocket/testing-websockets-on-clients"
+      className="btn-secondary"
+    >
+      WebSockets & Burp Suite
+    </a>
+  </div>
+</div>
 
 ---
 
-## 1-bo'lim. Fundamental Nazariya va SDLC Modellari
+## 🧭 Asosiy Yo'nalishlar (Bento Grid)
 
-Dasturiy ta'minotni sinashning asosiy qonuniyatlari, ishlab chiqish va sinov hayotiy sikllari hamda modellar:
+Platformaning barcha eng muhim bo'limlari qulay kartalar shaklida jamlandi:
 
-<Cards num={2}>
+<Cards num={3}>
   <Cards.Card
-    icon={<SoftwareTestingIcon />}
+    icon="📋"
+    title="Test Artefaktlari"
+    href="/docs/test-documentation/test-plan"
+  >
+    Test Plan, Test Case, Test Scenario va Checklist yuritish standartlari.
+  </Cards.Card>
+  <Cards.Card
+    icon="⚡"
+    title="WebSockets & Sniffing"
+    href="/docs/networks/socket-websocket/testing-websockets-on-clients"
+  >
+    Burp Suite va OWASP ZAP orqali real-time freymlarni tutish va modifikatsiya qilish.
+  </Cards.Card>
+  <Cards.Card
+    icon="📊"
+    title="Metrikalar va RTM"
+    href="/docs/test-documentation/software-test-metrics"
+  >
+    Defect Density, DRE formulalari va Talablar Kuzatuvchanlik Matritsasi.
+  </Cards.Card>
+  <Cards.Card
+    icon="🐛"
+    title="Bug Life Cycle"
+    href="/docs/test-documentation/bug-report"
+  >
+    Mukammal xatolik hisoboti tuzish, Severity va Priority darajalari tahlili.
+  </Cards.Card>
+  <Cards.Card
+    icon="🎯"
+    title="Talablar va BDD"
+    href="/docs/test-documentation/acceptance-criteria"
+  >
+    User Stories, INVEST tamoyillari va Given-When-Then (Gherkin) qabul qilish mezonlari.
+  </Cards.Card>
+  <Cards.Card
+    icon="🛡️"
+    title="Sifat va Test Siyosati"
+    href="/docs/test-documentation/quality-policy"
+  >
+    ISO 29119 standartlari, tashkilot sifat falsafasi va mustaqil QA tamoyillari.
+  </Cards.Card>
+</Cards>
+
+---
+
+## ⚡ Tezkor Havolalar (Quick Links)
+
+Eng ko'p o'qiladigan va amaliyotda har kuni kerak bo'ladigan yo'riqnomalar:
+
+- [📌 Xatolik Hisoboti (Bug Report) Shabloni](/docs/test-documentation/bug-report#4-toliq-namunaviy-bug-report) — Dasturchiga xatoni tezkor tushuntirish formati.
+- [📌 IEEE 829 Standarti Bo'yicha Test Plan 16 Bo'limi](/docs/test-documentation/test-plan#2-ieee-829-standarti-boyicha-16-ta-klassik-bolim) — Klassik reja tuzilishi.
+- [📌 Burp Suite orqali WebSocket Interception](/docs/networks/socket-websocket/testing-websockets-on-clients#2-burp-suite-orqali-veb-soketlarni-sinash) — Mobil va vebda xabarlarni to'xtatib o'zgartirish.
+- [📌 RTM Matritsasi Namunasi](/docs/test-documentation/requirement-traceability-matrix#2-namunaviy-rtm-jadvali-amaliy-misol) — 100% test qamrovini kafolatlash jadvali.
+
+---
+
+## 📚 Barcha Bilimlar Katalogi
+
+Qo'shimcha ravishda platformamizdagi barcha ixtisoslashgan modullar bilan tanishishingiz mumkin:
+
+<Cards num={3}>
+  <Cards.Card
+    icon="💡"
     title="Software Testing Asoslari"
     href="/docs/software-testing"
   >
-    SDLC, STLC, 7 ta oltin tamoyil, sinov darajalari, API sinovlari va ATDD metodologiyasi.
+    SDLC, STLC, 7 ta oltin tamoyil, sinov darajalari va metodologiyalar.
   </Cards.Card>
   <Cards.Card
-    icon={<SdlcIcon />}
-    title="SDLC Modellari Markazi"
+    icon="🔄"
+    title="SDLC Modellari"
     href="/docs/sdlc-models"
   >
-    Sharshara (Waterfall), Spiral, Gibrid, Prototip va V-Model modellarining qiyosiy tahlili.
-  </Cards.Card>
-</Cards>
-
----
-
-## 2-bo'lim. Xalqaro Standartlar va Web Texnologiyalari
-
-Global tan olingan ISTQB o'quv dasturi hamda har bir sinovchi bilishi shart bo'lgan kompyuter tarmoqlari asoslari:
-
-<Cards num={2}>
-  <Cards.Card
-    icon={<IstqbIcon />}
-    title="ISTQB Foundation (CTFL 4.0)"
-    href="/docs/istqb-foundation"
-  >
-    Xalqaro sertifikatlash dasturining 6 ta bobi: Sinov asoslari, SDLC'da testlash, Statik sinov, Test tahlili va dizayni, Test faoliyatini boshqarish va Sinov vositalari.
+    Sharshara (Waterfall), Spiral, Gibrid, Prototip va V-Model tahlili.
   </Cards.Card>
   <Cards.Card
-    icon={<NetworkIcon />}
+    icon="🌐"
     title="Tarmoqlar va Web Asoslari"
     href="/docs/networks"
   >
-    Client-Server modeli, HTTP/HTTPS protokollari, REST/SOAP/gRPC, Mikroservislar, Kesh, DevTools va veb-xizmatlar arxitekturasi.
+    Client-Server modeli, HTTP/HTTPS protokollari, Kesh va REST/SOAP/gRPC.
   </Cards.Card>
-</Cards>
-
----
-
-## 3-bo'lim. Sinov Turlari, Mobil Muhit va Test Texnikalari
-
-Dasturiy ta'minotni har tomonlama tekshirish uslublari, mobil platformalar hamda samarali test-keyslar yaratish ilmi:
-
-<Cards num={3}>
   <Cards.Card
-    icon={<TestTypesIcon />}
-    title="Sinov Turlari (34+ tur)"
-    href="/docs/types-of-testing"
+    icon="🏆"
+    title="ISTQB Foundation (CTFL 4.0)"
+    href="/docs/istqb-foundation"
   >
-    Qo'lda sinash, avtomatlashtirilgan sinov, Regressiya, Smoke, Sanity, Yuklama, Xavfsizlik va boshqalar.
+    Xalqaro sertifikatlash dasturining 6 ta bobi va imtihon savollari tahlili.
   </Cards.Card>
   <Cards.Card
-    icon={<MobileTestingIcon />}
+    icon="📱"
     title="Mobil Ilovalarni Sinash"
     href="/docs/mobile-testing"
   >
-    Android va iOS tizimlarini sinash, Nativ/Gibrid ilovalar, Interrupt testing, ADB va proksi vositalari.
+    Android va iOS tizimlarini sinash, Interrupt testing, ADB va proksilar.
   </Cards.Card>
   <Cards.Card
-    icon={<TestTechniquesIcon />}
-    title="Test Texnikalari"
-    href="/docs/test-techniques"
+    icon="🧪"
+    title="Sinov Turlari Katalogi (34+ tur)"
+    href="/docs/types-of-testing"
   >
-    Ekvivalentlik sinflari (EP), chegaraviy qiymatlar (BVA), qarorlar jadvali va oq quti qamrov texnikalari.
+    Qo'lda sinash, avtomatlashtirish, Regressiya, Smoke, Sanity va boshqalar.
   </Cards.Card>
 </Cards>
-
----
-
-## 4-bo'lim. Test Hujjatlari va Sifat Menejmenti
-
-Sinov jarayonini rejalashtirish, xatarlarni baholash, hisobotlar tuzish va nuqsonlarni tizimli boshqarish:
-
-<Cards num={3}>
-  <Cards.Card
-    icon={<TestDocsIcon />}
-    title="Test Hujjatlari"
-    href="/docs/test-documentation"
-  >
-    Test Plan, Test Strategy, Test Scenarios, Test Cases, RTM va yakuniy sinov hisobotlari (ISO/IEC/IEEE 29119-3).
-  </Cards.Card>
-  <Cards.Card
-    icon={<TestManagementIcon />}
-    title="Test Menejment"
-    href="/docs/test-management"
-  >
-    Xatarlarni tahlil qilish (Risk Analysis), test baholash, monitoring va sifat nazorati.
-  </Cards.Card>
-  <Cards.Card
-    icon={<BugTrackingIcon />}
-    title="Nuqsonlarni Kuzatish"
-    href="/docs/defect-tracking"
-  >
-    Nuqson hayotiy sikli (Defect Life Cycle), Severity va Priority mezonlari hamda Jira amaliyoti.
-  </Cards.Card>
-</Cards>
-
----
-
-## 5-bo'lim. Vositalar, Karyera va Yo'l Xaritasi
-
-Zamonaviy muhandislik vositalari bilan ishlash va bosqichma-bosqich kasbiy o'quv rejasi:
-
-<Cards num={2}>
-  <Cards.Card
-    icon={<ToolsIcon />}
-    title="Sinov Vositalari"
-    href="/docs/testing-tools"
-  >
-    Selenium, Playwright, Cypress, Postman, JMeter va boshqa asosiy vositalar tahlili.
-  </Cards.Card>
-  <Cards.Card
-    icon={<RoadmapIcon />}
-    title="QA Yo'l Xaritasi (Roadmap)"
-    href="/roadmap"
-  >
-    Junior darajasidan SDET darajasigacha bo'lgan xalqaro standartlarga asoslangan 10 bosqichli kasbiy o'quv rejasi.
-  </Cards.Card>
-</Cards>
-
----
-
-## 🤝 Hamjamiyat va Hissa Qo'shish
-
-Ushbu platforma o'zbek tilidagi sifatli texnik kontentni ko'paytirish va IT mutaxassislarini qo'llab-quvvatlash maqsadida ochiq manba (Open Source) sifatida yuritiladi.
-
-<Callout type="info">
-  Loyiha **MIT litsenziyasi** ostida erkin tarqatiladi. Matnlardagi xatoliklarni tuzatish, yangi amaliy misollar qo'shish yoki mavzularni kengaytirish uchun [GitHub repozitoriyamizda](https://github.com/Ergashov15/qa-uzbekistan) Pull Request ochishingiz mumkin.
-</Callout>

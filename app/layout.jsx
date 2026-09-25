@@ -24,13 +24,18 @@ export const metadata = {
     template: '%s | QA COMPASS',
     default: "QA COMPASS — O'zbekcha QA Qo'llanmasi"
   },
-  description: "Yangi o'rganuvchilar va tajribali QA muhandislari uchun to'liq bepul ochiq manbali qo'llanma.",
+  description: "Yangi o'rganuvchilar va tajribali QA muhandislari uchun to'liq bepul ochiq manbali bilimlar bazasi.",
   keywords: ['QA', 'Software Testing', 'Manual Testing', 'Automation Testing', 'Playwright', 'Postman', 'SDET', 'Uzbekistan QA']
 }
 
 const banner = (
-  <Banner storageKey="qa-compass-welcome">
-    <strong>QA COMPASS</strong> — Dasturiy ta'minot sifatini ta'minlash (QA) bo'yicha ochiq ta'limiy platforma.
+  <Banner storageKey="qa-compass-v2-release">
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
+      <span style={{ backgroundColor: '#10b981', color: '#ffffff', padding: '0.1rem 0.4rem', borderRadius: '0.25rem', fontSize: '0.7rem', fontWeight: 800 }}>YANGI</span>
+      <span>
+        <strong>QA Compass v2.0</strong> reliz qilindi! Yangilangan veb-soketlar va test metrikalari bilan tanishing →
+      </span>
+    </div>
   </Banner>
 )
 
@@ -40,37 +45,50 @@ const TelegramIcon = (
   </svg>
 )
 
-const QACompassIcon = () => (
-  <svg
-    width="28"
-    height="28"
-    viewBox="0 0 40 40"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="brand-compass-icon"
-  >
-    <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="1.8" strokeOpacity="0.25" />
-    <circle cx="20" cy="20" r="14" stroke="#0284c7" strokeWidth="1" strokeDasharray="2 2" strokeOpacity="0.5" />
-    <path d="M20 3V6.5M20 33.5V37M3 20H6.5M33.5 20H37" stroke="#0284c7" strokeWidth="2" strokeLinecap="round" />
-    <polygon points="20,6 22,14 20,12.5 18,14" fill="#0284c7" />
-    <path
-      d="M12 21L18 27L31 9"
-      stroke="#0284c7"
-      strokeWidth="3.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <circle cx="20" cy="20" r="2.8" fill="#f59e0b" stroke="#ffffff" strokeWidth="1" />
-  </svg>
-)
-
 const navbar = (
   <Navbar
     logo={
-      <span className="brand-logo">
-        <QACompassIcon />
-        <span className="brand-badge">QA</span>
-        <span className="brand-text">COMPASS</span>
+      <span style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontWeight: 800 }}>
+        <span
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '2rem',
+            height: '2rem',
+            borderRadius: '0.5rem',
+            backgroundColor: 'rgba(16, 185, 129, 0.12)',
+            border: '1px solid rgba(16, 185, 129, 0.3)',
+            fontSize: '1.15rem'
+          }}
+        >
+          🧭
+        </span>
+        <span
+          style={{
+            fontSize: '1.25rem',
+            fontWeight: 800,
+            background: 'linear-gradient(to right, #10b981, #14b8a6, #06b6d4)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}
+        >
+          QA Compass
+        </span>
+        <span
+          style={{
+            fontSize: '0.65rem',
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+            padding: '0.125rem 0.5rem',
+            borderRadius: '9999px',
+            backgroundColor: 'rgba(16, 185, 129, 0.12)',
+            color: '#10b981',
+            border: '1px solid rgba(16, 185, 129, 0.25)'
+          }}
+        >
+          v2.0
+        </span>
       </span>
     }
     projectLink="https://github.com/Ergashov15/qa-uzbekistan"
@@ -82,11 +100,16 @@ const navbar = (
 
 const footer = (
   <Footer>
-    MIT {new Date().getFullYear()} ©{' '}
-    <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer">
-      QA COMPASS
-    </a>
-    . Ochiq manbali ta'lim platformasi.
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', fontSize: '0.85rem' }}>
+      <span>
+        MIT {new Date().getFullYear()} ©{' '}
+        <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer" style={{ color: '#10b981', fontWeight: 600 }}>
+          QA Compass
+        </a>
+        . Ochiq manbali ta'lim platformasi.
+      </span>
+      <span>Sifat madaniyati bilan yaratilgan 💚</span>
+    </div>
   </Footer>
 )
 
@@ -111,7 +134,7 @@ export default async function RootLayout({ children }) {
           toc={{
             float: true,
             title: 'Ushbu sahifada',
-            backToTop: 'Yuqoriga qaytish'
+            backToTop: 'Yuqoriga qaytish ↑'
           }}
           navigation={{
             prev: true,

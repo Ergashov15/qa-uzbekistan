@@ -1,67 +1,67 @@
 /* ==========================================================================
-   QA COMPASS — Classical Academic Design System (Times New Roman & Clean UX)
+   QA COMPASS — Modern Emerald Developer Portal & Knowledge Base Design System
    ========================================================================== */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* --------------------------------------------------------------------------
-   1. Root Typography & Theme Variables (Times New Roman Standard)
+   1. Root Palette & Theme Variables (Emerald / Cyan Modern Tech)
    -------------------------------------------------------------------------- */
 :root {
   --font-serif: var(--font-times), 'Times New Roman', Times, 'Tinos', Georgia, Cambria, serif;
-  --font-mono: var(--font-mono), 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace;
+  --font-mono: var(--font-mono), 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
-  /* Nextra internal engine hooks */
+  /* Nextra internal engine hooks (Emerald 160deg) */
+  --nextra-primary-hue: 160deg;
+  --nextra-primary-saturation: 84%;
+  --nextra-primary-lightness: 39%;
+
   --x-font-sans: var(--font-serif);
   --x-font-mono: var(--font-mono);
 
-  /* Primary Brand Hue */
-  --nextra-primary-hue: 221deg;
-  --nextra-primary-saturation: 83%;
-  --nextra-primary-lightness: 45%;
+  /* Light Theme */
+  --bg-page: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f0fdf4;
+  --border-color: #e2e8f0;
+  --border-hover: #10b981;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --brand-color: #10b981;
+  --brand-hover: #059669;
+  --brand-light: #ecfdf5;
 
-  /* Primary Column Alignment Guideline (Navbar and Page Content Shared Guideline) */
-  --qa-sidebar-width: 280px;
-
-  /* Academic & Professional Palette - Light Mode */
-  --bg-page: #ffffff;
-  --bg-surface: #fbfbfb;
-  --bg-subtle: #f3f4f6;
-  --border-color: #d1d5db;
-  --border-hover: #9ca3af;
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
-  --brand-color: #1d4ed8;
-  --brand-hover: #1e40af;
-  --brand-light: #eff6ff;
-  --menu-bg: #ffffff;
-  --menu-border: #e5e7eb;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-dropdown: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* Glassmorphism Variables */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(226, 232, 240, 0.85);
+  --card-hover-glow: rgba(16, 185, 129, 0.18);
 }
 
 :is(.dark) {
-  /* Academic & Professional Palette - Dark Mode */
-  --bg-page: #0f172a;
-  --bg-surface: #1e293b;
-  --bg-subtle: #334155;
-  --border-color: #334155;
-  --border-hover: #475569;
+  /* Dark Theme */
+  --bg-page: #0b0f19;
+  --bg-surface: #111827;
+  --bg-subtle: #1e293b;
+  --border-color: #1e293b;
+  --border-hover: #10b981;
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
   --text-muted: #94a3b8;
-  --brand-color: #60a5fa;
-  --brand-hover: #93c5fd;
-  --brand-light: #1e293b;
-  --menu-bg: #1e293b;
-  --menu-border: #334155;
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-dropdown: 0 12px 28px -4px rgba(0, 0, 0, 0.5), 0 6px 12px -2px rgba(0, 0, 0, 0.3);
+  --brand-color: #34d399;
+  --brand-hover: #6ee7b7;
+  --brand-light: #064e3b;
+
+  /* Glassmorphism Variables (Dark) */
+  --glass-bg: rgba(17, 24, 39, 0.72);
+  --glass-border: rgba(51, 65, 85, 0.65);
+  --card-hover-glow: rgba(16, 185, 129, 0.28);
 }
 
 /* --------------------------------------------------------------------------
-   2. Global Typography (Times New Roman / 14pt - 16.5px Standard)
+   2. Global Typography & Background Mesh Pattern
    -------------------------------------------------------------------------- */
 html,
 body,
@@ -78,21 +78,34 @@ li,
 table,
 button,
 input {
-  font-family: var(--font-serif) !important;
+  font-family: var(--font-serif);
 }
 
 body {
   font-size: 18px;
   line-height: 1.75;
   color: var(--text-primary);
+  background-color: var(--bg-page);
+  background-image: 
+    radial-gradient(at top center, rgba(16, 185, 129, 0.08) 0%, transparent 60%),
+    radial-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px;
+  background-position: 0 0, 0 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--nextra-navbar-height, 64px) + 1.5rem);
 }
 
-/* Monospace & Code */
+:is(.dark) body {
+  background-color: #0b0f19;
+  background-image: 
+    radial-gradient(at top center, rgba(16, 185, 129, 0.12) 0%, transparent 70%),
+    radial-gradient(rgba(51, 65, 85, 0.25) 1px, transparent 1px);
+  background-size: 100% 100%, 24px 24px;
+  background-position: 0 0, 0 0;
+}
+
 code,
 kbd,
 samp,
@@ -100,594 +113,185 @@ pre {
   font-family: var(--font-mono) !important;
 }
 
-:not(pre) > code {
-  font-size: 0.9em !important;
-  padding: 0.18em 0.45em !important;
-  border-radius: 4px !important;
-  background-color: var(--bg-subtle) !important;
-  color: var(--brand-color) !important;
-  border: 1px solid var(--border-color) !important;
-}
-
-/* Content Headings (Professional Academic Hierarchy) */
-article h1 {
-  font-size: 2.45rem !important;
-  font-weight: 700 !important;
-  line-height: 1.25 !important;
-  margin-top: 1rem !important;
-  margin-bottom: 1.35rem !important;
-  color: var(--text-primary) !important;
-}
-
-article h2 {
-  font-size: 1.85rem !important;
-  font-weight: 700 !important;
-  line-height: 1.35 !important;
-  margin-top: 2.25rem !important;
-  margin-bottom: 0.85rem !important;
-  padding-bottom: 0.45rem !important;
-  border-bottom: 1px solid var(--border-color) !important;
-  color: var(--text-primary) !important;
-}
-
-article h3 {
-  font-size: 1.48rem !important;
-  font-weight: 700 !important;
-  line-height: 1.4 !important;
-  margin-top: 1.75rem !important;
-  margin-bottom: 0.6rem !important;
-  color: var(--text-primary) !important;
-}
-
-article p {
-  font-size: 1.15rem !important;
-  line-height: 1.75 !important;
-  color: var(--text-secondary);
-  margin-bottom: 1.35rem;
-}
-
-article strong,
-article b {
-  font-weight: 700 !important;
-  color: var(--text-primary);
-}
-
-article ul,
-article ol {
-  font-size: 1.15rem !important;
-  line-height: 1.75 !important;
-  margin-bottom: 1.35rem;
-  padding-left: 1.75rem;
-}
-
-article li {
-  margin-top: 0.4rem;
-  margin-bottom: 0.4rem;
-}
-
 /* --------------------------------------------------------------------------
-   3. Header & Navbar UX (Clean Left Alignment & Clear Structure)
+   3. Hero Section & Status Badge Styles
    -------------------------------------------------------------------------- */
-.nextra-navbar {
-  border-bottom: 1px solid var(--border-color) !important;
-  background-color: var(--bg-page) !important;
-  box-shadow: var(--shadow-sm);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.nextra-navbar > nav {
-  gap: 12px !important;
-}
-
-/* Brand Logo (Classical & Dignified QA COMPASS) */
-.brand-logo {
+.hero-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  font-family: var(--font-serif) !important;
-  transition: opacity 0.2s ease;
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+  max-width: 52rem;
+  margin: 0 auto;
 }
 
-.brand-compass-icon {
-  flex-shrink: 0;
-  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.brand-logo:hover .brand-compass-icon {
-  transform: rotate(20deg) scale(1.08);
-}
-
-.brand-badge {
-  background: linear-gradient(135deg, #1e3a8a 0%, #0369a1 100%);
-  color: #ffffff;
-  padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  box-shadow: 0 1px 3px rgba(3, 105, 161, 0.25);
-}
-
-.brand-text {
-  font-size: 21px;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: 0.04em;
-}
-
-:is(.dark) .brand-text {
-  color: #f8fafc;
-}
-
-/* Top Nav Links & Dropdown Buttons (High Contrast & Clear Typography) */
-.nextra-navbar nav a:not(.brand-logo),
-.nextra-navbar button[aria-haspopup="menu"] {
-  font-family: var(--font-serif) !important;
-  font-size: 17px !important;
-  font-weight: 600 !important;
-  color: #0f172a !important;
-  padding: 6px 13px !important;
-  border-radius: 6px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 6px !important;
-  cursor: pointer !important;
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-  width: auto !important;
-  min-width: 0 !important;
-  max-width: none !important;
-  box-sizing: border-box !important;
-  border: 1px solid transparent !important;
-  text-decoration: none !important;
-  letter-spacing: 0.01em !important;
-  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
-}
-
-/* Dark mode nav link color */
-:is(.dark) .nextra-navbar nav a:not(.brand-logo),
-:is(.dark) .nextra-navbar button[aria-haspopup="menu"] {
-  color: #f8fafc !important;
-}
-
-/* Hover state */
-.nextra-navbar nav a:not(.brand-logo):hover,
-.nextra-navbar button[aria-haspopup="menu"]:hover {
-  background-color: #f1f5f9 !important;
-  color: #1d4ed8 !important;
-  border-color: #e2e8f0 !important;
-}
-
-:is(.dark) .nextra-navbar nav a:not(.brand-logo):hover,
-:is(.dark) .nextra-navbar button[aria-haspopup="menu"]:hover {
-  background-color: #334155 !important;
-  color: #93c5fd !important;
-  border-color: #475569 !important;
-}
-
-/* Active Page State */
-.nextra-navbar nav a:not(.brand-logo)[aria-current="true"],
-.nextra-navbar nav a:not(.brand-logo)[aria-current="page"],
-.nextra-navbar nav a:not(.brand-logo)[data-active="true"],
-.nextra-navbar nav a:not(.brand-logo).active {
-  background-color: #eff6ff !important;
-  color: #1d4ed8 !important;
-  font-weight: 700 !important;
-  border-color: #bfdbfe !important;
-}
-
-:is(.dark) .nextra-navbar nav a:not(.brand-logo)[aria-current="true"],
-:is(.dark) .nextra-navbar nav a:not(.brand-logo)[aria-current="page"],
-:is(.dark) .nextra-navbar nav a:not(.brand-logo)[data-active="true"],
-:is(.dark) .nextra-navbar nav a:not(.brand-logo).active {
-  background-color: rgba(30, 58, 138, 0.45) !important;
-  color: #60a5fa !important;
-  font-weight: 700 !important;
-  border-color: rgba(96, 165, 250, 0.35) !important;
-}
-
-/* Open state for Dropdown button — keeps exact same size, zero layout shift */
-.nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] {
-  background-color: #f1f5f9 !important;
-  color: #1d4ed8 !important;
-  border-color: #e2e8f0 !important;
-  width: auto !important;
-  min-width: 0 !important;
-  box-sizing: border-box !important;
-}
-
-:is(.dark) .nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] {
-  background-color: #334155 !important;
-  color: #93c5fd !important;
-  border-color: #475569 !important;
-}
-
-/* Arrow rotation when open */
-.nextra-navbar button[aria-haspopup="menu"] svg {
-  transition: transform 0.2s ease !important;
-}
-
-.nextra-navbar button[aria-haspopup="menu"][aria-expanded="true"] svg {
-  transform: rotate(270deg) !important;
-}
-
-/* Navbar Action Icons (GitHub, Telegram, Theme toggle, Hamburger) */
-.nextra-navbar a:not(.brand-logo):not([aria-current]) svg,
-.nextra-navbar button:not([aria-haspopup="menu"]) svg,
-.nextra-navbar .nextra-hamburger svg {
-  color: #0f172a !important;
-  transition: color 0.15s ease, transform 0.15s ease !important;
-}
-
-:is(.dark) .nextra-navbar a:not(.brand-logo):not([aria-current]) svg,
-:is(.dark) .nextra-navbar button:not([aria-haspopup="menu"]) svg,
-:is(.dark) .nextra-navbar .nextra-hamburger svg {
-  color: #f8fafc !important;
-}
-
-.nextra-navbar a:not(.brand-logo):hover svg,
-.nextra-navbar button:hover svg {
-  color: #1d4ed8 !important;
-}
-
-:is(.dark) .nextra-navbar a:not(.brand-logo):hover svg,
-:is(.dark) .nextra-navbar button:hover svg {
-  color: #60a5fa !important;
-}
-
-/* Navbar Search Input & Kbd Badges */
-.nextra-search input,
-.nextra-navbar input {
-  font-family: var(--font-serif) !important;
-  font-size: 15.5px !important;
-  color: #0f172a !important;
-  border-color: #cbd5e1 !important;
-}
-
-.nextra-search input::placeholder,
-.nextra-navbar input::placeholder {
-  color: #64748b !important;
-  font-size: 15px !important;
-}
-
-:is(.dark) .nextra-search input,
-:is(.dark) .nextra-navbar input {
-  color: #f8fafc !important;
-  border-color: #475569 !important;
-}
-
-:is(.dark) .nextra-search input::placeholder,
-:is(.dark) .nextra-navbar input::placeholder {
-  color: #94a3b8 !important;
-}
-
-.nextra-search kbd,
-.nextra-navbar kbd {
-  font-size: 12px !important;
-  color: #334155 !important;
-  border-color: #cbd5e1 !important;
-}
-
-:is(.dark) .nextra-search kbd,
-:is(.dark) .nextra-navbar kbd {
-  color: #cbd5e1 !important;
-  border-color: #475569 !important;
-}
-
-/* Dropdown Floating Menu Panel ONLY (Strictly targets the popup menu, never the button) */
-div[role="menu"] {
-  min-width: 220px !important;
-  max-width: 300px !important;
-  width: max-content !important;
-  padding: 6px !important;
-  border-radius: 8px !important;
-  border: 1px solid var(--menu-border) !important;
-  background-color: var(--menu-bg) !important;
-  box-shadow: var(--shadow-dropdown) !important;
-  z-index: 9999 !important;
-  box-sizing: border-box !important;
-}
-
-div[role="menu"] [role="menuitem"],
-div[role="menu"] a {
-  font-family: var(--font-serif) !important;
-  font-size: 16.5px !important;
-  font-weight: 600 !important;
-  border-radius: 5px !important;
-  margin: 2px 0 !important;
-  padding: 8px 14px !important;
-  color: #0f172a !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  white-space: nowrap !important;
-  text-decoration: none !important;
-  box-sizing: border-box !important;
-  transition: background-color 0.15s ease, color 0.15s ease, padding-left 0.15s ease !important;
-}
-
-:is(.dark) div[role="menu"] [role="menuitem"],
-:is(.dark) div[role="menu"] a {
-  color: #f8fafc !important;
-}
-
-div[role="menu"] [role="menuitem"]:hover,
-div[role="menu"] a:hover,
-div[role="menu"] [data-focus] {
-  background-color: #eff6ff !important;
-  color: #1d4ed8 !important;
-  padding-left: 17px !important;
-}
-
-:is(.dark) div[role="menu"] [role="menuitem"]:hover,
-:is(.dark) div[role="menu"] a:hover,
-:is(.dark) div[role="menu"] [data-focus] {
-  background-color: #334155 !important;
-  color: #60a5fa !important;
-  padding-left: 17px !important;
-}
-
-/* Mobile Nav Drawer Items */
-.nextra-mobile-nav a,
-.nextra-mobile-nav button {
-  font-size: 17px !important;
-  font-weight: 600 !important;
-  color: #0f172a !important;
-}
-
-:is(.dark) .nextra-mobile-nav a,
-:is(.dark) .nextra-mobile-nav button {
-  color: #f8fafc !important;
-}
-
-/* --------------------------------------------------------------------------
-   4. Sidebar & Navigation (Enhanced for Deeply Nested Topics)
-   -------------------------------------------------------------------------- */
-/* Sidebar and Column Alignment (Desktop Shared Guideline) */
-@media (min-width: 768px) {
-  /* Sidebar occupies exactly var(--qa-sidebar-width) */
-  .nextra-sidebar,
-  aside.nextra-sidebar,
-  aside.nextra-sidebar.x\:w-64,
-  div.x\:max-xl\:hidden.x\:w-64 {
-    width: var(--qa-sidebar-width) !important;
-    min-width: var(--qa-sidebar-width) !important;
-    max-width: var(--qa-sidebar-width) !important;
-    flex-shrink: 0 !important;
-  }
-
-  /* Placeholder on pages with hidden sidebar (Asosiy, Roadmap) matches var(--qa-sidebar-width) */
-  div.x\:max-xl\:hidden.x\:h-0,
-  div:has(> aside.x\:hidden) > div.x\:max-xl\:hidden,
-  div:has(> aside[class*="hidden"]) > div.x\:max-xl\:hidden {
-    display: block !important;
-    width: var(--qa-sidebar-width) !important;
-    min-width: var(--qa-sidebar-width) !important;
-    max-width: var(--qa-sidebar-width) !important;
-    flex-shrink: 0 !important;
-  }
-
-  /* Article content starts right at var(--qa-sidebar-width), and its text has 13px padding
-     which aligns exactly with the 13px text padding of the navbar tabs (Asosiy, Dokumentatsiya, Roadmap) */
-  article {
-    padding-left: 13px !important;
-    padding-right: 2.5rem !important;
-  }
-}
-
-.nextra-sidebar {
-  scrollbar-width: thin;
-  border-right: 1px solid var(--border-color) !important;
-}
-
-/* Sidebar Wrapper internal padding */
-.nextra-sidebar div[class*="overflow-y-auto"] {
-  padding-left: 10px !important;
-  padding-right: 8px !important;
-}
-
-/* Compact nested indentation: reduce from 24px (12+12) down to 14px (6+8) per level */
-.nextra-sidebar .x\:ms-3 {
-  margin-inline-start: 6px !important;
-}
-
-.nextra-sidebar .x\:ps-3 {
-  padding-inline-start: 8px !important;
-}
-
-/* Prevent awkward word breaks and wrap text elegantly */
-.nextra-sidebar a,
-.nextra-sidebar button,
-.nextra-sidebar li {
-  word-break: normal !important;
-  overflow-wrap: normal !important;
-  white-space: normal !important;
-  text-wrap: pretty !important;
-  hyphens: none !important;
-}
-
-/* Sidebar Links & Buttons */
-.nextra-sidebar a,
-.nextra-sidebar button {
-  font-size: 15.5px !important;
-  line-height: 1.4 !important;
-  padding: 6px 10px !important;
-  border-radius: 6px !important;
-  font-weight: 500 !important;
-}
-
-/* Deep nested levels (level 2+) slight adjustment */
-.nextra-sidebar ul ul a,
-.nextra-sidebar ul ul button {
-  font-size: 14.8px !important;
-  padding: 5px 8px !important;
-}
-
-.nextra-sidebar [data-separator] {
-  font-size: 0.88rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.05em !important;
-  color: var(--text-muted) !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 0.35rem !important;
-  padding-left: 0.75rem !important;
-}
-
-.nextra-sidebar a[aria-current="page"] {
-  background-color: var(--brand-light) !important;
-  color: var(--brand-color) !important;
-  font-weight: 700 !important;
-  border-left: 3px solid var(--brand-color) !important;
-  border-radius: 0 6px 6px 0 !important;
-}
-
-/* --------------------------------------------------------------------------
-   5. Cards Grid & Content Presentation
-   -------------------------------------------------------------------------- */
-.nextra-cards {
-  gap: 1.25rem !important;
-  margin-top: 1.25rem !important;
-  margin-bottom: 1.75rem !important;
-}
-
-.nextra-card {
-  border-radius: 10px !important;
-  border: 1px solid var(--border-color) !important;
-  background-color: var(--bg-surface) !important;
-  padding: 1.25rem 1.4rem !important;
-  box-shadow: var(--shadow-sm) !important;
-  transition: all 0.2s ease !important;
-}
-
-.nextra-card:hover {
-  border-color: var(--brand-color) !important;
-  box-shadow: var(--shadow-md) !important;
-  transform: translateY(-2px) !important;
-}
-
-.nextra-card > span {
-  font-size: 1.22rem !important;
-  font-weight: 700 !important;
-  color: var(--text-primary) !important;
-}
-
-.nextra-card:hover > span {
-  color: var(--brand-color) !important;
-}
-
-.nextra-card p {
-  font-size: 1.05rem !important;
-  line-height: 1.6 !important;
-  color: var(--text-secondary) !important;
-  margin-top: 0.45rem !important;
-}
-
-/* --------------------------------------------------------------------------
-   6. Home Page Layout (Classical Academic Portal)
-   -------------------------------------------------------------------------- */
-.portal-header {
-  padding: 1.5rem 0 1rem 0;
-  border-bottom: 2px solid var(--border-color);
-  margin-bottom: 2rem;
-}
-
-.portal-title {
-  font-size: 2.3rem !important;
-  font-weight: 700 !important;
-  line-height: 1.2 !important;
-  color: var(--text-primary) !important;
-  margin-bottom: 0.75rem !important;
-}
-
-.portal-subtitle {
-  font-size: 1.12rem !important;
-  line-height: 1.65 !important;
-  color: var(--text-secondary) !important;
-  max-width: 850px;
-  margin-bottom: 1.25rem !important;
-}
-
-.portal-nav-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 1rem;
-}
-
-.portal-nav-link {
+.status-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.15s ease;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  font-size: 0.825rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.portal-nav-link-primary {
-  background-color: #1e3a8a;
+.status-dot-wrapper {
+  position: relative;
+  display: flex;
+  height: 0.55rem;
+  width: 0.55rem;
+}
+
+.status-dot-ping {
+  position: absolute;
+  display: inline-flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 9999px;
+  background-color: #34d399;
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.status-dot {
+  position: relative;
+  display: inline-flex;
+  border-radius: 9999px;
+  height: 0.55rem;
+  width: 0.55rem;
+  background-color: #10b981;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.hero-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+.hero-gradient-text {
+  background: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 42rem;
+  margin: 0 auto 2rem auto;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
   color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+  transition: all 0.2s ease;
 }
 
-.portal-nav-link-primary:hover {
-  background-color: #1e40af;
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
 }
 
-.portal-nav-link-secondary {
-  background-color: var(--bg-surface);
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.75rem;
+  background: var(--bg-surface);
   color: var(--text-primary) !important;
   border: 1px solid var(--border-color);
-}
-
-.portal-nav-link-secondary:hover {
-  background-color: var(--bg-subtle);
-  border-color: var(--border-hover);
-}
-
-/* Overview Summary Box */
-.portal-summary-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 16px;
-  margin: 1.5rem 0 2rem 0;
-}
-
-.portal-summary-card {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.1rem 1.25rem;
-  background-color: var(--bg-surface);
-}
-
-.portal-summary-card h4,
-.portal-card-title {
-  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
 }
 
-.portal-summary-card p,
-.portal-card-desc {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  margin: 0;
+.btn-secondary:hover {
+  background: var(--bg-subtle);
+  border-color: #10b981;
+  transform: translateY(-2px);
 }
 
 /* --------------------------------------------------------------------------
-   7. Tables & Callouts
+   4. Nextra Cards Glassmorphism & Hover Glow
+   -------------------------------------------------------------------------- */
+.nextra-card,
+[data-nextra-card] {
+  position: relative !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 1rem !important;
+  padding: 1.25rem 1.5rem !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden !important;
+}
+
+.nextra-card:hover,
+[data-nextra-card]:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(16, 185, 129, 0.55) !important;
+  box-shadow: 
+    0 12px 28px -8px var(--card-hover-glow),
+    0 0 0 1px rgba(16, 185, 129, 0.25) !important;
+}
+
+.nextra-card h3,
+[data-nextra-card] h3 {
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  font-size: 1.15rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Tables, Callouts & Content Enhancements
    -------------------------------------------------------------------------- */
 article table {
   width: 100% !important;
   margin: 1.5rem 0 !important;
   border-collapse: collapse !important;
   border: 1px solid var(--border-color) !important;
-  font-size: 1.05rem !important;
+  font-size: 1.025rem !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden !important;
 }
 
 article th {
@@ -697,7 +301,6 @@ article th {
   padding: 0.85rem 1.1rem !important;
   border: 1px solid var(--border-color) !important;
   text-align: left !important;
-  font-size: 1.05rem !important;
 }
 
 article td {
@@ -705,7 +308,6 @@ article td {
   border: 1px solid var(--border-color) !important;
   color: var(--text-secondary) !important;
   line-height: 1.6 !important;
-  font-size: 1.05rem !important;
 }
 
 article tr:hover td {
@@ -713,9 +315,30 @@ article tr:hover td {
 }
 
 .nextra-callout {
-  border-radius: 8px !important;
+  border-radius: 0.875rem !important;
   border: 1px solid var(--border-color) !important;
   padding: 1.1rem 1.35rem !important;
-  font-size: 1.08rem !important;
-  line-height: 1.7 !important;
+  font-size: 1.05rem !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* --------------------------------------------------------------------------
+   6. Custom Scrollbar
+   -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
 }

@@ -1,18 +1,30 @@
 export default {
   index: {
-    title: 'Asosiy',
+    title: 'Bosh Sahifa',
     type: 'page',
+    display: 'hidden',
     theme: {
+      layout: 'full',
       sidebar: false,
       toc: false
     }
   },
   docs: {
-    title: 'Dokumentatsiya',
+    title: '📘 Fundamentals & Artifacts',
     type: 'page'
   },
+  technical: {
+    title: '⚙️ Technical & WebSockets',
+    type: 'page',
+    href: '/docs/networks/socket-websocket'
+  },
+  templates: {
+    title: '📑 Templates & Metrics',
+    type: 'page',
+    href: '/docs/test-documentation/software-test-metrics'
+  },
   roadmap: {
-    title: 'Roadmap',
+    title: '🗺️ Roadmap',
     type: 'page',
     theme: {
       sidebar: false,
