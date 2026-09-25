@@ -30,20 +30,6 @@ const themeConfig = {
       >
         QA Compass
       </span>
-      <span
-        style={{
-          fontSize: '0.65rem',
-          fontWeight: 700,
-          letterSpacing: '0.05em',
-          padding: '0.125rem 0.5rem',
-          borderRadius: '9999px',
-          backgroundColor: 'rgba(16, 185, 129, 0.12)',
-          color: '#10b981',
-          border: '1px solid rgba(16, 185, 129, 0.25)'
-        }}
-      >
-        v2.0
-      </span>
     </div>
   ),
 

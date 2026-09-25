@@ -54,9 +54,6 @@ const CompassLogo = () => (
     <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent">
       QA Compass
     </span>
-    <span className="text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-      v2.0
-    </span>
   </span>
 )
 
