@@ -1,15 +1,13 @@
-import { Tinos, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
 import './globals.css'
 
-const tinos = Tinos({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-times',
+  variable: '--font-sans',
   display: 'swap',
 })
 
@@ -22,18 +20,18 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   title: {
     template: '%s | QA COMPASS',
-    default: "QA COMPASS — O'zbekcha QA Qo'llanmasi"
+    default: "QA COMPASS — Sifat Kafolati (QA) Bo'yicha Zamonaviy Bilimlar Bazasi"
   },
-  description: "Yangi o'rganuvchilar va tajribali QA muhandislari uchun to'liq bepul ochiq manbali bilimlar bazasi.",
-  keywords: ['QA', 'Software Testing', 'Manual Testing', 'Automation Testing', 'Playwright', 'Postman', 'SDET', 'Uzbekistan QA']
+  description: "Dasturiy ta'minot sifati (QA), ISTQB standartlari, test hujjatlari, tarmoq protokollari va zamonaviy sinov vositalari bo'yicha to'liq o'zbek tilidagi ochiq platforma.",
+  keywords: ['QA', 'Software Testing', 'Manual Testing', 'Automation Testing', 'ISTQB', 'WebSockets', 'Bug Report', 'Test Plan', 'QA Uzbekistan']
 }
 
 const banner = (
-  <Banner storageKey="qa-compass-v2-release">
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>
-      <span style={{ backgroundColor: '#10b981', color: '#ffffff', padding: '0.1rem 0.4rem', borderRadius: '0.25rem', fontSize: '0.7rem', fontWeight: 800 }}>YANGI</span>
+  <Banner storageKey="qa-compass-v2-banner">
+    <div className="flex items-center justify-center gap-2 text-xs sm:text-sm">
+      <span className="bg-emerald-500 text-white font-bold px-1.5 py-0.5 rounded text-[11px]">v2.0</span>
       <span>
-        <strong>QA Compass v2.0</strong> reliz qilindi! Yangilangan veb-soketlar va test metrikalari bilan tanishing →
+        <strong>QA Compass 2.0</strong> reliz qilindi! Yangilangan Veb-soketlar va Test Metrikalari bilan tanishing →
       </span>
     </div>
   </Banner>
@@ -45,52 +43,26 @@ const TelegramIcon = (
   </svg>
 )
 
+const CompassLogo = () => (
+  <span className="flex items-center gap-2.5 font-bold tracking-tight select-none">
+    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-500 shadow-sm transition-transform hover:scale-105">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" stroke="#10b981" strokeOpacity="0.4" />
+        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="#10b981" stroke="#059669" />
+      </svg>
+    </span>
+    <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent">
+      QA Compass
+    </span>
+    <span className="text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+      v2.0
+    </span>
+  </span>
+)
+
 const navbar = (
   <Navbar
-    logo={
-      <span style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontWeight: 800 }}>
-        <span
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '2rem',
-            height: '2rem',
-            borderRadius: '0.5rem',
-            backgroundColor: 'rgba(16, 185, 129, 0.12)',
-            border: '1px solid rgba(16, 185, 129, 0.3)',
-            fontSize: '1.15rem'
-          }}
-        >
-          🧭
-        </span>
-        <span
-          style={{
-            fontSize: '1.25rem',
-            fontWeight: 800,
-            background: 'linear-gradient(to right, #10b981, #14b8a6, #06b6d4)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}
-        >
-          QA Compass
-        </span>
-        <span
-          style={{
-            fontSize: '0.65rem',
-            fontWeight: 700,
-            letterSpacing: '0.05em',
-            padding: '0.125rem 0.5rem',
-            borderRadius: '9999px',
-            backgroundColor: 'rgba(16, 185, 129, 0.12)',
-            color: '#10b981',
-            border: '1px solid rgba(16, 185, 129, 0.25)'
-          }}
-        >
-          v2.0
-        </span>
-      </span>
-    }
+    logo={<CompassLogo />}
     projectLink="https://github.com/Ergashov15/qa-uzbekistan"
     chatLink="https://t.me"
     chatIcon={TelegramIcon}
@@ -100,26 +72,26 @@ const navbar = (
 
 const footer = (
   <Footer>
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', fontSize: '0.85rem' }}>
+    <div className="flex flex-col sm:flex-row items-center justify-between w-full text-xs text-neutral-500 dark:text-neutral-400 gap-2">
       <span>
         MIT {new Date().getFullYear()} ©{' '}
-        <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer" style={{ color: '#10b981', fontWeight: 600 }}>
+        <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
           QA Compass
         </a>
-        . Ochiq manbali ta'lim platformasi.
+        . Ochiq manbali bilimlar bazasi.
       </span>
-      <span>Sifat madaniyati bilan yaratilgan 💚</span>
+      <span>Xalqaro standartlar va sifat madaniyati bilan yaratilgan 💚</span>
     </div>
   </Footer>
 )
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="uz" dir="ltr" className={`${tinos.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+    <html lang="uz" dir="ltr" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <body>
+      <body className="font-sans antialiased">
         <Layout
           banner={banner}
           navbar={navbar}

@@ -10,21 +10,11 @@ export default {
     }
   },
   docs: {
-    title: '📘 Fundamentals & Artifacts',
+    title: 'Qo‘llanma',
     type: 'page'
   },
-  technical: {
-    title: '⚙️ Technical & WebSockets',
-    type: 'page',
-    href: '/docs/networks/socket-websocket'
-  },
-  templates: {
-    title: '📑 Templates & Metrics',
-    type: 'page',
-    href: '/docs/test-documentation/software-test-metrics'
-  },
   roadmap: {
-    title: '🗺️ Roadmap',
+    title: 'Yo‘l Xaritasi',
     type: 'page',
     theme: {
       sidebar: false,

@@ -1,50 +1,68 @@
-import { Cards, Callout } from 'nextra/components'
+import { Cards } from 'nextra/components'
 
-<div className="hero-container">
+<div className="hero-wrapper">
   {/* Status indikatori */}
-  <div className="status-badge">
+  <div className="status-pill">
     <span className="status-dot-wrapper">
       <span className="status-dot-ping"></span>
       <span className="status-dot"></span>
     </span>
-    Jonli Bilimlar Bazasi • QA Compass v2.0
+    ✨ QA Compass 2.0 • Sifat kafolati bo‘yicha ochiq bilimlar bazasi
   </div>
 
   {/* Katta Gradient Sarlavha */}
-  <h1 className="hero-title">
-    Sifatni Kafolatlash Uchun <br />
-    <span className="hero-gradient-text">
-      Yagona Kompas
-    </span>
+  <h1 className="hero-main-title">
+    Dasturiy Ta'minot Sifatini <br />
+    Kafolatlash Uchun <span className="hero-gradient-text">Yagona Kompas</span>
   </h1>
 
   {/* Qisqacha ta'rif */}
-  <p className="hero-description">
-    Dasturiy ta'minot sinovi asoslari, test artefaktlari, real-time tarmoq protokollari hamda xalqaro ISTQB standartlari bo'yicha to'liq o'zbek tilidagi professional bilimlar bazasi.
+  <p className="hero-lead">
+    Software testing asoslari, xalqaro ISTQB standartlari, real-time tarmoq protokollari (WebSockets), test hujjatlari va amaliy metodologiyalar bo‘yicha to‘liq o‘zbek tilidagi professional portal.
   </p>
 
   {/* Boshqaruv tugmalari */}
-  <div className="hero-buttons">
+  <div className="hero-actions">
     <a
-      href="/docs/test-documentation"
-      className="btn-primary"
+      href="/docs/software-testing"
+      className="btn-primary-action"
     >
-      O'rganishni Boshlash →
+      Qo‘llanmaga O‘tish →
     </a>
     <a
-      href="/docs/networks/socket-websocket/testing-websockets-on-clients"
-      className="btn-secondary"
+      href="/roadmap"
+      className="btn-secondary-action"
     >
-      WebSockets & Burp Suite
+      🗺️ Yo‘l Xaritasi (Roadmap)
     </a>
+  </div>
+
+  {/* Micro-stats Bar */}
+  <div className="stats-container">
+    <div className="stat-item">
+      <span className="stat-number">130+</span>
+      <span className="stat-label">Amaliy Mavzular</span>
+    </div>
+    <div className="stat-item">
+      <span className="stat-number">11</span>
+      <span className="stat-label">Asosiy Bo‘lim</span>
+    </div>
+    <div className="stat-item">
+      <span className="stat-number">100%</span>
+      <span className="stat-label">O‘zbek Tilida</span>
+    </div>
+    <div className="stat-item">
+      <span className="stat-number">CTFL 4.0</span>
+      <span className="stat-label">ISTQB Standart</span>
+    </div>
   </div>
 </div>
 
 ---
 
-## 🧭 Asosiy Yo'nalishlar (Bento Grid)
+## 🧭 Asosiy Yo‘nalishlar (Bento Grid)
 
-Platformaning barcha eng muhim bo'limlari qulay kartalar shaklida jamlandi:
+Eng ko‘p murojaat qilinadigan professional sinov bo‘limlari:
 
 <Cards num={3}>
   <Cards.Card
@@ -52,28 +70,28 @@ Platformaning barcha eng muhim bo'limlari qulay kartalar shaklida jamlandi:
     title="Test Artefaktlari"
     href="/docs/test-documentation/test-plan"
   >
-    Test Plan, Test Case, Test Scenario va Checklist yuritish standartlari.
+    IEEE 829 standarti bo‘yicha Test Plan, Test Case, Test Scenario va Checklist yuritish.
   </Cards.Card>
   <Cards.Card
     icon="⚡"
     title="WebSockets & Sniffing"
     href="/docs/networks/socket-websocket/testing-websockets-on-clients"
   >
-    Burp Suite va OWASP ZAP orqali real-time freymlarni tutish va modifikatsiya qilish.
+    Burp Suite va OWASP ZAP orqali mijozlarda real-time freymlarni tutib o‘zgartirish.
   </Cards.Card>
   <Cards.Card
     icon="📊"
     title="Metrikalar va RTM"
     href="/docs/test-documentation/software-test-metrics"
   >
-    Defect Density, DRE formulalari va Talablar Kuzatuvchanlik Matritsasi.
+    Defect Density, DRE formulalari va 100% qamrovni kafolatlovchi Kuzatuvchanlik Matritsasi.
   </Cards.Card>
   <Cards.Card
     icon="🐛"
     title="Bug Life Cycle"
     href="/docs/test-documentation/bug-report"
   >
-    Mukammal xatolik hisoboti tuzish, Severity va Priority darajalari tahlili.
+    Mukammal xatolik hisoboti tuzish, Severity va Priority darajalarini to‘g‘ri belgilash.
   </Cards.Card>
   <Cards.Card
     icon="🎯"
@@ -87,26 +105,15 @@ Platformaning barcha eng muhim bo'limlari qulay kartalar shaklida jamlandi:
     title="Sifat va Test Siyosati"
     href="/docs/test-documentation/quality-policy"
   >
-    ISO 29119 standartlari, tashkilot sifat falsafasi va mustaqil QA tamoyillari.
+    ISO 9001/29119 standartlari, tashkilot sifat madaniyati va mustaqil sinov tamoyillari.
   </Cards.Card>
 </Cards>
 
 ---
 
-## ⚡ Tezkor Havolalar (Quick Links)
+## 📚 To‘liq Bilimlar Katalogi (11 ta Bo‘lim)
 
-Eng ko'p o'qiladigan va amaliyotda har kuni kerak bo'ladigan yo'riqnomalar:
-
-- [📌 Xatolik Hisoboti (Bug Report) Shabloni](/docs/test-documentation/bug-report#4-toliq-namunaviy-bug-report) — Dasturchiga xatoni tezkor tushuntirish formati.
-- [📌 IEEE 829 Standarti Bo'yicha Test Plan 16 Bo'limi](/docs/test-documentation/test-plan#2-ieee-829-standarti-boyicha-16-ta-klassik-bolim) — Klassik reja tuzilishi.
-- [📌 Burp Suite orqali WebSocket Interception](/docs/networks/socket-websocket/testing-websockets-on-clients#2-burp-suite-orqali-veb-soketlarni-sinash) — Mobil va vebda xabarlarni to'xtatib o'zgartirish.
-- [📌 RTM Matritsasi Namunasi](/docs/test-documentation/requirement-traceability-matrix#2-namunaviy-rtm-jadvali-amaliy-misol) — 100% test qamrovini kafolatlash jadvali.
-
----
-
-## 📚 Barcha Bilimlar Katalogi
-
-Qo'shimcha ravishda platformamizdagi barcha ixtisoslashgan modullar bilan tanishishingiz mumkin:
+Platformadagi barcha tizimlashtirilgan o‘quv modullari:
 
 <Cards num={3}>
   <Cards.Card
@@ -114,41 +121,94 @@ Qo'shimcha ravishda platformamizdagi barcha ixtisoslashgan modullar bilan tanish
     title="Software Testing Asoslari"
     href="/docs/software-testing"
   >
-    SDLC, STLC, 7 ta oltin tamoyil, sinov darajalari va metodologiyalar.
+    SDLC, STLC, 7 ta oltin tamoyil, sinov darajalari va ATDD yondashuvi.
   </Cards.Card>
   <Cards.Card
     icon="🔄"
     title="SDLC Modellari"
     href="/docs/sdlc-models"
   >
-    Sharshara (Waterfall), Spiral, Gibrid, Prototip va V-Model tahlili.
+    Sharshara (Waterfall), Spiral, Gibrid, Prototip va V-Model qiyosiy tahlili.
   </Cards.Card>
   <Cards.Card
     icon="🌐"
     title="Tarmoqlar va Web Asoslari"
     href="/docs/networks"
   >
-    Client-Server modeli, HTTP/HTTPS protokollari, Kesh va REST/SOAP/gRPC.
+    Client-Server modeli, HTTP/HTTPS, Kesh, Cookie, REST/SOAP/gRPC va WebSockets.
   </Cards.Card>
   <Cards.Card
     icon="🏆"
     title="ISTQB Foundation (CTFL 4.0)"
     href="/docs/istqb-foundation"
   >
-    Xalqaro sertifikatlash dasturining 6 ta bobi va imtihon savollari tahlili.
+    Xalqaro sertifikatlash dasturining 6 ta bobi va imtihonga tayyorgarlik.
   </Cards.Card>
   <Cards.Card
     icon="📱"
     title="Mobil Ilovalarni Sinash"
     href="/docs/mobile-testing"
   >
-    Android va iOS tizimlarini sinash, Interrupt testing, ADB va proksilar.
+    Android va iOS tizimlarini sinash, Interrupt testing, ADB va tarmoq proksilari.
   </Cards.Card>
   <Cards.Card
     icon="🧪"
-    title="Sinov Turlari Katalogi (34+ tur)"
+    title="Sinov Turlari (34+ tur)"
     href="/docs/types-of-testing"
   >
-    Qo'lda sinash, avtomatlashtirish, Regressiya, Smoke, Sanity va boshqalar.
+    Qo‘lda sinash, avtomatlashtirish, Regressiya, Smoke, Sanity, Yuklama va Xavfsizlik.
+  </Cards.Card>
+  <Cards.Card
+    icon="📐"
+    title="Test Texnikalari"
+    href="/docs/test-techniques"
+  >
+    Ekvivalentlik sinflari (EP), chegaraviy qiymatlar (BVA) va qarorlar jadvali.
+  </Cards.Card>
+  <Cards.Card
+    icon="📑"
+    title="Test Hujjatlari (16 ta artefakt)"
+    href="/docs/test-documentation"
+  >
+    Test Plan, RTM, Test Keyslar, Bug Report va barcha turdagi hisobotlar.
+  </Cards.Card>
+  <Cards.Card
+    icon="🎯"
+    title="Test Menejment"
+    href="/docs/test-management"
+  >
+    Resurslarni rejalashtirish, xatarlarni boshqarish va jamoa unumdorligi.
+  </Cards.Card>
+  <Cards.Card
+    icon="🔍"
+    title="Nuqsonlarni Kuzatish"
+    href="/docs/defect-tracking"
+  >
+    Jira, TestRail ish oqimlari, xatoliklar statistikasi va triage jarayoni.
+  </Cards.Card>
+  <Cards.Card
+    icon="🛠️"
+    title="Sinov Vositalari (Tools)"
+    href="/docs/testing-tools"
+  >
+    Postman, Charles, Burp Suite, Playwright, Selenium va Allure Reports.
+  </Cards.Card>
+  <Cards.Card
+    icon="🗺️"
+    title="QA Karyera Yo‘l Xaritasi"
+    href="/roadmap"
+  >
+    Junior darajasidan Senior/Lead darajasigacha bo‘lgan bosqichma-bosqich yo‘riqnoma.
   </Cards.Card>
 </Cards>
+
+---
+
+## ⚡ Tezkor Ma'lumotnomalar (Cheat Sheets)
+
+Eng ko‘p o‘qiladigan va amaliyotda har kuni kerak bo‘ladigan yo‘riqnomalar:
+
+- [📌 Xatolik Hisoboti (Bug Report) Shabloni](/docs/test-documentation/bug-report#4-toliq-namunaviy-bug-report) — Dasturchiga xatoni tezkor tushuntirish formati.
+- [📌 IEEE 829 Standarti Bo‘yicha Test Plan 16 Bo‘limi](/docs/test-documentation/test-plan#2-ieee-829-standarti-boyicha-16-ta-klassik-bolim) — Klassik reja tuzilishi.
+- [📌 Burp Suite orqali WebSocket Interception](/docs/networks/socket-websocket/testing-websockets-on-clients#2-burp-suite-orqali-veb-soketlarni-sinash) — Mobil va vebda xabarlarni to‘xtatib o‘zgartirish.
+- [📌 RTM Matritsasi Namunasi](/docs/test-documentation/requirement-traceability-matrix#2-namunaviy-rtm-jadvali-amaliy-misol) — 100% test qamrovini kafolatlash jadvali.

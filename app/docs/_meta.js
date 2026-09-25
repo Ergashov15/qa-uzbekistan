@@ -1,85 +1,39 @@
 export default {
   index: {
-    title: 'Asosiy',
+    title: 'Katalogga Kirish',
     theme: {
       breadcrumb: false
     }
   },
-  '-- st-sep': {
+
+  '-- fundamentals-sep': {
     type: 'separator',
-    title: 'Dasturiy Sinov'
+    title: 'Fundamental Nazariya'
   },
-  'software-testing': {
-    title: 'Software Testing Asoslari'
-  },
-  '-- sdlc-sep': {
+  'software-testing': 'Software Testing Asoslari',
+  'sdlc-models': 'SDLC Modellari',
+  'istqb-foundation': 'ISTQB Foundation (CTFL v4.0)',
+
+  '-- practice-sep': {
     type: 'separator',
-    title: 'SDLC Modellari'
+    title: 'Sinov Amaliyoti va Texnikalar'
   },
-  'sdlc-models': {
-    title: 'SDLC Modellari'
-  },
-  '-- tot-sep': {
+  'types-of-testing': 'Sinov Turlari Katalogi (34+)',
+  'test-techniques': 'Test Texnikalari (Test Design)',
+  'mobile-testing': 'Mobil Ilovalarni Sinash (Mobile QA)',
+
+  '-- docs-sep': {
     type: 'separator',
-    title: 'Sinov Turlari'
+    title: 'Test Hujjatlari va Boshqaruv'
   },
-  'types-of-testing': {
-    title: 'Sinov Turlari Katalogi'
-  },
-  '-- td-sep': {
+  'test-documentation': 'Test Hujjatlari (Artifacts & RTM)',
+  'test-management': 'Test Menejment',
+  'defect-tracking': 'Nuqsonlarni Kuzatish (Bug Tracking)',
+
+  '-- tech-sep': {
     type: 'separator',
-    title: 'Test Hujjatlari'
+    title: 'Tarmoqlar va Vositalar'
   },
-  'test-documentation': {
-    title: 'Test Hujjatlari'
-  },
-  '-- istqb-sep': {
-    type: 'separator',
-    title: 'ISTQB Standartlari'
-  },
-  'istqb-foundation': {
-    title: 'ISTQB Foundation (CTFL)'
-  },
-  '-- tt-sep': {
-    type: 'separator',
-    title: 'Test Texnikalari'
-  },
-  'test-techniques': {
-    title: 'Test Texnikalari'
-  },
-  '-- tm-sep': {
-    type: 'separator',
-    title: 'Test Menejment'
-  },
-  'test-management': {
-    title: 'Test Menejment'
-  },
-  '-- dt-sep': {
-    type: 'separator',
-    title: 'Nuqsonlarni Kuzatish'
-  },
-  'defect-tracking': {
-    title: 'Nuqsonlarni Kuzatish'
-  },
-  '-- ttls-sep': {
-    type: 'separator',
-    title: 'Sinov Vositalari'
-  },
-  'testing-tools': {
-    title: 'Sinov Vositalari'
-  },
-  '-- mob-sep': {
-    type: 'separator',
-    title: 'Mobil Sinov'
-  },
-  'mobile-testing': {
-    title: 'Mobil Sinov (Mobile QA)'
-  },
-  '-- net-sep': {
-    type: 'separator',
-    title: 'Tarmoqlar'
-  },
-  networks: {
-    title: 'Tarmoqlar va Web Asoslari'
-  }
+  networks: 'Tarmoqlar va Web Asoslari',
+  'testing-tools': 'Sinov Vositalari (Tools)'
 }
