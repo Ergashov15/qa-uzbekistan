@@ -1,5 +1,5 @@
 export default {
-  index: '🧪 Sinov Turlari Markazi',
+  index: 'Sinov Turlari',
   'manual-testing': "Qo'lda sinash (Manual Testing)",
   'regression-testing': 'Regressiya sinovi (Regression Testing)',
   'smoke-testing': 'Tutun sinovi (Smoke Testing)',

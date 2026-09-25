@@ -3,31 +3,47 @@ import React from 'react'
 const themeConfig = {
   // 🧭 Logotip
   logo: (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', userSelect: 'none' }}>
+    <div
+      style={{
+        display: 'inline-flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: '1.25rem',
+        userSelect: 'none',
+        whiteSpace: 'nowrap'
+      }}
+    >
       <img
         src="/logo.png"
-        alt="QA Compass Logo"
+        alt=""
+        aria-hidden="true"
         style={{
-          width: '2rem',
-          height: '2rem',
+          width: '2.8rem',
+          height: '2.8rem',
+          minWidth: '2.8rem',
+          minHeight: '2.8rem',
           borderRadius: '50%',
           objectFit: 'cover',
-          border: '1px solid rgba(16, 185, 129, 0.3)',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
+          flexShrink: 0,
+          border: '2px solid rgba(16, 185, 129, 0.4)',
+          boxShadow: '0 2px 8px rgba(16, 185, 129, 0.25)'
         }}
       />
       <span
         style={{
-          fontSize: '1.25rem',
+          fontSize: '1.75rem',
           fontWeight: 900,
-          letterSpacing: '-0.025em',
+          letterSpacing: '0.02em',
+          lineHeight: 1,
+          whiteSpace: 'nowrap',
+          display: 'inline-block',
           background: 'linear-gradient(to right, #10b981, #14b8a6, #06b6d4)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           fontFamily: 'var(--font-sans), system-ui, sans-serif'
         }}
       >
-        QA Compass
+        QA&nbsp;Compass
       </span>
     </div>
   ),

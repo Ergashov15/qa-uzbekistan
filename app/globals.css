@@ -392,3 +392,15 @@ article tr:hover td {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(16, 185, 129, 0.5);
 }
+
+/* Ensure navbar logo and text are always strictly on one horizontal row */
+header a[href="/"],
+nav a[href="/"],
+.nextra-nav-container a:first-child {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  flex-wrap: nowrap !important;
+}
+

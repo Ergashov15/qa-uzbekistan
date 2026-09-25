@@ -45,17 +45,45 @@ const TelegramIcon = (
 )
 
 const CompassLogo = () => (
-  <span className="flex items-center gap-2.5 select-none">
+  <span
+    className="inline-flex flex-row items-center gap-5 select-none whitespace-nowrap"
+    style={{
+      display: 'inline-flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: '1.25rem',
+      whiteSpace: 'nowrap'
+    }}
+  >
     <Image
       src="/logo.png"
-      alt="QA Compass Logo"
-      width={32}
-      height={32}
-      className="w-8 h-8 rounded-full object-cover ring-1 ring-emerald-500/30 shadow-sm transition-transform hover:scale-105"
+      alt=""
+      aria-hidden="true"
+      width={46}
+      height={46}
+      className="w-[46px] h-[46px] rounded-full object-cover shrink-0 shadow-md ring-2 ring-emerald-500/40 transition-transform duration-200 hover:scale-105"
+      style={{
+        width: '46px',
+        height: '46px',
+        minWidth: '46px',
+        minHeight: '46px',
+        borderRadius: '50%',
+        flexShrink: 0
+      }}
       priority
     />
-    <span className="text-[1.25rem] font-black tracking-tight bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent font-sans">
-      QA Compass
+    <span
+      className="text-2xl sm:text-3xl font-black tracking-normal leading-none whitespace-nowrap bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent font-sans"
+      style={{
+        fontWeight: 900,
+        fontSize: '1.75rem',
+        letterSpacing: '0.02em',
+        lineHeight: 1,
+        whiteSpace: 'nowrap',
+        display: 'inline-block'
+      }}
+    >
+      QA&nbsp;Compass
     </span>
   </span>
 )
