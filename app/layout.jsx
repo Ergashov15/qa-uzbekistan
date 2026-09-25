@@ -77,7 +77,7 @@ const footer = (
         </a>
         . Ochiq manbali bilimlar bazasi.
       </span>
-      <span>Xalqaro standartlar va sifat madaniyati bilan yaratilgan 💚</span>
+      <span>Xalqaro standartlar va sifat madaniyati bilan yaratilgan</span>
     </div>
   </Footer>
 )

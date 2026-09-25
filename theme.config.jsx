@@ -91,7 +91,7 @@ const themeConfig = {
     text: (
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', fontSize: '0.8rem', color: '#6b7280' }}>
         <span>MIT {new Date().getFullYear()} © QA Compass. Ochiq manbali bilimlar platformasi.</span>
-        <span>Sifat madaniyati bilan yaratilgan 💚</span>
+        <span>Sifat madaniyati bilan yaratilgan</span>
       </div>
     ),
   },
