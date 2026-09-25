@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
@@ -44,14 +45,16 @@ const TelegramIcon = (
 )
 
 const CompassLogo = () => (
-  <span className="flex items-center gap-2.5 font-bold tracking-tight select-none">
-    <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 text-emerald-500 shadow-sm transition-transform hover:scale-105">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" stroke="#10b981" strokeOpacity="0.4" />
-        <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="#10b981" stroke="#059669" />
-      </svg>
-    </span>
-    <span className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent">
+  <span className="flex items-center gap-2.5 select-none">
+    <Image
+      src="/logo.png"
+      alt="QA Compass Logo"
+      width={32}
+      height={32}
+      className="w-8 h-8 rounded-full object-cover ring-1 ring-emerald-500/30 shadow-sm transition-transform hover:scale-105"
+      priority
+    />
+    <span className="text-[1.25rem] font-black tracking-tight bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent font-sans">
       QA Compass
     </span>
   </span>

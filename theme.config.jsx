@@ -1,31 +1,30 @@
 import React from 'react'
 
 const themeConfig = {
-  // 🧭 Logotip va versiya nishoni
+  // 🧭 Logotip
   logo: (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontWeight: 'bold' }}>
-      <span
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', userSelect: 'none' }}>
+      <img
+        src="/logo.png"
+        alt="QA Compass Logo"
         style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
           width: '2rem',
           height: '2rem',
-          borderRadius: '0.5rem',
-          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          borderRadius: '50%',
+          objectFit: 'cover',
           border: '1px solid rgba(16, 185, 129, 0.3)',
-          fontSize: '1.15rem'
+          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.2)'
         }}
-      >
-        🧭
-      </span>
+      />
       <span
         style={{
           fontSize: '1.25rem',
-          fontWeight: 800,
+          fontWeight: 900,
+          letterSpacing: '-0.025em',
           background: 'linear-gradient(to right, #10b981, #14b8a6, #06b6d4)',
           WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
+          WebkitTextFillColor: 'transparent',
+          fontFamily: 'var(--font-sans), system-ui, sans-serif'
         }}
       >
         QA Compass
