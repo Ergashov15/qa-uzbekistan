@@ -118,6 +118,27 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+/* Page ichidagi matn va ma'lumotlarni ikki tomonga tekislash (Justify) */
+main p,
+article p,
+main li,
+article li,
+.nextra-content p,
+.nextra-content li {
+  text-align: justify !important;
+  text-justify: inter-word;
+}
+
+/* Kod bloklari va maxsus elementlar chapga tekislangan holda qoladi */
+main pre,
+main pre *,
+main code,
+article pre,
+article pre *,
+article code {
+  text-align: left !important;
+}
+
 /* --------------------------------------------------------------------------
    3. Hero Section, Stats & Status Badge Styles
    -------------------------------------------------------------------------- */
@@ -403,4 +424,634 @@ nav a[href="/"],
   white-space: nowrap !important;
   flex-wrap: nowrap !important;
 }
+
+/* --------------------------------------------------------------------------
+   Header & Navbar: Full-Width Expansion & Non-Truncating Navigation Links
+   -------------------------------------------------------------------------- */
+
+/* 1. Header va Navbarni ikki yoniga to'liq kengaytirish */
+header.nextra-navbar {
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+  overflow-x: clip !important;
+}
+
+header.nextra-navbar nav,
+header nav {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: clamp(1rem, 2.5vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 2.5vw, 2.5rem) !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.875rem !important;
+  overflow-x: visible !important;
+}
+
+/* 2. Logo chap tomonda o'z to'liq enini saqlaydi */
+header nav a[href="/"],
+nav a[href="/"] {
+  flex-shrink: 0 !important;
+  margin-inline-end: auto !important;
+}
+
+/* 3. Nav links konteyneri: o'ng tomonda joylashgan, hech qachon siqilmaydigan pill bar */
+header nav div:has(> a[href="/docs"]),
+nav div:has(> a[href="/docs"]),
+header nav .x\:overflow-x-auto,
+nav .x\:overflow-x-auto {
+  margin-inline-start: auto !important;
+  margin-inline-end: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  min-width: max-content !important;
+  width: auto !important;
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  gap: 0.35rem !important;
+  padding: 0.25rem 0.35rem !important;
+  background: rgba(16, 185, 129, 0.05) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-radius: 9999px !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+:is(.dark) header nav div:has(> a[href="/docs"]),
+:is(.dark) nav div:has(> a[href="/docs"]),
+:is(.dark) header nav .x\:overflow-x-auto,
+:is(.dark) nav .x\:overflow-x-auto {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Scrollbarni butunlay yo'q qilish */
+header nav div:has(> a[href="/docs"])::-webkit-scrollbar,
+nav div:has(> a[href="/docs"])::-webkit-scrollbar,
+header nav .x\:overflow-x-auto::-webkit-scrollbar,
+nav .x\:overflow-x-auto::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 4. "Qo‘llanma" va "Yo‘l Xaritasi" tugmalari: matn HECH QACHON kesilmaydi, to'liq ko'rinadi */
+header nav a[href="/docs"],
+header nav a[href="/roadmap"],
+nav a[href="/docs"],
+nav a[href="/roadmap"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  min-width: max-content !important;
+  width: auto !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  padding: 0.45rem 1.15rem !important;
+  border-radius: 9999px !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--text-secondary) !important;
+  text-decoration: none !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  border: 1px solid transparent !important;
+}
+
+/* Oldidagi ikonkalar olib tashlangan */
+header nav a[href="/docs"]::before,
+header nav a[href="/roadmap"]::before,
+nav a[href="/docs"]::before,
+nav a[href="/roadmap"]::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Hover effekti */
+header nav a[href="/docs"]:hover,
+header nav a[href="/roadmap"]:hover,
+nav a[href="/docs"]:hover,
+nav a[href="/roadmap"]:hover {
+  color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.16) !important;
+}
+
+:is(.dark) header nav a[href="/docs"]:hover,
+:is(.dark) header nav a[href="/roadmap"]:hover,
+:is(.dark) nav a[href="/docs"]:hover,
+:is(.dark) nav a[href="/roadmap"]:hover {
+  color: #34d399 !important;
+  background: rgba(16, 185, 129, 0.18) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Active (Aria-Current) holati */
+header nav a[href="/docs"][aria-current],
+header nav a[href="/roadmap"][aria-current],
+nav a[href="/docs"][aria-current],
+nav a[href="/roadmap"][aria-current] {
+  color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 4px rgba(16, 185, 129, 0.15) !important;
+}
+
+:is(.dark) header nav a[href="/docs"][aria-current],
+:is(.dark) header nav a[href="/roadmap"][aria-current],
+:is(.dark) nav a[href="/docs"][aria-current],
+:is(.dark) nav a[href="/roadmap"][aria-current] {
+  color: #34d399 !important;
+  background: rgba(16, 185, 129, 0.24) !important;
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 1px 6px rgba(16, 185, 129, 0.25) !important;
+}
+
+/* 5. Qidiruv paneli o'ngdagi tugmalarni siqib qo'ymasligi uchun moslashuvchan eni */
+header nav .nextra-search,
+nav .nextra-search {
+  flex-shrink: 1 !important;
+}
+
+header nav .nextra-search input,
+nav .nextra-search input {
+  width: clamp(10rem, 15vw, 15rem) !important;
+  min-width: 9rem !important;
+  transition: width 0.2s ease !important;
+}
+
+header nav .nextra-search input:focus,
+nav .nextra-search input:focus {
+  width: clamp(13rem, 18vw, 17rem) !important;
+}
+
+/* 6. Header Flexbox bolalarining aniq vizual tartibi (Order) */
+header nav a[href="/"] {
+  order: 1 !important;
+  margin-inline-end: auto !important;
+}
+
+/* 2-o'rinda: "Qo‘llanma" va "Yo‘l Xaritasi" */
+header nav div:has(> a[href="/docs"]),
+nav div:has(> a[href="/docs"]),
+header nav .x\:overflow-x-auto,
+nav .x\:overflow-x-auto {
+  order: 2 !important;
+  margin-inline-start: auto !important;
+  margin-inline-end: 0.5rem !important;
+}
+
+/* 3-o'rinda: Rejimlar (Light / Dark / System) — Aynan Qo‘llanma va Yo‘l Xaritasi dan keyin */
+header nav .header-theme-switch,
+nav .header-theme-switch {
+  order: 3 !important;
+  margin-inline-end: 0.5rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  flex-shrink: 0 !important;
+}
+
+header nav .header-theme-switch button {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.45rem !important;
+  padding: 0.42rem 1rem !important;
+  border-radius: 9999px !important;
+  font-size: 0.885rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--text-secondary) !important;
+  background: rgba(16, 185, 129, 0.05) !important;
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+}
+
+:is(.dark) header nav .header-theme-switch button {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-secondary) !important;
+}
+
+header nav .header-theme-switch button:hover {
+  color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.16) !important;
+}
+
+:is(.dark) header nav .header-theme-switch button:hover {
+  color: #34d399 !important;
+  background: rgba(16, 185, 129, 0.18) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.25) !important;
+}
+
+header nav .header-theme-switch button svg {
+  width: 14px !important;
+  height: 14px !important;
+  color: #10b981 !important;
+}
+
+:is(.dark) header nav .header-theme-switch button svg {
+  color: #34d399 !important;
+}
+
+/* 4-o'rinda: Qidiruv paneli */
+header nav div:has(> .nextra-search),
+header nav .nextra-search,
+nav div:has(> .nextra-search),
+nav .nextra-search {
+  order: 4 !important;
+}
+
+/* 5-o'rinda: GitHub */
+header nav a[href*="github.com"] {
+  order: 5 !important;
+}
+
+/* 6-o'rinda: Telegram */
+header nav a[href*="t.me"] {
+  order: 6 !important;
+}
+
+/* 7-o'rinda: Mobil Hamburger (Navbarni ochib-yopuvchi tugma) */
+header nav .nextra-hamburger {
+  order: 7 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0.35rem !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid var(--border-color) !important;
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+@media (min-width: 768px) {
+  header nav .nextra-hamburger {
+    display: none !important;
+  }
+}
+
+header nav .nextra-hamburger:hover {
+  border-color: #10b981 !important;
+  color: #10b981 !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+
+
+/* ==========================================================================
+   7. Nested Sidebar & Tree Navigation: Fixed Width & Normal Word-Wrap
+   ========================================================================== */
+
+/* 7.1. Asosiy sahifa konteyneri (Sidebar o'z enini erkin saqlashi uchun) */
+div:has(> aside.nextra-sidebar),
+.nextra-container,
+div.x\:max-w-\(--nextra-content-width\) {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding-left: clamp(0.75rem, 2vw, 2rem) !important;
+  padding-right: clamp(0.75rem, 2vw, 2rem) !important;
+  box-sizing: border-box !important;
+}
+
+aside.nextra-sidebar + div,
+aside.nextra-sidebar ~ div,
+aside.nextra-sidebar ~ main {
+  min-width: 0 !important;
+  flex: 1 1 0% !important;
+}
+
+/* 7.2. Sidebar (Navigatsiya) enini mustahkam belgilash (320px - 360px) — Hech qachon torayib ketmaydi */
+aside.nextra-sidebar {
+  transition: width 0.25s ease-in-out !important;
+  will-change: width;
+  box-sizing: border-box !important;
+}
+
+/* Ochiq holatda (Expanded) — Aniq belgilangan qat'iy en (320px - 360px) */
+aside.nextra-sidebar:not([class*="x:w-20"]) {
+  width: 320px !important;
+  min-width: 320px !important;
+  max-width: 360px !important;
+  flex: 0 0 320px !important;
+  flex-shrink: 0 !important;
+}
+
+@media (min-width: 1440px) {
+  aside.nextra-sidebar:not([class*="x:w-20"]) {
+    width: 340px !important;
+    min-width: 340px !important;
+    max-width: 380px !important;
+    flex: 0 0 340px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Yopilgan holatda (Collapsed) — 4rem (64px) ixcham ustun */
+aside.nextra-sidebar[class*="x:w-20"] {
+  width: 4rem !important;
+  min-width: 4rem !important;
+  max-width: 4rem !important;
+  flex: 0 0 4rem !important;
+  flex-shrink: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Yopilgan holatda ichki menyu va scrollbarni BUTUNLAY yashirish (hech qanday osilib qolgan blob/shakl bo'lmasligi uchun) */
+aside.nextra-sidebar[class*="x:w-20"] > div:first-child {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+aside.nextra-sidebar[class*="x:w-20"] *::-webkit-scrollbar,
+aside.nextra-sidebar[class*="x:w-20"] ::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 7.3. Sidebar ichki konteynerlari — box-sizing: border-box va xavfsiz o'ng bo'shliq */
+aside.nextra-sidebar *,
+aside.nextra-mobile-nav * {
+  box-sizing: border-box !important;
+}
+
+aside.nextra-sidebar:not([class*="x:w-20"]) > div:first-child {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  padding-left: 0.75rem !important;
+  padding-right: 1.15rem !important; /* Kamida 16-18px xavfsiz o'ng bo'shliq */
+  overscroll-behavior-x: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+/* Nextra Collapse konteyneri (horizontal & vertical) to'liq enni saqlashi */
+aside.nextra-sidebar [class*="transform-gpu"],
+aside.nextra-mobile-nav [class*="transform-gpu"],
+aside.nextra-sidebar [class*="transform-gpu"] > div,
+aside.nextra-mobile-nav [class*="transform-gpu"] > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 7.4. Menyu ro'yxati (ul va li elementlari) — Hech qanday margin-left yo'q, ota elementdan oshib ketmaydi */
+aside.nextra-sidebar ul,
+aside.nextra-mobile-nav ul {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.15rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+aside.nextra-sidebar li,
+aside.nextra-mobile-nav li {
+  display: block !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+aside.nextra-sidebar li.open > div,
+aside.nextra-sidebar li.open > div > div,
+aside.nextra-mobile-nav li.open > div,
+aside.nextra-mobile-nav li.open > div > div {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* 7.5. Menyu havolalari va tugmalari: Butun so'z bo'yicha ko'chish (Harflarga bo'linib ketmaydi) */
+aside.nextra-sidebar li > button,
+aside.nextra-sidebar li > a,
+aside.nextra-mobile-nav li > button,
+aside.nextra-mobile-nav li > a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  box-sizing: border-box !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  text-overflow: clip !important;
+  -webkit-line-clamp: none !important;
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 2.25rem !important;
+  line-height: 1.45 !important;
+  text-align: start !important;
+  padding: 0.45rem 0.65rem !important;
+}
+
+/* Matn qismi: so'zlar butun holda keyingi qatorga ko'chadi */
+aside.nextra-sidebar li > button > *:not(svg),
+aside.nextra-sidebar li > a > *:not(svg),
+aside.nextra-mobile-nav li > button > *:not(svg),
+aside.nextra-mobile-nav li > a > *:not(svg) {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+}
+
+/* Dropdown '>' (ArrowRightIcon) strelkasi doimo to'liq ko'rinadi */
+aside.nextra-sidebar li > button > svg,
+aside.nextra-sidebar li > a > svg,
+aside.nextra-mobile-nav li > button > svg,
+aside.nextra-mobile-nav li > a > svg {
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  width: 16px !important;
+  min-width: 16px !important;
+  height: 16px !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 0.85 !important;
+}
+
+/* 7.6. Ichki darajalar uchun ixcham indentatsiya (Margin = 0 bo'lib, o'ngdan toshib ketishni oldini oladi) */
+aside.nextra-sidebar ul ul,
+aside.nextra-mobile-nav ul ul {
+  margin: 0 !important;
+  padding-inline-start: 0.65rem !important; /* ~10px */
+  padding-inline-end: 0 !important;
+  border-inline-start: 1px solid var(--border-color) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+aside.nextra-sidebar ul ul ul,
+aside.nextra-mobile-nav ul ul ul {
+  padding-inline-start: 0.5rem !important;
+}
+
+aside.nextra-sidebar ul ul ul ul,
+aside.nextra-mobile-nav ul ul ul ul {
+  padding-inline-start: 0.4rem !important;
+}
+
+/* 7.7. TOC (Table of Contents) da gorizontal scrollni oldini olish */
+.nextra-toc,
+.nextra-toc ul {
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+}
+
+.nextra-toc a {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  text-overflow: clip !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+/* ==========================================================================
+   8. Sidebar Footer & Navigatsiyani Ochib-Yopuvchi Tugma (Toggle Button)
+   ========================================================================== */
+
+/* 8.1. Sidebar va mobil navigatsiya pastidagi ThemeSwitch (Light/Dark/System) ni butunlay yashirish */
+.nextra-sidebar-footer button[title="Change theme"],
+.nextra-sidebar-footer > div:has(button[title="Change theme"]),
+aside.nextra-sidebar .nextra-sidebar-footer button[title="Change theme"],
+aside.nextra-mobile-nav .nextra-sidebar-footer {
+  display: none !important;
+}
+
+/* Nextra toggle animation (x:*:opacity-0 va fade-in) tufayli tugma atrofida blob yoki osilib qolishni bekor qilish */
+.nextra-sidebar-footer > * {
+  animation: none !important;
+  opacity: 1 !important;
+}
+
+/* 8.2. Sidebar pastki footer paneli — Ochiq va yopiq holatda qat'iy o'lcham va joylashuv */
+.nextra-sidebar-footer {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  height: 3.5rem !important;
+  min-height: 3.5rem !important;
+  max-height: 3.5rem !important;
+  padding: 0 1rem !important;
+  margin: 0 !important;
+  border-top: 1px solid var(--border-color) !important;
+  background: var(--bg-surface) !important;
+  z-index: 10 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+aside.nextra-sidebar[class*="x:w-20"] .nextra-sidebar-footer {
+  justify-content: center !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* 8.3. Navigatsiyani ochib-yopuvchi toggle tugmasi — Ochiq va yopiq holatda bir xil barqaror o'lcham */
+.nextra-sidebar-footer button[aria-controls],
+.nextra-sidebar-footer button[title*="sidebar"],
+.nextra-sidebar-footer button[title*="Sidebar"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  min-width: 2.25rem !important;
+  min-height: 2.25rem !important;
+  max-width: 2.25rem !important;
+  max-height: 2.25rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0.5rem !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  color: var(--text-secondary) !important;
+  cursor: pointer !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  flex-shrink: 0 !important;
+  position: static !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+
+:is(.dark) .nextra-sidebar-footer button[aria-controls],
+:is(.dark) .nextra-sidebar-footer button[title*="sidebar"],
+:is(.dark) .nextra-sidebar-footer button[title*="Sidebar"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: var(--text-secondary) !important;
+}
+
+.nextra-sidebar-footer button[aria-controls]:hover,
+.nextra-sidebar-footer button[title*="sidebar"]:hover,
+.nextra-sidebar-footer button[title*="Sidebar"]:hover {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  color: #10b981 !important;
+}
+
+:is(.dark) .nextra-sidebar-footer button[aria-controls]:hover,
+:is(.dark) .nextra-sidebar-footer button[title*="sidebar"]:hover,
+:is(.dark) .nextra-sidebar-footer button[title*="Sidebar"]:hover {
+  background: rgba(16, 185, 129, 0.25) !important;
+  border-color: rgba(16, 185, 129, 0.55) !important;
+  color: #34d399 !important;
+}
+
+.nextra-sidebar-footer button[aria-controls] svg,
+.nextra-sidebar-footer button[title*="sidebar"] svg,
+.nextra-sidebar-footer button[title*="Sidebar"] svg {
+  width: 14px !important;
+  height: 14px !important;
+  min-width: 14px !important;
+  margin: 0 !important;
+  opacity: 1 !important;
+  color: inherit !important;
+  display: block !important;
+}
+
+
 

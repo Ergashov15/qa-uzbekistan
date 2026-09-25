@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Inter, JetBrains_Mono } from 'next/font/google'
-import { Footer, Layout, Navbar } from 'nextra-theme-docs'
+import { Footer, Layout, Navbar, ThemeSwitch } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
@@ -95,7 +95,9 @@ const navbar = (
     chatLink="https://t.me"
     chatIcon={TelegramIcon}
     align="right"
-  />
+  >
+    <ThemeSwitch className="header-theme-switch" />
+  </Navbar>
 )
 
 const footer = (
