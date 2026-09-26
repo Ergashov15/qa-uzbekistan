@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" fill="none">
+  <defs>
+    <style>
+      .compass-bg { fill: #FFFFFF; }
+      .compass-ring-outer { stroke: #0F6E56; }
+      .compass-ring-inner { stroke: #1D9E75; }
+      .compass-dot { fill: #0F6E56; }
+      .compass-needle-v { fill: #1D9E75; }
+      .compass-needle-v-facet { fill: #24B083; }
+      .compass-needle-h { fill: #0F6E56; }
+      .compass-needle-h-facet { fill: #137C62; }
+      .compass-center { fill: #04342C; }
+
+      @media (prefers-color-scheme: dark) {
+        .compass-bg { fill: #0E1726 !important; }
+        .compass-ring-outer { stroke: #10B981 !important; }
+        .compass-ring-inner { stroke: #34D399 !important; }
+        .compass-dot { fill: #34D399 !important; }
+        .compass-needle-v { fill: #34D399 !important; }
+        .compass-needle-v-facet { fill: #6EE7B7 !important; }
+        .compass-needle-h { fill: #10B981 !important; }
+        .compass-needle-h-facet { fill: #059669 !important; }
+        .compass-center { fill: #022C22 !important; }
+      }
+    </style>
+  </defs>
+
+  <!-- Circular background disc -->
+  <circle cx="50" cy="50" r="47" fill="#FFFFFF" class="compass-bg" />
+
+  <!-- Outer Ring (to'q yashil #0F6E56) -->
+  <circle cx="50" cy="50" r="43" fill="none" stroke="#0F6E56" stroke-width="3" class="compass-ring-outer" />
+
+  <!-- Inner Ring (yupqaroq och yashil #1D9E75) with white space in between -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#1D9E75" stroke-width="1.5" class="compass-ring-inner" />
+
+  <!-- 4 Cardinal Dots (North, South, East, West) in the ring gap -->
+  <circle cx="50" cy="11" r="2.2" fill="#0F6E56" class="compass-dot" />
+  <circle cx="50" cy="89" r="2.2" fill="#0F6E56" class="compass-dot" />
+  <circle cx="89" cy="50" r="2.2" fill="#0F6E56" class="compass-dot" />
+  <circle cx="11" cy="50" r="2.2" fill="#0F6E56" class="compass-dot" />
+
+  <!-- 4-pointed Star Compass Needle -->
+  <!-- Top Needle (North) - och yashil #1D9E75 -->
+  <polygon points="50,18 56.5,43.5 50,50" fill="#1D9E75" class="compass-needle-v" />
+  <polygon points="50,18 50,50 43.5,43.5" fill="#24B083" class="compass-needle-v-facet" />
+
+  <!-- Bottom Needle (South) - och yashil #1D9E75 -->
+  <polygon points="50,82 43.5,56.5 50,50" fill="#1D9E75" class="compass-needle-v" />
+  <polygon points="50,82 50,50 56.5,56.5" fill="#24B083" class="compass-needle-v-facet" />
+
+  <!-- East Needle (Right) - to'q yashil #0F6E56 -->
+  <polygon points="82,50 56.5,56.5 50,50" fill="#0F6E56" class="compass-needle-h" />
+  <polygon points="82,50 50,50 56.5,43.5" fill="#137C62" class="compass-needle-h-facet" />
+
+  <!-- West Needle (Left) - to'q yashil #0F6E56 -->
+  <polygon points="18,50 43.5,43.5 50,50" fill="#0F6E56" class="compass-needle-h" />
+  <polygon points="18,50 50,50 43.5,56.5" fill="#137C62" class="compass-needle-h-facet" />
+
+  <!-- Center Dark Circle (#04342C) -->
+  <circle cx="50" cy="50" r="5" fill="#04342C" class="compass-center" />
+  <circle cx="50" cy="50" r="1.6" fill="#FFFFFF" opacity="0.65" />
+</svg>

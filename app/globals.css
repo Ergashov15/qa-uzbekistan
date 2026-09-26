@@ -237,43 +237,52 @@ article code {
   margin-bottom: 3.5rem;
 }
 
-.btn-primary-action {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.6rem;
-  border-radius: 0.75rem;
-  background: linear-gradient(135deg, #10b981 0%, #0d9488 100%);
-  color: #ffffff !important;
-  font-weight: 700;
-  font-size: 0.925rem;
+.btn-primary-action,
+.btn-secondary-action {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  height: 44px !important;
+  min-height: 44px !important;
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
   text-decoration: none !important;
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
-  transition: all 0.2s ease;
+  white-space: nowrap !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+}
+
+.btn-primary-action {
+  background: linear-gradient(135deg, #10b981 0%, #0d9488 100%) !important;
+  color: #ffffff !important;
+  border: 1px solid transparent !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
 }
 
 .btn-primary-action:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45) !important;
 }
 
 .btn-secondary-action {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.6rem;
-  border-radius: 0.75rem;
-  background: var(--bg-surface);
+  background: var(--bg-surface) !important;
   color: var(--text-primary) !important;
-  border: 1px solid var(--border-color);
-  font-weight: 700;
-  font-size: 0.925rem;
-  text-decoration: none !important;
-  transition: all 0.2s ease;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
 }
 
 .btn-secondary-action:hover {
-  background: var(--bg-subtle);
-  border-color: #10b981;
-  transform: translateY(-2px);
+  background: var(--bg-subtle) !important;
+  border-color: #10b981 !important;
+  color: #10b981 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15) !important;
 }
 
 /* Micro-stats Bar */
@@ -446,24 +455,89 @@ header nav {
   box-sizing: border-box !important;
   display: flex !important;
   align-items: center !important;
-  gap: 0.875rem !important;
+  gap: 1.25rem !important;
   overflow-x: visible !important;
 }
 
 /* 2. Logo chap tomonda o'z to'liq enini saqlaydi */
 header nav a[href="/"],
 nav a[href="/"] {
+  order: 1 !important;
   flex-shrink: 0 !important;
   margin-inline-end: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  text-decoration: none !important;
 }
 
-/* 3. Nav links konteyneri: o'ng tomonda joylashgan, hech qachon siqilmaydigan pill bar */
-header nav div:has(> a[href="/docs"]),
-nav div:has(> a[href="/docs"]),
-header nav .x\:overflow-x-auto,
-nav .x\:overflow-x-auto {
+.qa-compass-logo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-decoration: none !important;
+  user-select: none !important;
+  white-space: nowrap !important;
+}
+
+.qa-compass-logo-icon {
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+  min-height: 42px !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  transition: transform 0.25s ease !important;
+}
+
+.qa-compass-logo:hover .qa-compass-logo-icon {
+  transform: rotate(10deg);
+}
+
+.qa-compass-logo-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  text-align: left !important;
+}
+
+.qa-compass-logo-title {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.15 !important;
+  color: #1F2937 !important;
+  white-space: nowrap !important;
+  letter-spacing: -0.01em !important;
+}
+
+:is(.dark) .qa-compass-logo-title {
+  color: #F9FAFB !important;
+}
+
+.qa-compass-logo-subtitle {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.6875rem !important;
+  line-height: 1.2 !important;
+  color: #6B7280 !important;
+  white-space: nowrap !important;
+  margin-top: 3px !important;
+  letter-spacing: 0.01em !important;
+}
+
+:is(.dark) .qa-compass-logo-subtitle {
+  color: #9CA3AF !important;
+}
+
+/* 3. Nav links konteyneri: shaffof va chegarasiz flex qator */
+header nav div:has(> a[href*="/docs"]),
+nav div:has(> a[href*="/docs"]),
+header nav [class*="overflow-x-auto"],
+nav [class*="overflow-x-auto"] {
+  order: 2 !important;
   margin-inline-start: auto !important;
-  margin-inline-end: 0.5rem !important;
+  margin-inline-end: 0 !important;
   display: flex !important;
   align-items: center !important;
   flex-shrink: 0 !important;
@@ -473,109 +547,227 @@ nav .x\:overflow-x-auto {
   overflow: visible !important;
   overflow-x: visible !important;
   overflow-y: visible !important;
-  gap: 0.35rem !important;
-  padding: 0.25rem 0.35rem !important;
-  background: rgba(16, 185, 129, 0.05) !important;
-  border: 1px solid rgba(16, 185, 129, 0.15) !important;
-  border-radius: 9999px !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
+  gap: 1.25rem !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-:is(.dark) header nav div:has(> a[href="/docs"]),
-:is(.dark) nav div:has(> a[href="/docs"]),
-:is(.dark) header nav .x\:overflow-x-auto,
-:is(.dark) nav .x\:overflow-x-auto {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+:is(.dark) header nav div:has(> a[href*="/docs"]),
+:is(.dark) nav div:has(> a[href*="/docs"]),
+:is(.dark) header nav [class*="overflow-x-auto"],
+:is(.dark) nav [class*="overflow-x-auto"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* Scrollbarni butunlay yo'q qilish */
-header nav div:has(> a[href="/docs"])::-webkit-scrollbar,
-nav div:has(> a[href="/docs"])::-webkit-scrollbar,
-header nav .x\:overflow-x-auto::-webkit-scrollbar,
-nav .x\:overflow-x-auto::-webkit-scrollbar {
+header nav div:has(> a[href*="/docs"])::-webkit-scrollbar,
+nav div:has(> a[href*="/docs"])::-webkit-scrollbar,
+header nav [class*="overflow-x-auto"]::-webkit-scrollbar,
+nav [class*="overflow-x-auto"]::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
 }
 
-/* 4. "Qo‘llanma" va "Yo‘l Xaritasi" tugmalari: matn HECH QACHON kesilmaydi, to'liq ko'rinadi */
-header nav a[href="/docs"],
-header nav a[href="/roadmap"],
-nav a[href="/docs"],
-nav a[href="/roadmap"] {
+/* ==========================================================================
+   4. Header Nav Elementlari: "Qo‘llanma", "Yo‘l Xaritasi" va "ThemeSwitch"
+   Faqat matn (border va ikonkalarsiz), bir xil oraliq va uslubda
+   ========================================================================== */
+
+/* 4.1. Text-only styling: bordersiz, backgroundsiz, faqat toza matn */
+header nav a[href*="/docs"],
+header nav a[href*="/roadmap"],
+nav a[href*="/docs"],
+nav a[href*="/roadmap"],
+header nav .header-theme-switch,
+header nav .header-theme-switch button,
+header nav button.header-theme-switch,
+header nav button[title="Change theme"],
+header nav button[title*="theme"],
+header nav button[title*="Theme"],
+nav .header-theme-switch,
+nav .header-theme-switch button,
+nav button.header-theme-switch,
+nav button[title="Change theme"],
+nav button[title*="theme"],
+nav button[title*="Theme"] {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  white-space: nowrap !important;
-  flex-shrink: 0 !important;
-  min-width: max-content !important;
-  width: auto !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
-  padding: 0.45rem 1.15rem !important;
-  border-radius: 9999px !important;
+  gap: 0 !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+  padding: 0.25rem 0 !important;
+  border-radius: 0 !important;
+  font-family: var(--font-sans) !important;
   font-size: 0.9rem !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.01em !important;
-  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+  line-height: 1.25 !important;
+  letter-spacing: normal !important;
+  white-space: nowrap !important;
   text-decoration: none !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  border: 1px solid transparent !important;
+  box-sizing: border-box !important;
+  color: #4b5563 !important;
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: color 0.15s ease !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
 }
 
-/* Oldidagi ikonkalar olib tashlangan */
-header nav a[href="/docs"]::before,
-header nav a[href="/roadmap"]::before,
-nav a[href="/docs"]::before,
-nav a[href="/roadmap"]::before {
+/* 4.2. Barcha ikonkalarni olib tashlash (faqat matn qoladi) */
+header nav a[href*="/docs"]::before,
+header nav a[href*="/docs"]::after,
+header nav a[href*="/roadmap"]::before,
+header nav a[href*="/roadmap"]::after,
+nav a[href*="/docs"]::before,
+nav a[href*="/docs"]::after,
+nav a[href*="/roadmap"]::before,
+nav a[href*="/roadmap"]::after {
   content: none !important;
   display: none !important;
 }
 
-/* Hover effekti */
-header nav a[href="/docs"]:hover,
-header nav a[href="/roadmap"]:hover,
-nav a[href="/docs"]:hover,
-nav a[href="/roadmap"]:hover {
+header nav .header-theme-switch svg,
+header nav .header-theme-switch button svg,
+header nav button.header-theme-switch svg,
+header nav button[title="Change theme"] svg,
+header nav button[title*="theme"] svg,
+header nav button[title*="Theme"] svg,
+nav .header-theme-switch svg,
+nav .header-theme-switch button svg,
+nav button.header-theme-switch svg,
+nav button[title="Change theme"] svg,
+nav button[title*="theme"] svg,
+nav button[title*="Theme"] svg {
+  display: none !important;
+}
+
+/* 4.3. Dark mode default holati (bordersiz, toza matn) */
+:is(.dark) header nav a[href*="/docs"],
+:is(.dark) header nav a[href*="/roadmap"],
+:is(.dark) nav a[href*="/docs"],
+:is(.dark) nav a[href*="/roadmap"],
+:is(.dark) header nav .header-theme-switch,
+:is(.dark) header nav .header-theme-switch button,
+:is(.dark) header nav button.header-theme-switch,
+:is(.dark) header nav button[title="Change theme"],
+:is(.dark) header nav button[title*="theme"],
+:is(.dark) header nav button[title*="Theme"],
+:is(.dark) nav .header-theme-switch,
+:is(.dark) nav .header-theme-switch button,
+:is(.dark) nav button.header-theme-switch,
+:is(.dark) nav button[title="Change theme"],
+:is(.dark) nav button[title*="theme"],
+:is(.dark) nav button[title*="Theme"] {
+  color: #94a3b8 !important;
+  background: transparent !important;
+  border: none !important;
+  border-width: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* 4.4. Hover holati (faqat matn rangi o'zgaradi, bordersiz, fonsiz) */
+header nav a[href*="/docs"]:hover,
+header nav a[href*="/roadmap"]:hover,
+nav a[href*="/docs"]:hover,
+nav a[href*="/roadmap"]:hover,
+header nav .header-theme-switch:hover,
+header nav .header-theme-switch button:hover,
+header nav button.header-theme-switch:hover,
+header nav button[title="Change theme"]:hover,
+header nav button[title*="theme"]:hover,
+header nav button[title*="Theme"]:hover,
+nav .header-theme-switch:hover,
+nav .header-theme-switch button:hover,
+nav button.header-theme-switch:hover,
+nav button[title="Change theme"]:hover,
+nav button[title*="theme"]:hover,
+nav button[title*="Theme"]:hover {
   color: #10b981 !important;
-  background: rgba(16, 185, 129, 0.12) !important;
-  border-color: rgba(16, 185, 129, 0.3) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.16) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
-:is(.dark) header nav a[href="/docs"]:hover,
-:is(.dark) header nav a[href="/roadmap"]:hover,
-:is(.dark) nav a[href="/docs"]:hover,
-:is(.dark) nav a[href="/roadmap"]:hover {
+:is(.dark) header nav a[href*="/docs"]:hover,
+:is(.dark) header nav a[href*="/roadmap"]:hover,
+:is(.dark) nav a[href*="/docs"]:hover,
+:is(.dark) nav a[href*="/roadmap"]:hover,
+:is(.dark) header nav .header-theme-switch:hover,
+:is(.dark) header nav .header-theme-switch button:hover,
+:is(.dark) header nav button.header-theme-switch:hover,
+:is(.dark) header nav button[title="Change theme"]:hover,
+:is(.dark) header nav button[title*="theme"]:hover,
+:is(.dark) header nav button[title*="Theme"]:hover,
+:is(.dark) nav .header-theme-switch:hover,
+:is(.dark) nav .header-theme-switch button:hover,
+:is(.dark) nav button.header-theme-switch:hover,
+:is(.dark) nav button[title="Change theme"]:hover,
+:is(.dark) nav button[title*="theme"]:hover,
+:is(.dark) nav button[title*="Theme"]:hover {
   color: #34d399 !important;
-  background: rgba(16, 185, 129, 0.18) !important;
-  border-color: rgba(16, 185, 129, 0.4) !important;
-  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.25) !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
-/* Active (Aria-Current) holati */
-header nav a[href="/docs"][aria-current],
-header nav a[href="/roadmap"][aria-current],
-nav a[href="/docs"][aria-current],
-nav a[href="/roadmap"][aria-current] {
-  color: #10b981 !important;
-  background: rgba(16, 185, 129, 0.15) !important;
-  border-color: rgba(16, 185, 129, 0.4) !important;
-  font-weight: 700 !important;
-  box-shadow: 0 1px 4px rgba(16, 185, 129, 0.15) !important;
+/* 4.5. Active holati (joriy sahifa yoki ochiq tema menyusi) */
+header nav a[href*="/docs"][aria-current],
+header nav a[href*="/roadmap"][aria-current],
+nav a[href*="/docs"][aria-current],
+nav a[href*="/roadmap"][aria-current],
+header nav .header-theme-switch[aria-expanded="true"],
+header nav .header-theme-switch button[aria-expanded="true"],
+header nav button.header-theme-switch[aria-expanded="true"],
+header nav button[title="Change theme"][aria-expanded="true"],
+header nav [data-headlessui-state*="open"] button,
+nav .header-theme-switch[aria-expanded="true"],
+nav .header-theme-switch button[aria-expanded="true"],
+nav button.header-theme-switch[aria-expanded="true"],
+nav button[title="Change theme"][aria-expanded="true"] {
+  color: #059669 !important;
+  background: transparent !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
 }
 
-:is(.dark) header nav a[href="/docs"][aria-current],
-:is(.dark) header nav a[href="/roadmap"][aria-current],
-:is(.dark) nav a[href="/docs"][aria-current],
-:is(.dark) nav a[href="/roadmap"][aria-current] {
+:is(.dark) header nav a[href*="/docs"][aria-current],
+:is(.dark) header nav a[href*="/roadmap"][aria-current],
+:is(.dark) nav a[href*="/docs"][aria-current],
+:is(.dark) nav a[href*="/roadmap"][aria-current],
+:is(.dark) header nav .header-theme-switch[aria-expanded="true"],
+:is(.dark) header nav .header-theme-switch button[aria-expanded="true"],
+:is(.dark) header nav button.header-theme-switch[aria-expanded="true"],
+:is(.dark) header nav button[title="Change theme"][aria-expanded="true"],
+:is(.dark) header nav [data-headlessui-state*="open"] button,
+:is(.dark) nav .header-theme-switch[aria-expanded="true"],
+:is(.dark) nav .header-theme-switch button[aria-expanded="true"],
+:is(.dark) nav button.header-theme-switch[aria-expanded="true"],
+:is(.dark) nav button[title="Change theme"][aria-expanded="true"] {
   color: #34d399 !important;
-  background: rgba(16, 185, 129, 0.24) !important;
-  border-color: rgba(16, 185, 129, 0.5) !important;
-  box-shadow: 0 1px 6px rgba(16, 185, 129, 0.25) !important;
+  background: transparent !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow: none !important;
 }
 
 /* 5. Qidiruv paneli o'ngdagi tugmalarni siqib qo'ymasligi uchun moslashuvchan eni */
@@ -596,80 +788,44 @@ nav .nextra-search input:focus {
   width: clamp(13rem, 18vw, 17rem) !important;
 }
 
-/* 6. Header Flexbox bolalarining aniq vizual tartibi (Order) */
+/* 6. Header Flexbox bolalarining aniq vizual tartibi va teng masofasi (Order & Gaps) */
+/* 1-o'rinda: Logo */
 header nav a[href="/"] {
   order: 1 !important;
   margin-inline-end: auto !important;
 }
 
 /* 2-o'rinda: "Qo‘llanma" va "Yo‘l Xaritasi" */
-header nav div:has(> a[href="/docs"]),
-nav div:has(> a[href="/docs"]),
-header nav .x\:overflow-x-auto,
-nav .x\:overflow-x-auto {
+header nav [class*="overflow-x-auto"],
+nav [class*="overflow-x-auto"],
+header nav div:has(> a[href*="/docs"]),
+nav div:has(> a[href*="/docs"]) {
   order: 2 !important;
   margin-inline-start: auto !important;
-  margin-inline-end: 0.5rem !important;
+  margin-inline-end: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 1.25rem !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* 3-o'rinda: Rejimlar (Light / Dark / System) — Aynan Qo‘llanma va Yo‘l Xaritasi dan keyin */
 header nav .header-theme-switch,
 nav .header-theme-switch {
   order: 3 !important;
-  margin-inline-end: 0.5rem !important;
+  margin: 0 !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
   display: inline-flex !important;
   align-items: center !important;
   flex-shrink: 0 !important;
-}
-
-header nav .header-theme-switch button {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.45rem !important;
-  padding: 0.42rem 1rem !important;
-  border-radius: 9999px !important;
-  font-size: 0.885rem !important;
-  font-weight: 600 !important;
-  letter-spacing: -0.01em !important;
-  color: var(--text-secondary) !important;
-  background: rgba(16, 185, 129, 0.05) !important;
-  border: 1px solid rgba(16, 185, 129, 0.15) !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  cursor: pointer !important;
-  white-space: nowrap !important;
-}
-
-:is(.dark) header nav .header-theme-switch button {
-  background: rgba(255, 255, 255, 0.04) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--text-secondary) !important;
-}
-
-header nav .header-theme-switch button:hover {
-  color: #10b981 !important;
-  background: rgba(16, 185, 129, 0.12) !important;
-  border-color: rgba(16, 185, 129, 0.35) !important;
-  transform: translateY(-1px) !important;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.16) !important;
-}
-
-:is(.dark) header nav .header-theme-switch button:hover {
-  color: #34d399 !important;
-  background: rgba(16, 185, 129, 0.18) !important;
-  border-color: rgba(16, 185, 129, 0.45) !important;
-  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.25) !important;
-}
-
-header nav .header-theme-switch button svg {
-  width: 14px !important;
-  height: 14px !important;
-  color: #10b981 !important;
-}
-
-:is(.dark) header nav .header-theme-switch button svg {
-  color: #34d399 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 /* 4-o'rinda: Qidiruv paneli */
@@ -678,16 +834,21 @@ header nav .nextra-search,
 nav div:has(> .nextra-search),
 nav .nextra-search {
   order: 4 !important;
+  margin: 0 !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
 }
 
 /* 5-o'rinda: GitHub */
 header nav a[href*="github.com"] {
   order: 5 !important;
+  margin: 0 !important;
 }
 
 /* 6-o'rinda: Telegram */
 header nav a[href*="t.me"] {
   order: 6 !important;
+  margin: 0 !important;
 }
 
 /* 7-o'rinda: Mobil Hamburger (Navbarni ochib-yopuvchi tugma) */
@@ -1012,7 +1173,7 @@ aside.nextra-mobile-nav .nextra-sidebar-footer {
   opacity: 1 !important;
 }
 
-/* 8.2. Sidebar pastki footer paneli — Ochiq va yopiq holatda qat'iy o'lcham va pastki joylashuv */
+/* 8.2. Sidebar pastki footer paneli — Ochiq va yopiq holatda qat'iy o'lcham va pastki joylashuv (chiziqsiz/divider-siz) */
 .nextra-sidebar-footer {
   display: flex !important;
   align-items: center !important;
@@ -1027,11 +1188,19 @@ aside.nextra-mobile-nav .nextra-sidebar-footer {
   margin-right: 0 !important;
   position: sticky !important;
   bottom: 0 !important;
-  border-top: 1px solid var(--border-color) !important;
+  border-top: none !important;
+  border: none !important;
+  box-shadow: none !important;
   background: var(--bg-page) !important;
   z-index: 10 !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
+}
+
+.nextra-sidebar-footer::before,
+.nextra-sidebar-footer::after {
+  display: none !important;
+  content: none !important;
 }
 
 aside.nextra-sidebar[class*="x:w-20"] .nextra-sidebar-footer {
@@ -1039,6 +1208,8 @@ aside.nextra-sidebar[class*="x:w-20"] .nextra-sidebar-footer {
   padding: 0 !important;
   width: 100% !important;
   margin-top: auto !important;
+  border-top: none !important;
+  border: none !important;
 }
 
 /* 8.3. Navigatsiyani ochib-yopuvchi toggle tugmasi — Sahifa foni bilan bir xil, qat'iy o'lcham va pastki pozitsiya */

@@ -70,3 +70,40 @@ if (fs.existsSync(lastUpdatedPath)) {
   }
 }
 
+// 5. Localize themeSwitchSchema default labels in nextra-theme-docs
+if (fs.existsSync(schemaPath)) {
+  let content = fs.readFileSync(schemaPath, 'utf8')
+  if (content.includes('dark: z.string().default("Dark")')) {
+    content = content
+      .replace('dark: z.string().default("Dark")', 'dark: z.string().default("Qorong\'i")')
+      .replace('light: z.string().default("Light")', 'light: z.string().default("Yorug\'")')
+      .replace('system: z.string().default("System")', 'system: z.string().default("Tizim")')
+    fs.writeFileSync(schemaPath, content, 'utf8')
+    console.log('[patch] Successfully localized themeSwitchSchema to Uzbek')
+  }
+}
+
+// 6. Localize theme-switch.js fallback strings to Uzbek
+const themeSwitchCompPath = path.resolve(process.cwd(), 'node_modules/nextra-theme-docs/dist/components/theme-switch.js')
+
+if (fs.existsSync(themeSwitchCompPath)) {
+  let content = fs.readFileSync(themeSwitchCompPath, 'utf8')
+  if (!content.includes('/* [patch] localized themeSwitch */')) {
+    const target = 'const {\n    darkMode,\n    themeSwitch\n  } = useThemeConfig();'
+    const replacement = `/* [patch] localized themeSwitch */
+  const _themeConfig = useThemeConfig() || {};
+  const darkMode = _themeConfig.darkMode ?? true;
+  const themeSwitch = {
+    light: "Yorug'",
+    dark: "Qorong'i",
+    system: "Tizim",
+    ...(_themeConfig.themeSwitch || {})
+  };`
+    content = content.replace(target, replacement)
+    fs.writeFileSync(themeSwitchCompPath, content, 'utf8')
+    console.log('[patch] Successfully localized theme-switch component to Uzbek')
+  }
+}
+
+
+

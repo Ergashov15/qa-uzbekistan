@@ -1,17 +1,9 @@
 import React from 'react'
+import { ArrowRight, Map } from 'lucide-react'
 
 export function Hero() {
   return (
     <div className="hero-wrapper">
-      {/* Status indikatori */}
-      <div className="status-pill">
-        <span className="status-dot-wrapper">
-          <span className="status-dot-ping" />
-          <span className="status-dot" />
-        </span>
-        <span>✨ QA Compass 2.0 • Sifat kafolati bo‘yicha ochiq bilimlar bazasi</span>
-      </div>
-
       {/* Katta Gradient Sarlavha */}
       <h1 className="hero-main-title">
         Dasturiy Ta'minot Sifatini <br />
@@ -27,15 +19,17 @@ export function Hero() {
       <div className="hero-actions">
         <a
           href="/docs/software-testing"
-          className="btn-primary-action"
+          className="btn-primary-action group"
         >
-          Qo‘llanmaga O‘tish →
+          <span>Qo‘llanmaga O‘tish</span>
+          <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
         </a>
         <a
           href="/roadmap"
-          className="btn-secondary-action"
+          className="btn-secondary-action group"
         >
-          🗺️ Yo‘l Xaritasi (Roadmap)
+          <Map className="w-4 h-4 shrink-0" strokeWidth={2} />
+          <span>Yo‘l Xaritasi</span>
         </a>
       </div>
 

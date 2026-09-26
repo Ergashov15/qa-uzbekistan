@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { Layout, Navbar, ThemeSwitch, LastUpdated } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
@@ -45,47 +44,74 @@ const TelegramIcon = (
 )
 
 const CompassLogo = () => (
-  <span
-    className="inline-flex flex-row items-center gap-5 select-none whitespace-nowrap"
+  <div
+    className="qa-compass-logo"
     style={{
-      display: 'inline-flex',
-      flexDirection: 'row',
+      display: 'flex',
       alignItems: 'center',
-      gap: '1.25rem',
+      gap: '12px',
+      textDecoration: 'none',
+      userSelect: 'none',
       whiteSpace: 'nowrap'
     }}
   >
-    <Image
-      src="/logo.png"
-      alt=""
-      aria-hidden="true"
-      width={46}
-      height={46}
-      className="w-[46px] h-[46px] rounded-full object-cover shrink-0 shadow-md ring-2 ring-emerald-500/40 transition-transform duration-200 hover:scale-105"
+    {/* Compass SVG Icon */}
+    <img
+      src="/logo.svg"
+      alt="QA Compass Logo"
+      width={42}
+      height={42}
+      className="qa-compass-logo-icon"
       style={{
-        width: '46px',
-        height: '46px',
-        minWidth: '46px',
-        minHeight: '46px',
-        borderRadius: '50%',
+        width: '42px',
+        height: '42px',
+        minWidth: '42px',
+        minHeight: '42px',
+        display: 'block',
         flexShrink: 0
       }}
-      priority
     />
-    <span
-      className="text-2xl sm:text-3xl font-black tracking-normal leading-none whitespace-nowrap bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent font-sans"
+
+    {/* Matn bloki: Sarlavha va Subtitle ustma-ust */}
+    <div
+      className="qa-compass-logo-text"
       style={{
-        fontWeight: 900,
-        fontSize: '1.75rem',
-        letterSpacing: '0.02em',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
         lineHeight: 1,
-        whiteSpace: 'nowrap',
-        display: 'inline-block'
+        textAlign: 'left'
       }}
     >
-      QA&nbsp;Compass
-    </span>
-  </span>
+      <span
+        className="qa-compass-logo-title"
+        style={{
+          fontFamily: "Georgia, Cambria, 'Times New Roman', Times, serif",
+          fontWeight: 700,
+          fontSize: '1.25rem',
+          lineHeight: 1.15,
+          color: '#1F2937',
+          whiteSpace: 'nowrap'
+        }}
+      >
+        QA Compass
+      </span>
+      <span
+        className="qa-compass-logo-subtitle"
+        style={{
+          fontFamily: "var(--font-sans), system-ui, -apple-system, sans-serif",
+          fontWeight: 500,
+          fontSize: '0.6875rem',
+          lineHeight: 1.2,
+          color: '#6B7280',
+          whiteSpace: 'nowrap',
+          marginTop: '3px'
+        }}
+      >
+        Dasturiy ta'minot sifatini kafolatlash
+      </span>
+    </div>
+  </div>
 )
 
 const navbar = (
@@ -169,6 +195,11 @@ export default async function RootLayout({ children }) {
             content: 'Xato yoki taklif bormi? Fikr bildiring'
           }}
           lastUpdated={<LastUpdated locale="uz">Oxirgi yangilanish:</LastUpdated>}
+          themeSwitch={{
+            light: "Yorug'",
+            dark: "Qorong'i",
+            system: "Tizim"
+          }}
         >
           {children}
         </Layout>
