@@ -724,7 +724,7 @@ header nav .nextra-hamburger:hover {
    ========================================================================== */
 
 /* 7.1. Asosiy sahifa konteyneri (Sidebar o'z enini erkin saqlashi uchun) */
-div:has(> aside.nextra-sidebar),
+div:has(> aside.nextra-sidebar:not([class*="x:hidden"])),
 .nextra-container,
 div.x\:max-w-\(--nextra-content-width\) {
   max-width: 100% !important;
@@ -736,20 +736,58 @@ div.x\:max-w-\(--nextra-content-width\) {
 
 aside.nextra-sidebar + div,
 aside.nextra-sidebar ~ div,
-aside.nextra-sidebar ~ main {
+aside.nextra-sidebar ~ main,
+article {
   min-width: 0 !important;
   flex: 1 1 0% !important;
+  width: 100% !important;
 }
 
-/* 7.2. Sidebar (Navigatsiya) enini mustahkam belgilash (320px - 360px) — Hech qachon torayib ketmaydi */
-aside.nextra-sidebar {
+/* Sidebar butunlay yashirilgan (hidden) bo'lganda yoki asosiy sahifada */
+aside.nextra-sidebar[class*="x:hidden"],
+aside.nextra-sidebar.x\:hidden,
+aside.nextra-mobile-nav[class*="x:hidden"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  max-width: 0 !important;
+  flex: 0 0 0% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Sidebar bo'lmaganda yoki yashirin bo'lganda asosiy content maydoni to'liq kenglikka (full width) cho'zilishi */
+div.x\:max-w-\(--nextra-content-width\):not(:has(aside.nextra-sidebar:not([class*="x:hidden"]))) {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+div.x\:max-w-\(--nextra-content-width\):not(:has(aside.nextra-sidebar:not([class*="x:hidden"]))) article,
+aside.nextra-sidebar[class*="x:hidden"] ~ article {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* 7.2. Sidebar (Navigatsiya) enini mustahkam belgilash (320px - 360px) — Faqat ochiq/mavjud bo'lganda */
+aside.nextra-sidebar:not([class*="x:hidden"]) {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+  min-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+  max-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+  position: sticky !important;
+  top: var(--nextra-navbar-height, 64px) !important;
+  bottom: 0 !important;
   transition: width 0.25s ease-in-out !important;
   will-change: width;
   box-sizing: border-box !important;
 }
 
 /* Ochiq holatda (Expanded) — Aniq belgilangan qat'iy en (320px - 360px) */
-aside.nextra-sidebar:not([class*="x:w-20"]) {
+aside.nextra-sidebar:not([class*="x:hidden"]):not([class*="x:w-20"]) {
   width: 320px !important;
   min-width: 320px !important;
   max-width: 360px !important;
@@ -758,7 +796,7 @@ aside.nextra-sidebar:not([class*="x:w-20"]) {
 }
 
 @media (min-width: 1440px) {
-  aside.nextra-sidebar:not([class*="x:w-20"]) {
+  aside.nextra-sidebar:not([class*="x:hidden"]):not([class*="x:w-20"]) {
     width: 340px !important;
     min-width: 340px !important;
     max-width: 380px !important;
@@ -768,17 +806,23 @@ aside.nextra-sidebar:not([class*="x:w-20"]) {
 }
 
 /* Yopilgan holatda (Collapsed) — 4rem (64px) ixcham ustun */
-aside.nextra-sidebar[class*="x:w-20"] {
+aside.nextra-sidebar:not([class*="x:hidden"])[class*="x:w-20"] {
   width: 4rem !important;
   min-width: 4rem !important;
   max-width: 4rem !important;
   flex: 0 0 4rem !important;
   flex-shrink: 0 !important;
+  height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+  min-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+  max-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
   overflow: hidden !important;
 }
 
 /* Yopilgan holatda ichki menyu va scrollbarni BUTUNLAY yashirish (hech qanday osilib qolgan blob/shakl bo'lmasligi uchun) */
-aside.nextra-sidebar[class*="x:w-20"] > div:first-child {
+aside.nextra-sidebar:not([class*="x:hidden"])[class*="x:w-20"] > div:first-child {
   display: none !important;
   visibility: hidden !important;
   width: 0 !important;
@@ -786,8 +830,8 @@ aside.nextra-sidebar[class*="x:w-20"] > div:first-child {
   overflow: hidden !important;
 }
 
-aside.nextra-sidebar[class*="x:w-20"] *::-webkit-scrollbar,
-aside.nextra-sidebar[class*="x:w-20"] ::-webkit-scrollbar {
+aside.nextra-sidebar:not([class*="x:hidden"])[class*="x:w-20"] *::-webkit-scrollbar,
+aside.nextra-sidebar:not([class*="x:hidden"])[class*="x:w-20"] ::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
@@ -968,7 +1012,7 @@ aside.nextra-mobile-nav .nextra-sidebar-footer {
   opacity: 1 !important;
 }
 
-/* 8.2. Sidebar pastki footer paneli — Ochiq va yopiq holatda qat'iy o'lcham va joylashuv */
+/* 8.2. Sidebar pastki footer paneli — Ochiq va yopiq holatda qat'iy o'lcham va pastki joylashuv */
 .nextra-sidebar-footer {
   display: flex !important;
   align-items: center !important;
@@ -977,9 +1021,14 @@ aside.nextra-mobile-nav .nextra-sidebar-footer {
   min-height: 3.5rem !important;
   max-height: 3.5rem !important;
   padding: 0 1rem !important;
-  margin: 0 !important;
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  position: sticky !important;
+  bottom: 0 !important;
   border-top: 1px solid var(--border-color) !important;
-  background: var(--bg-surface) !important;
+  background: var(--bg-page) !important;
   z-index: 10 !important;
   box-sizing: border-box !important;
   overflow: hidden !important;
@@ -989,9 +1038,10 @@ aside.nextra-sidebar[class*="x:w-20"] .nextra-sidebar-footer {
   justify-content: center !important;
   padding: 0 !important;
   width: 100% !important;
+  margin-top: auto !important;
 }
 
-/* 8.3. Navigatsiyani ochib-yopuvchi toggle tugmasi — Ochiq va yopiq holatda bir xil barqaror o'lcham */
+/* 8.3. Navigatsiyani ochib-yopuvchi toggle tugmasi — Sahifa foni bilan bir xil, qat'iy o'lcham va pastki pozitsiya */
 .nextra-sidebar-footer button[aria-controls],
 .nextra-sidebar-footer button[title*="sidebar"],
 .nextra-sidebar-footer button[title*="Sidebar"] {
@@ -1007,38 +1057,40 @@ aside.nextra-sidebar[class*="x:w-20"] .nextra-sidebar-footer {
   padding: 0 !important;
   margin: 0 !important;
   border-radius: 0.5rem !important;
-  background: rgba(16, 185, 129, 0.08) !important;
-  border: 1px solid rgba(16, 185, 129, 0.25) !important;
+  background: var(--bg-page) !important;
+  border: 1px solid var(--border-color) !important;
   color: var(--text-secondary) !important;
   cursor: pointer !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
   flex-shrink: 0 !important;
   position: static !important;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease !important;
 }
 
 :is(.dark) .nextra-sidebar-footer button[aria-controls],
 :is(.dark) .nextra-sidebar-footer button[title*="sidebar"],
 :is(.dark) .nextra-sidebar-footer button[title*="Sidebar"] {
-  background: rgba(255, 255, 255, 0.06) !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
+  background: var(--bg-page) !important;
+  border-color: var(--border-color) !important;
   color: var(--text-secondary) !important;
 }
 
 .nextra-sidebar-footer button[aria-controls]:hover,
 .nextra-sidebar-footer button[title*="sidebar"]:hover,
 .nextra-sidebar-footer button[title*="Sidebar"]:hover {
-  background: rgba(16, 185, 129, 0.2) !important;
-  border-color: rgba(16, 185, 129, 0.45) !important;
-  color: #10b981 !important;
+  background: var(--bg-subtle) !important;
+  border-color: var(--brand-color) !important;
+  color: var(--brand-color) !important;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.15) !important;
 }
 
 :is(.dark) .nextra-sidebar-footer button[aria-controls]:hover,
 :is(.dark) .nextra-sidebar-footer button[title*="sidebar"]:hover,
 :is(.dark) .nextra-sidebar-footer button[title*="Sidebar"]:hover {
-  background: rgba(16, 185, 129, 0.25) !important;
-  border-color: rgba(16, 185, 129, 0.55) !important;
-  color: #34d399 !important;
+  background: var(--bg-subtle) !important;
+  border-color: var(--brand-color) !important;
+  color: var(--brand-color) !important;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2) !important;
 }
 
 .nextra-sidebar-footer button[aria-controls] svg,

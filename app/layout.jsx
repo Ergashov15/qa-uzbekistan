@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Inter, JetBrains_Mono } from 'next/font/google'
-import { Footer, Layout, Navbar, ThemeSwitch } from 'nextra-theme-docs'
+import { Layout, Navbar, ThemeSwitch, LastUpdated } from 'nextra-theme-docs'
 import { Banner, Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
 import 'nextra-theme-docs/style.css'
@@ -28,7 +28,7 @@ export const metadata = {
 }
 
 const banner = (
-  <Banner storageKey="qa-compass-v2-banner">
+  <Banner key="qa-compass-banner" storageKey="qa-compass-v2-banner">
     <div className="flex items-center justify-center gap-2 text-xs sm:text-sm">
       <span className="bg-emerald-500 text-white font-bold px-1.5 py-0.5 rounded text-[11px]">v2.0</span>
       <span>
@@ -90,6 +90,7 @@ const CompassLogo = () => (
 
 const navbar = (
   <Navbar
+    key="qa-compass-navbar"
     logo={<CompassLogo />}
     projectLink="https://github.com/Ergashov15/qa-uzbekistan"
     chatLink="https://t.me"
@@ -101,18 +102,39 @@ const navbar = (
 )
 
 const footer = (
-  <Footer>
-    <div className="flex flex-col sm:flex-row items-center justify-between w-full text-xs text-neutral-500 dark:text-neutral-400 gap-2">
-      <span>
+  <footer
+    key="qa-compass-footer"
+    className="w-full bg-gray-100 dark:bg-neutral-900 border-t border-gray-200 dark:border-neutral-800 text-gray-600 dark:text-gray-400"
+    style={{
+      paddingTop: '1.75rem',
+      paddingBottom: 'calc(1.75rem + env(safe-area-inset-bottom, 0px))',
+      minHeight: '5rem'
+    }}
+  >
+    <div
+      className="w-full max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-neutral-500 dark:text-neutral-400"
+      style={{
+        paddingLeft: 'max(env(safe-area-inset-left), 1.5rem)',
+        paddingRight: 'max(env(safe-area-inset-right), 1.5rem)'
+      }}
+    >
+      <span className="text-center sm:text-left leading-relaxed">
         MIT {new Date().getFullYear()} ©{' '}
-        <a href="https://github.com/Ergashov15/qa-uzbekistan" target="_blank" rel="noreferrer" className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline">
+        <a
+          href="https://github.com/Ergashov15/qa-uzbekistan"
+          target="_blank"
+          rel="noreferrer"
+          className="text-emerald-600 dark:text-emerald-400 font-semibold hover:underline"
+        >
           QA Compass
         </a>
         . Ochiq manbali bilimlar bazasi.
       </span>
-      <span>Xalqaro standartlar va sifat madaniyati bilan yaratilgan</span>
+      <span className="text-center sm:text-right leading-relaxed">
+        Xalqaro standartlar va sifat madaniyati bilan yaratilgan
+      </span>
     </div>
-  </Footer>
+  </footer>
 )
 
 export default async function RootLayout({ children }) {
@@ -146,6 +168,7 @@ export default async function RootLayout({ children }) {
           feedback={{
             content: 'Xato yoki taklif bormi? Fikr bildiring'
           }}
+          lastUpdated={<LastUpdated locale="uz">Oxirgi yangilanish:</LastUpdated>}
         >
           {children}
         </Layout>
