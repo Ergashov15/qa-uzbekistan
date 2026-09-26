@@ -101,11 +101,11 @@ const CompassLogo = () => (
         style={{
           fontFamily: "var(--font-sans), system-ui, -apple-system, sans-serif",
           fontWeight: 500,
-          fontSize: '0.6875rem',
-          lineHeight: 1.2,
+          fontSize: '0.8rem',
+          lineHeight: 1.25,
           color: '#6B7280',
           whiteSpace: 'nowrap',
-          marginTop: '3px'
+          marginTop: '2px'
         }}
       >
         Dasturiy ta'minot sifatini kafolatlash
