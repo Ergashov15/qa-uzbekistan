@@ -157,7 +157,7 @@ const footer = (
         . Ochiq manbali bilimlar bazasi.
       </span>
       <span className="text-center sm:text-right leading-relaxed">
-        Xalqaro standartlar va sifat madaniyati bilan yaratilgan
+        Ma'lumotlar turli sayt va manbalardan to‘plangan hamda qo‘shimcha materiallar bilan boyitilgan
       </span>
     </div>
   </footer>

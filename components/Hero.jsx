@@ -24,13 +24,13 @@ export function Hero() {
           <span>Qo‘llanmaga O‘tish</span>
           <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2} />
         </a>
-        <a
+        {/* <a
           href="/roadmap"
           className="btn-secondary-action group"
         >
           <Map className="w-4 h-4 shrink-0" strokeWidth={2} />
           <span>Yo‘l Xaritasi</span>
-        </a>
+        </a> */}
       </div>
 
       {/* Micro-stats Bar */}

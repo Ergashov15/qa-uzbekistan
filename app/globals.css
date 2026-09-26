@@ -1276,5 +1276,860 @@ aside.nextra-sidebar[class*="x:w-20"] .nextra-sidebar-footer {
   display: block !important;
 }
 
+/* ==========================================================================
+   Roadmap Custom Components & Advanced Design System
+   ========================================================================== */
+
+.roadmap-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 0 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 1. Roadmap Hero Card */
+.roadmap-hero-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+:is(.dark) .roadmap-hero-card {
+  background: rgba(16, 22, 35, 0.7);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.roadmap-hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10b981 0%, #06b6d4 50%, #6366f1 100%);
+}
+
+.roadmap-badge-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #059669;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 1rem;
+}
+
+:is(.dark) .roadmap-badge-top {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.roadmap-hero-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.025em;
+}
+
+@media (min-width: 768px) {
+  .roadmap-hero-title {
+    font-size: 2.25rem;
+  }
+}
+
+.roadmap-hero-desc {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+}
+
+/* Legend bar */
+.roadmap-legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+}
+
+:is(.dark) .roadmap-legend-bar {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-must {
+  background-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.dot-recommended {
+  background-color: #3b82f6;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+}
+
+.dot-advanced {
+  background-color: #8b5cf6;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+}
+
+.legend-text {
+  color: var(--text-muted);
+}
+
+.legend-text strong {
+  color: var(--text-secondary);
+}
+
+/* 2. Section Headers */
+.roadmap-section-header {
+  margin-bottom: 1rem;
+}
+
+.section-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.35rem;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.section-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* 3. Career Grid */
+.career-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .career-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .career-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.career-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.35rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+:is(.dark) .career-card {
+  background: rgba(16, 22, 35, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.career-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-color);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+}
+
+.career-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.career-role-badge {
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  border-width: 1px;
+}
+
+.career-exp {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.career-summary {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.career-block {
+  margin-bottom: 0.75rem;
+}
+
+.career-block-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.career-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.skill-tag {
+  font-size: 0.725rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+:is(.dark) .skill-tag {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.career-tools {
+  font-size: 0.8rem;
+  color: var(--brand-color);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.career-deliverable {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-color);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+:is(.dark) .career-deliverable {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 4. Controls Bar (Filters & Search) */
+.roadmap-controls-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+:is(.dark) .roadmap-controls-bar {
+  background: rgba(16, 22, 35, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 900px) {
+  .roadmap-controls-bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.45rem 0.85rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+:is(.dark) .filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.filter-btn:hover {
+  border-color: var(--brand-color);
+  color: var(--brand-color);
+}
+
+.filter-btn.active {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+:is(.dark) .filter-btn.active {
+  background: #059669;
+  border-color: #059669;
+}
+
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-wrap {
+  position: relative;
+  flex-grow: 1;
+  min-width: 220px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+}
+
+.roadmap-search-input {
+  width: 100%;
+  padding: 0.45rem 0.85rem 0.45rem 2.2rem;
+  font-size: 0.825rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.roadmap-search-input:focus {
+  border-color: var(--brand-color);
+}
+
+.expand-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem;
+  white-space: nowrap;
+}
+
+.action-link-btn {
+  background: none;
+  border: none;
+  color: var(--brand-color);
+  cursor: pointer;
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+.action-link-btn:hover {
+  text-decoration: underline;
+}
+
+.divider-slash {
+  color: var(--text-muted);
+}
+
+/* 5. Roadmap Step Cards */
+.roadmap-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.step-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+:is(.dark) .step-card {
+  background: rgba(16, 22, 35, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.step-card:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.step-card.expanded {
+  box-shadow: 0 6px 20px -2px rgba(0, 0, 0, 0.06);
+}
+
+:is(.dark) .step-card.expanded {
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Step Card Header */
+.step-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.15rem 1.35rem;
+  cursor: pointer;
+  user-select: none;
+  gap: 1rem;
+  transition: background 0.15s ease;
+}
+
+.step-card-header:hover {
+  background: var(--bg-subtle);
+}
+
+:is(.dark) .step-card-header:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.step-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.step-number-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+  font-weight: 800;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+:is(.dark) .step-number-badge {
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(52, 211, 153, 0.25);
+}
+
+.step-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.step-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.step-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.step-category-pill {
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+:is(.dark) .step-category-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.step-level-pill {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--brand-color);
+}
+
+.step-duration-pill {
+  font-size: 0.725rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+}
+
+.step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.step-header-right {
+  flex-shrink: 0;
+}
+
+.chevron-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.step-card-header:hover .chevron-btn {
+  color: var(--brand-color);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+/* Step Card Body */
+.step-card-body {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+:is(.dark) .step-card-body {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.step-summary-text {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  padding-top: 1.25rem;
+  margin: 0;
+}
+
+/* Topics list */
+.step-topics-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.sub-section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.topics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.topic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.topic-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.badge-must {
+  background: rgba(16, 185, 129, 0.15);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+:is(.dark) .badge-must {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.badge-recommended {
+  background: rgba(59, 130, 246, 0.12);
+  color: #2563eb;
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+:is(.dark) .badge-recommended {
+  color: #60a5fa;
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.badge-advanced {
+  background: rgba(139, 92, 246, 0.12);
+  color: #7c3aed;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+:is(.dark) .badge-advanced {
+  color: #a78bfa;
+  border-color: rgba(167, 139, 250, 0.3);
+}
+
+.topic-text {
+  color: var(--text-secondary);
+}
+
+/* Tools Section */
+.step-tools-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-subtle);
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+:is(.dark) .step-tools-section {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.tools-label {
+  font-size: 0.825rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+.tools-chips-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tool-chip {
+  font-size: 0.775rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+:is(.dark) .tool-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Amaliy Loyiha / Milestone */
+.step-project-card {
+  padding: 1rem 1.15rem;
+  border-radius: 10px;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+:is(.dark) .step-project-card {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+.project-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+:is(.dark) .project-badge {
+  color: #34d399;
+}
+
+.project-desc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Links Section */
+.step-links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.links-label {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.links-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.step-doc-link {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--brand-color);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.step-doc-link:hover {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: var(--brand-color);
+  transform: translateY(-1px);
+}
+
+/* Footer advice */
+.roadmap-footer-advice {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+:is(.dark) .roadmap-footer-advice {
+  background: rgba(16, 22, 35, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.advice-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.advice-header h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.roadmap-footer-advice p {
+  font-size: 0.925rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.empty-search-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+.reset-btn {
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: 6px;
+  background: var(--brand-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+
 
 

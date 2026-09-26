@@ -12,13 +12,14 @@ export default {
   docs: {
     title: 'Qo‘llanma',
     type: 'page'
-  },
-  roadmap: {
-    title: 'Yo‘l Xaritasi',
-    type: 'page',
-    theme: {
-      sidebar: false,
-      toc: true
-    }
   }
+  // roadmap: {
+  //   title: 'Yo‘l Xaritasi',
+  //   type: 'page',
+  //   theme: {
+  //     layout: 'full',
+  //     sidebar: false,
+  //     toc: false
+  //   }
+  // }
 }
