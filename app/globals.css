@@ -335,6 +335,9 @@ article code {
 .nextra-card,
 [data-nextra-card] {
   position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
   background: var(--glass-bg) !important;
   backdrop-filter: blur(14px) !important;
   -webkit-backdrop-filter: blur(14px) !important;
@@ -343,6 +346,7 @@ article code {
   padding: 1.25rem 1.4rem !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
   overflow: hidden !important;
+  text-decoration: none !important;
 }
 
 .nextra-card:hover,
@@ -354,11 +358,50 @@ article code {
     0 0 0 1px rgba(16, 185, 129, 0.2) !important;
 }
 
-.nextra-card h3,
-[data-nextra-card] h3 {
+/* Sarlavha va ikonka (Title + Icon): Har doim birinchi (order: 1) bo'lib tepada chiqadi */
+.nextra-card > span:last-child {
+  order: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  padding: 0 !important;
+  margin: 0 0 0.5rem 0 !important;
+  font-size: 1.05rem !important;
   font-weight: 700 !important;
   color: var(--text-primary) !important;
-  font-size: 1.075rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Sarlavha matni: kesilib qolmasdan to'liq va ravon ko'rinadi */
+.nextra-card > span:last-child ._truncate {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  color: var(--text-primary) !important;
+}
+
+:is(.dark) .nextra-card > span:last-child,
+:is(.dark) .nextra-card > span:last-child ._truncate {
+  color: #f8fafc !important;
+}
+
+/* Ta'rif matni (Description): Sarlavhadan keyin (order: 2) joylashadi */
+.nextra-card > p,
+.nextra-card > *:not(span:last-child) {
+  order: 2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.6 !important;
+  color: var(--text-secondary) !important;
+  text-align: start !important;
+}
+
+:is(.dark) .nextra-card > p,
+:is(.dark) .nextra-card > *:not(span:last-child) {
+  color: #94a3b8 !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -530,39 +573,60 @@ nav a[href="/"] {
   color: #9CA3AF !important;
 }
 
-/* 3. Nav links konteyneri: shaffof va chegarasiz flex qator */
-header nav div:has(> a[href*="/docs"]),
-nav div:has(> a[href*="/docs"]),
-header nav [class*="overflow-x-auto"],
-nav [class*="overflow-x-auto"] {
-  order: 2 !important;
-  margin-inline-start: auto !important;
-  margin-inline-end: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  flex-shrink: 0 !important;
-  flex-grow: 0 !important;
-  min-width: max-content !important;
-  width: auto !important;
-  overflow: visible !important;
-  overflow-x: visible !important;
-  overflow-y: visible !important;
-  gap: 1.25rem !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+/* Mobil ekranlar uchun ixcham logo */
+@media (max-width: 639px) {
+  .qa-compass-logo {
+    gap: 8px !important;
+  }
+  .qa-compass-logo-icon {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+  .qa-compass-logo-title {
+    font-size: 1.125rem !important;
+  }
+  .qa-compass-logo-subtitle {
+    display: none !important;
+  }
 }
 
-:is(.dark) header nav div:has(> a[href*="/docs"]),
-:is(.dark) nav div:has(> a[href*="/docs"]),
-:is(.dark) header nav [class*="overflow-x-auto"],
-:is(.dark) nav [class*="overflow-x-auto"] {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+/* 3. Nav links konteyneri: shaffof va chegarasiz flex qator (Faqat Desktop >= 768px) */
+@media (min-width: 768px) {
+  header nav div:has(> a[href*="/docs"]),
+  nav div:has(> a[href*="/docs"]),
+  header nav [class*="overflow-x-auto"],
+  nav [class*="overflow-x-auto"] {
+    order: 2 !important;
+    margin-inline-start: auto !important;
+    margin-inline-end: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    flex-grow: 0 !important;
+    min-width: max-content !important;
+    width: auto !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    gap: 1.25rem !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  :is(.dark) header nav div:has(> a[href*="/docs"]),
+  :is(.dark) nav div:has(> a[href*="/docs"]),
+  :is(.dark) header nav [class*="overflow-x-auto"],
+  :is(.dark) nav [class*="overflow-x-auto"] {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
 }
 
 /* Scrollbarni butunlay yo'q qilish */
@@ -795,21 +859,32 @@ header nav a[href="/"] {
   margin-inline-end: auto !important;
 }
 
-/* 2-o'rinda: "Qo‘llanma" va "Yo‘l Xaritasi" */
-header nav [class*="overflow-x-auto"],
-nav [class*="overflow-x-auto"],
-header nav div:has(> a[href*="/docs"]),
-nav div:has(> a[href*="/docs"]) {
-  order: 2 !important;
-  margin-inline-start: auto !important;
-  margin-inline-end: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  gap: 1.25rem !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+/* 2-o'rinda: "Qo‘llanma" va "Yo‘l Xaritasi" — Faqat Desktop (>= 768px) */
+@media (min-width: 768px) {
+  header nav [class*="overflow-x-auto"],
+  nav [class*="overflow-x-auto"],
+  header nav div:has(> a[href*="/docs"]),
+  nav div:has(> a[href*="/docs"]) {
+    order: 2 !important;
+    margin-inline-start: auto !important;
+    margin-inline-end: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 1.25rem !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  header nav [class*="overflow-x-auto"],
+  nav [class*="overflow-x-auto"],
+  header nav div:has(> a[href*="/docs"]),
+  nav div:has(> a[href*="/docs"]) {
+    display: none !important;
+  }
 }
 
 /* 3-o'rinda: Rejimlar (Light / Dark / System) — Aynan Qo‘llanma va Yo‘l Xaritasi dan keyin */
@@ -932,54 +1007,69 @@ aside.nextra-sidebar[class*="x:hidden"] ~ article {
   margin: 0 auto !important;
 }
 
-/* 7.2. Sidebar (Navigatsiya) enini mustahkam belgilash (320px - 360px) — Faqat ochiq/mavjud bo'lganda */
-aside.nextra-sidebar:not([class*="x:hidden"]) {
-  display: flex !important;
-  flex-direction: column !important;
-  height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
-  min-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
-  max-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
-  position: sticky !important;
-  top: var(--nextra-navbar-height, 64px) !important;
-  bottom: 0 !important;
-  transition: width 0.25s ease-in-out !important;
-  will-change: width;
-  box-sizing: border-box !important;
-}
+/* 7.2. Sidebar (Navigatsiya) enini mustahkam belgilash (320px - 360px) — Faqat Desktop (>= 768px) */
+@media (min-width: 768px) {
+  aside.nextra-sidebar:not([class*="x:hidden"]) {
+    display: flex !important;
+    flex-direction: column !important;
+    height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+    min-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+    max-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+    position: sticky !important;
+    top: var(--nextra-navbar-height, 64px) !important;
+    bottom: 0 !important;
+    transition: width 0.25s ease-in-out !important;
+    will-change: width;
+    box-sizing: border-box !important;
+  }
 
-/* Ochiq holatda (Expanded) — Aniq belgilangan qat'iy en (320px - 360px) */
-aside.nextra-sidebar:not([class*="x:hidden"]):not([class*="x:w-20"]) {
-  width: 320px !important;
-  min-width: 320px !important;
-  max-width: 360px !important;
-  flex: 0 0 320px !important;
-  flex-shrink: 0 !important;
-}
-
-@media (min-width: 1440px) {
+  /* Ochiq holatda (Expanded) — Aniq belgilangan qat'iy en (320px - 360px) */
   aside.nextra-sidebar:not([class*="x:hidden"]):not([class*="x:w-20"]) {
-    width: 340px !important;
-    min-width: 340px !important;
-    max-width: 380px !important;
-    flex: 0 0 340px !important;
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 360px !important;
+    flex: 0 0 320px !important;
     flex-shrink: 0 !important;
+  }
+
+  @media (min-width: 1440px) {
+    aside.nextra-sidebar:not([class*="x:hidden"]):not([class*="x:w-20"]) {
+      width: 340px !important;
+      min-width: 340px !important;
+      max-width: 380px !important;
+      flex: 0 0 340px !important;
+      flex-shrink: 0 !important;
+    }
+  }
+
+  /* Yopilgan holatda (Collapsed) — 4rem (64px) ixcham ustun */
+  aside.nextra-sidebar:not([class*="x:hidden"])[class*="x:w-20"] {
+    width: 4rem !important;
+    min-width: 4rem !important;
+    max-width: 4rem !important;
+    flex: 0 0 4rem !important;
+    flex-shrink: 0 !important;
+    height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+    min-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+    max-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    overflow: hidden !important;
   }
 }
 
-/* Yopilgan holatda (Collapsed) — 4rem (64px) ixcham ustun */
-aside.nextra-sidebar:not([class*="x:hidden"])[class*="x:w-20"] {
-  width: 4rem !important;
-  min-width: 4rem !important;
-  max-width: 4rem !important;
-  flex: 0 0 4rem !important;
-  flex-shrink: 0 !important;
-  height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
-  min-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
-  max-height: calc(100dvh - var(--nextra-navbar-height, 64px)) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: flex-end !important;
-  overflow: hidden !important;
+/* Mobil ekranlarda (< 768px) desktop sidebar butunlay yashiriladi, uning o'rniga Nextra mobil menyusi ishlaydi */
+@media (max-width: 767px) {
+  aside.nextra-sidebar {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    flex: 0 0 0% !important;
+    pointer-events: none !important;
+  }
 }
 
 /* Yopilgan holatda ichki menyu va scrollbarni BUTUNLAY yashirish (hech qanday osilib qolgan blob/shakl bo'lmasligi uchun) */
@@ -2128,6 +2218,380 @@ aside.nextra-sidebar[class*="x:w-20"] .nextra-sidebar-footer {
   color: #fff;
   border: none;
   cursor: pointer;
+}
+
+/* ==========================================================================
+   10. Comprehensive Mobile Responsive Standards (WCAG 2.1 AA / Google & Apple HIG)
+   Web/Desktop stillariga mutlaqo tegilmagan va faqat kichik ekranlar uchun moslangan
+   ========================================================================== */
+
+/* Mobil va planshetlarda 300ms kechikishni (double-tap delay) bekor qilish */
+@media (max-width: 1024px) {
+  a,
+  button,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+
+  * {
+    -webkit-tap-highlight-color: rgba(16, 185, 129, 0.15);
+  }
+}
+
+@media (max-width: 767px) {
+  /* Ekran enidan toshib ketish (horizontal scroll / overflow) ni 100% oldini olish */
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    position: relative !important;
+  }
+
+  /* Header nav va tugmalar orasi (WCAG 44x44px touch targets) */
+  header.nextra-navbar nav,
+  header nav {
+    gap: 0.5rem !important;
+    padding-left: max(env(safe-area-inset-left), 0.75rem) !important;
+    padding-right: max(env(safe-area-inset-right), 0.75rem) !important;
+    min-height: var(--nextra-navbar-height, 56px) !important;
+  }
+
+  /* Mobil ekranda ijtimoiy tarmoq ikonkalarini 44x44px touch-target qilish */
+  header nav a[href*="github.com"],
+  header nav a[href*="t.me"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 0 !important;
+  }
+
+  /* Header tema o'zgartirish tugmasi */
+  header nav .header-theme-switch,
+  header nav button.header-theme-switch {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 44px !important;
+    padding: 0 0.4rem !important;
+  }
+
+  /* Hamburger tugmasi barmog'i bilan bosishga qulay (44x44px standard) */
+  header nav .nextra-hamburger {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    padding: 0.5rem !important;
+    margin-left: 0.25rem !important;
+  }
+
+  /* Asosiy kontent maydonining to'liq eni va safe-area moslashuvi */
+  .nextra-container,
+  div.x\:max-w-\(--nextra-content-width\) {
+    padding-left: max(env(safe-area-inset-left), 0.75rem) !important;
+    padding-right: max(env(safe-area-inset-right), 0.75rem) !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  article {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    max-width: 100% !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  /* Jadvallar mobilda gorizontal scroll bo'lishi va butun ekranni o'ngga surib yubormasligi */
+  article table,
+  .nextra-content table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 1.25rem 0 !important;
+    border-radius: 0.5rem !important;
+  }
+
+  article th,
+  article td {
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.875rem !important;
+    white-space: normal !important;
+    min-width: 120px !important;
+  }
+
+  /* Kod bloklari mobilda toshmasdan chiroyli scroll bo'lishi */
+  article pre,
+  .nextra-content pre {
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    font-size: 0.85rem !important;
+    border-radius: 0.5rem !important;
+    padding: 0.875rem !important;
+    margin: 1rem 0 !important;
+  }
+
+  /* Rasmlar mobil ekrandan toshib ketmasligi */
+  article img,
+  .nextra-content img,
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Mobil navigatsiya menyusi (Drawer) qulayligi */
+  aside.nextra-mobile-nav {
+    padding-left: max(env(safe-area-inset-left), 1rem) !important;
+    padding-right: max(env(safe-area-inset-right), 1rem) !important;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px)) !important;
+    -webkit-overflow-scrolling: touch !important;
+    overflow-y: auto !important;
+  }
+
+  /* Mobil drawer qidiruv inputi: 16px font-size (iOS auto-zoom bo'lmasligi uchun) */
+  aside.nextra-mobile-nav .nextra-search,
+  aside.nextra-mobile-nav .nextra-search input,
+  .nextra-search input {
+    width: 100% !important;
+    min-width: 100% !important;
+    font-size: 16px !important;
+  }
+
+  aside.nextra-mobile-nav li > a,
+  aside.nextra-mobile-nav li > button {
+    min-height: 44px !important;
+    font-size: 0.95rem !important;
+    padding: 0.6rem 0.75rem !important;
+  }
+}
+
+@media (max-width: 639px) {
+  /* Matnlar mobilda ham webdagi kabi ikki tomonga bir tekis (Justify) tekislash */
+  main p,
+  article p,
+  main li,
+  article li,
+  .nextra-content p,
+  .nextra-content li {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Sarlavhalar mobilda ixcham va chiroyli proporsiyada */
+  article h1,
+  .nextra-content h1 {
+    font-size: 1.65rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.875rem !important;
+  }
+
+  article h2,
+  .nextra-content h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.3 !important;
+    margin-top: 1.75rem !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  article h3,
+  .nextra-content h3 {
+    font-size: 1.15rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Bosh sahifada (Hero mavjud bo'lganda) noo'rin "Copy page" floating tugmasini yashirish */
+  article:has(.hero-wrapper) > div.x\:float-end,
+  article:has(.hero-wrapper) > div:first-child:has(button) {
+    display: none !important;
+  }
+
+  /* Bosh sahifa Hero bloki */
+  .hero-wrapper {
+    padding: 1.75rem 0.5rem 1.25rem 0.5rem !important;
+  }
+
+  .hero-main-title {
+    font-size: 1.65rem !important;
+    line-height: 1.22 !important;
+    margin-bottom: 0.875rem !important;
+  }
+
+  .hero-main-title br {
+    display: none !important;
+  }
+
+  .hero-lead {
+    font-size: 0.925rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1.25rem !important;
+    padding: 0 0.25rem !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  .hero-actions {
+    margin-bottom: 1.75rem !important;
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .btn-primary-action {
+    width: 100% !important;
+    max-width: 280px !important;
+    min-height: 48px !important;
+  }
+
+  /* Micro-stats Bar mobilda 2 ustunli ixcham grid */
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+    padding: 0.75rem !important;
+  }
+
+  .stat-item {
+    padding: 0.4rem 0.25rem !important;
+  }
+
+  .stat-number {
+    font-size: 1.35rem !important;
+  }
+
+  .stat-label {
+    font-size: 0.68rem !important;
+  }
+
+  /* Bosh sahifadagi bo'lim sarlavhalari (h2) va ta'riflari */
+  article:has(.hero-wrapper) h2 {
+    font-size: 1.3rem !important;
+    line-height: 1.3 !important;
+    margin-top: 2rem !important;
+    margin-bottom: 0.35rem !important;
+    padding-bottom: 0.4rem !important;
+    border-bottom: 1px solid var(--border-color) !important;
+  }
+
+  article:has(.hero-wrapper) h2 + p {
+    font-size: 0.875rem !important;
+    color: var(--text-muted) !important;
+    margin-top: 0.35rem !important;
+    margin-bottom: 1rem !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  /* Nextra Cards mobilda 1 ustunli toza va tartibli grid */
+  .nextra-cards {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    margin-top: 0.75rem !important;
+    margin-bottom: 2rem !important;
+    width: 100% !important;
+  }
+
+  .nextra-card,
+  [data-nextra-card] {
+    width: 100% !important;
+    padding: 0.9rem 1rem !important;
+    border-radius: 0.75rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .nextra-card > span:last-child {
+    font-size: 1rem !important;
+    margin-bottom: 0.35rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .nextra-card > span:last-child ._truncate {
+    font-size: 1rem !important;
+    line-height: 1.35 !important;
+  }
+
+  .nextra-card > p,
+  .nextra-card > *:not(span:last-child) {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  /* Bosh sahifadagi Tezkor Ma'lumotnomalar ro'yxati */
+  article:has(.hero-wrapper) ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0.75rem 0 2rem 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+  }
+
+  article:has(.hero-wrapper) li {
+    display: block !important;
+    padding: 0.75rem 0.9rem !important;
+    margin: 0 !important;
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 0.65rem !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    text-align: justify !important;
+    text-justify: inter-word !important;
+  }
+
+  :is(.dark) article:has(.hero-wrapper) li {
+    background: rgba(16, 22, 35, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  article:has(.hero-wrapper) li a {
+    display: inline-block !important;
+    font-weight: 600 !important;
+    color: #10b981 !important;
+    margin-bottom: 0.2rem !important;
+    text-decoration: none !important;
+  }
+
+  :is(.dark) article:has(.hero-wrapper) li a {
+    color: #34d399 !important;
+  }
+
+  /* Ajratuvchi chiziq (hr) */
+  article:has(.hero-wrapper) hr {
+    margin: 2rem 0 1.5rem 0 !important;
+    border: 0 !important;
+    border-top: 1px solid var(--border-color) !important;
+  }
+
+  /* Callout lar */
+  .nextra-callout {
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  /* Banner */
+  .nextra-banner {
+    padding: 0.4rem 1.75rem 0.4rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Footer */
+  footer {
+    padding-top: 1.25rem !important;
+    padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
 }
 
 

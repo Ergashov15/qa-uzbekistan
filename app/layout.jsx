@@ -17,6 +17,17 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
 })
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fafbfc' },
+    { media: '(prefers-color-scheme: dark)', color: '#090d16' }
+  ]
+}
+
 export const metadata = {
   title: {
     template: '%s | QA COMPASS',
@@ -97,7 +108,7 @@ const CompassLogo = () => (
         QA Compass
       </span>
       <span
-        className="qa-compass-logo-subtitle"
+        className="qa-compass-logo-subtitle hidden sm:block"
         style={{
           fontFamily: "var(--font-sans), system-ui, -apple-system, sans-serif",
           fontWeight: 500,
@@ -167,7 +178,10 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="uz" dir="ltr" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
       </Head>
       <body className="font-sans antialiased">
         <Layout
